@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.bak
+conversas_miro/
+conversas_miro_teste/
+perfis_projeto/
