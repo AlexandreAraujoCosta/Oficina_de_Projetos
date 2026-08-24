@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 App Flask do Miro: expõe, por atividade, a conversa conduzida pelo
-agente-orientador. Generaliza agente_relatorio_leitura.py para múltiplas
+assistente-orientador. Generaliza agente_relatorio_leitura.py para múltiplas
 atividades (cada uma um contexto em contextos/), carregadas dinamicamente
 pelo slug na URL.
 

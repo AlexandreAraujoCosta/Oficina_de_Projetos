@@ -23,6 +23,7 @@ from gerar_prompt_portatil import gerar
 
 PASTA = Path(__file__).parent
 PAGINA = PASTA / "pagina_prompt_portatil.html"
+INDICE = PASTA / "index.html"
 PADRAO_TEXTAREA = re.compile(
     r'(<textarea id="prompt" readonly spellcheck="false">).*?(</textarea>)', re.S
 )
@@ -62,8 +63,14 @@ def main(nome_contexto="modulo_2_planejamento"):
         sys.exit(f"ERRO: não achei o <textarea> do prompt em {PAGINA.name}.")
     PAGINA.write_text(nova, encoding="utf-8")
 
+    # O GitHub Pages serve index.html da raiz, então ele precisa ser cópia
+    # fiel da página. Sem este passo o site fica servindo a versão anterior,
+    # sem nenhum aviso: foi o que aconteceu em 24/8/2026.
+    INDICE.write_text(nova, encoding="utf-8")
+
     print(f"{caminho_md.name}: {len(prompt)} caracteres")
     print(f"{PAGINA.name}: textarea atualizada")
+    print(f"{INDICE.name}: cópia para o GitHub Pages atualizada")
     print("Falta republicar a página como Artifact para o link ficar em dia.")
 
 
