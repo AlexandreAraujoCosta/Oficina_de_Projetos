@@ -25,3 +25,5 @@ Para quem não vai rodar o servidor Flask: copie o conteúdo de `prompt_portatil
 Concepção, critérios e prompts: Prof. Alexandre Araújo Costa, Universidade de Brasília. Desenvolvido com apoio de modelos Claude (Anthropic) no Claude Code.
 
 Abordagem experimental, em fase de testes.
+
+<!-- teste de sincronizacao 24/08, removido a seguir -->
