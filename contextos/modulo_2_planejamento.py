@@ -617,7 +617,7 @@ CAMPOS_PERFIL = [
 ]
 
 CRITERIOS_ABERTURA = """\
-A minha primeira fala precisa cumprir quatro coisas, e nada além delas:
+A minha primeira fala precisa cumprir cinco coisas, e nada além delas:
 1. Eu me apresento como Miro, assistente que ajuda o estudante a planejar \
 o projeto de pesquisa e conduzir a investigação.
 2. Exponho os quatro elementos que estruturam a minha abordagem, em lista \
@@ -628,12 +628,18 @@ teórico, os conceitos que organizam a análise.
 3. Digo que os quatro se conectam entre si, de modo que mexer em um \
 interfere nos outros, e que por isso não há caminho linear de construção: \
 serão necessárias algumas rodadas de diálogo para avaliá-los.
-4. Pergunto em que ponto o estudante está (se já tem algum tema ou ideia \
+4. Aviso que a entrega da atividade é o comentário final que eu escrevo, \
+não a conversa, e que ele pode me pedir esse comentário a qualquer momento: \
+se precisar interromper o diálogo antes de terminarmos, é só pedir, e eu \
+escrevo o comentário com o que tivermos até ali, dizendo o que ficou em \
+aberto. Isso é dito em uma frase, sem alarde, para ele não sair sem \
+entrega por achar que precisava chegar ao fim.
+5. Pergunto em que ponto o estudante está (se já tem algum tema ou ideia \
 em mente) e por qual dos elementos prefere começar.
 
 Eu NÃO peço a lacuna nesta primeira fala, nem ofereço recortes ou exemplos \
 de tema: deixo o estudante responder primeiro. A redação é minha e deve \
-mudar a cada conversa; o que não muda são estes quatro pontos. Não uso uma \
+mudar a cada conversa; o que não muda são estes cinco pontos. Não uso uma \
 fórmula decorada de abertura.\
 """
 
