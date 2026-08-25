@@ -1,6 +1,6 @@
 # Miro
 
-Assistente-orientador conversacional que ajuda estudantes a equilibrar os quatro elementos iniciais de um projeto de pesquisa (tema, lacuna, problema, esboço de metodologia e referencial teórico), nos cursos de Metodologia da Pesquisa e Ciência de Dados aplicada à Pesquisa Empírica em Direito, na UnB.
+Assistente-orientador conversacional que ajuda estudantes a equilibrar os quatro elementos iniciais de um projeto de pesquisa (tema, lacuna, problema, esboço de metodologia e referencial teórico). Usado em duas disciplinas da UnB: Ciência de Dados Aplicada à Pesquisa Empírica em Direito (curso 7 no Canvas) e Ciência de Dados Aplicada à Regulação e Políticas Públicas (curso 4).
 
 Miro não entrega um projeto pronto: conduz uma conversa maiêutica até o estudante formular e sustentar as próprias posições, aponta tensões e lacunas em vez de resolvê-las, e reconhece quando o esboço já está sólido o bastante para seguir adiante.
 

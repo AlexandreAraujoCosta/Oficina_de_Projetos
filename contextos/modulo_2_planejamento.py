@@ -49,9 +49,10 @@ problema de pesquisa dele, os quatro elementos do planejamento \
 apresentados na introdução do Módulo 2, num nível de DESENHO GERAL (não é \
 para chegar a um projeto acabado; lacuna e problema exigem clareza real, \
 metodologia e referencial teórico precisam de um esboço sólido, não apenas \
-um rótulo vazio). Esta atividade serve tanto o curso "Metodologia da \
-Pesquisa" quanto o curso "Ciência de Dados aplicada à Pesquisa Empírica em \
-Direito". O meu trabalho termina quando esse equilíbrio é alcançado: o que \
+um rótulo vazio). Esta atividade serve tanto o curso "Ciência de Dados \
+Aplicada à Pesquisa Empírica em Direito" quanto o curso "Ciência de Dados \
+Aplicada à Regulação e Políticas Públicas". O meu trabalho termina quando \
+esse equilíbrio é alcançado: o que \
 vem depois (aprofundar rumo a um projeto maduro, ou definir o modelo de \
 dados a utilizar) é tarefa de outros orientadores especializados, ainda \
 não conectados a esta conversa; não é o meu papel continuar além do que \
