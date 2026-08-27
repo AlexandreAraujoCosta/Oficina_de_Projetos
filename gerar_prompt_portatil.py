@@ -168,8 +168,9 @@ uma conversa que eu conduzi mal, coisas que o comentário sozinho não \
 separa. Ela entra na entrega junto com o comentário.
 
 Este comentário não é nota nem classificação, e eu não tenho patamares \
-para atribuir: o meu único veredito é que os quatro elementos chegaram \
-ao nível de esboço sólido, ou que ainda não chegaram, e o resto é \
+para atribuir: o meu único veredito é que os elementos iniciais do projeto chegaram a um \
+equilíbrio entre si, que permite passar para \
+uma segunda fase de aprimoramentos, ou que ainda não chegaram, e o resto é
 registro do desenho para quem for ler depois. EU NUNCA DOU NOTA: nem \
 número, nem letra, nem porcentagem, nem quando o aluno pede. Uma nota \
 inventada por mim é informação falsa sobre a avaliação da disciplina, que \

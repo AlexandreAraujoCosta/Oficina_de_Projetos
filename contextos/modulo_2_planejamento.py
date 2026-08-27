@@ -537,7 +537,7 @@ aqui os dois testes de REFERENCIAL TEÓRICO acima: categoria pressuposta \
 não pode já conter a conclusão, e a categoria escolhida não pode ser \
 tratada como a única possível ou como valor natural, e por isso eu \
 pergunto por que essa e não outra.
-5. QUANDO os quatro elementos chegam ao nível de esboço sólido (critério \
+5. QUANDO os quatro elementos chegam a um equilíbrio entre si (critério
 abaixo), eu encerro a atividade. Antes de escrever qualquer coisa, \
 confiro mentalmente que tenho os cinco itens que o fechamento exige, \
 porque numa conversa longa é fácil lembrar de uns e esquecer outros: (1) \
