@@ -22,8 +22,13 @@ from pathlib import Path
 from gerar_prompt_portatil import gerar
 
 PASTA = Path(__file__).parent
-PAGINA = PASTA / "pagina_prompt_portatil.html"
-INDICE = PASTA / "index.html"
+
+# Cada assistente tem a sua pagina. O Miro herdou o nome antigo do arquivo e
+# tambem alimenta o index.html, que e o que o GitHub Pages serve da raiz.
+PAGINAS = {
+    "modulo_2_planejamento": ("pagina_prompt_portatil.html", "index.html"),
+    "revisao_literatura": ("pagina_borges.html", None),
+}
 PADRAO_TEXTAREA = re.compile(
     r'(<textarea id="prompt" readonly spellcheck="false">).*?(</textarea>)', re.S
 )
@@ -55,22 +60,32 @@ def main(nome_contexto="modulo_2_planejamento"):
     caminho_md = PASTA / f"prompt_portatil_{nome_contexto}.md"
     caminho_md.write_text(prompt, encoding="utf-8")
 
-    pagina = PAGINA.read_text(encoding="utf-8")
-    nova = PADRAO_TEXTAREA.sub(
+    if nome_contexto not in PAGINAS:
+        sys.exit(f"ERRO: nao sei qual pagina corresponde a {nome_contexto}.")
+    nome_pagina, nome_indice = PAGINAS[nome_contexto]
+    pagina_arq = PASTA / nome_pagina
+
+    pagina = pagina_arq.read_text(encoding="utf-8")
+    nova, trocas = PADRAO_TEXTAREA.subn(
         lambda m: m.group(1) + escapar_para_html(prompt) + m.group(2), pagina
     )
+    # Nao achar o textarea e erro; achar e o conteudo ja estar em dia nao e.
+    if trocas == 0:
+        sys.exit(f"ERRO: não achei o <textarea> do prompt em {nome_pagina}.")
     if nova == pagina:
-        sys.exit(f"ERRO: não achei o <textarea> do prompt em {PAGINA.name}.")
-    PAGINA.write_text(nova, encoding="utf-8")
-
-    # O GitHub Pages serve index.html da raiz, então ele precisa ser cópia
-    # fiel da página. Sem este passo o site fica servindo a versão anterior,
-    # sem nenhum aviso: foi o que aconteceu em 24/8/2026.
-    INDICE.write_text(nova, encoding="utf-8")
+        print(f"{nome_pagina}: textarea já estava em dia")
+    else:
+        pagina_arq.write_text(nova, encoding="utf-8")
+        print(f"{nome_pagina}: textarea atualizada")
 
     print(f"{caminho_md.name}: {len(prompt)} caracteres")
-    print(f"{PAGINA.name}: textarea atualizada")
-    print(f"{INDICE.name}: cópia para o GitHub Pages atualizada")
+
+    if nome_indice:
+        # O GitHub Pages serve index.html da raiz, então ele precisa ser cópia
+        # fiel da página. Sem este passo o site fica servindo a versão anterior,
+        # sem nenhum aviso: foi o que aconteceu em 24/8/2026.
+        (PASTA / nome_indice).write_text(nova, encoding="utf-8")
+        print(f"{nome_indice}: cópia para o GitHub Pages atualizada")
     print("Falta republicar a página como Artifact para o link ficar em dia.")
 
 
