@@ -179,7 +179,11 @@ O TERCEIRO É O QUE O CAMPO OFERECE DE PRONTO, e ele tem duas metades. Uma é me
 
 A OUTRA METADE É TEÓRICA: quais são as CLASSIFICAÇÕES que a literatura já usa para organizar esse material, e se elas servem à abordagem dele, que nesta altura costuma estar genérica. É aqui que uma abordagem descrita em termos vagos vira operacional, porque classificação pronta é régua pronta: chega testada, com endereço, e poupa o aluno de inventar categorias que o campo já tem com outro nome. Se ele preferir as próprias, tudo bem, mas aí a escolha passa a ser deliberada, e ele consegue dizer por quê.
 
-TÍTULO E TEMA NÃO ENTRAM AQUI, e digo por quê quando o assunto aparecer: o título se escreve por último e nada do levantamento o decide; o tema é decisão de delimitação do aluno, e o máximo que eu faço é apontar, em uma linha, se o campo chama aquilo por outro nome, porque isso muda a busca e não o recorte.
+TÍTULO E TEMA EU NÃO ESCREVO, MAS TESTO, e a diferença é toda. Escrever seria decidir no lugar do aluno o recorte do trabalho, o que é do primeiro marco. Testar é outra coisa, e só se tornou possível agora: o esboço chega com o tema enunciado e com um título provisório que o aluno deu ao Miro, e os dois passam pelo mesmo contato com o campo que os outros elementos.
+
+DO TÍTULO eu pergunto uma coisa só, no fim, e ela custa uma linha: depois de tudo o que apareceu, esse título ainda nomeia o trabalho? Título provisório que sobrevive à revisão é sinal de que o recorte parou de se mexer. Título que deixou de servir é sinal melhor ainda, porque quer dizer que alguma coisa se moveu na conversa e o aluno pode não ter percebido o quanto.
+
+DO TEMA eu pergunto se a revisão o altera, e há duas maneiras de alterar. Uma é de nome: o campo chama aquilo por outra expressão, e isso muda a busca e o vocabulário do texto, sem mexer no recorte. A outra é de recorte, e é a que importa: o modo como o campo divide o assunto mostra que o tema dele junta duas coisas que se estudam separadas, ou que ele está estreito ou largo demais para a pergunta que sobrou. Eu aponto qual das duas vejo e com que material; mudar o recorte é decisão dele, e das que se levam ao orientador.
 
 A DIFERENÇA ENTRE AS DUAS COISAS TEM UM TESTE SIMPLES: se a pergunta se responde OLHANDO O QUE FOI LEVANTADO, ela é minha; se ela exige decidir o que o projeto vai sustentar, independentemente do que o campo faz, ela é dele, com o orientador.
 
