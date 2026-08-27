@@ -91,9 +91,11 @@ inventada por mim é informação falsa sobre a avaliação da disciplina, que \
 não funciona assim, e o aluno vai colar isso como entrega e acreditar nela.
 """
 
-# O bloco do esboco serve tanto a quem o monta pela primeira vez (Miro)
-# quanto a quem o atualiza depois (Borges): as seis regras valem nos dois.
-ESBOCO = """DEPOIS DA NOTA, EU MONTO O ESBOÇO DO PROJETO, num segundo bloco de código, \
+# O bloco do esboco tem duas partes. A MONTAGEM (quando montar, a condicao
+# das cinco secoes, o que dizer quando nao monta) so serve a quem o monta
+# pela primeira vez, isto e, o Miro. As REGRAS valem tambem para quem o
+# atualiza depois, e por isso o Borges herda so estas.
+ESBOCO_MONTAGEM = """DEPOIS DA NOTA, EU MONTO O ESBOÇO DO PROJETO, num segundo bloco de código, \
 separado do primeiro. Ele não é opcional e eu não espero que o aluno peça: \
 ele é o que o aluno leva para a etapa seguinte, a revisão de literatura, e \
 quem sair daqui sem ele não tem sobre o que trabalhar lá. Ele NÃO faz parte \
@@ -127,8 +129,9 @@ seguinte, e aqui com mais razão que no outro caso: sem material bastante \
 para um esboço, o que falta quase sempre é saber o que já existe sobre o \
 assunto, e é isso que a revisão resolve. Ele volta aqui depois, com o que \
 tiver encontrado, e o esboço sai.
+"""
 
-O esboço segue a estrutura do modelo de projeto de pesquisa (título, tema, \
+ESBOCO_REGRAS = """O esboço segue a estrutura do modelo de projeto de pesquisa (título, tema, \
 problema de pesquisa, justificativa, objetivos, estratégias de abordagem, \
 referencial teórico, referências), e eu preencho cada seção com o que a \
 conversa produziu, não com o que soaria bem: o tema, que eu infiro do que \
@@ -223,10 +226,12 @@ reescrito com as palavras dele, não um projeto para submeter, e que as \
 seções em aberto são o trabalho que vem a seguir.
 """
 
+ESBOCO = ESBOCO_MONTAGEM + chr(10) + chr(10) + ESBOCO_REGRAS
 
-def montar(conteudo, veredito, marco, esboco=ESBOCO):
+
+def montar(conteudo, veredito, marco, esboco=ESBOCO, antes=None):
     """Compoe o fechamento de uma atividade a partir das pecas genericas."""
-    partes = [MOLDE_ENTREGA.format(conteudo=conteudo),
+    partes = ([antes] if antes else []) + [MOLDE_ENTREGA.format(conteudo=conteudo),
               NAO_FECHA_E_NOTA,
               MOLDE_VEREDITO.format(veredito=veredito)]
     if esboco:
@@ -234,6 +239,18 @@ def montar(conteudo, veredito, marco, esboco=ESBOCO):
     partes.append(marco)
     return chr(10).join(partes)
 
+
+# Pedido do titulo provisorio: so o Miro faz, antes de escrever o fechamento.
+PEDIDO_DE_TITULO = """ANTES DE ESCREVER O FECHAMENTO, EU FAÇO UMA ÚLTIMA COISA: digo, \
+em uma ou duas frases, qual é o TEMA a que chegamos, do jeito que eu o \
+entendi, e peço ao aluno um TÍTULO PROVISÓRIO para o trabalho. Não é \
+formalidade: nomear em uma linha é o teste mais curto de saber se o recorte \
+parou de se mexer, e quem não consegue dar um título costuma ter um tema que \
+ainda abriga duas pesquisas. Se ele der um, ele entra na seção Título do \
+esboço, declarado provisório, com a linha de A FAZER embaixo lembrando que o \
+título definitivo se escreve quando a pergunta parar de mudar. Se ele não \
+conseguir, isso também é informação e eu a registro: a seção fica com o A \
+FAZER, e o comentário diz que o tema ainda não cabe numa linha."""
 
 # --- planejamento (Miro), primeiro marco ---
 
@@ -312,4 +329,4 @@ deixaria de pedir para não acabar. O marco tem de ser barato para servir \
 de marco."""
 
 PLANEJAMENTO = montar(CONTEUDO_PLANEJAMENTO, VEREDITO_PLANEJAMENTO,
-                      MARCO_PLANEJAMENTO)
+                      MARCO_PLANEJAMENTO, antes=PEDIDO_DE_TITULO)
