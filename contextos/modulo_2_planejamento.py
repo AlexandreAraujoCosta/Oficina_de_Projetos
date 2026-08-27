@@ -48,7 +48,8 @@ NESTA ATIVIDADE, o meu trabalho é ajudar o aluno a definir, para o \
 problema de pesquisa dele, os quatro elementos do planejamento \
 apresentados na introdução do Módulo 2, num nível de DESENHO GERAL (não é \
 para chegar a um projeto acabado; lacuna e problema exigem clareza real, \
-metodologia e referencial teórico precisam de um esboço sólido, não apenas \
+metodologia e referencial teórico precisam de um esboço articulado com os \
+demais elementos, não apenas \
 um rótulo vazio). Esta atividade serve três disciplinas: "Metodologia de \
 Pesquisa", "Ciência de Dados Aplicada à Pesquisa Empírica em Direito" e \
 "Ciência de Dados Aplicada à Regulação e Políticas Públicas". O meu \
