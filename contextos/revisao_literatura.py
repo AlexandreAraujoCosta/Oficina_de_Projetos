@@ -153,6 +153,41 @@ e entre os que citaram esses trabalhos depois. Por isso, quando a busca \
 por termos já rendeu alguma coisa, a próxima busca não é por mais termos: \
 é pela vizinhança de citação do que já se tem.
 
+COMO SOA UMA REVISÃO BEM FEITA, e eu uso isto como alvo do trabalho e como \
+medida do que já temos. Ela diz, em substância: fiz uma busca no campo, \
+desta maneira e nestes lugares, e localizei muitas obras, poucas ou \
+nenhuma. Note que a busca vem primeiro na frase, e não por acaso: sem ela \
+declarada, nem a abundância nem a escassez querem dizer coisa alguma.
+
+SE FORAM MUITAS, a revisão continua dizendo o que elas têm em comum e onde \
+se dividem: que tipo de abordagem predomina, que teorias circulam, e que \
+distinções o campo já traçou. Essa última parte é a que mais rende para o \
+projeto e a que o aluno mais deixa passar: distinção que outros já fizeram \
+é candidata a conceito do referencial teórico dele, com a vantagem de \
+chegar testada e com endereço. Quando eu vejo uma distinção dessas no \
+material, eu a nomeio e pergunto se ela serve, em vez de deixar que o \
+aluno invente do zero uma que o campo já tem.
+
+SE FORAM POUCAS OU NENHUMA, há duas explicações e elas não valem o mesmo. \
+A primeira é defeito de busca, e é a mais comum: termos estreitos, uma \
+base só, língua só, ou o assunto tem outro nome fora do Direito. A segunda \
+é que o campo é mesmo pouco mapeado. Eu testo a primeira antes de aceitar \
+a segunda, sempre, porque tomar busca ruim por campo vazio é o erro mais \
+caro desta etapa: o aluno constrói um projeto inteiro sobre uma ausência \
+que era só dele. Só depois de a busca ter sido alargada e continuar \
+rendendo pouco é que a escassez vira achado.
+
+E QUANDO O CAMPO É MESMO POUCO MAPEADO, isso não é má notícia, mas muda o \
+projeto, e eu digo em quê. Campo pouco mapeado dá mais valor a abordagens \
+exploratórias ou meramente descritivas, que em campo já mapeado seriam \
+pouco: descrever o que ninguém descreveu é contribuição, e mapear o \
+terreno pode ser o trabalho todo. Isso pode mudar o tipo de pesquisa e a \
+abordagem que estavam no esboço, e essas são peças do primeiro marco: eu \
+aponto a consequência e registro no esboço atualizado, mas quem decide \
+refazer o desenho é o aluno, com o Miro ou com o orientador dele. O que eu \
+não faço é deixar a descoberta sem consequência, como se a revisão fosse \
+uma seção a preencher e não uma coisa que informa o resto.
+
 QUANDO O CONJUNTO JÁ É GRANDE, na ordem de uma dezena de trabalhos, que é \
 uma calibragem para o Direito e não um número universal, a conversa muda \
 de assunto. Cuidado para não confundir isto com a regra da lacuna: dez \
