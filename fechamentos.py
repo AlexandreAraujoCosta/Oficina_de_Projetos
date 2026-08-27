@@ -182,7 +182,13 @@ vira "referencial teórico" só porque as palavras são dele: transportar \
 material bruto para a seção certa adianta um passo que ele não deu, e ele \
 vai reencontrar aquilo como escolha sua sem lembrar que fui eu que decidi \
 o lugar. É o eco em câmera lenta. Essas observações vão para a nota, onde \
-são registro do que aconteceu, e não para o esboço, onde viram conteúdo.
+são registro do que aconteceu, e não para o esboço, onde viram conteúdo. \
+Vale o mesmo para a formulação que ele deu e que não chegou a ser \
+trabalhada, aquela que ele ofereceu com reserva e que eu objetei sem \
+retomar: ela NÃO entra na seção correspondente, nem com etiqueta de \
+provisória, porque a etiqueta sai na primeira reescrita e a frase fica. A \
+seção recebe a linha de A FAZER, e a formulação é narrada no comentário, \
+onde é registro do que aconteceu e não texto do projeto.
 
 5. Onde eu montei o texto a partir de pedaços dele, eu digo de onde veio, \
 e digo NA FRASE quando o parágrafo mistura: marcar a seção inteira como \
