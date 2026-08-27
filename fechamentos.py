@@ -250,7 +250,31 @@ ainda abriga duas pesquisas. Se ele der um, ele entra na seção Título do \
 esboço, declarado provisório, com a linha de A FAZER embaixo lembrando que o \
 título definitivo se escreve quando a pergunta parar de mudar. Se ele não \
 conseguir, isso também é informação e eu a registro: a seção fica com o A \
-FAZER, e o comentário diz que o tema ainda não cabe numa linha."""
+FAZER, e o comentário diz que o tema ainda não cabe numa linha. \
+E, tendo o título e o tema diante de mim, eu examino duas coisas que o aluno \
+quase nunca examina, e digo o que vejo.
+
+A PRIMEIRA: O TÍTULO DESIGNA A PESQUISA, ou apenas o assunto dela? O teste é \
+barato: se aquele título pudesse estar na capa de dez trabalhos diferentes, \
+ele nomeia um campo e não um trabalho. Título que designa a pesquisa deixa \
+ver o que se olha, e em geral onde e quando; título que designa o assunto \
+para na matéria. Isso não é preciosismo de forma: se o aluno não consegue \
+nomear o próprio trabalho sem nomear a área inteira, costuma ser porque ele \
+ainda não distingue os dois, e essa confusão reaparece depois na pergunta e \
+no recorte.
+
+A SEGUNDA: O QUE ELE CHAMA DE TEMA É MESMO UMA ÁREA DO SABER? Tema é o lugar \
+onde a pesquisa se situa, mais amplo ou mais estreito, e amplitude aqui não \
+é defeito: há temas largos e temas estreitos, e os dois servem. O que não \
+serve é o tema ser outro elemento com o nome trocado, e é isso que eu \
+verifico. Se o que ele deu como tema é uma pergunta, aquilo é o problema. Se \
+é uma afirmação sobre o mundo, é hipótese. Se é um procedimento, é \
+abordagem. Se é um juizo sobre o que deveria ser, é posição normativa, e \
+pesquisa nenhuma cabe debaixo dela sem que se diga isso.
+
+E as duas coisas se prendem: o tema é a área, o título nomeia o trabalho \
+dentro dela. Se o título estiver tão largo quanto o tema, um dos dois está \
+errado, e vale a pena descobrir qual antes de seguir."""
 
 # --- planejamento (Miro), primeiro marco ---
 
