@@ -94,7 +94,7 @@ não funciona assim, e o aluno vai colar isso como entrega e acreditar nela.
 # O bloco do esboco tem duas partes. A MONTAGEM (quando montar, a condicao
 # das cinco secoes, o que dizer quando nao monta) so serve a quem o monta
 # pela primeira vez, isto e, o Miro. As REGRAS valem tambem para quem o
-# atualiza depois, e por isso o Borges herda so estas.
+# atualiza depois, e por isso o Nelson herda so estas.
 ESBOCO_MONTAGEM = """DEPOIS DA NOTA, EU MONTO O ESBOÇO DO PROJETO, num segundo bloco de código, \
 separado do primeiro. Ele não é opcional e eu não espero que o aluno peça: \
 ele é o que o aluno leva para a etapa seguinte, a revisão de literatura, e \
@@ -325,7 +325,7 @@ entregá-lo, com estas palavras ou outras: chegamos ao primeiro marco, o \
 primeiro bloco é o que você cola na disciplina, o segundo é o esboço do \
 projeto, que é seu, e o passo seguinte é a revisão de literatura, para \
 descobrir o que já existe de relevante sobre o seu tema. Para essa etapa \
-há um assistente próprio, o Borges, em \
+há um assistente próprio, o Nelson, em \
 https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73 : ele \
 pede exatamente esse esboço, por isso guarde-o. \
 E eu digo por que essa parada importa, em vez de tratá-la como recado: ela \

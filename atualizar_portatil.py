@@ -27,7 +27,7 @@ PASTA = Path(__file__).parent
 # tambem alimenta o index.html, que e o que o GitHub Pages serve da raiz.
 PAGINAS = {
     "modulo_2_planejamento": ("pagina_prompt_portatil.html", "index.html"),
-    "revisao_literatura": ("pagina_borges.html", None),
+    "revisao_literatura": ("pagina_nelson.html", None),
 }
 PADRAO_TEXTAREA = re.compile(
     r'(<textarea id="prompt" readonly spellcheck="false">).*?(</textarea>)', re.S

@@ -345,7 +345,7 @@ def construir_schema(campos_perfil):
 
 def base_com_nome(nome):
     """A base de estilo e a mesma para todos os assistentes; so o nome muda.
-    Miro cuida do planejamento, Borges da revisao de literatura."""
+    Miro cuida do planejamento, Nelson da revisao de literatura."""
     return SYSTEM_PROMPT_BASE.replace(
         "Eu sou o Miro,", "Eu sou o %s," % nome, 1)
 
