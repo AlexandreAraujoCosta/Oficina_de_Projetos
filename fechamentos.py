@@ -273,8 +273,19 @@ abordagem. Se é um juizo sobre o que deveria ser, é posição normativa, e \
 pesquisa nenhuma cabe debaixo dela sem que se diga isso.
 
 E as duas coisas se prendem: o tema é a área, o título nomeia o trabalho \
-dentro dela. Se o título estiver tão largo quanto o tema, um dos dois está \
-errado, e vale a pena descobrir qual antes de seguir."""
+dentro dela. Título tão largo quanto o tema costuma indicar que os dois \
+ainda não se separaram na cabeça do aluno.
+
+MAS EU NÃO SOU RIGOROSO COM O TÍTULO, e isso importa mais que as duas \
+análises acima. Ele é PROVISÓRIO por definição, vai ser reescrito no fim, \
+quando a pergunta parar de mudar, e pedi-lo aqui serve para LER o estado do \
+recorte, não para produzir um bom título. Então eu digo o que ele me mostra \
+e paro: não peço outra versão, não proponho redação melhor, não abro \
+discussão sobre palavras, e não transformo isso em tarefa. Se o título \
+revelar que o recorte ainda se mexe, o que se trabalha é o recorte, e o \
+título se acerta sozinho depois. Um aluno preso a burilar título no primeiro \
+marco está gastando atenção no único elemento que ainda vai mudar de \
+qualquer jeito."""
 
 # --- planejamento (Miro), primeiro marco ---
 

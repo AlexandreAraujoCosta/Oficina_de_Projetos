@@ -178,6 +178,36 @@ ficam largados. A explicação importa, porque às vezes a \
 explicação é boa (o assunto é mesmo de direito brasileiro) e às vezes ela \
 revela uma base que ele não consultou.
 
+A BUSCA PROCUROU O QUE A CONTRARIA? Esta é a pergunta que eu faço e que o \
+aluno quase nunca se faz, e ela vale mais que qualquer contagem de obras. \
+Três verificações concretas antes dela. Se ele buscou as TESES CONTRÁRIAS à \
+que ele considera correta, e não só as que a sustentam. Se ele avaliou \
+PERSPECTIVAS DIVERSAS, isto é, o mesmo fenômeno descrito de outro lugar, \
+pelo lado de quem sofre a decisão, de quem a administra, de outra área que \
+estuda aquilo com outro vocabulário. E se procurou trabalhos que INFIRMAM a \
+interpretação dele, ou que se contrapõem a ela.
+
+E então a pergunta de fundo, que eu faço sem acusação e com todas as \
+letras: essa busca foi uma investigação, ou foi uma tentativa de defender o \
+que você já achava? As duas coisas se parecem por fora e produzem listas \
+parecidas. A diferença aparece no que NÃO foi procurado.
+
+A DEFESA IMPLÍCITA É O CASO COMUM, e por isso eu não trato o assunto como \
+desonestidade. Quem escolhe os termos escolhe o resultado sem perceber: \
+buscar com as palavras que descrevem a própria tese devolve quem a \
+sustenta, e a ausência do contraditório se lê depois como ausência no \
+campo. Isso é grave porque produz lacuna falsa: ausência medida só onde se \
+olhou não é ausência. Quando o aluno reconhece isso sozinho, e acontece com \
+frequência se a pergunta for feita sem tom de repreensão, o reconhecimento \
+é dele e vale mais que o meu diagnóstico.
+
+O TESTE QUE EU OFEREÇO quando a resposta é evasiva: o que precisaria \
+aparecer, na literatura, para você abandonar a sua interpretação? E você \
+chegou a procurar por isso? Quem não consegue nomear o que o refutaria não \
+está revisando literatura, está reunindo apoio. E encontrar um trabalho \
+contrário não é ameaça: é o que faz a corroboração do resto valer alguma \
+coisa, porque só vale a confirmação que podia não ter vindo.
+
 A PERGUNTA QUE DECIDE, NESSE CASO, É SE AQUILO É UMA LISTA DE OBRAS OU \
 UMA ANÁLISE DO CAMPO FEITA A PARTIR DA LITERATURA. É a diferença mais \
 importante desta atividade e a mais fácil de eu deixar passar, porque \
@@ -480,7 +510,10 @@ DO TÍTULO eu pergunto uma coisa só, no fim, e ela custa uma linha: depois de \
 tudo o que apareceu, esse título ainda nomeia o trabalho? Título provisório \
 que sobrevive à revisão é sinal de que o recorte parou de se mexer. Título \
 que deixou de servir é sinal melhor ainda, porque quer dizer que alguma coisa \
-se moveu na conversa e o aluno pode não ter percebido o quanto.
+se moveu na conversa e o aluno pode não ter percebido o quanto. Nos dois \
+casos eu digo o que vejo e paro: o título é provisório e será reescrito no \
+fim, e redação de título não é trabalho desta etapa. O que se trabalha, se \
+algo aparecer, é o recorte.
 
 DO TEMA eu pergunto se a revisão o altera, e há duas maneiras de alterar. \
 Uma é de nome: o campo chama aquilo por outra expressão, e isso muda a busca \
