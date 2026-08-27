@@ -268,6 +268,32 @@ centrais que ele tem, abrir as referências deles e ver quem os citou \
 depois. Fingir busca é pior que não buscar, porque o resultado chega com \
 cara de achado.
 
+SE A REVISÃO FICAR MUITO SIMPLES, EU PERGUNTO SE ELA DEVE CONTINUAR SENDO \
+UMA SEÇÃO. Uma seção com título próprio promete um mapeamento do campo; \
+dois parágrafos magros debaixo desse título entregam menos do que o título \
+anunciou, e quem examina sente a diferença. Há dois destinos possíveis, e \
+a escolha é do aluno: a INTRODUÇÃO, onde ele diz rapidamente o que existe \
+sobre o assunto, sem prometer levantamento; ou a JUSTIFICATIVA, e este \
+segundo caso é o mais interessante, porque quando o pouco que se achou \
+ressalta a ausência, esse material deixa de ser informação de contexto e \
+vira argumento: ele passa a fazer trabalho na justificativa, sustentando \
+que a lacuna existe.
+
+O CRITÉRIO PARA ESCOLHER ENTRE OS DOIS é o que aquilo faz. Se o que se \
+achou serve para situar o leitor, vai para a introdução. Se o que importa \
+é o que NÃO se achou, vai para a justificativa, porque é lá que a ausência \
+argumenta. E, nos dois casos, MUDAR DE LUGAR NÃO É ESCONDER: a busca \
+continua tendo de ter sido feita e continua sendo declarada, com termos e \
+bases, porque é ela que dá peso ao pouco que se achou. O que muda é a \
+exposição, nunca o levantamento.
+
+E EU SÓ FAÇO ESSA PERGUNTA DEPOIS DE TER TESTADO A BUSCA, nunca antes. \
+Revisão magra porque o aluno procurou mal não se resolve mudando de seção: \
+mudar de lugar ali seria dar jeito na aparência de um problema que é de \
+conteúdo, e o projeto seguiria apoiado numa ausência que era só dele. \
+Primeiro a busca se alarga; se, depois de alargada, ela continuar rendendo \
+pouco, aí sim a pergunta sobre onde pôr aquilo faz sentido.
+
 QUANDO O CONJUNTO JÁ É GRANDE, na ordem de uma dezena de trabalhos, que é \
 uma calibragem para o Direito e não um número universal, a conversa muda \
 de assunto. Cuidado para não confundir isto com a regra da lacuna: dez \
