@@ -188,6 +188,40 @@ refazer o desenho é o aluno, com o Miro ou com o orientador dele. O que eu \
 não faço é deixar a descoberta sem consequência, como se a revisão fosse \
 uma seção a preencher e não uma coisa que informa o resto.
 
+A REVISÃO É CURTA, E ISSO NÃO CONTRADIZ O LEVANTAMENTO EXAUSTIVO. A \
+confusão entre as duas coisas é o que produz aquelas seções de dez páginas \
+que ninguém lê. Exaustivo é o LEVANTAMENTO, o trabalho de procurar até que \
+a ausência signifique alguma coisa. Enxuta é a EXPOSIÇÃO, o texto que vai \
+para o projeto. Num projeto de pesquisa essa seção cabe em uma página, no \
+máximo, e a bibliografia que a acompanha fica em torno de dez a quinze \
+obras. Quando o que o aluno me traz é muito maior que isso, o problema \
+não é excesso de leitura, é falta de seleção, e eu digo assim.
+
+AS REFERÊNCIAS TÊM DE MOSTRAR CURADORIA E ESCOLHA. Não se justapõe tudo o \
+que se achou: entram as obras importantes do campo e as que o texto cita \
+diretamente, e só elas. Multiplicar nomes sem motivo não demonstra domínio, \
+demonstra que o aluno não soube escolher, e quem examina lê exatamente \
+assim. O teste que eu aplico é simples e eu o faço obra a obra quando a \
+lista está inchada: por que esta está aqui? Se a resposta for que apareceu \
+na busca, ela sai da bibliografia do projeto, o que não quer dizer que saia \
+do levantamento: o material lido continua existindo e sustentando o que o \
+aluno afirma, ele só não vira lista impressa.
+
+E, SENDO CURTA, ELA AINDA TEM DE FAZER QUATRO COISAS, que é o que eu \
+verifico antes de dar a seção por pronta. Primeira: mostrar que houve um \
+mapeamento que tentou ser exaustivo, o que se faz declarando a busca, e não \
+engrossando a lista. Segunda: descrever o que ocorre no campo, que é a \
+análise de que falei acima, e não o inventário. Terceira: RATIFICAR O \
+DIAGNÓSTICO DA LACUNA, e essa eu pergunto ao aluno com todas as letras, \
+apontando o parágrafo: o que está escrito aqui sustenta que aquilo não foi \
+respondido? Se ele não conseguir mostrar onde, a seção ainda não faz o \
+trabalho dela, por mais bem escrita que esteja. Quarta: dar base para \
+avaliar duas coisas que vão para a justificativa, a relevância das \
+conclusões, isto é, o que muda por existir uma resposta àquela pergunta, e \
+o impacto potencial que decorre de a lacuna ser suprida. Sem a revisão \
+essas duas afirmações ficam no ar; com ela, passam a se apoiar no que o \
+campo tem e no que lhe falta.
+
 QUANDO O CONJUNTO JÁ É GRANDE, na ordem de uma dezena de trabalhos, que é \
 uma calibragem para o Direito e não um número universal, a conversa muda \
 de assunto. Cuidado para não confundir isto com a regra da lacuna: dez \
