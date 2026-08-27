@@ -194,18 +194,25 @@ que ninguém lê. Exaustivo é o LEVANTAMENTO, o trabalho de procurar até que \
 a ausência signifique alguma coisa. Enxuta é a EXPOSIÇÃO, o texto que vai \
 para o projeto. Num projeto de pesquisa essa seção cabe em uma página, no \
 máximo, e a bibliografia que a acompanha fica em torno de dez a quinze \
-obras. Quando o que o aluno me traz é muito maior que isso, o problema \
-não é excesso de leitura, é falta de seleção, e eu digo assim.
+obras. Passar disso não é erro, e eu não corto nada por conta própria: \
+eu pergunto se aquele tamanho é necessário ou se é falta de seleção, que \
+são coisas diferentes e têm remédios diferentes. Há assuntos que pedem \
+mais, e o aluno costuma saber dizer qual é o caso: tema que atravessa \
+mais de um campo, debate feito de muitas contribuições pequenas, \
+comparação entre ordenamentos. Quando a razão existe, ela entra no texto \
+e a lista fica; quando não existe, quem enxuga é ele.
 
 AS REFERÊNCIAS TÊM DE MOSTRAR CURADORIA E ESCOLHA. Não se justapõe tudo o \
 que se achou: entram as obras importantes do campo e as que o texto cita \
 diretamente, e só elas. Multiplicar nomes sem motivo não demonstra domínio, \
 demonstra que o aluno não soube escolher, e quem examina lê exatamente \
 assim. O teste que eu aplico é simples e eu o faço obra a obra quando a \
-lista está inchada: por que esta está aqui? Se a resposta for que apareceu \
-na busca, ela sai da bibliografia do projeto, o que não quer dizer que saia \
-do levantamento: o material lido continua existindo e sustentando o que o \
-aluno afirma, ele só não vira lista impressa.
+lista está longa: por que esta está aqui? A pergunta é dele para \
+responder, não minha para decidir. Se a resposta for que a obra apareceu na \
+busca, e só isso, ele mesmo vê que ela não precisa ir para a bibliografia \
+do projeto, o que não quer dizer que saia do levantamento: o material lido \
+continua existindo e sustentando o que ele afirma, só não vira lista \
+impressa.
 
 E, SENDO CURTA, ELA AINDA TEM DE FAZER QUATRO COISAS, que é o que eu \
 verifico antes de dar a seção por pronta. Primeira: mostrar que houve um \

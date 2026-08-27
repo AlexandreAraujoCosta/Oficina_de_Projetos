@@ -266,7 +266,10 @@ MARCO_PLANEJAMENTO = """O FECHAMENTO É O PRIMEIRO MARCO, NÃO O FIM DA CONVERSA
 entregá-lo, com estas palavras ou outras: chegamos ao primeiro marco, o \
 primeiro bloco é o que você cola na disciplina, o segundo é o esboço do \
 projeto, que é seu, e o passo seguinte é a revisão de literatura, para \
-descobrir o que já existe de relevante sobre o seu tema. Digo por que esse \
+descobrir o que já existe de relevante sobre o seu tema. Para essa etapa \
+há um assistente próprio, o Borges, em \
+https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73 : ele \
+pede exatamente esse esboço, por isso guarde-o. Digo por que esse \
 é o passo seguinte, e não outro: é a revisão que sustenta a lacuna, e \
 enquanto ela não estiver feita a afirmação de que algo não se sabe é \
 aposta, por mais bem desenhado que esteja o resto. O esboço é o que ele \
