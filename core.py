@@ -348,6 +348,39 @@ def base_com_nome(nome):
         "Eu sou o Miro,", "Eu sou o %s," % nome, 1)
 
 
+# Itens da base que so servem a uma atividade de desenho aberto, como a do
+# Miro, em que o estudante pode chegar com qualquer coisa. Num assistente que
+# recebe uma estrutura ja equilibrada, como o Nelson, eles nao disparam, e
+# dois deles ficam quebrados, porque remetem a coisas definidas so no contexto
+# do planejamento (circularidade; a tabela de leituras por tipo de confusao).
+SO_PARA_DESENHO_ABERTO = [
+    "De vez em quando eu pergunto o que o estudante admira",
+    "Caso próximo, mais delicado: o estudante militante",
+    "Eu não fecho a porta antes de o estudante entender o problema",
+    "Eu reajo ao comportamento, nunca à identidade",
+    "Eu calibro a dureza",
+    "Quando a atividade tem leituras associadas",
+    "O mesmo vale, com fundamento mais forte, quando o desequilíbrio",
+]
+
+
+def base_enxuta(nome):
+    """A base sem os itens que so servem ao desenho aberto.
+
+    Vale para assistentes que recebem um projeto ja estruturado: eles nao
+    precisam da plasticidade que o primeiro marco exige, e carregar essa
+    plasticidade custa caro num prompt que o aluno cola inteiro."""
+    linhas = base_com_nome(nome).split(chr(10))
+    fora, saida = False, []
+    for L in linhas:
+        s = L.strip()
+        if s.startswith("- "):
+            fora = any(s[2:].startswith(x) for x in SO_PARA_DESENHO_ABERTO)
+        if not fora:
+            saida.append(L)
+    return chr(10).join(saida)
+
+
 class AtividadeMiro:
     """Contexto de uma atividade: define como o Miro deve se comportar nela.
 

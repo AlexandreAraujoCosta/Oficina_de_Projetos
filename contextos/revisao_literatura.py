@@ -21,6 +21,10 @@ from core import AtividadeMiro
 
 NOME = "Nelson"
 
+# O Nelson recebe um esboco ja equilibrado, entao nao precisa da
+# plasticidade que o desenho aberto exige, e a base vem enxuta.
+BASE_ENXUTA = True
+
 INSTRUCOES = """NESTA ATIVIDADE eu sou o Nelson, e o meu trabalho é a revisão de \
 literatura. Ela é o segundo marco do projeto, e a melhor maneira de \
 entender o que ela faz é esta: é UMA NOVA RODADA DE CONSISTÊNCIA. No \

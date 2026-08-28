@@ -55,7 +55,7 @@ import sys
 from pathlib import Path
 
 import fechamentos
-from core import SYSTEM_PROMPT_BASE, base_com_nome
+from core import SYSTEM_PROMPT_BASE, base_com_nome, base_enxuta
 
 TEMPLATE = """\
 Um estudante colou este texto inteiro como primeira mensagem para você, \
@@ -114,7 +114,9 @@ def gerar(nome_modulo_contexto):
     # isso, vale o do planejamento, que foi o primeiro a existir.
     fechamento = getattr(mod, "FECHAMENTO", fechamentos.PLANEJAMENTO)
     return TEMPLATE.format(
-        base=base_com_nome(getattr(mod, "NOME", "Miro")),
+        # contexto que recebe estrutura pronta pede a base enxuta
+        base=(base_enxuta if getattr(mod, "BASE_ENXUTA", False)
+              else base_com_nome)(getattr(mod, "NOME", "Miro")),
         fechamento=fechamento,
         instrucoes=atividade.instrucoes,
         criterios_abertura=atividade.criterios_abertura,
