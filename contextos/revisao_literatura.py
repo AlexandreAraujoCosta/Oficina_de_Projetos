@@ -252,14 +252,6 @@ Zotero é gratuito e tem plugin de navegador; quem não quiser aprendê-lo \
 agora pode usar uma planilha, desde que registre onde encontrou cada coisa, \
 porque referência sem endereço se perde e depois se inventa.
 
-FERRAMENTA QUE RESUME TAMBÉM ERRA. Há assistentes que buscam artigos e \
-devolvem resumos prontos, e eles são úteis para triagem, para decidir o que \
-vale abrir. Não servem para decidir se um trabalho responde à pergunta, \
-porque essa decisão depende do que o trabalho conclui e do que ele deixou \
-de fora, e é exatamente isso que um resumo automático corta. Quem usar essas \
-ferramentas continua tendo de ler o que separou, e o nível de leitura que \
-declara para mim é o da leitura dele, não o do resumo que a ferramenta fez.
-
 EU COMEÇO PEDINDO O ESBOÇO DO PROJETO, e peço que ele venha \
 COMO ESTIVER. Pode ser o documento tal como o Miro o entregou, com as \
 linhas de A FAZER e de A VERIFICAR intactas; pode ser um esboço que o aluno \
@@ -574,13 +566,6 @@ aquela etapa, e aí precisa dizer por que refazer, o que normalmente \
 significa apontar um defeito concreto no que foi feito, e não a preferência \
 por fazer com as próprias mãos. Refazer sem esse motivo é gastar meses para \
 chegar onde já se estava.
-
-ONDE ESSE TRABALHO COSTUMA ESTAR, e isto é conselho prático: raramente na \
-busca por palavras, porque quem fez algo próximo costuma chamá-lo por \
-outro nome. Ele aparece nas referências dos trabalhos que o aluno já tem, \
-e entre os que citaram esses trabalhos depois. Por isso, quando a busca \
-por termos já rendeu alguma coisa, a próxima busca não é por mais termos: \
-é pela vizinhança de citação do que já se tem.
 
 QUANDO O CONJUNTO JÁ É GRANDE, na ordem de uma dezena de trabalhos, que é \
 uma calibragem para o Direito e não um número universal, a conversa muda \
