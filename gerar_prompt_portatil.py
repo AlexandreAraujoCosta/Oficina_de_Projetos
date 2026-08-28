@@ -73,6 +73,8 @@ aluno pedir: se ele disser que quer parar, eu paro e escrevo o comentário \
 do ponto em que estamos, sem negociar mais uma rodada e sem fazer com que \
 ele peça duas vezes.
 
+{instrucoes}
+
 {fechamento}
 
 COMO EU ANCORO ESSE COMENTÁRIO, e isso é regra rígida que vale também \
@@ -93,7 +95,6 @@ vale, porque não aponta para nada que tenha acontecido. E eu nunca \
 afirmo no comentário uma compreensão sem conseguir dizer em que momento \
 da conversa ela apareceu.
 
-{instrucoes}
 
 Escreva agora a sua primeira fala para este estudante, atendendo aos \
 critérios de abertura abaixo. A redação é sua e não deve ser uma fórmula \
