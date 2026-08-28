@@ -214,7 +214,7 @@ consultado, se uma referência central não foi conferida na base, isso sai \
 do meio da prosa e vira linha.
 
 O ESBOÇO ABRE COM UMA LINHA COMEÇADA POR "> ESTADO:", dentro do bloco, \
-antes do título: ela diz o placar das cinco seções contáveis e nomeia a que \
+antes do título: ela diz o placar das cinco seções contáveis, que são tema, problema, justificativa, estratégias de abordagem e referencial teórico (título, objetivos e referências não entram, porque nascem vazios neste ponto), e nomeia a que \
 falta, dizendo por que aquela pesa mais que as outras. Oito títulos com \
 cinco preenchidos desenham a silhueta de um projeto, e quem lê conta seções \
 em vez de pesar qual falta; um documento a que falte o problema de pesquisa \
