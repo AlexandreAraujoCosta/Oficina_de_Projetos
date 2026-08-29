@@ -372,9 +372,13 @@ não é refazer a revisão, é desenvolver cada elemento, e eu nomeio esse \
 trabalho sem prometer assistente que o faça, porque não existe. Mandar de \
 volta quem acabou de vir é laço, e laço impresso no documento de entrega \
 é pior que laço na conversa, porque ninguém está lá para reagir. Para quem \
-ainda não foi, a revisão serve para \
-descobrir o que já existe de relevante sobre o seu tema. Para essa etapa \
-há um assistente próprio, o Nelson, em \
+ainda não foi, a revisão serve para descobrir o que já existe de relevante \
+sobre o seu tema, e o que eu peço é que ele BUSQUE E INCLUA a revisão no \
+documento, porque é contra o texto escrito que ela vai ser conferida \
+depois, e não contra o relato de quem buscou. Buscar é trabalho dele, e \
+quem já sabe buscar não precisa de assistente para isso. Para quem quiser \
+ajuda nessa etapa, e ela é a que os alunos mais têm dificuldade, existe o \
+Nelson, em \
 https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73 : ele \
 pede exatamente esse pré-projeto, por isso guarde-o. \
 E eu digo por que essa parada importa, em vez de tratá-la como recado: ela \

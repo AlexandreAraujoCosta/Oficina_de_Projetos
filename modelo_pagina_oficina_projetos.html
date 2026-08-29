@@ -183,6 +183,12 @@
 
   /* ---- rota, na forma da oficina irma ---- */
   .deck { color: var(--muted); font-size: 1rem; margin: 0 0 0.4rem; max-width: var(--measure); }
+  .grupo-linha {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--accent);
+    margin: 2.2rem 0 0.2rem; padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+  }
   .route { margin: 1.4rem 0 0; border-top: 1px solid var(--rule); }
   .route-row {
     display: grid; grid-template-columns: 1fr; gap: 0.25rem;
@@ -409,14 +415,18 @@
 
 <h2 id="qual">Ferramentas disponíveis</h2>
 
-<p class="deck">A escolha segue a fase em que o projeto está. <b>O Miro serve
-enquanto as bases estão em formação</b>, e é onde a maior parte do trabalho
-acontece. <b>O Nelson pede o pré-projeto pronto do Miro</b>, porque a revisão de
-literatura se faz contra uma pergunta, e sem pergunta ela vira lista de obras
-sobre um assunto. <b>E a Clara pede o projeto escrito como projeto</b>: rodada
-sobre um pré-projeto, ela não escreve relatório, e devolve a quem estava trabalhando
-nele.</p>
+<p class="deck">Há <b>duas linhas</b>, e a diferença entre elas não é de
+qualidade da leitura, é de onde ela roda. <b>Na linha do chat</b>, cada peça é uma
+conversa nova, porque um prompt tem de caber sozinho numa conta gratuita. <b>Na
+linha do agente</b>, o prompt é arquivo que o assistente lê, não há teto, e os três
+estágios cabem numa conversa só.</p>
 
+<p class="deck" style="margin-bottom:1.2rem">A escolha entre as duas é de acesso:
+quem tem conta gratuita usa a primeira; quem tem assinatura ou chave de API e
+aceita alguma instalação usa a segunda, e leva junto os programas, que devolvem o
+arquivo anotado.</p>
+
+<p class="grupo-linha">Linha do chat, em conta gratuita</p>
 <div class="route">
   <div class="route-row">
     <div class="route-a">
@@ -424,44 +434,74 @@ nele.</p>
       <span class="route-sub">as bases do projeto</span>
     </div>
     <div class="route-q">Trabalha a lacuna, a pergunta, os objetivos, a estratégia
-    metodológica e, sobretudo, a articulação entre eles. Uma pergunta por turno,
-    sobre o que o estudante trouxe. <b>É uma conversa, e não um documento:</b> o
-    que fica é o comentário do que ela produziu, mais o pré-projeto.</div>
+    e a articulação entre eles, até o primeiro equilíbrio. Ao fechar, manda
+    <b>buscar e incluir</b> a revisão de literatura no documento. <b>É uma conversa:</b>
+    o que fica é o comentário e o pré-projeto.</div>
   </div>
   <div class="route-row">
     <div class="route-a">
       <span class="route-n">02</span><a href="https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73">Nelson</a>
-      <span class="route-sub">a revisão de literatura</span>
+      <span class="route-sub">ajuda na busca, quando ela for difícil</span>
     </div>
-    <div class="route-q">Recebe o pré-projeto e trabalha o levantamento: se a busca
-    procurou o que contradiz a tese, se o que voltou é análise do campo ou lista de
-    obras, e o que a revisão faz com a lacuna, que pode ser confirmá-la,
-    estreitá-la ou derrubá-la. <b>É uma conversa</b>, e devolve o pré-projeto
-    atualizado.</div>
+    <div class="route-q">Deixou de ser passo obrigatório. Quem já sabe buscar,
+    busca e inclui. Quem quiser ajuda nessa etapa, que é a que os alunos mais
+    penam, trabalha a busca com ele: os termos, as bases, o que trazer de volta, e
+    o que o que voltou faz com a lacuna. <b>É uma conversa.</b></div>
   </div>
   <div class="route-row">
     <div class="route-a">
       <span class="route-n">03</span><a href="#clara">Clara</a>
-      <span class="route-sub">o projeto pronto, para a qualificação</span>
+      <span class="route-sub">a leitura do projeto com a revisão dentro</span>
     </div>
-    <div class="route-q">Lê, decide e entrega, sem diálogo. Antes do relatório
-    verifica se há projeto para ler, e se faltar peça estruturante encaminha ao
-    Miro ou ao Nelson e para. Quando escreve, separa dois julgamentos que podem
-    divergir: se o projeto passa na qualificação e se ele a aproveita. <b>Devolve
-    um relatório.</b></div>
-    <div class="route-row">
-    <div class="route-a">
-      <a href="#norma">Norma</a>
-      <span class="route-sub">normalizador do arquivo, etapa optativa antes da Clara</span>
-    </div>
-    <div class="route-q">Põe o <code>.docx</code> em ordem: apaga parágrafo vazio
-    convertendo a altura em espaço, alinha cada papel a uma forma só e põe as
-    legendas no estilo de legenda. É a mesma ferramenta da Oficina de Orientação, e
-    aqui <b>serve só à Clara</b>, porque o Miro e o Nelson são conversa e não
-    recebem arquivo. <b>Não usa modelo, e por isso não custa nada e não roda no
-    chat.</b></div>
+    <div class="route-q">Lê o projeto e diz <b>o que precisa ser desenvolvido</b>.
+    Sem diálogo: lê, decide e entrega. Confere a revisão contra o texto escrito, e
+    não contra o relato de quem buscou, e coteja a teoria com o método.
+    <b>Devolve um relatório.</b></div>
   </div>
 </div>
+
+<p class="grupo-linha">Linha do agente, no Claude Code ou no VS Code</p>
+<div class="route">
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">01</span>Miro expandido
+      <span class="route-sub">os três estágios numa conversa só</span>
+    </div>
+    <div class="route-q">O mesmo Miro, com a revisão de literatura e o cotejo de
+    teoria e método dentro, e <b>três marcos</b>: o equilíbrio dos quatro
+    elementos; a revisão adequada e concatenada, mandando fazer se não houver ou
+    refazer se não sustentar; e o cotejo da metodologia com a teoria, que só começa
+    quando a revisão fecha. São 152 mil caracteres, e por isso ele não roda no
+    chat.</div>
+  </div>
+  <div class="route-row">
+    <div class="route-a">
+      <a href="#norma">Norma</a>
+      <span class="route-sub">normalizador do arquivo, etapa optativa</span>
+    </div>
+    <div class="route-q">Põe o <code>.docx</code> em ordem antes da leitura. É a
+    mesma ferramenta da Oficina de Orientação e <b>não usa modelo</b>, por isso não
+    custa nada e não roda no chat.</div>
+  </div>
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">02</span><a href="#clara">Clara</a>
+      <span class="route-sub">a mesma leitura, com os programas</span>
+    </div>
+    <div class="route-q">O mesmo prompt da linha do chat, rodado sobre a pasta:
+    daí voltam o projeto anotado em <code>.docx</code>, com cada apontamento na
+    margem, e o relatório em PDF.</div>
+  </div>
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">03</span><a href="https://claude.ai/code/artifact/13aa2c5a-6df6-4b99-abfa-dcc258671fd1">Luis</a>
+      <span class="route-sub">a leitura cara, quando ela se paga</span>
+    </div>
+    <div class="route-q">A leitura da oficina irmã, com a camada
+    <code>PROJETO.md</code> que diz o que muda quando não há resultados nem
+    conclusões. Quatro passos com cotejo, e ela declara quais deles ficam sem
+    objeto num projeto. <b>Devolve um relatório</b>, e é para quem orienta.</div>
+  </div>
 </div>
 
 <!-- ============ 01 MIRO ============ -->
@@ -580,33 +620,35 @@ nele.</p>
     <span class="indice">[03]</span>
     <h2>Clara</h2>
   </div>
-  <p class="resumo">Lê o projeto pronto e escreve um relatório. Não há conversa:
-  ela lê, decide e entrega. Qualifica-se o projeto, e não o texto; a metodologia,
-  e não os resultados, que ainda não existem.</p>
+  <p class="resumo">Lê o projeto com a revisão já incluída e diz o que precisa ser
+  desenvolvido. Não há conversa: ela lê, decide e entrega. Examina-se o projeto, e
+  não o texto; a metodologia, e não os resultados, que ainda não existem.</p>
 
   <dl class="ficha">
-    <div><dt>versão portátil</dt><dd>~12 mil caracteres</dd></div>
-    <div><dt>versão completa</dt><dd>~20 mil caracteres</dd></div>
+    <div><dt>tamanho</dt><dd>~17 mil caracteres</dd></div>
     <div><dt>relatório</dt><dd>metade do projeto, teto de 1.600 palavras</dd></div>
-    <div><dt>vias</dt><dd>chat, ou com programas</dd></div>
+    <div><dt>no chat</dt><dd>relatório na conversa</dd></div>
+    <div><dt>no agente</dt><dd>o <code>.docx</code> anotado e o PDF</dd></div>
   </dl>
 
   <div class="confere">
     <section class="sim">
       <h3>Confere</h3>
-      <p>Os elementos, um a um. As articulações, que é onde a leitura rende: se a
-      pergunta ilumina a lacuna afirmada, se a abordagem produz o material que a
-      pergunta exige, se cada objetivo corresponde a uma etapa, se o referencial
-      reaparece na análise ou fica no vocabulário, se o cronograma comporta o
-      número de frentes. As suposições de viabilidade que ninguém conferiu. E os
-      dois julgamentos sobre a banca.</p>
+      <p><b>A revisão, contra o texto escrito</b>, e não contra o relato de quem
+      buscou: se a busca é declarável, se é lista ou análise do campo por questões
+      em disputa, se a lacuna se mede por falta, se apareceu o trabalho muito
+      próximo, e se a busca procurou o que contradiz a tese. <b>A teoria com o
+      método</b>, pelas duas perguntas espelhadas. <b>O encaixe geral</b> e o
+      alinhamento entre objetivos e metodologia. E <b>as suposições de
+      viabilidade</b> que ninguém conferiu.</p>
     </section>
     <section class="nao">
       <h3>Não confere</h3>
       <p>Não valida nada por fora: não diz se a lacuna existe no mundo, se as
       fontes existem como descritas, nem se a bibliografia diz o que o texto lhe
-      atribui. Não dá nota, nem carimbo de pronto. Não avalia o autor. E não
-      corrige redação no corpo do relatório, porque o objeto é o desenho.</p>
+      atribui. Não dá nota nem carimbo de pronto, porque aprovar é ato da banca.
+      Não avalia o autor. E não corrige redação no corpo do relatório, porque o
+      objeto é o desenho.</p>
     </section>
   </div>
 
@@ -617,52 +659,26 @@ nele.</p>
   lista de ausências que ele já conhece.</p>
   <p>E ela não repete o que o documento já diz de si. Quando o texto declara as
   próprias pendências, reorganizá-las não acrescenta nada, porque foi o autor quem
-  as escreveu. O que ela acrescenta é a ordem e a razão da ordem: qual peça vem
-  primeiro, e por que as outras dependem dela.</p>
+  as escreveu. O que ela acrescenta é a ordem e a razão da ordem.</p>
 
-  <h3>Passar e aproveitar são julgamentos distintos</h3>
-  <p>Projeto cauteloso e completo passa na qualificação e não colhe nada de três
-  ou quatro leitores reunidos uma vez só. Quem escreve defensivamente apresenta
-  tudo como resolvido, e então não resta à banca senão aprovar ou atacar. A
-  segunda pergunta procura uma coisa só, porque é a única que se confere:
-  <strong>decisão apresentada como tomada sem estar tomada</strong>. Escrita como
-  pergunta, ela transforma a banca em consultoria. Isso não é conselho para
-  enfraquecer o projeto: é para tornar visível a dúvida que já existe, em vez de
-  coberta.</p>
+  <h3>O veredicto sobre a revisão tem três estados</h3>
+  <p><b>Bem articulada</b>, e ela diz o que falta para fechá-la. <b>Presente e
+  insuficiente</b>, e volta para ser refeita, com o que precisa mudar dito em uma
+  linha por item. <b>Ausente</b>, e aí é encaminhamento: o autor busca antes, e o
+  Nelson ajuda quem quiser ajuda.</p>
 
-  <h3>As duas vias</h3>
-  <p><strong>Pelo chat</strong>, numa conversa nova: cola-se o prompt do fim desta
-  página e anexa-se o projeto, de preferência em PDF, porque num PDF ela enxerga
-  o cronograma em tabela e os quadros como imagem, e num <code>.docx</code> as
-  imagens não chegam até ela. Volta um relatório na conversa. Não volta arquivo, e
-  não há localizador de parágrafo, porque quem os cria é um programa.</p>
-
-  <p><strong>Com programas</strong>, sobre a pasta do trabalho, pelo Claude Code
-  ou pelo VS Code com agente e chave de API própria. Clona-se
-  <code>github.com/AlexandreAraujoCosta/Oficina_de_Orientacao</code>, que é onde a
-  maquinaria mora, e a leitura da Clara está em <code>prompts/CLARA.md</code>. A
-  cadeia é a mesma da outra oficina:</p>
-
-  <pre><code>python scripts/analisar.py
-    # acha o projeto, passa a Norma e extrai com localizadores
-
-    # aqui a Clara lê e escreve relatorio.md e anexo.md
-
-python scripts/conferir_citacoes.py relatorio.md
-python scripts/montar_entrega.py relatorio.md anexo.md projeto --estudante nome</code></pre>
-
-  <p>A conferência de citações roda antes da montagem e <strong>bloqueia a
-  entrega</strong> se algo não bater. Daí voltam <strong>o projeto anotado em
-  <code>.docx</code></strong>, com cada apontamento como comentário do Word na
-  margem do parágrafo citado, <strong>o relatório em PDF</strong>, com o parágrafo
-  citado inserido abaixo de cada item, e <strong>o anexo do que a Norma
-  mudou</strong>.</p>
+  <h3>Sólido ou preenchimento vazio de slots</h3>
+  <p>É a pergunta mais dura que ela faz, e ela a faz sem acusar ninguém, pelo
+  <strong>teste da remoção</strong>: tire o conceito, a análise muda? Tire a
+  operação, o que o projeto afirma muda? Se não muda nas duas, aquilo está ali para
+  ocupar a seção. O aluno recebeu uma lista de seções e preencheu cada uma, e o
+  teste diz quais das que ele preencheu trabalham.</p>
 
   <div class="nota">
-    <p><strong>O localizador, e não a transcrição.</strong> A Clara escreve
-    <code>[P123]</code> e nunca copia frase do projeto. Quem insere o texto dos
-    parágrafos é <code>inserir_trechos.py</code>, que lê a fonte e copia. Como
-    quem transcreve é o programa, não existe artigo trocado, e citação errada num
+    <p><strong>O localizador, e não a transcrição.</strong> Na linha do agente a
+    Clara escreve <code>[P123]</code> e nunca copia frase do projeto: quem insere
+    o texto dos parágrafos é um programa, que lê a fonte e copia. Como quem
+    transcreve é o código, não existe artigo trocado, e citação errada num
     relatório destrói a autoridade de tudo o mais que ele diz.</p>
   </div>
 </div>
