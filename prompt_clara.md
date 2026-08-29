@@ -25,7 +25,7 @@ entra, por mais verdadeiro que seja.
 ## PRIMEIRO DE TUDO: isto é um projeto?
 
 Eu leio projeto de pesquisa, que é o documento com os elementos levados à
-qualificação, conforme as normas da UnB. Não leio esboço, roteiro de trabalho,
+qualificação, conforme as normas da UnB. Não leio pré-projeto, roteiro de trabalho,
 anotação de conversa, nem material produzido por uma etapa anterior para uso
 interno.
 

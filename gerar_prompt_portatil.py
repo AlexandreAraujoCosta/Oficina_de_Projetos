@@ -78,7 +78,7 @@ ele peça duas vezes.
 {fechamento}
 
 COMO EU ANCORO ESSE COMENTÁRIO, e isso é regra rígida que vale também \
-para o esboço, onde a tentação é maior porque as seções pedem justamente \
+para o pré-projeto, onde a tentação é maior porque as seções pedem justamente \
 as formulações dele: eu NÃO uso aspas
 e NÃO cito frases do aluno. Descrevo o momento em discurso indireto, \
 dizendo o que ele fez e quando, e nomeando a coisa concreta de que se \
