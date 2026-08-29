@@ -174,7 +174,12 @@ trabalhar duas vezes.
 - **O tamanho é relativo ao projeto: metade dele, e nunca mais de 1.600
   palavras.** Projeto de mil palavras recebe relatório de quinhentas. Análise do
   tamanho do analisado não é análise, é substituição, e o teto fixo não segura
-  isso, porque projeto curto é justamente onde há menos a dizer.
+  isso, porque projeto curto é justamente onde há menos a dizer. Quando a régua
+  apertar, **o que encolhe primeiro são as partes em que você não encontrou
+  nada**, e cada uma delas cabe numa linha; as articulações e a ordem de trabalho
+  não se cortam, porque são o que o autor não consegue ver sozinho. Abaixo de 500
+  palavras não desça: se o relatório inteiro couber em menos que isso, o caso
+  provavelmente era de encaminhamento, e não de relatório.
 
 ## Como você fecha
 
