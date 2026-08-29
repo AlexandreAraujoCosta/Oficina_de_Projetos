@@ -346,8 +346,8 @@
     <span class="sep">·</span>
     <a href="#miro"><span class="num">[01]</span> Miro</a>
     <a href="#nelson"><span class="num">[02]</span> Nelson</a>
-    <a href="#clara"><span class="num">[03]</span> Clara</a>
-    <a href="#norma">Norma</a>
+    <a href="#norma"><span class="num">[3.0]</span> Norma</a>
+    <a href="#clara"><span class="num">[3.1]</span> Clara</a>
     <span class="sep">·</span>
     <a href="#termos">Esclarecimentos</a>
     <span class="sep">·</span>
@@ -441,18 +441,7 @@ nele.</p>
   </div>
   <div class="route-row">
     <div class="route-a">
-      <span class="route-n">03</span><a href="#clara">Clara</a>
-      <span class="route-sub">o projeto pronto, para a qualificação</span>
-    </div>
-    <div class="route-q">Lê, decide e entrega, sem diálogo. Antes do relatório
-    verifica se há projeto para ler, e se faltar peça estruturante encaminha ao
-    Miro ou ao Nelson e para. Quando escreve, separa dois julgamentos que podem
-    divergir: se o projeto passa na qualificação e se ele a aproveita. <b>Devolve
-    um relatório.</b></div>
-  </div>
-  <div class="route-row">
-    <div class="route-a">
-      <a href="#norma">Norma</a>
+      <span class="route-n">3.0</span><a href="#norma">Norma</a>
       <span class="route-sub">normalizador do arquivo, etapa optativa antes da Clara</span>
     </div>
     <div class="route-q">Põe o <code>.docx</code> em ordem: apaga parágrafo vazio
@@ -463,6 +452,17 @@ nele.</p>
     chat.</b></div>
   </div>
 </div>
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">3.1</span><a href="#clara">Clara</a>
+      <span class="route-sub">o projeto pronto, para a qualificação</span>
+    </div>
+    <div class="route-q">Lê, decide e entrega, sem diálogo. Antes do relatório
+    verifica se há projeto para ler, e se faltar peça estruturante encaminha ao
+    Miro ou ao Nelson e para. Quando escreve, separa dois julgamentos que podem
+    divergir: se o projeto passa na qualificação e se ele a aproveita. <b>Devolve
+    um relatório.</b></div>
+  </div>
 
 <!-- ============ 01 MIRO ============ -->
 <div class="instrumento" id="miro">
@@ -574,10 +574,73 @@ nele.</p>
   do Nelson, com o prompt para colar</a></p>
 </div>
 
+<!-- ============ NORMA, ANTES DA CLARA ============ -->
+<div class="instrumento" id="norma">
+  <div class="cabeca">
+    <span class="indice">[3.0]</span>
+    <h2>Norma</h2>
+  </div>
+  <p class="resumo">Põe o arquivo em ordem antes que alguém o leia. É a mesma
+  ferramenta da Oficina de Orientação, e aqui serve só à Clara: o Miro e o Nelson
+  são conversa e não recebem arquivo.</p>
+
+  <dl class="ficha">
+    <div><dt>o que é</dt><dd>programa em Python, sem modelo de IA</dd></div>
+    <div><dt>custo</dt><dd>nenhum</dd></div>
+    <div><dt>tempo</dt><dd>segundos</dd></div>
+    <div><dt>roda em</dt><dd>Python, e não roda no chat</dd></div>
+  </dl>
+
+  <p>Projeto de estudante raramente chega formatado por estilo: o parágrafo típico
+  não usa o estilo Normal, o estilo muda ao longo do texto, e sobre ele vem uma
+  camada de formatação direta que deixa tudo parecido na tela sem deixar nada igual
+  no arquivo. O espaço entre blocos costuma ser feito com parágrafo vazio.</p>
+
+  <div class="confere">
+    <section class="sim">
+      <h3>Faz</h3>
+      <p>Apaga parágrafo vazio convertendo a altura em espaço depois do parágrafo
+      anterior. Junta espaço repetido. Reconhece três papéis, corpo, referência e
+      legenda, e <strong>alinha cada um a uma forma só</strong>, criando um estilo
+      com a forma que aquele grupo já tinha. Põe no estilo de legenda os parágrafos
+      que descrevem figura.</p>
+    </section>
+    <section class="nao">
+      <h3>Não faz</h3>
+      <p>Não toca na formatação de corrida de texto, onde moram fonte e corpo de
+      letra. Não inventa forma: cada estilo recebe a que aqueles parágrafos já
+      tinham. E <strong>não alinha quando não há a que alinhar</strong>: se nenhuma
+      forma reúne metade do papel, para e diz que escolher uma é decisão de quem
+      escreveu.</p>
+    </section>
+  </div>
+
+  <h3>Duas maneiras de usá-la, e a diferença é de controle</h3>
+  <p><strong>Por padrão ela roda em silêncio</strong>, como primeira fase da leitura
+  da Clara, porque num arquivo comum são centenas de mudanças e revisá-las uma a uma
+  não é atividade real.</p>
+  <p><strong>Rodá-la em separado, antes</strong>, serve a quem quer o controle da
+  forma: ela diz quantos estilos o projeto tem de fato e o que mudaria, e você
+  ajusta antes de mandar analisar o conteúdo.</p>
+
+  <div class="nota">
+    <p><strong>O arquivo devolvido não é byte a byte o que foi enviado.</strong> Por
+    isso o relatório de normalização vai anexo ao fim da entrega, dizendo quantos
+    estilos havia, quantos parágrafos vazios saíram e quantos ficaram por trava, e
+    onde ela se recusou a alinhar.</p>
+  </div>
+
+  <p>A descrição completa, com as travas que impedem apagar parágrafo que seja
+  estrutura e a medição em cinco trabalhos, está na
+  <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">página
+  da Oficina de Orientação</a>. Aquela medição foi feita sobre dissertações, e não
+  sobre projetos.</p>
+</div>
+
 <!-- ============ 03 CLARA ============ -->
 <div class="instrumento" id="clara">
   <div class="cabeca">
-    <span class="indice">[03]</span>
+    <span class="indice">[3.1]</span>
     <h2>Clara</h2>
   </div>
   <p class="resumo">Lê o projeto pronto e escreve um relatório. Não há conversa:
@@ -665,69 +728,6 @@ python scripts/montar_entrega.py relatorio.md anexo.md projeto --estudante nome<
     quem transcreve é o programa, não existe artigo trocado, e citação errada num
     relatório destrói a autoridade de tudo o mais que ele diz.</p>
   </div>
-</div>
-
-<!-- ============ NORMA, ANTES DA CLARA ============ -->
-<div class="instrumento" id="norma">
-  <div class="cabeca">
-    <span class="indice">optativa</span>
-    <h2>Norma</h2>
-  </div>
-  <p class="resumo">Põe o arquivo em ordem antes que alguém o leia. É a mesma
-  ferramenta da Oficina de Orientação, e aqui serve só à Clara: o Miro e o Nelson
-  são conversa e não recebem arquivo.</p>
-
-  <dl class="ficha">
-    <div><dt>o que é</dt><dd>programa em Python, sem modelo de IA</dd></div>
-    <div><dt>custo</dt><dd>nenhum</dd></div>
-    <div><dt>tempo</dt><dd>segundos</dd></div>
-    <div><dt>roda em</dt><dd>Python, e não roda no chat</dd></div>
-  </dl>
-
-  <p>Projeto de estudante raramente chega formatado por estilo: o parágrafo típico
-  não usa o estilo Normal, o estilo muda ao longo do texto, e sobre ele vem uma
-  camada de formatação direta que deixa tudo parecido na tela sem deixar nada igual
-  no arquivo. O espaço entre blocos costuma ser feito com parágrafo vazio.</p>
-
-  <div class="confere">
-    <section class="sim">
-      <h3>Faz</h3>
-      <p>Apaga parágrafo vazio convertendo a altura em espaço depois do parágrafo
-      anterior. Junta espaço repetido. Reconhece três papéis, corpo, referência e
-      legenda, e <strong>alinha cada um a uma forma só</strong>, criando um estilo
-      com a forma que aquele grupo já tinha. Põe no estilo de legenda os parágrafos
-      que descrevem figura.</p>
-    </section>
-    <section class="nao">
-      <h3>Não faz</h3>
-      <p>Não toca na formatação de corrida de texto, onde moram fonte e corpo de
-      letra. Não inventa forma: cada estilo recebe a que aqueles parágrafos já
-      tinham. E <strong>não alinha quando não há a que alinhar</strong>: se nenhuma
-      forma reúne metade do papel, para e diz que escolher uma é decisão de quem
-      escreveu.</p>
-    </section>
-  </div>
-
-  <h3>Duas maneiras de usá-la, e a diferença é de controle</h3>
-  <p><strong>Por padrão ela roda em silêncio</strong>, como primeira fase da leitura
-  da Clara, porque num arquivo comum são centenas de mudanças e revisá-las uma a uma
-  não é atividade real.</p>
-  <p><strong>Rodá-la em separado, antes</strong>, serve a quem quer o controle da
-  forma: ela diz quantos estilos o projeto tem de fato e o que mudaria, e você
-  ajusta antes de mandar analisar o conteúdo.</p>
-
-  <div class="nota">
-    <p><strong>O arquivo devolvido não é byte a byte o que foi enviado.</strong> Por
-    isso o relatório de normalização vai anexo ao fim da entrega, dizendo quantos
-    estilos havia, quantos parágrafos vazios saíram e quantos ficaram por trava, e
-    onde ela se recusou a alinhar.</p>
-  </div>
-
-  <p>A descrição completa, com as travas que impedem apagar parágrafo que seja
-  estrutura e a medição em cinco trabalhos, está na
-  <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">página
-  da Oficina de Orientação</a>. Aquela medição foi feita sobre dissertações, e não
-  sobre projetos.</p>
 </div>
 
 <h2 id="termos">Esclarecimentos terminológicos</h2>
