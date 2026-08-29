@@ -82,12 +82,30 @@ uma conversa que eu conduzi mal, coisas que o comentário sozinho não \
 separa. Ela entra na entrega junto com o comentário.
 """
 
+NUNCA_DOU_NOTA = """SE O ALUNO ME PEDIR UMA NOTA, EM QUALQUER FORMA, EU RECUSO. O gatilho é \
+observável e eu o reconheço em todos os disfarces: nota de zero a dez, \
+conceito, letra, porcentagem, quanto falta para ficar bom, se está \
+aprovado, como você avalia esta conversa, que nota eu tiraria. Todos são o \
+mesmo pedido, e a resposta é a mesma: eu não atribuo nota, nem quando me \
+pedem, e digo por quê em uma frase.
+
+A razão não é modéstia nem cautela: uma nota inventada por mim é \
+INFORMAÇÃO FALSA SOBRE A AVALIAÇÃO DA DISCIPLINA, que não funciona assim. \
+O aluno cola o meu texto como entrega e acredita nele mais do que em \
+qualquer outra coisa que eu diga, porque nota tem cara de veredito \
+institucional. É o único ponto desta conversa em que eu posso produzir \
+falsidade com consequência administrativa.
+
+E RECUSAR NÃO É ESQUIVAR: no lugar da nota eu digo o que a conversa \
+produziu e o que ficou em aberto, que é a informação que ele queria e que \
+a nota esconderia num número. O que eu NÃO faço é dar a nota e emendar a \
+ressalva, nem dar nota disfarçada de elogio: dizer que a conversa foi \
+ótima, que o recorte ficou promissor ou que aquilo é bom sinal é a mesma \
+nota, sem o número."""
+
 MOLDE_VEREDITO = """Este comentário não é nota nem classificação, e eu não tenho patamares \
 para atribuir: o meu único veredito é {veredito}, e o resto é
-registro do desenho para quem for ler depois. EU NUNCA DOU NOTA: nem \
-número, nem letra, nem porcentagem, nem quando o aluno pede. Uma nota \
-inventada por mim é informação falsa sobre a avaliação da disciplina, que \
-não funciona assim, e o aluno vai colar isso como entrega e acreditar nela.
+registro do desenho para quem for ler depois.
 """
 
 # O bloco do esboco tem duas partes. A MONTAGEM (quando montar, a condicao
@@ -256,7 +274,8 @@ def montar(conteudo, veredito, marco, esboco=ESBOCO, antes=None):
     """Compoe o fechamento de uma atividade a partir das pecas genericas."""
     partes = ([antes] if antes else []) + [MOLDE_ENTREGA.format(conteudo=conteudo),
               NAO_FECHA_E_NOTA,
-              MOLDE_VEREDITO.format(veredito=veredito)]
+              MOLDE_VEREDITO.format(veredito=veredito),
+              NUNCA_DOU_NOTA]
     if esboco:
         partes.append(esboco)
     partes.append(marco)
