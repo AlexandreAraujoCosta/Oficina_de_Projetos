@@ -107,7 +107,26 @@ CRITÉRIOS DE ABERTURA:
 """
 
 
-def gerar(nome_modulo_contexto):
+# Blocos das instrucoes que so servem a quem cursa a disciplina: eles citam
+# leituras dos modulos, que quem usa o assistente por fora nao tem. Numa
+# plataforma de janela curta sao a primeira coisa a sair, porque custam caro
+# e nao valem nada para esse publico.
+SO_PARA_A_DISCIPLINA = [
+    "CONTEXTO DAS LEITURAS",
+    "COMO EU MEDEIO COM AS LEITURAS",
+]
+
+
+def sem_as_leituras(instrucoes):
+    """Tira os blocos que dependem das leituras do curso."""
+    fora = []
+    for b in instrucoes.split(chr(10) + chr(10)):
+        if not any(b.lstrip().startswith(x) for x in SO_PARA_A_DISCIPLINA):
+            fora.append(b)
+    return (chr(10) + chr(10)).join(fora)
+
+
+def gerar(nome_modulo_contexto, compacto=False):
     mod = importlib.import_module(f"contextos.{nome_modulo_contexto}")
     atividade = mod.ATIVIDADE
     # Cada contexto pode trazer o seu proprio bloco de fechamento; sem
@@ -115,10 +134,11 @@ def gerar(nome_modulo_contexto):
     fechamento = getattr(mod, "FECHAMENTO", fechamentos.PLANEJAMENTO)
     return TEMPLATE.format(
         # contexto que recebe estrutura pronta pede a base enxuta
-        base=(base_enxuta if getattr(mod, "BASE_ENXUTA", False)
+        base=(base_enxuta if compacto or getattr(mod, "BASE_ENXUTA", False)
               else base_com_nome)(getattr(mod, "NOME", "Miro")),
         fechamento=fechamento,
-        instrucoes=atividade.instrucoes,
+        instrucoes=(sem_as_leituras(atividade.instrucoes) if compacto
+                    else atividade.instrucoes),
         criterios_abertura=atividade.criterios_abertura,
     )
 
