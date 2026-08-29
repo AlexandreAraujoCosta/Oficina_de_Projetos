@@ -347,15 +347,24 @@
     <span class="sep">·</span>
     <a href="#qual">Qual assistente</a>
     <span class="sep">·</span>
+    <a href="#termos">Esclarecimentos</a>
+    <span class="sep">·</span>
+    <a href="#norma"><span class="num">[00]</span> Norma</a>
     <a href="#miro"><span class="num">[01]</span> Miro</a>
     <a href="#nelson"><span class="num">[02]</span> Nelson</a>
     <a href="#clara"><span class="num">[03]</span> Clara</a>
     <span class="sep">·</span>
-    <a href="#encadeiam">Como encadeiam</a>
+    <a href="#formas">Formas de uso</a>
+    <span class="sep">·</span>
+    <a href="#fluxo">Fluxo de trabalho</a>
+    <span class="sep">·</span>
+    <a href="#responde">Quem responde</a>
     <span class="sep">·</span>
     <a href="#entrega">O que se entrega</a>
     <span class="sep">·</span>
-    <a href="#medido">Medido e não medido</a>
+    <a href="#custa">Quanto custa</a>
+    <span class="sep">·</span>
+    <a href="#medido">Os testes</a>
     <span class="sep">·</span>
     <a href="#prompt">O prompt da Clara</a>
   </div>
@@ -379,6 +388,16 @@
   Coordenador do Grupo de Pesquisa Cartografias Jurídicas.<br>
   alexandre.araujo.costa@gmail.com</p>
   <p class="fina">Com assistência do modelo Claude Opus 5, em Claude Code.</p>
+</div>
+
+<div class="nota" style="border-left-color: var(--accent); background: var(--accent-soft);">
+  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback (dirigido a
+  <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>) será muito útil
+  para aperfeiçoá-los. <strong>Se você usar estes assistentes fora do contexto das
+  disciplinas</strong>, envie um relato por
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este
+  formulário</a>: é com esses relatos que dá para saber se eles funcionam fora da
+  situação para a qual foram escritos.</p>
 </div>
 
 <div class="nota">
@@ -457,6 +476,104 @@ estava trabalhando nele.</p>
     Nelson e para. Quando escreve, separa dois julgamentos que podem divergir:
     isto passa na qualificação, e isto aproveita a qualificação.</p>
   </div>
+</div>
+
+<h2 id="termos">Esclarecimentos terminológicos</h2>
+
+<p>Quatro palavras aparecem o tempo todo aqui e significam coisas diferentes em
+lugares diferentes. Estes são os sentidos em uso nesta oficina.</p>
+
+<div class="registros">
+  <div class="registro">
+    <div class="marca">esboço</div>
+    <p>O documento que o Miro e o Nelson produzem. Fala <em>ao autor</em> sobre o
+    que ele ainda tem de fazer, e por isso traz pendências marcadas e o registro de
+    quem formulou cada coisa. Não é um projeto em versão curta: é material de
+    trabalho, e não se entrega a ninguém que não seja quem o está construindo.</p>
+  </div>
+  <div class="registro">
+    <div class="marca">projeto</div>
+    <p>O documento com os elementos levados à qualificação, conforme as normas do
+    programa. Fala <em>a um leitor</em> sobre a pesquisa, em prosa contínua. É o
+    único objeto que a Clara lê.</p>
+  </div>
+  <div class="registro">
+    <div class="marca">lacuna</div>
+    <p>Mede-se por <strong>falta</strong>, e não por presença. Não é o número de
+    trabalhos que existem sobre o assunto: é o que ninguém respondeu, e ela pode ser
+    de tema, de recorte, de método ou de variável. Afirmar lacuna sem ter procurado
+    é aposta, e é isso que o Nelson trabalha.</p>
+  </div>
+  <div class="registro">
+    <div class="marca">qualificação</div>
+    <p>A sessão em que três ou quatro leitores discutem o projeto uma vez só. Aqui
+    ela é tratada como <strong>ocasião escassa</strong>, e não como obstáculo: por
+    isso a Clara pergunta duas coisas separadas, se o projeto passa e se ele
+    aproveita.</p>
+  </div>
+</div>
+
+<!-- ============ 00 NORMA ============ -->
+<div class="instrumento" id="norma">
+  <div class="cabeca">
+    <span class="indice">[00]</span>
+    <h2>Norma</h2>
+  </div>
+  <p class="resumo">Põe o arquivo em ordem antes que alguém o leia. É a mesma
+  ferramenta da Oficina de Orientação, e aqui serve só à Clara: o Miro e o Nelson
+  são conversa e não recebem arquivo.</p>
+
+  <dl class="ficha">
+    <div><dt>o que é</dt><dd>programa em Python, sem modelo de IA</dd></div>
+    <div><dt>custo</dt><dd>nenhum</dd></div>
+    <div><dt>tempo</dt><dd>segundos</dd></div>
+    <div><dt>roda em</dt><dd>Python, e não roda no chat</dd></div>
+  </dl>
+
+  <p>Projeto de estudante raramente chega formatado por estilo: o parágrafo típico
+  não usa o estilo Normal, o estilo muda ao longo do texto, e sobre ele vem uma
+  camada de formatação direta que deixa tudo parecido na tela sem deixar nada igual
+  no arquivo. O espaço entre blocos costuma ser feito com parágrafo vazio.</p>
+
+  <div class="confere">
+    <section class="sim">
+      <h3>Faz</h3>
+      <p>Apaga parágrafo vazio convertendo a altura em espaço depois do parágrafo
+      anterior. Junta espaço repetido. Reconhece três papéis, corpo, referência e
+      legenda, e <strong>alinha cada um a uma forma só</strong>, criando um estilo
+      com a forma que aquele grupo já tinha. Põe no estilo de legenda os parágrafos
+      que descrevem figura.</p>
+    </section>
+    <section class="nao">
+      <h3>Não faz</h3>
+      <p>Não toca na formatação de corrida de texto, onde moram fonte e corpo de
+      letra. Não inventa forma: cada estilo recebe a que aqueles parágrafos já
+      tinham. E <strong>não alinha quando não há a que alinhar</strong>: se nenhuma
+      forma reúne metade do papel, para e diz que escolher uma é decisão de quem
+      escreveu.</p>
+    </section>
+  </div>
+
+  <h3>Duas maneiras de usá-la, e a diferença é de controle</h3>
+  <p><strong>Por padrão ela roda em silêncio</strong>, como primeira fase da leitura
+  da Clara, porque num arquivo comum são centenas de mudanças e revisá-las uma a uma
+  não é atividade real.</p>
+  <p><strong>Rodá-la em separado, antes</strong>, serve a quem quer o controle da
+  forma: ela diz quantos estilos o projeto tem de fato e o que mudaria, e você
+  ajusta antes de mandar analisar o conteúdo.</p>
+
+  <div class="nota">
+    <p><strong>O arquivo devolvido não é byte a byte o que foi enviado.</strong> Por
+    isso o relatório de normalização vai anexo ao fim da entrega, dizendo quantos
+    estilos havia, quantos parágrafos vazios saíram e quantos ficaram por trava, e
+    onde ela se recusou a alinhar.</p>
+  </div>
+
+  <p>A descrição completa, com as travas que impedem apagar parágrafo que seja
+  estrutura e a medição em cinco trabalhos, está na
+  <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">página
+  da Oficina de Orientação</a>. Aquela medição foi feita sobre dissertações, e não
+  sobre projetos.</p>
 </div>
 
 <!-- ============ 01 MIRO ============ -->
@@ -638,15 +755,20 @@ estava trabalhando nele.</p>
   maquinaria mora, e a leitura da Clara está em <code>prompts/CLARA.md</code>. A
   cadeia é a mesma da outra oficina:</p>
 
-  <pre><code>python scripts/extrair.py projeto.docx
-python scripts/inserir_trechos.py relatorio.md projeto.pdf
-python scripts/anotar_docx.py projeto.docx relatorio.md anexo.md
-python scripts/montar_entrega.py relatorio.md anexo.md projeto</code></pre>
+  <pre><code>python scripts/analisar.py
+    # acha o projeto, passa a Norma e extrai com localizadores
 
-  <p>Daí voltam <strong>o projeto anotado em <code>.docx</code></strong>, com cada
-  apontamento como comentário do Word na margem do parágrafo citado, e <strong>o
-  relatório em PDF</strong>. Quando a entrada é PDF não há arquivo a anotar, e a
-  entrega é só o relatório.</p>
+    # aqui a Clara lê e escreve relatorio.md e anexo.md
+
+python scripts/conferir_citacoes.py relatorio.md
+python scripts/montar_entrega.py relatorio.md anexo.md projeto --estudante nome</code></pre>
+
+  <p>A conferência de citações roda antes da montagem e <strong>bloqueia a
+  entrega</strong> se algo não bater. Daí voltam <strong>o projeto anotado em
+  <code>.docx</code></strong>, com cada apontamento como comentário do Word na
+  margem do parágrafo citado, <strong>o relatório em PDF</strong>, com o parágrafo
+  citado inserido abaixo de cada item, e <strong>o anexo do que a Norma
+  mudou</strong>.</p>
 
   <div class="nota">
     <p><strong>O localizador, e não a transcrição.</strong> A Clara escreve
@@ -657,8 +779,26 @@ python scripts/montar_entrega.py relatorio.md anexo.md projeto</code></pre>
   </div>
 </div>
 
-<!-- ============ ENCADEIAM ============ -->
-<h2 id="encadeiam">Como encadeiam, e as voltas fazem parte</h2>
+<!-- ============ FORMAS DE USO ============ -->
+<h2 id="formas">Três formas de uso, e a qualidade não é a mesma</h2>
+
+<p><strong>Pelo chat</strong> roda tudo o que é conversa, o Miro e o Nelson, e
+também a Clara na versão portátil. Cola-se o prompt numa janela nova e trabalha-se
+ali. Não volta arquivo, e no caso da Clara não há localizador de parágrafo, porque
+quem os cria é um programa.</p>
+
+<p><strong>Com agente</strong>, no Claude Code ou no VS Code com chave de API
+própria, roda a Clara na versão completa, sobre a pasta onde está o projeto. Aqui a
+Norma passa antes, os localizadores existem, e volta o projeto anotado mais o
+relatório em PDF.</p>
+
+<p><strong>A diferença não é só de formato.</strong> Na oficina irmã, onde há
+medição, a etapa de cotejo por um leitor que não escreveu os apontamentos derruba
+de 10% a 31% dos achados, e essa etapa não existe no chat. Não há medição
+equivalente para a Clara, e não há razão para supor que ela se comporte melhor.</p>
+
+<!-- ============ FLUXO ============ -->
+<h2 id="fluxo">Fluxo de trabalho, e as voltas fazem parte</h2>
 
 <div class="fluxo">
   <ol>
@@ -671,6 +811,10 @@ python scripts/montar_entrega.py relatorio.md anexo.md projeto</code></pre>
     <li><strong>O autor escreve o projeto.</strong> Esta etapa não tem assistente,
     e é deliberado: o esboço é material de trabalho, e transformá-lo em projeto é
     escrever.</li>
+    <li><strong>Norma</strong>, se você quiser o controle da forma. Etapa
+    optativa: por padrão ela roda dentro da fase seguinte, em silêncio. Rodada
+    aqui, mostra quantos estilos o arquivo tem e o que mudaria, e você ajusta antes
+    de mandar analisar o conteúdo.</li>
     <li><strong>Clara.</strong> Lê o projeto. <em>Se faltar peça</em>, encaminha
     ao Miro (lacuna, pergunta, objetivos, estratégia, articulação) ou ao Nelson
     (revisão ausente, ou lista sem análise do campo) e para. <em>Se estiver
@@ -720,9 +864,61 @@ produz nada.</p>
 </div>
 
 <p>O comentário do Word tem uma virtude que o PDF não tem: é conversa. Quem
-orienta lê, responde na mesma linha, e a resposta fica no arquivo.</p>
+orienta lê, responde na mesma linha, e a resposta fica no arquivo. Cada comentário
+diz também <strong>em que página o item ocorre</strong>, porque o número de
+parágrafo é da extração e não existe dentro do Word.</p>
 
-<h2 id="medido">Medido e não medido</h2>
+<p><strong>Quando a origem é PDF não há margem em que comentar.</strong> No lugar do
+arquivo anotado sai um <code>.md</code> com o projeto e os parágrafos numerados, que
+é o que resolve os localizadores do relatório. E quando o projeto passou pela Norma,
+vai junto o anexo do que ela mudou.</p>
+
+<h2 id="responde">Quem responde</h2>
+
+<p>O relatório é automático, e é automático sempre. Ler e encaminhar não muda o que
+o produziu: muda quem responde por ele.</p>
+
+<p><strong>Quem orienta e encaminha passa a responder pelos apontamentos</strong>, e
+é o nome dele que vai na abertura, porque encaminhar é endossar. Mandar crítica
+automática não lida e sem nome é o pior arranjo possível, com toda a contundência e
+nenhuma responsabilidade. Se o próprio autor roda no seu projeto, não há orientador
+no circuito, e pôr nome de terceiro seria atribuição falsa.</p>
+
+<p>O que não muda em nenhum dos dois casos é a origem do texto. <strong>O estado sem
+revisão tem de ser visível</strong>, e não o silêncio padrão: relatório que não diz
+que ninguém o leu chega como se alguém tivesse lido.</p>
+
+<p>Nas conversas o arranjo é outro, e vale dizê-lo. O comentário do Miro e o do
+Nelson são escritos para o estudante entregar na disciplina, e quem responde por
+eles é ele: por isso o assistente pede, antes de fechar, que ele confira se há no
+comentário alguma afirmação sobre o que ele disse ou fez que não corresponda ao que
+aconteceu. É a única pessoa ali que sabe.</p>
+
+<h2 id="custa">Quanto custa</h2>
+
+<p><strong>O Miro e o Nelson não custam nada</strong> e foram escritos para isso:
+rodam em conta gratuita de qualquer assistente, sem instalar coisa alguma. É por
+isso que o prompt é grande, porque tudo o que o assistente precisa saber tem de
+caber na primeira mensagem.</p>
+
+<p><strong>A Clara pelo chat também não custa</strong>, e é a porta de entrada.</p>
+
+<p><strong>A Clara com programas custa o que o modelo cobrar</strong> pela leitura
+do projeto, e o que domina a conta é o projeto que entra, não o tamanho do prompt.
+Não há medição própria: na oficina irmã, uma dissertação de 37 mil palavras ficou em
+torno de meio dólar no Opus, e um projeto é uma fração disso. A Norma não usa modelo
+e não custa nada.</p>
+
+<div class="nota">
+  <p><strong>Modelo pequeno não serve, e isso foi medido na oficina irmã</strong>,
+  sobre a mesma dissertação: um substituiu o método por leitura seletiva sem avisar
+  e entregou uma citação inventada; outro leu tudo e devolveu atestado de saúde, com
+  zero apontamentos. Escolha o melhor modelo que a sua conta oferecer, e evite o
+  modo automático: modelo escolhido pelo serviço é modelo desconhecido, e relatório
+  de modelo desconhecido não se compara com nenhum outro.</p>
+</div>
+
+<h2 id="medido">Os testes feitos e o que eles sugerem</h2>
 
 <p><strong>O Miro tem uso real e o resto não.</strong> Ele rodou com duas turmas
 em 2026, e foi desse uso que saíram as mudanças de entrega e as três proibições
@@ -738,10 +934,11 @@ relatório saía quase do tamanho do projeto analisado. O que falta medir é se 
 para na porta quando o material dá para escrever relatório, e se inventa gravidade
 quando não encontra nada.</p>
 
-<p><strong>Modelo pequeno não serve, e isso foi medido na oficina irmã</strong>,
-sobre a mesma dissertação: um substituiu o método por leitura seletiva sem avisar
-e entregou uma citação inventada; outro leu tudo e devolveu atestado de saúde,
-com zero apontamentos. Não há razão para esperar comportamento diferente aqui.</p>
+<p><strong>A Norma foi medida, e em dissertações.</strong> Em cinco trabalhos o
+texto saiu idêntico parágrafo a parágrafo, a contagem de marcadores e de campos se
+preservou, e o Word abre o arquivo. Nenhum projeto entrou nessa medição, e um
+projeto é documento mais curto e com menos figuras, de modo que o comportamento
+esperado é melhor, e esperado não é medido.</p>
 
 <div class="nota">
   <p><strong>O relatório é matéria para julgar, e não veredito.</strong> Quem
@@ -769,8 +966,14 @@ nova: o que já foi dito numa conversa em andamento entra na leitura sem avisar.
 
 <footer>
   <p>Assistentes de leitura para projetos de pesquisa, feitos por Alexandre
-  Araújo Costa, Faculdade de Direito da UnB. A maquinaria da Clara está aberta em
-  <code>github.com/AlexandreAraujoCosta/Oficina_de_Orientacao</code>.</p>
+  Araújo Costa, Faculdade de Direito da UnB. A maquinaria da Clara e da Norma está
+  aberta em <code>github.com/AlexandreAraujoCosta/Oficina_de_Orientacao</code>, ao
+  lado da oficina irmã.</p>
+  <p>Feedback para <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>,
+  e relatos de uso fora das disciplinas por
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este
+  formulário</a>.</p>
+  <p>Última atualização: 29 de agosto de 2026.</p>
 </footer>
 
 </div>
