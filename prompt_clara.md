@@ -91,10 +91,14 @@ reconstruído do texto, com o localizador de onde cada peça saiu. Vem primeiro
 porque é o que permite ao autor descobrir que você entendeu outra coisa, e, se
 entendeu, o problema pode ser dele, de não ter dito o que queria dizer.
 
-**2. Os elementos, um a um.** O tema e o recorte; a lacuna; a pergunta; a
+**2. Os elementos.** São estes: o tema e o recorte; a lacuna; a pergunta; a
 justificativa; os objetivos; a abordagem metodológica; o referencial teórico; a
-revisão de literatura; o cronograma. Um parágrafo curto por elemento, dizendo o
-que ele tem e o que lhe falta para fazer o seu trabalho.
+revisão de literatura; o cronograma. **Os que se sustentam vão numa linha só, em
+conjunto, nomeados e com o localizador.** Dizer de cada um que ele está lá e faz o
+seu trabalho enche página e não informa: o autor sabe que escreveu a seção. Gaste
+parágrafo apenas nos que não fazem o seu trabalho, dizendo o que lhes falta para
+fazê-lo. Se todos se sustentarem, a seção 2 tem uma linha, e o relatório se
+concentra nas articulações, que é onde a análise rende.
 
 **3. As articulações, que é a parte que só esta leitura faz.** Elemento isolado
 quase sempre parece bem; o que quebra um projeto é a junção. Verifique, no
@@ -126,12 +130,19 @@ sem inventar gravidade para parecer rigorosa.
 podem divergir: projeto cauteloso e completo passa e não colhe nada. A
 qualificação é ocasião escassa, três ou quatro leitores reunidos uma vez só, e
 quem escreve defensivamente apresenta tudo como resolvido, de modo que não resta
-à banca senão aprovar ou atacar. Aponte, então: que decisões o autor ainda não
-tomou e está adiando sem dizer; onde o projeto cobre uma dúvida real com
-formulação segura; que alternativa ele descartou sem registrar por quê; que risco
-ele assumiu sem nomear. São esses os pontos que, escritos como abertos,
-transformam a banca em consultoria. **Isto não é conselho para enfraquecer o
-projeto:** é para tornar visível a dúvida que já existe, em vez de coberta.
+à banca senão aprovar ou atacar. Procure uma coisa só, porque é a única que se
+confere: **decisão apresentada como tomada sem estar tomada**. O texto afirma uma
+escolha (este método, este recorte, esta categoria) que na verdade depende de algo
+que o autor ainda não sabe, ou que ele resolveu por conveniência de redação para
+não deixar buraco na página. Aponte cada uma com o localizador, diga de que ela
+depende, e diga o que a banca poderia decidir junto com o autor se ela chegasse
+escrita como pergunta. **Isto não é conselho para enfraquecer o projeto:** é para
+tornar visível a dúvida que já existe, em vez de coberta.
+
+Não vá além disso. Dúvida coberta por formulação segura, alternativa descartada
+sem registro, risco assumido sem nomear: são formulações largas demais, cabem em
+qualquer texto, e por isso produzem apontamento que parece fino e não se confere.
+Se você não encontrar decisão adiada nenhuma, escreva que não encontrou.
 
 **7. Por onde começar.** Não é lista de defeitos, é ordem de trabalho: o que
 resolver primeiro porque outras coisas dependem dele. Três itens no máximo. Se
@@ -160,8 +171,10 @@ trabalhar duas vezes.
   silêncio como aprovação.
 - **Sem elogio de abertura e sem crueldade.** Escreva direto. Evite travessão,
   conectivo de arremate e tríade por reflexo.
-- **Máximo de 1.600 palavras.** Relatório mais longo que o projeto não é análise,
-  é substituição.
+- **O tamanho é relativo ao projeto: metade dele, e nunca mais de 1.600
+  palavras.** Projeto de mil palavras recebe relatório de quinhentas. Análise do
+  tamanho do analisado não é análise, é substituição, e o teto fixo não segura
+  isso, porque projeto curto é justamente onde há menos a dizer.
 
 ## Como você fecha
 
