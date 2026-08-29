@@ -181,29 +181,28 @@
     .registro { grid-template-columns: 1fr; gap: 0.25rem; }
   }
 
-  /* ---- cartões das ferramentas ---- */
-  .grupo-rotulo {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.09em;
-    text-transform: uppercase; color: var(--faint);
-    margin: 2rem 0 0.7rem;
+  /* ---- rota, na forma da oficina irma ---- */
+  .deck { color: var(--muted); font-size: 1rem; margin: 0 0 0.4rem; max-width: var(--measure); }
+  .route { margin: 1.4rem 0 0; border-top: 1px solid var(--rule); }
+  .route-row {
+    display: grid; grid-template-columns: 1fr; gap: 0.25rem;
+    padding: 0.95rem 0; border-bottom: 1px solid var(--rule-soft);
   }
-  .cartoes { display: grid; gap: 0.8rem; }
-  .cartao {
-    background: var(--surface);
-    border: 1px solid var(--rule-soft);
-    border-left: 3px solid var(--accent);
-    border-radius: 3px;
-    padding: 1rem 1.1rem;
+  @media (min-width: 38rem) {
+    .route-row { grid-template-columns: 15rem 1fr; gap: 1.5rem; align-items: baseline; }
   }
-  .cartao.conversa { border-left-color: var(--deep); }
-  .cartao h4 {
-    margin: 0 0 0.15rem; font-family: var(--serif);
-    font-size: 1.12rem; font-weight: 600;
+  .route-a { font-family: var(--serif); font-size: 1.28rem; line-height: 1.14; }
+  .route-a a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .route-a a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .route-n {
+    font-family: var(--mono); font-size: 0.72rem; color: var(--faint);
+    margin-right: 0.6rem; vertical-align: 0.18rem;
   }
-  .cartao .papel {
-    font-size: 0.82rem; color: var(--muted); margin: 0 0 0.5rem;
+  .route-sub {
+    display: block; font-family: var(--sans); font-size: 0.82rem;
+    color: var(--muted); margin-top: 0.2rem;
   }
-  .cartao p { margin: 0; font-size: 0.93rem; color: var(--ink-soft); }
+  .route-q { color: var(--ink-soft); font-size: 0.95rem; }
 
   /* ---- blocos numerados ---- */
   .instrumento {
@@ -343,14 +342,12 @@
 
 <nav>
   <div class="inner">
-    <a href="#registros">Três estados</a>
+    <a href="#qual">Ferramentas disponíveis</a>
     <span class="sep">·</span>
-    <a href="#qual">Qual assistente</a>
-    <span class="sep">·</span>
-    <a href="#norma"><span class="num">[00]</span> Norma</a>
     <a href="#miro"><span class="num">[01]</span> Miro</a>
     <a href="#nelson"><span class="num">[02]</span> Nelson</a>
     <a href="#clara"><span class="num">[03]</span> Clara</a>
+    <a href="#norma">Norma</a>
     <span class="sep">·</span>
     <a href="#termos">Esclarecimentos</a>
     <span class="sep">·</span>
@@ -410,138 +407,61 @@
   menos: devolve uma lista de ausências que o autor já conhece.</p>
 </div>
 
-<h2 id="registros">A notação do esboço</h2>
+<h2 id="qual">Ferramentas disponíveis</h2>
 
-<p>O que passa de um assistente para o outro é o esboço, e ele não se lê como um
-projeto curto: cada seção vem marcada com o estado em que está, e a marca diz a
-quem receber o documento o que ainda falta ali e por quê. São três, e a última é
-a que costuma decidir se a pesquisa é exequível.</p>
-
-<div class="registros">
-  <div class="registro">
-    <div class="marca">escrito</div>
-    <p>O elemento existe e faz o que o nome promete. Vai em prosa, sem marca
-    nenhuma, e é a única parte do documento que se lê como projeto.</p>
-  </div>
-  <div class="registro">
-    <div class="marca">A FAZER</div>
-    <p>A seção ainda não tem o que a define, e a linha diz o que ela precisa
-    conter e por que não se escreve antes de outra coisa. Pendência com razão,
-    e não lembrete.</p>
-  </div>
-  <div class="registro">
-    <div class="marca">A VERIFICAR</div>
-    <p>Existe formulação, e ela repousa sobre um fato que ninguém conferiu: que
-    a fonte é acessível, que o dado é regular, que o volume é o que se imagina.
-    É o que separa projeto viável de projeto aprovado que morre no primeiro mês.</p>
-  </div>
-</div>
-
-<h2 id="qual">Qual assistente, e a escolha segue a fase</h2>
-
-<p><strong>O Miro serve enquanto as bases estão em formação</strong>, e é onde a
-maior parte do trabalho acontece: a lacuna, a pergunta, os objetivos, a
-estratégia, e sobretudo a articulação entre eles.</p>
-
-<p><strong>O Nelson pede o esboço pronto do Miro</strong>, porque a revisão de
+<p class="deck">A escolha segue a fase em que o projeto está. <b>O Miro serve
+enquanto as bases estão em formação</b>, e é onde a maior parte do trabalho
+acontece. <b>O Nelson pede o esboço pronto do Miro</b>, porque a revisão de
 literatura se faz contra uma pergunta, e sem pergunta ela vira lista de obras
-sobre um assunto.</p>
+sobre um assunto. <b>E a Clara pede o projeto escrito como projeto</b>: rodada
+sobre um esboço, ela não escreve relatório, e devolve a quem estava trabalhando
+nele.</p>
 
-<p><strong>E a Clara pede o projeto escrito como projeto.</strong> Rodada sobre
-um esboço, ela não escreve relatório: diz que só lê projeto e devolve a quem
-estava trabalhando nele.</p>
-
-<p class="grupo-rotulo">São conversa</p>
-<div class="cartoes">
-  <div class="cartao conversa">
-    <h4>Miro</h4>
-    <p class="papel">as bases do projeto</p>
-    <p>Uma pergunta por turno, sobre o que o estudante trouxe. Não dá a resposta
-    pronta, não valida por fluência, e ao fechar entrega um comentário mais o
-    esboço do projeto, num bloco só, para colar na disciplina.</p>
+<div class="route">
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">01</span><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a>
+      <span class="route-sub">as bases do projeto</span>
+    </div>
+    <div class="route-q">Trabalha a lacuna, a pergunta, os objetivos, a estratégia
+    metodológica e, sobretudo, a articulação entre eles. Uma pergunta por turno,
+    sobre o que o estudante trouxe. <b>É uma conversa, e não um documento:</b> o
+    que fica é o comentário do que ela produziu, mais o esboço.</div>
   </div>
-  <div class="cartao conversa">
-    <h4>Nelson</h4>
-    <p class="papel">a revisão de literatura</p>
-    <p>Recebe o esboço e trabalha o levantamento: se a busca procurou o que
-    contradiz a tese, se o que voltou é análise do campo ou lista, e o que a
-    revisão faz com a lacuna, que pode ser confirmá-la, estreitá-la ou derrubá-la.</p>
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">02</span><a href="https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73">Nelson</a>
+      <span class="route-sub">a revisão de literatura</span>
+    </div>
+    <div class="route-q">Recebe o esboço e trabalha o levantamento: se a busca
+    procurou o que contradiz a tese, se o que voltou é análise do campo ou lista de
+    obras, e o que a revisão faz com a lacuna, que pode ser confirmá-la,
+    estreitá-la ou derrubá-la. <b>É uma conversa</b>, e devolve o esboço
+    atualizado.</div>
   </div>
-</div>
-
-<p class="grupo-rotulo">Devolve um relatório</p>
-<div class="cartoes">
-  <div class="cartao">
-    <h4>Clara</h4>
-    <p class="papel">o projeto pronto, para a qualificação</p>
-    <p>Sem diálogo: lê, decide e entrega. Antes do relatório, verifica se há
-    projeto para ler, e se faltar peça estruturante encaminha ao Miro ou ao
-    Nelson e para. Quando escreve, separa dois julgamentos que podem divergir:
-    isto passa na qualificação, e isto aproveita a qualificação.</p>
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">03</span><a href="#clara">Clara</a>
+      <span class="route-sub">o projeto pronto, para a qualificação</span>
+    </div>
+    <div class="route-q">Lê, decide e entrega, sem diálogo. Antes do relatório
+    verifica se há projeto para ler, e se faltar peça estruturante encaminha ao
+    Miro ou ao Nelson e para. Quando escreve, separa dois julgamentos que podem
+    divergir: se o projeto passa na qualificação e se ele a aproveita. <b>Devolve
+    um relatório.</b></div>
   </div>
-</div>
-
-<!-- ============ 00 NORMA ============ -->
-<div class="instrumento" id="norma">
-  <div class="cabeca">
-    <span class="indice">[00]</span>
-    <h2>Norma</h2>
+  <div class="route-row">
+    <div class="route-a">
+      <a href="#norma">Norma</a>
+      <span class="route-sub">normalizador do arquivo, etapa optativa antes da Clara</span>
+    </div>
+    <div class="route-q">Põe o <code>.docx</code> em ordem: apaga parágrafo vazio
+    convertendo a altura em espaço, alinha cada papel a uma forma só e põe as
+    legendas no estilo de legenda. É a mesma ferramenta da Oficina de Orientação, e
+    aqui <b>serve só à Clara</b>, porque o Miro e o Nelson são conversa e não
+    recebem arquivo. <b>Não usa modelo, e por isso não custa nada e não roda no
+    chat.</b></div>
   </div>
-  <p class="resumo">Põe o arquivo em ordem antes que alguém o leia. É a mesma
-  ferramenta da Oficina de Orientação, e aqui serve só à Clara: o Miro e o Nelson
-  são conversa e não recebem arquivo.</p>
-
-  <dl class="ficha">
-    <div><dt>o que é</dt><dd>programa em Python, sem modelo de IA</dd></div>
-    <div><dt>custo</dt><dd>nenhum</dd></div>
-    <div><dt>tempo</dt><dd>segundos</dd></div>
-    <div><dt>roda em</dt><dd>Python, e não roda no chat</dd></div>
-  </dl>
-
-  <p>Projeto de estudante raramente chega formatado por estilo: o parágrafo típico
-  não usa o estilo Normal, o estilo muda ao longo do texto, e sobre ele vem uma
-  camada de formatação direta que deixa tudo parecido na tela sem deixar nada igual
-  no arquivo. O espaço entre blocos costuma ser feito com parágrafo vazio.</p>
-
-  <div class="confere">
-    <section class="sim">
-      <h3>Faz</h3>
-      <p>Apaga parágrafo vazio convertendo a altura em espaço depois do parágrafo
-      anterior. Junta espaço repetido. Reconhece três papéis, corpo, referência e
-      legenda, e <strong>alinha cada um a uma forma só</strong>, criando um estilo
-      com a forma que aquele grupo já tinha. Põe no estilo de legenda os parágrafos
-      que descrevem figura.</p>
-    </section>
-    <section class="nao">
-      <h3>Não faz</h3>
-      <p>Não toca na formatação de corrida de texto, onde moram fonte e corpo de
-      letra. Não inventa forma: cada estilo recebe a que aqueles parágrafos já
-      tinham. E <strong>não alinha quando não há a que alinhar</strong>: se nenhuma
-      forma reúne metade do papel, para e diz que escolher uma é decisão de quem
-      escreveu.</p>
-    </section>
-  </div>
-
-  <h3>Duas maneiras de usá-la, e a diferença é de controle</h3>
-  <p><strong>Por padrão ela roda em silêncio</strong>, como primeira fase da leitura
-  da Clara, porque num arquivo comum são centenas de mudanças e revisá-las uma a uma
-  não é atividade real.</p>
-  <p><strong>Rodá-la em separado, antes</strong>, serve a quem quer o controle da
-  forma: ela diz quantos estilos o projeto tem de fato e o que mudaria, e você
-  ajusta antes de mandar analisar o conteúdo.</p>
-
-  <div class="nota">
-    <p><strong>O arquivo devolvido não é byte a byte o que foi enviado.</strong> Por
-    isso o relatório de normalização vai anexo ao fim da entrega, dizendo quantos
-    estilos havia, quantos parágrafos vazios saíram e quantos ficaram por trava, e
-    onde ela se recusou a alinhar.</p>
-  </div>
-
-  <p>A descrição completa, com as travas que impedem apagar parágrafo que seja
-  estrutura e a medição em cinco trabalhos, está na
-  <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">página
-  da Oficina de Orientação</a>. Aquela medição foi feita sobre dissertações, e não
-  sobre projetos.</p>
 </div>
 
 <!-- ============ 01 MIRO ============ -->
@@ -747,6 +667,69 @@ python scripts/montar_entrega.py relatorio.md anexo.md projeto --estudante nome<
   </div>
 </div>
 
+<!-- ============ NORMA, ANTES DA CLARA ============ -->
+<div class="instrumento" id="norma">
+  <div class="cabeca">
+    <span class="indice">optativa</span>
+    <h2>Norma</h2>
+  </div>
+  <p class="resumo">Põe o arquivo em ordem antes que alguém o leia. É a mesma
+  ferramenta da Oficina de Orientação, e aqui serve só à Clara: o Miro e o Nelson
+  são conversa e não recebem arquivo.</p>
+
+  <dl class="ficha">
+    <div><dt>o que é</dt><dd>programa em Python, sem modelo de IA</dd></div>
+    <div><dt>custo</dt><dd>nenhum</dd></div>
+    <div><dt>tempo</dt><dd>segundos</dd></div>
+    <div><dt>roda em</dt><dd>Python, e não roda no chat</dd></div>
+  </dl>
+
+  <p>Projeto de estudante raramente chega formatado por estilo: o parágrafo típico
+  não usa o estilo Normal, o estilo muda ao longo do texto, e sobre ele vem uma
+  camada de formatação direta que deixa tudo parecido na tela sem deixar nada igual
+  no arquivo. O espaço entre blocos costuma ser feito com parágrafo vazio.</p>
+
+  <div class="confere">
+    <section class="sim">
+      <h3>Faz</h3>
+      <p>Apaga parágrafo vazio convertendo a altura em espaço depois do parágrafo
+      anterior. Junta espaço repetido. Reconhece três papéis, corpo, referência e
+      legenda, e <strong>alinha cada um a uma forma só</strong>, criando um estilo
+      com a forma que aquele grupo já tinha. Põe no estilo de legenda os parágrafos
+      que descrevem figura.</p>
+    </section>
+    <section class="nao">
+      <h3>Não faz</h3>
+      <p>Não toca na formatação de corrida de texto, onde moram fonte e corpo de
+      letra. Não inventa forma: cada estilo recebe a que aqueles parágrafos já
+      tinham. E <strong>não alinha quando não há a que alinhar</strong>: se nenhuma
+      forma reúne metade do papel, para e diz que escolher uma é decisão de quem
+      escreveu.</p>
+    </section>
+  </div>
+
+  <h3>Duas maneiras de usá-la, e a diferença é de controle</h3>
+  <p><strong>Por padrão ela roda em silêncio</strong>, como primeira fase da leitura
+  da Clara, porque num arquivo comum são centenas de mudanças e revisá-las uma a uma
+  não é atividade real.</p>
+  <p><strong>Rodá-la em separado, antes</strong>, serve a quem quer o controle da
+  forma: ela diz quantos estilos o projeto tem de fato e o que mudaria, e você
+  ajusta antes de mandar analisar o conteúdo.</p>
+
+  <div class="nota">
+    <p><strong>O arquivo devolvido não é byte a byte o que foi enviado.</strong> Por
+    isso o relatório de normalização vai anexo ao fim da entrega, dizendo quantos
+    estilos havia, quantos parágrafos vazios saíram e quantos ficaram por trava, e
+    onde ela se recusou a alinhar.</p>
+  </div>
+
+  <p>A descrição completa, com as travas que impedem apagar parágrafo que seja
+  estrutura e a medição em cinco trabalhos, está na
+  <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">página
+  da Oficina de Orientação</a>. Aquela medição foi feita sobre dissertações, e não
+  sobre projetos.</p>
+</div>
+
 <h2 id="termos">Esclarecimentos terminológicos</h2>
 
 <p>Quatro palavras aparecem o tempo todo aqui e significam coisas diferentes em
@@ -756,9 +739,13 @@ lugares diferentes. Estes são os sentidos em uso nesta oficina.</p>
   <div class="registro">
     <div class="marca">esboço</div>
     <p>O documento que o Miro e o Nelson produzem. Fala <em>ao autor</em> sobre o
-    que ele ainda tem de fazer, e por isso traz pendências marcadas e o registro de
-    quem formulou cada coisa. Não é um projeto em versão curta: é material de
-    trabalho, e não se entrega a ninguém que não seja quem o está construindo.</p>
+    que ele ainda tem de fazer, e por isso traz pendências marcadas: <span
+    class="mono">A FAZER</span> onde a seção ainda não tem o que a define, com a
+    razão de não se escrever antes de outra coisa, e <span class="mono">A
+    VERIFICAR</span> onde existe formulação que repousa sobre um fato que ninguém
+    conferiu. O resto vai em prosa, sem marca. Não é um projeto em versão curta: é
+    material de trabalho, e não se entrega a ninguém que não seja quem o está
+    construindo.</p>
   </div>
   <div class="registro">
     <div class="marca">projeto</div>
