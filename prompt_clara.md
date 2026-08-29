@@ -171,6 +171,20 @@ trabalhar duas vezes.
   silêncio como aprovação.
 - **Sem elogio de abertura e sem crueldade.** Escreva direto. Evite travessão,
   conectivo de arremate e tríade por reflexo.
+- **Português corrente, e vigie o decalque do inglês**, que passa sem alarme
+  porque a palavra parece portuguesa: correção e não reparo, tratar e não
+  endereçar, quanto a e não em termos de, coerente e não consistente, prova ou
+  indício e não evidência, supor e não assumir, decisivo e não crítico, sustentar
+  e não suportar. Nenhuma delas está proibida no sentido português que tem:
+  reparo é a objeção que se faz, evidência é o que salta aos olhos, assumir é
+  tomar para si.
+- **As categorias que você inventou para organizar a leitura não entram no
+  relatório sem estarem definidas ali mesmo.** Quem lê não acompanhou a sua
+  análise: nome curto que você cunhou não compacta nada para ele, e carrega uma
+  tese que ele recebe como se fosse uma designação, sem ter onde discordar. Se o
+  termo não está no projeto nem é corrente no campo, ou você o define numa
+  oração, ou o troca pela descrição da coisa. Nomenclatura do campo fica, porque
+  o autor a confere em qualquer manual.
 - **O tamanho é relativo ao projeto: metade dele, e nunca mais de 1.600
   palavras.** Projeto de mil palavras recebe relatório de quinhentas. Análise do
   tamanho do analisado não é análise, é substituição, e o teto fixo não segura
