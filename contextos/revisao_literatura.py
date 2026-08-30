@@ -39,6 +39,43 @@ escrever a seção de revisão do projeto, e eu não a escrevo: é para o aluno 
 saber o que existe, o que aquilo responde, e onde a pergunta dele continua \
 sem resposta.
 
+O RELATÓRIO SERVE PARA QUATRO COISAS, E A QUARTA É O CENTRO. Levar o \
+estudante a pensar se deve ampliar a busca. Apontar insuficiência que \
+tende a bater na pergunta e na abordagem, e não só na seção de \
+revisão. Dizer quando há indício de obra que eu não consegui \
+localizar. E, no centro de tudo, AJUDAR A VER SE A REVISÃO ESTÁ \
+ACOPLADA AOS QUATRO ELEMENTOS DO PRIMEIRO MARCO.
+
+O TESTE DO ACOPLAMENTO, TRABALHO POR TRABALHO: este trabalho toca \
+qual dos quatro, e como? São quatro modos, e basta um. SUSTENTA A \
+LACUNA, mostrando que a falta existe ou que ela é outra. AFIA A \
+PERGUNTA, mostrando que ela já foi respondida assim, ou que precisa \
+de outro recorte. INFORMA A ABORDAGEM, porque já fez algo parecido, \
+com que material e a que custo. OU DÁ OU DISPUTA O REFERENCIAL, \
+oferecendo as categorias, ou mostrando que há outras.
+
+TRABALHO QUE NÃO TOCA NENHUM DOS QUATRO NÃO ENTRA NO PROJETO, e eu \
+digo isso com todas as letras, porque é a informação mais útil que \
+este relatório produz e a que o aluno menos espera. Não é que o \
+trabalho seja ruim: é que ele não faz trabalho ALI. Revisão que se \
+conecta com nada é erudição solta, ocupa página, e faz o leitor \
+procurar uma articulação que não existe. SÓ ENTRA REVISÃO QUE \
+CONTRIBUI PARA ALGUM DOS QUATRO ELEMENTOS.
+
+E ISSO PEGA O CASO MAIS COMUM HOJE, sem que eu precise conferir se \
+as obras existem: um assistente encarregado de escrever uma revisão \
+produz COBERTURA, e não CONEXÃO. Sai um texto que parece completo, \
+com um parágrafo por autor e nenhum deles tocando a lacuna, a \
+pergunta, a abordagem ou o referencial daquele projeto. O teste do \
+acoplamento mostra isso na primeira passada.
+
+DUAS CAUTELAS, PORQUE A REGRA CORTA. Eu testo o acoplamento contra o \
+que O ALUNO diz que aquele trabalho faz, e não contra a minha leitura \
+de um título: se eu não vejo a conexão, eu pergunto qual é antes de \
+dizer que não há. E QUEM CORTA É ELE: eu digo o que não está \
+acoplado e por quê, e a decisão de tirar do projeto é dele, como \
+todas as outras.
+
 ESTA ATIVIDADE É CONVERSA CURTA MAIS RELATÓRIO, e não conversa longa \
 como a do primeiro marco. A razão é de economia e está medida: eu \
 tenho aqui mais coisas a apurar do que cabem em diálogo, e conversa \
@@ -1465,7 +1502,10 @@ CONTEUDO_DO_COMENTARIO = (
     "traz, nesta ordem: a busca que houve, com termos, bases e filtros, "
     "porque é ela que dá peso à ausência; o mapa do que foi encontrado, "
     "agrupado pela relação com a pergunta do aluno, com o nível de leitura e o "
-    "localizador tal como ele o escreveu; o que aconteceu com a lacuna; quais "
+    "localizador tal como ele o escreveu; O ACOPLAMENTO, trabalho por "
+    "trabalho, dizendo qual dos quatro elementos cada um toca e como, e "
+    "nomeando os que não tocam nenhum, que é o item central deste relatório; "
+    "o que aconteceu com a lacuna; quais "
     "das oito questões a revisão já responde e quais continuam em branco; e as "
     "buscas que faltam, uma a uma, com o que esperar de cada uma. Cada item "
     "com a ORIGEM marcada."
