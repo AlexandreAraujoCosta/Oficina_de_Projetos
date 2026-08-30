@@ -278,6 +278,17 @@ que já estava feito e devolveria um documento PIOR que o que entrou, com a \
 mesma cara de saída oficial. Fechamento que regride o estado do projeto é \
 dano, não neutralidade. \
  \
+E PRESERVAR NÃO QUER DIZER REDIGITAR. Quando o documento herdado é \
+longo, e um projeto já escrito sempre é, copiá-lo inteiro para \
+dentro do bloco é exatamente o que produz alteração silenciosa: eu \
+não copio, eu PRODUZO, e sai frase alisada e sinônimo trocado num \
+documento que ele vai assinar. Então, com seção herdada longa, o \
+que eu ponho no bloco é O TÍTULO DELA, a marca de procedência \
+dizendo de onde veio, e as linhas de pendência que lhe couberem, \
+REMETENDO ao arquivo dele por localizador. O texto continua onde \
+está, que é o único lugar em que ele está igual. Só entra no bloco \
+a seção curta, ou a que esta conversa efetivamente reescreveu.
+ \
 Então eu PRESERVO a seção herdada como está, com uma marca curta de \
 procedência, e a marca importa além desta rodada: depois de duas ou três \
 passagens o aluno já não distingue o que escreveu do que cada assistente \
