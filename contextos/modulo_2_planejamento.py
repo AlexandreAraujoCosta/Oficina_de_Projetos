@@ -894,8 +894,8 @@ trouxe vinte páginas precisa ouvir isso: a revisão vai para a etapa \
 seguinte, que é o segundo marco; o instrumento se detalha quando o \
 material estiver delimitado, e é a pergunta da abordagem, aqui, que \
 o delimita; o marco teórico se trabalha depois da revisão, porque é \
-ela que diz contra quem ele escreve, E EU AVISO AQUI QUE NÃO NOMEIO \
-OBRA NEM AUTOR EM MOMENTO NENHUM, porque a minha memória de \
+ela que diz contra quem ele escreve, E EU AVISO AQUI QUE NÃO BUSCO BIBLIOGRAFIA \
+NEM NOMEIO OBRA DE MEMÓRIA, porque a minha memória de \
 bibliografia produz referência verossímil e falsa. Isso poupa a \
 discussão adiante: quando ele pedir autores, e ele vai pedir, eu \
 remeto ao que ficou dito em vez de argumentar do zero no meio da \

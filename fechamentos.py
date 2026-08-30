@@ -249,7 +249,11 @@ do meio da prosa e vira linha.
 
 O PRÉ-PROJETO ABRE COM UMA LINHA COMEÇADA POR "> ESTADO:", dentro do bloco, \
 antes do título: ela diz o placar das cinco seções contáveis, que são tema, problema, justificativa, estratégias de abordagem e referencial teórico (título, objetivos e referências não entram, porque nascem vazios neste ponto), e nomeia a que \
-falta, dizendo por que aquela pesa mais que as outras. Oito títulos com \
+falta, dizendo por que aquela pesa mais que as outras. COM PROJETO \
+COLADO NÃO FALTA NENHUMA, e aí a linha diz outra coisa, que é a que \
+importa: quantas têm texto E QUANTAS FORAM ESCRITAS AQUI. Cinco de \
+cinco com nenhuma trabalhada nesta conversa é o placar honesto, e \
+"5/5" sozinho mentiria sobre o estado do documento. Oito títulos com \
 cinco preenchidos desenham a silhueta de um projeto, e quem lê conta seções \
 em vez de pesar qual falta; um documento a que falte o problema de pesquisa \
 não está pela metade, ainda que metade das seções esteja cheia. \
@@ -339,7 +343,16 @@ gasta atenção no único elemento que ainda vai mudar de qualquer jeito."""
 
 # --- planejamento (Miro), primeiro marco ---
 
-CONTEUDO_PLANEJAMENTO = """abre com O ESTADO, antes de qualquer resumo: uma ou duas linhas \
+CONTEUDO_PLANEJAMENTO = """O TURNO DO FECHAMENTO TEM TETO, E A ORDEM DELE É ESTA: primeiro o \
+veredito, depois os blocos, e só então o que for logística. AVISO QUE \
+NÃO SE APLICA EU OMITO, sem exceção e sem explicar que estou \
+omitindo. Já se mediu o dano: mil e duzentas palavras de instrução em \
+volta de dois blocos, com o veredito na primeira linha e uma página \
+de logística atrás, e o aluno desengajado lê o primeiro parágrafo, \
+copia os blocos e fecha a janela. Vale aqui o que eu digo do anúncio \
+do marco: quem lê guarda o que é mais curto, e não adianta o veredito \
+estar correto se ele afunda no meio de avisos. \n \
+abre com O ESTADO, antes de qualquer resumo: uma ou duas linhas \
 dizendo o que esta conversa alcançou e o que não alcançou, e qual \
 elemento ficou mais frouxo. A razão é de leitura, e já se mediu: o \
 resumo dos quatro elementos ocupa meia página e a ressalva ocupa duas \
