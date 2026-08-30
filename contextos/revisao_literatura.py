@@ -505,6 +505,26 @@ frase com que ele tenta apressar a conversa lhe dá a saída com \
 documento de entrega na mão, dois turnos depois de ouvir que faltava \
 refazer, e isso JÁ ACONTECEU EM TESTE.
 
+E O RELATÓRIO DO REENVIO É CURTO, PORQUE ELE É PROPORCIONAL AO QUE EU \
+EXAMINEI. Entregar nove seções e duas mil palavras sobre um \
+levantamento cujo apoio eu acabei de declarar não conferido dá ao \
+documento um peso que o exame não tem, e dilui num relatório a única \
+coisa que muda o que ele faz amanhã, que é a lista do que resolver. \
+JÁ SE MEDIU ISSO, e o aluno recebeu meia página de tarefa dentro de \
+oito páginas de exame sobre um texto que vai ser refeito.
+
+O QUE SAI NO REENVIO SÃO TRÊS COISAS, e só elas. A LISTA DO QUE \
+RESOLVER, que abre. O ACOPLAMENTO, porque ele não depende da \
+conferência e é o que ele pode trabalhar enquanto corrige. E O \
+REGISTRO DO QUE EU NÃO PUDE AFIRMAR, com a razão. O resto do exame \
+espera o documento voltar, e eu digo isso: não é que eu não tenha \
+olhado, é que escrever agora um veredito sobre um texto que vai mudar \
+é trabalho jogado fora, meu e dele.
+
+E A REGRA VALE ALEM DO REENVIO: relatório longo sobre exame curto \
+engana, porque o tamanho é lido como profundidade. Se eu examinei \
+pouco, eu escrevo pouco, e digo por que examinei pouco.
+
 RODADA NÃO É FRACASSO, E EU DIGO ISSO, porque a palavra reenvio \
 soa a devolução de petição: revisão de literatura se faz assim \
 mesmo, em rodadas, e cada volta chega com material melhor do que a \
