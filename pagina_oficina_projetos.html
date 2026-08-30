@@ -415,92 +415,71 @@
 
 <h2 id="qual">Ferramentas disponíveis</h2>
 
-<p class="deck">Há <b>duas linhas</b>, e a diferença entre elas não é de
-qualidade da leitura, é de onde ela roda. <b>Na linha do chat</b>, cada peça é uma
-conversa nova, porque um prompt tem de caber sozinho numa conta gratuita. <b>Na
-linha do agente</b>, o prompt é arquivo que o assistente lê, não há teto, e os três
-estágios cabem numa conversa só.</p>
+<p class="deck">Duas conversas e duas leituras. <b>A conversa trabalha o que
+ainda não está decidido</b>, uma pergunta por vez, e o que fica dela é o
+pré-projeto. <b>A leitura trabalha o que já está escrito</b>, sem diálogo, e o que
+fica dela é um relatório dizendo o que precisa ser desenvolvido.</p>
 
-<p class="deck" style="margin-bottom:1.2rem">A escolha entre as duas é de acesso:
-quem tem conta gratuita usa a primeira; quem tem assinatura ou chave de API e
-aceita alguma instalação usa a segunda, e leva junto os programas, que devolvem o
-arquivo anotado.</p>
+<p class="deck" style="margin-bottom:1.2rem">A ordem entre elas não é rígida, e a
+volta faz parte: uma leitura que encontra elemento sem sustentação devolve o
+projeto à conversa.</p>
 
-<p class="grupo-linha">Linha do chat, em conta gratuita</p>
+<p class="grupo-linha">São conversa, e rodam em conta gratuita</p>
 <div class="route">
   <div class="route-row">
     <div class="route-a">
       <span class="route-n">01</span><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a>
-      <span class="route-sub">as bases do projeto</span>
+      <span class="route-sub">consistência entre os quatro elementos</span>
     </div>
-    <div class="route-q">Trabalha a lacuna, a pergunta, os objetivos, a estratégia
-    e a articulação entre eles, até o primeiro equilíbrio. Ao fechar, manda
-    <b>buscar e incluir</b> a revisão de literatura no documento. <b>É uma conversa:</b>
-    o que fica é o comentário e o pré-projeto.</div>
+    <div class="route-q">Trabalha a lacuna, a pergunta, a abordagem metodológica e
+    o referencial, e sobretudo a consistência entre eles. <b>Não pesquisa, não
+    avalia a revisão de literatura, não aprofunda o método e não pole o marco
+    teórico:</b> faz o que vem antes dessas três coisas e sem o que nenhuma delas
+    rende. Ao fechar, manda buscar e incluir a revisão no documento.</div>
   </div>
   <div class="route-row">
     <div class="route-a">
       <span class="route-n">02</span><a href="https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73">Nelson</a>
-      <span class="route-sub">ajuda na busca, quando ela for difícil</span>
+      <span class="route-sub">ajuda na busca, para quem precisar</span>
     </div>
-    <div class="route-q">Deixou de ser passo obrigatório. Quem já sabe buscar,
-    busca e inclui. Quem quiser ajuda nessa etapa, que é a que os alunos mais
-    penam, trabalha a busca com ele: os termos, as bases, o que trazer de volta, e
-    o que o que voltou faz com a lacuna. <b>É uma conversa.</b></div>
-  </div>
-  <div class="route-row">
-    <div class="route-a">
-      <span class="route-n">03</span><a href="#clara">Clara</a>
-      <span class="route-sub">a leitura do projeto com a revisão dentro</span>
-    </div>
-    <div class="route-q">Lê o projeto e diz <b>o que precisa ser desenvolvido</b>.
-    Sem diálogo: lê, decide e entrega. Confere a revisão contra o texto escrito, e
-    não contra o relato de quem buscou, e coteja a teoria com o método.
-    <b>Devolve um relatório.</b></div>
+    <div class="route-q">Não é passo obrigatório. Quem já sabe buscar, busca e
+    inclui. Quem quiser ajuda nessa etapa, que é a que os alunos mais penam,
+    trabalha com ele os termos, as bases, o que trazer de volta, e o que o que
+    voltou faz com a lacuna.</div>
   </div>
 </div>
 
-<p class="grupo-linha">Linha do agente, no Claude Code ou no VS Code</p>
+<p class="grupo-linha">Devolvem um relatório</p>
 <div class="route">
   <div class="route-row">
     <div class="route-a">
-      <span class="route-n">01</span>Miro expandido
-      <span class="route-sub">os três estágios numa conversa só</span>
+      <span class="route-n">03</span><a href="#clara">Clara</a>
+      <span class="route-sub">o projeto com a revisão dentro</span>
     </div>
-    <div class="route-q">O mesmo Miro, com a revisão de literatura e o cotejo de
-    teoria e método dentro, e <b>três marcos</b>: o equilíbrio dos quatro
-    elementos; a revisão adequada e concatenada, mandando fazer se não houver ou
-    refazer se não sustentar; e o cotejo da metodologia com a teoria, que só começa
-    quando a revisão fecha. São 152 mil caracteres, e por isso ele não roda no
-    chat.</div>
+    <div class="route-q">Lê e diz <b>o que precisa ser desenvolvido</b>. Confere a
+    revisão contra o texto escrito, e não contra o relato de quem buscou; coteja a
+    teoria com o método; e verifica o encaixe entre todos os elementos. <b>Duas
+    vias:</b> no chat, relatório na conversa; com os programas, o
+    <code>.docx</code> anotado e o PDF.</div>
   </div>
   <div class="route-row">
     <div class="route-a">
       <a href="#norma">Norma</a>
-      <span class="route-sub">normalizador do arquivo, etapa optativa</span>
+      <span class="route-sub">normalizador do arquivo, antes das leituras</span>
     </div>
-    <div class="route-q">Põe o <code>.docx</code> em ordem antes da leitura. É a
-    mesma ferramenta da Oficina de Orientação e <b>não usa modelo</b>, por isso não
-    custa nada e não roda no chat.</div>
+    <div class="route-q">Põe o <code>.docx</code> em ordem antes de alguém o ler.
+    É a mesma ferramenta da Oficina de Orientação e <b>não usa modelo</b>, por isso
+    não custa nada e não roda no chat.</div>
   </div>
   <div class="route-row">
     <div class="route-a">
-      <span class="route-n">02</span><a href="#clara">Clara</a>
-      <span class="route-sub">a mesma leitura, com os programas</span>
-    </div>
-    <div class="route-q">O mesmo prompt da linha do chat, rodado sobre a pasta:
-    daí voltam o projeto anotado em <code>.docx</code>, com cada apontamento na
-    margem, e o relatório em PDF.</div>
-  </div>
-  <div class="route-row">
-    <div class="route-a">
-      <span class="route-n">03</span><a href="https://claude.ai/code/artifact/13aa2c5a-6df6-4b99-abfa-dcc258671fd1">Luis</a>
-      <span class="route-sub">a leitura cara, quando ela se paga</span>
+      <span class="route-n">04</span><a href="https://claude.ai/code/artifact/13aa2c5a-6df6-4b99-abfa-dcc258671fd1">Luis</a>
+      <span class="route-sub">a leitura cara, para quem orienta</span>
     </div>
     <div class="route-q">A leitura da oficina irmã, com a camada
     <code>PROJETO.md</code> que diz o que muda quando não há resultados nem
     conclusões. Quatro passos com cotejo, e ela declara quais deles ficam sem
-    objeto num projeto. <b>Devolve um relatório</b>, e é para quem orienta.</div>
+    objeto num projeto. Roda só com os programas.</div>
   </div>
 </div>
 
@@ -510,12 +489,12 @@ arquivo anotado.</p>
     <span class="indice">[01]</span>
     <h2>Miro</h2>
   </div>
-  <p class="resumo">Conversa sobre as bases do projeto, e sobre a estrutura geral
-  de um projeto ainda pouco desenvolvido. O foco é a conversa: o que fica ao fim
-  é o comentário do que ela produziu, mais o pré-projeto no estado em que chegou.</p>
+  <p class="resumo">Agente conversacional de consistência. Ele não pesquisa, não
+  verifica se a revisão se sustenta e não desenvolve o método nem o marco teórico:
+  ajuda a formular, com consistência, os quatro elementos que são o seu núcleo.</p>
 
   <dl class="ficha">
-    <div><dt>tamanho</dt><dd>~93 mil caracteres</dd></div>
+    <div><dt>tamanho</dt><dd>~95 mil caracteres</dd></div>
     <div><dt>roda em</dt><dd>qualquer chat, inclusive gratuito</dd></div>
     <div><dt>entrega</dt><dd>comentário e pré-projeto, em bloco de código</dd></div>
     <div><dt>uso real</dt><dd>duas turmas, 2026</dd></div>
@@ -525,42 +504,68 @@ arquivo anotado.</p>
     <section class="sim">
       <h3>Trabalha</h3>
       <p>A lacuna, medida por falta e não por presença. A pergunta que a ilumina.
-      Os objetivos, um por etapa que produz resultado. A estratégia, testada pela
-      pergunta dos dados: que material permitiria responder isso. O referencial,
-      testado por conter ou não a conclusão que deveria examinar. E o título
-      provisório, sem rigor, porque ele se refaz no fim.</p>
+      A abordagem, testada pela pergunta dos dados: que material permitiria
+      responder isso. O referencial, testado por conter ou não a conclusão que
+      deveria examinar. E, acima de tudo, <b>a consistência entre os quatro</b>,
+      que é o que se quebra quando cada um foi escrito por si.</p>
     </section>
     <section class="nao">
       <h3>Não faz</h3>
-      <p>Não faz a busca bibliográfica e não nomeia obra nenhuma, mesmo tendo
-      ferramenta de busca: quem afirma uma lacuna precisa ter procurado, e a
-      procura é do estudante. Não dá nota, em nenhuma circunstância. Não avalia o
-      estudante, e sim o desenho.</p>
+      <p><b>Não avalia a revisão de literatura</b>, nem para dizer se ela sustenta
+      a lacuna. <b>Não aprofunda o método:</b> unidade de análise, protocolo de
+      registro, validação e piloto são de outra etapa. <b>Não pole o marco
+      teórico:</b> não escolhe autores nem melhora a redação da seção. E não faz
+      busca bibliográfica nem nomeia obra nenhuma, mesmo tendo ferramenta de
+      busca.</p>
     </section>
+  </div>
+
+  <h3>Por que essas três ficam de fora</h3>
+  <p>Não é recusa. As três são trabalho de verdade, e cada uma se faz melhor com o
+  que numa conversa não existe: a revisão pede as bases e o texto na mão, o método
+  pede o material já delimitado, e o marco pede a revisão feita. O que o Miro faz é
+  <b>o que vem antes das três, e sem o que nenhuma delas rende</b>.</p>
+
+  <h3>Quando o projeto chega pronto</h3>
+  <p>Acontece com frequência, e vai acontecer mais: o estudante gera o projeto numa
+  IA e traz. Aí o Miro não usa a abertura de quem começa, que diante de um texto
+  colado soa a formulário. Ele diz que o projeto veio pronto e que o trabalho é
+  entender e equilibrar os quatro elementos, devolve o que encontrou e o que não
+  encontrou com o aviso de que pode ter lido torto, e pergunta pelo elemento mais
+  frouxo.</p>
+  <p><b>E elemento pronto quer dizer testado contra os outros, não seção
+  redigida.</b> Um problema escrito como "em que medida X compromete Y" já traz a
+  resposta dentro da pergunta e deixa em aberto só o quanto, e isso só aparece
+  lendo-o contra a lacuna.</p>
+
+  <div class="nota">
+    <p><strong>Bibliografia que chega escrita é gatilho.</strong> Dez ou mais nomes
+    com ano, nenhum com título ou veículo, todos convenientes ao argumento: o Miro
+    diz, no turno em que a lista chega, que não reconhece aqueles trabalhos e não
+    tem como conferir se existem. E <b>não usa nenhum deles como argumento</b> até
+    que isso se resolva, nem para mostrar ao aluno que o campo o contradiz: usar
+    como prova o que pode não existir convence o aluno de que existe.</p>
   </div>
 
   <h3>Por que a entrega é a conversa inteira, e não só o comentário</h3>
   <p>Foi mudada duas vezes. Em julho de 2026 passou a ser só o comentário; em
   agosto voltou a ser a conversa fechada pelo comentário, e a razão veio do
   primeiro uso com alunos: das 22 entregas da primeira turma, 10 mostravam
-  conversas que nunca chegaram a fechamento nenhum. Isso só foi possível
-  descobrir porque aqueles alunos tinham colado o diálogo todo. Com a entrega
-  reduzida ao comentário, conversa que não fecha não produz entrega, e o que
-  falhou fica invisível.</p>
+  conversas que nunca chegaram a fechamento nenhum. Isso só foi possível descobrir
+  porque aqueles alunos tinham colado o diálogo todo. Com a entrega reduzida ao
+  comentário, conversa que não fecha não produz entrega, e o que falhou fica
+  invisível.</p>
 
   <h3>Três proibições vindas de casos observados</h3>
   <ul class="simples">
-    <li><strong>Nada entre aspas.</strong> Um modelo obrigado a citar
-    literalmente inventou uma frase e a atribuiu ao estudante na avaliação final.
-    Exigir citação cria demanda por citação, e o modelo sem memória exata preenche
-    o espaço fabricando. O que substitui as aspas é nomear a coisa concreta: qual
-    elemento mudou, e que pergunta provocou a mudança.</li>
+    <li><strong>Nada entre aspas.</strong> Um modelo obrigado a citar literalmente
+    inventou uma frase e a atribuiu ao estudante na avaliação final. O que
+    substitui as aspas é nomear a coisa concreta: qual elemento mudou, e que
+    pergunta provocou a mudança.</li>
     <li><strong>Nenhuma afirmação geral sobre o formato da conversa.</strong> Um
-    modelo negou, na própria nota, um episódio que tinha acontecido ali. Resumo de
-    memória sobre o conjunto é onde a invenção aparece; evento localizado se
-    confere.</li>
-    <li><strong>Nota, nunca.</strong> Houve caso real de assistente atribuindo
-    nota 9 numa atividade que não tem nota. O aluno cola isso como entrega e
+    modelo negou, na própria nota, um episódio que tinha acontecido ali.</li>
+    <li><strong>Nota, nunca.</strong> Houve caso real de assistente atribuindo nota
+    9 numa atividade que não tem nota. O aluno cola isso como entrega e
     acredita.</li>
   </ul>
 
@@ -786,7 +791,7 @@ lugares diferentes. Estes são os sentidos em uso nesta oficina.</p>
 </div>
 
 <!-- ============ FORMAS DE USO ============ -->
-<h2 id="formas">Três formas de uso das ferramentas</h2>
+<h2 id="formas">Duas formas de uso das leituras</h2>
 
 <p><strong>Pelo chat</strong> roda tudo o que é conversa, o Miro e o Nelson, e
 também a Clara na versão portátil. Cola-se o prompt numa janela nova e trabalha-se
