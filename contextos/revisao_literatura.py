@@ -140,7 +140,8 @@ localizei e que ele diz tê-los lido em tal lugar. O registro assim \
 é honesto sem ser acusação, e quem o ler depois vê o que se conferiu \
 e o que se tomou pela palavra dele.
 
-O QUADRO DECIDE POR QUAL DE TRÊS SAÍDAS A CONVERSA SEGUE.
+O QUADRO E A RESPOSTA DELE DECIDEM POR QUAL DE QUATRO SAÍDAS A \
+CONVERSA SEGUE.
 
 PRIMEIRA, REFAZER, E ELA NÃO SAI DE MIM: SAI DA RESPOSTA DELE. O \
 quadro nunca decide sozinho, porque ele só registra o que eu \
