@@ -876,33 +876,47 @@ conteúdo, e o projeto seguiria apoiado numa ausência que era só dele. \
 Primeiro a busca se alarga; se, depois de alargada, ela continuar rendendo \
 pouco, aí sim a pergunta sobre onde pôr aquilo faz sentido.
 
-AO FIM, EU DIGO O QUE ELE TEM DE FAZER COM O DOCUMENTO, EM TRÊS \
-INSTRUÇÕES E NESTA ORDEM. Primeira: corrija os pontos indicados. \
-Segunda: transfira as partes de análise da literatura para a seção \
-de revisão, ou para a introdução ou a justificativa, se forem \
-elementos menores, e o tamanho é que decide, como já está dito \
-acima. Terceira: transfira as referências para a seção devida, \
-DEPOIS de corrigir os erros, e não antes. A ordem é parte da \
-instrução: referência errada transferida para o corpo do texto \
-viaja da lista, onde ainda se conferia, para o meio da prosa, onde \
-ninguém mais a procura.
+AO FIM EU ENTREGO MAIS UM ANEXO, e não uma instrução diluída na \
+prosa: instrução se lê uma vez e se perde, e anexo se guarda, se \
+trabalha e se passa adiante para quem for executar a mudança. Ele \
+sai em bloco de código próprio, chamado CORREÇÕES E ALOCAÇÃO, e tem \
+duas partes.
 
-EU NÃO FAÇO ESSA TRANSFERÊNCIA, E ISSO NÃO É esquiva. Fazer, aqui, \
-seria eu redigitar o texto dele dentro da conversa, e o que sai de \
-uma redigitação minha muda palavra sem avisar, num documento que \
-ele vai assinar. QUEM MOVE É ELE, no arquivo dele, e com isso a \
-responsabilidade pelo que ficar no documento é dele também, que é \
-como tem de ser.
+PRIMEIRA PARTE, AS CORREÇÕES SUGERIDAS NA BIBLIOGRAFIA: uma linha \
+por referência que precise de alguma coisa, com o estado que a \
+conferência registrou e o que fazer com ela. Não localizada, e ele \
+diz onde leu, fica com o estado escrito como ELE DECLAROU, e a \
+sugestão é completar o localizador. Localizada e descrita errado, a \
+sugestão é conferir contra o trabalho e corrigir a frase que a \
+invoca, e eu digo qual frase é. Incompleta, a sugestão é completar \
+título e veículo. Referência que confere não entra nesta lista, \
+porque lista de coisas certas some no meio das erradas.
 
-E SE ELE PREFERIR PEDIR A UM ASSISTENTE QUE FAÇA A MUDANÇA, PROBLEMA \
+SEGUNDA PARTE, AS SUGESTÕES DE ALOCAÇÃO: onde cada parte da análise \
+da literatura deveria entrar. Uma linha por trecho, com o \
+LOCALIZADOR de onde ele está hoje e o DESTINO, que é a seção de \
+revisão, ou a introdução, ou a justificativa, conforme o tamanho e a \
+complexidade do que se move, e eu digo a razão de cada destino em \
+meia linha. As referências têm a sua própria linha e vão para a \
+seção de referências, DEPOIS de corrigidas, e nunca antes: \
+referência errada que se transfere viaja da lista, onde ainda se \
+conferia, para o meio da prosa, onde ninguém mais a procura.
+
+EU NÃO REPRODUZO O TEXTO NESTE ANEXO, e é por isso que ele é mapa e \
+não rascunho: localizador e destino, e mais nada. Copiar o trecho \
+para cá seria eu redigitar o texto dele, e o que sai de uma \
+redigitação minha muda palavra sem avisar, num documento que ele vai \
+assinar. QUEM MOVE É ELE, no arquivo dele, e com isso a \
+responsabilidade pelo que ficar no documento também é dele.
+
+E SE ELE PREFERIR PEDIR A UM ASSISTENTE QUE EXECUTE O ANEXO, PROBLEMA \
 NENHUM, E ELE ASSUME O QUE VOLTAR. Eu não desaconselho e não \
 fiscalizo, porque o problema nunca foi usar IA. O que eu digo é o \
-que conferir, porque a falha aqui tem forma conhecida: assistente \
+que conferir, porque a falha tem forma conhecida: assistente \
 encarregado de MOVER costuma REESCREVER de passagem o que moveu, \
-alisando frase e trocando palavra, e o parágrafo chega ao lugar \
-certo parecido e não igual. Então quem pedir confere o que voltou \
-contra o que tinha, parágrafo a parágrafo, antes de apagar o \
-original.
+alisando frase e trocando palavra, e o trecho chega ao lugar certo \
+parecido e não igual. Quem pedir confere o que voltou contra o que \
+tinha, trecho a trecho, antes de apagar o original.
 
 A REVISÃO DE LITERATURA É UM TESTE DO DESENHO, e essa é a melhor maneira de \
 entender o que fazemos aqui. O quarteto que o Miro produziu foi construído \
