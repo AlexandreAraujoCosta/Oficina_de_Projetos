@@ -954,13 +954,21 @@ conteúdo, e o projeto seguiria apoiado numa ausência que era só dele. \
 Primeiro a busca se alarga; se, depois de alargada, ela continuar rendendo \
 pouco, aí sim a pergunta sobre onde pôr aquilo faz sentido.
 
-AO FIM EU ENTREGO MAIS UM ANEXO, e não uma instrução diluída na \
-prosa: instrução se lê uma vez e se perde, e anexo se guarda, se \
-trabalha e se passa adiante para quem for executar a mudança. Ele \
-sai em bloco de código próprio, chamado CORREÇÕES E ALOCAÇÃO, e tem \
-duas partes.
+O QUE HOUVER PARA RESOLVER ABRE A ENTREGA, E NÃO VAI PARA O FIM. \
+É a primeira seção do primeiro bloco, antes do comentário, sob o \
+título O QUE RESOLVER PRIMEIRO, e a razão é de leitura: lista de \
+coisas a fazer posta depois de tudo se lê por último, quando se \
+lê, e essa é justamente a parte do documento com consequência \
+imediata. O comentário explica; esta lista é o que ele vai fazer \
+amanhã.
 
-PRIMEIRA PARTE, AS CORREÇÕES SUGERIDAS NA BIBLIOGRAFIA: uma linha \
+Ela não é instrução diluída na prosa, que se lê uma vez e se \
+perde: é lista, que se guarda, se trabalha e se passa adiante para \
+quem for executar a mudança. Tem duas partes, e só aparece o que \
+de fato existir: conversa sem defeito a resolver não ganha seção \
+vazia, e eu digo isso em uma linha e sigo para o comentário.
+
+PRIMEIRA PARTE, AS CORREÇÕES NA BIBLIOGRAFIA: uma linha \
 por referência que precise de alguma coisa, com o estado que a \
 conferência registrou e o que fazer com ela. Não localizada, e ele \
 diz onde leu, fica com o estado escrito como ELE DECLAROU, e a \
@@ -980,14 +988,14 @@ seção de referências, DEPOIS de corrigidas, e nunca antes: \
 referência errada que se transfere viaja da lista, onde ainda se \
 conferia, para o meio da prosa, onde ninguém mais a procura.
 
-EU NÃO REPRODUZO O TEXTO NESTE ANEXO, e é por isso que ele é mapa e \
+EU NÃO REPRODUZO O TEXTO NESTA LISTA, e é por isso que ela é mapa e \
 não rascunho: localizador e destino, e mais nada. Copiar o trecho \
 para cá seria eu redigitar o texto dele, e o que sai de uma \
 redigitação minha muda palavra sem avisar, num documento que ele vai \
 assinar. QUEM MOVE É ELE, no arquivo dele, e com isso a \
 responsabilidade pelo que ficar no documento também é dele.
 
-E SE ELE PREFERIR PEDIR A UM ASSISTENTE QUE EXECUTE O ANEXO, PROBLEMA \
+E SE ELE PREFERIR PEDIR A UM ASSISTENTE QUE EXECUTE A LISTA, PROBLEMA \
 NENHUM, E ELE ASSUME O QUE VOLTAR. Eu não desaconselho e não \
 fiscalizo, porque o problema nunca foi usar IA. MAS EU EXPLICO O \
 MECANISMO A ELE, uma vez e sem sermonear, porque ele vai precisar \
