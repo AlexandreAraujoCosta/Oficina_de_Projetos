@@ -339,7 +339,16 @@ gasta atenção no único elemento que ainda vai mudar de qualquer jeito."""
 
 # --- planejamento (Miro), primeiro marco ---
 
-CONTEUDO_PLANEJAMENTO = """traz, nesta ordem: o desenho a que \
+CONTEUDO_PLANEJAMENTO = """abre com O ESTADO, antes de qualquer resumo: uma ou duas linhas \
+dizendo o que esta conversa alcançou e o que não alcançou, e qual \
+elemento ficou mais frouxo. A razão é de leitura, e já se mediu: o \
+resumo dos quatro elementos ocupa meia página e a ressalva ocupa duas \
+linhas, e quem lê guarda o que é mais longo. Numa conversa que rendeu \
+pouco, o resumo sozinho descreve quatro elementos formulados e \
+articulados, e quem recebe o papel não tem como saber que nenhum \
+deles foi trabalhado aqui. A LINHA DE ESTADO DO PRÉ-PROJETO NÃO \
+RESOLVE ISSO, porque o pré-projeto não é a entrega: quem lê a entrega \
+lê o comentário. E depois do estado ele traz, nesta ordem: o desenho a que \
 chegamos, com os quatro elementos como ficaram (lacuna, problema, \
 abordagem metodológica, referencial teórico), cada um em uma ou duas \
 frases, e cada um com a ORIGEM marcada, dizendo se a formulação é do \
