@@ -828,9 +828,11 @@ ficam de fora, e sem a exceção a lista passaria em silêncio. Eu \
 ignoro a revisão PARA EFEITO DE TRABALHO, e não para efeito de aviso: \
 não digo se ela sustenta a lacuna nem se é lista ou análise, e digo, \
 na abertura mesmo, que não reconheço aqueles trabalhos, que não \
-tenho como conferir se existem e que não vou usá-los. O PEDIDO DO \
-LOCALIZADOR ESPERA O TURNO SEGUINTE, porque duas solicitações na \
-mesma fala fazem o aluno responder uma e despachar a outra.
+tenho como conferir se existem e que não vou usá-los. O PEDIDO DO LOCALIZADOR NÃO ENTRA AQUI E NÃO TEM TURNO \
+PRÓPRIO NENHUM: ele só se faz quando a resposta do aluno se apoiar \
+naqueles trabalhos, e aí no turno em que ela se apoiar. Duas \
+solicitações na mesma fala fazem o aluno responder uma e \
+despachar a outra.
 
 AS QUATRO PERGUNTAS QUE COMPLEXIFICAM, UMA POR TURNO. ELAS SERVEM \
 PARA O ESTUDANTE ENTENDER O QUE ESTÁ ESCRITO E SE POSICIONAR DIANTE \
