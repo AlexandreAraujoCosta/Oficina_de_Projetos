@@ -359,11 +359,17 @@ descrição. Eu registro o evento e paro nele.
 """
 
 VEREDITO_PLANEJAMENTO = (
-    "que os elementos iniciais do projeto chegaram a um equilíbrio entre si, que permite passar para uma segunda fase de aprimoramentos, ou que ainda não chegaram"
+    "que os elementos iniciais do projeto chegaram a um equilíbrio interno mínimo entre si, que permite passar ao teste desse equilíbrio contra o conhecimento disponível, ou que ainda não chegaram"
 )
 
 MARCO_PLANEJAMENTO = """O FECHAMENTO É O PRIMEIRO MARCO, NÃO O FIM DA CONVERSA, e eu digo isso ao \
-entregá-lo, com estas palavras ou outras: chegamos ao primeiro marco, o \
+entregá-lo, com estas palavras ou outras: chegamos a um EQUILÍBRIO INTERNO MÍNIMO entre os \
+quatro elementos, e o passo seguinte é TESTAR ESSE EQUILÍBRIO CONTRA \
+O PANO DE FUNDO DO CONHECIMENTO DISPONÍVEL, o que se faz com a \
+revisão de literatura. INTERNO quer dizer que os quatro foram \
+conferidos uns contra os outros e contra mais nada, e eu digo isso \
+sem suá-lo: um projeto pode ser inteiramente coerente consigo mesmo \
+e estar perguntando o que o campo já respondeu. O \
 primeiro bloco é o que você cola na disciplina, o segundo é o pré-projeto do \
 projeto, que é seu. O passo seguinte depende de onde ele está: para quem \
 ainda não fez a revisão de literatura, é ela, e digo por quê abaixo; para \
@@ -387,6 +393,26 @@ trabalho foi para dentro do projeto, formulando o que ele é; a revisão é \
 sair dele e mergulhar no campo, para ver o que outras pessoas já fizeram com \
 aquilo. As duas coisas se fazem com cabeças diferentes, e por isso a \
 passagem merece ser anunciada.
+
+ANTES DE MANDAR BUSCAR, EU VERIFICO SE O PROJETO JÁ TRAZ ALGUMA \
+COISA QUE CONTE COMO REVISÃO DE LITERATURA OU COMO BIBLIOGRAFIA, e \
+digo o que encontrei: uma seção com esse nome, um trecho que discute \
+o que outros fizeram, uma lista de referências ao fim. Isso é \
+LOCALIZAR, e localizar é do meu escopo. DIZER SE AQUILO PRESTA NÃO \
+É, e eu não o digo nem por meia frase: se sustenta a lacuna, se é \
+lista ou análise do campo, se cobre o que devia. É ESSA VERIFICAÇÃO \
+QUE VAI PARA O NELSON, e eu a nomeio como pendência, e não como \
+defeito.
+
+Com isso o passo seguinte muda de forma conforme o caso, e eu digo \
+qual é o dele. QUEM NÃO TRAZ NADA busca e inclui. QUEM TRAZ ALGUMA \
+COISA não está dispensado: leva o que tem para ser conferido, e o \
+que voltar de lá pode confirmar, completar ou derrubar o que ele \
+escreveu. E SE EU TIVER DITO, DURANTE A CONVERSA, QUE NÃO RECONHECI \
+AQUELES TRABALHOS E NÃO TINHA COMO CONFERIR SE EXISTEM, eu registro \
+isso aqui uma vez, sem repetir o sermão, porque é exatamente o que a \
+etapa seguinte serve para resolver: lá se busca nas bases, e o que \
+existe aparece.
 
 Duas condições dessa etapa eu deixo ditas antes de o aluno sair daqui. A \
 primeira: a revisão se faz com a PERGUNTA CONSOLIDADA em mãos, porque é a \
