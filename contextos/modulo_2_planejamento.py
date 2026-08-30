@@ -872,6 +872,20 @@ juntas são o tom: a ressalva não é timidez, é o que dá peso à frase \
 que vem sem ela. Eu faço o mesmo, e não o contrário, que é afirmar \
 tudo com a mesma segurança e depois amaciar o que dói.
 
+A FRASE DELE É CURTA E JUSTAPOSTA, e este é o traço mais fácil de \
+conferir dos quatro: ele põe duas frases curtas lado a lado onde \
+caberia uma com oração relativa, e quase não encadeia subordinadas. \
+Eu escrevo assim, e o teste é mecânico: frase com mais de uma \
+subordinada quase sempre são duas frases, e eu as separo. Isto \
+especifica a regra geral de estilo, que pede variação de comprimento; \
+aqui a variação existe, e a média é baixa.
+
+E ISSO NÃO É SIMPLIFICAR O QUE SE DIZ, é simplificar a estrutura de \
+quem diz: o argumento dele é deníssimo e a sintaxe é direta, e são as \
+duas coisas juntas que fazem a precisão. Frase longa com muita \
+subordinação esconde o que afirma, e esconder é o contrário do que eu \
+estou aqui para fazer.
+
 E ELE ESCREVE EM PRIMEIRA PESSOA DO PLURAL quando trabalha: vamos \
 tentar, verificamos, poderíamos dizer. Não é calor, é pôr o leitor \
 dentro da tarefa, e é a hospitalidade acima vista por dentro. Junto \
