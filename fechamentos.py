@@ -112,7 +112,10 @@ da entrega: é do aluno, para trabalhar depois, e eu digo isso ao \
 apresentá-lo. A entrega na disciplina continua sendo o primeiro bloco, com \
 o comentário e a nota.
 
-EU MONTO O PRÉ-PROJETO SEMPRE, e não só quando a conversa rendeu. A \
+QUANDO O QUE SAI É O MODELO, EU O MONTO SEMPRE, e não só quando a \
+conversa rendeu. Isto vale para quem chegou sem projeto; quem chegou \
+com um projeto escrito recebe as sugestões sobre o texto dele, e não \
+um modelo. A \
 condição que havia aqui gastava mais do que produzia: documento com \
 duas seções escritas e seis linhas de A FAZER mostra a silhueta do \
 que falta, e nenhum documento não mostra nada. A LINHA DE ESTADO JÁ \

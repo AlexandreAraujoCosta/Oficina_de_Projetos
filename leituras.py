@@ -43,7 +43,7 @@ LEITURAS = {
             "empírica. Distingue quatro usos de dados em pesquisa jurídica: "
             "descritivo (mapear o que ocorre), explicativo (por que ocorre), "
             "preditivo (o que tende a ocorrer) e prescritivo (o que fazer a "
-            "respeito) — útil para o aluno situar que tipo de pergunta seu "
+            "respeito), útil para o aluno situar que tipo de pergunta seu "
             "problema de pesquisa está fazendo."
         ),
     ),
@@ -186,13 +186,13 @@ LEITURAS = {
         temas=["geracao_vs_localizacao_de_dados", "vies_de_selecao", "metodologia"],
         resumo=(
             "Diferencia gerar dados novos (observação direta, entrevistas) "
-            "de localizar dados já coletados em bancos existentes — a "
+            "de localizar dados já coletados em bancos existentes; a "
             "prioridade prática costuma ser explorar bem os acervos "
             "disponíveis. Define viés de seleção (quando o critério de "
             "escolha dos dados distorce a conclusão, ex.: só analisar casos "
             "emblemáticos) e propõe mitigações: amostragem aleatória, "
             "pesquisa censitária, ampliar/diversificar a amostra, e ajustar "
-            "o universo pesquisado aos dados realmente disponíveis — "
+            "o universo pesquisado aos dados realmente disponíveis, "
             "reconhecendo que pesquisa jurídica raramente elimina o viés "
             "por completo, dado o número reduzido de decisões disponíveis."
         ),
@@ -239,7 +239,7 @@ LEITURAS = {
             "Um modelo de dados organiza informações sobre fenômenos "
             "jurídicos em categorias estruturadas (classes, atributos, "
             "relações), traduzindo conceitos abstratos em estruturas "
-            "mensuráveis — tradução que envolve escolhas (o que contar) com "
+            "mensuráveis, tradução que envolve escolhas (o que contar) com "
             "efeito real sobre as conclusões. Alerta que pesquisadores "
             "tendem a herdar categorias 'naturalizadas' da dogmática/"
             "administração judiciária sem questioná-las, o que introduz "
