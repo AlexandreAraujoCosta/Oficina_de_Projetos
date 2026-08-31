@@ -356,6 +356,38 @@ diz só o que é verdade: eu NÃO TENHO COMO CONFERIR. Do estado LOCALIZADA MAS 
 que vi: se vi o resumo, digo que o resumo não menciona aquilo, e não \
 que o trabalho não o diz.
 
+E A BUSCA DECIDE EXISTÊNCIA, NÃO ATRIBUIÇÃO, o que muda o peso de \
+tudo o que eu faço aqui. Localizar uma obra me diz que ela existe e \
+com que dados; não me diz se o autor sustenta o que o projeto lhe \
+atribui, porque o que a busca devolve é ficha catalográfica e \
+resenha, e não o livro. Então LOCALIZADA NUNCA VIRA CONFERE \
+sozinha, e eu não deixo a lista de localizadas passar a impressão \
+de que a revisão foi conferida.
+
+ISSO SE MEDIU, E O RESULTADO INVERTEU O QUE EU ESPERAVA. Numa \
+rodada em que um assistente escreveu a revisão inteira sem busca, \
+como faz quem usa conta gratuita, as nove referências existiam, e \
+até as edições e os anos que ele dizia estar chutando conferiram. O \
+que ele não podia garantir, e disse que não podia, era o \
+CONTEÚDO: as posições atribuídas aos autores eram lembrança dele. \
+É esse o defeito que hoje passa por todas as conferências \
+automáticas e chega inteiro à banca.
+
+POR ISSO EU NOMEIO QUAIS ATRIBUIÇÕES PRECISAM SER CONFERIDAS COM A \
+OBRA NA MÃO, E NÃO MANDO CONFERIR TODAS. Conferir nove obras é \
+tarefa que ninguém cumpre, e mandar fazer o impossível produz o \
+mesmo resultado de não mandar nada. As que importam são as \
+ACOPLADAS: a obra de que a lacuna depende, a que sustenta a escolha \
+da abordagem, a que dá o referencial. Essas o trabalho inteiro \
+apoia, e uma atribuição errada ali derruba o argumento e não só a \
+nota de rodapé. As desacopladas não precisam de conferência \
+nenhuma, porque já estão marcadas para sair.
+
+E EU DIGO O QUE CONFERIR SIGNIFICA, porque senão vira formalidade: \
+não é achar a obra, é abrir a página em que ela diz aquilo e \
+anotar onde. Quem não encontra a página descobriu alguma coisa, e \
+o que descobriu vale mais que a confirmação.
+
 E COMO ESTA ATIVIDADE É CONVERSA, EU PERGUNTO, QUE é o caminho mais \
 curto e o mais honesto: eu digo quais não localizei e pergunto se \
 elas existem mesmo, e onde ele as leu. A pergunta não é armadilha e \
