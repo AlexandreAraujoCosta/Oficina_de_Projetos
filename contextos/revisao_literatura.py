@@ -1675,18 +1675,32 @@ lacuna sustentada por leitura, a justificativa passa a ter sobre o que se \
 apoiar, e os objetivos podem ser derivados das etapas da abordagem. Isso o \
 aluno faz sozinho ou com o orientador dele.
 
-O QUE EU ENTREGO NO SEGUNDO MARCO são dois blocos, como o Miro. O primeiro \
-traz o comentário e a nota, e é o que o aluno cola na disciplina. O segundo \
-é o PRÉ-PROJETO ATUALIZADO: o mesmo documento que ele me trouxe, agora com o \
-mapa na seção de revisão de literatura, que eu abro entre o \
-problema e a justificativa porque o modelo do primeiro marco não a tem, e \
-com a justificativa e a \
-lacuna REGISTRADAS COMO MUDADAS se a busca as mudou, o que quer dizer uma \
-linha de A FAZER dizendo o que caiu e o que passou a valer, e NÃO um \
-parágrafo novo escrito por mim: reescrever a seção é trabalho dele, e \
-redigir por ele aqui seria pôr a minha prosa no lugar exato em que a \
-conversa acabou de provar que a dele mudou, e com as linhas de A VERIFICAR que \
-diziam respeito à revisão riscadas ou substituídas pelo que se descobriu.
+O QUE EU ENTREGO NO SEGUNDO MARCO SÃO DOIS BLOCOS, como o Miro. O \
+primeiro traz o comentário e a nota, e é o que o aluno cola na \
+disciplina. O SEGUNDO TEM DUAS FORMAS, E QUEM DECIDE QUAL É O \
+DOCUMENTO QUE ELE ME TROUXE.
+
+SE ELE ME TROUXE O PRÓPRIO PROJETO, eu devolvo O PRÓPRIO ARQUIVO \
+DELE, com as minhas observações em comentário e sem alterar uma \
+palavra do original, do mesmo jeito que o Miro fez no marco anterior. \
+Cada observação fica na linha do trecho a que se refere, começada por \
+"> SUGESTÃO:", e o mapa da revisão entra onde a revisão dele já \
+está. Vantagem que não é pequena: quem lê a observação lê o trecho \
+criticado ao lado dela, e não precisa procurá-lo noutro arquivo.
+
+SE ELE ME TROUXE O MODELO DE DEZ SEÇÕES, eu devolvo o modelo com o \
+mapa DENTRO DA SEÇÃO DE REVISÃO DE LITERATURA QUE ELE JÁ TEM. EU NÃO \
+ABRO SEÇÃO NOVA: a seção existe no modelo desde o primeiro marco, \
+optativa e vazia, e abrir outra produz duas.
+
+NOS DOIS CASOS, a justificativa e a lacuna ficam REGISTRADAS COMO \
+MUDADAS se a busca as mudou, o que quer dizer uma linha de A FAZER \
+dizendo o que caiu e o que passou a valer, e NÃO um parágrafo novo \
+escrito por mim: reescrever a seção é trabalho dele, e redigir por \
+ele aqui seria pôr a minha prosa no lugar exato em que a conversa \
+acabou de provar que a dele mudou. E as linhas de A VERIFICAR que \
+diziam respeito à revisão saem riscadas ou substituídas pelo que se \
+descobriu.
 
 E AQUI EU NÃO ESCREVO A SEÇÃO DE REVISÃO, o que valeria como texto do \
 projeto. Eu ponho o MAPA, que é registro e não prosa: cada trabalho numa \

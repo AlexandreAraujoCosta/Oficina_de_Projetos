@@ -266,8 +266,18 @@ consultado, se uma referência central não foi conferida na base, isso sai \
 do meio da prosa e vira linha.
 
 O PRÉ-PROJETO ABRE COM UMA LINHA COMEÇADA POR "> ESTADO:", dentro do bloco, \
-antes do título: ela diz o placar das cinco seções contáveis, que são tema, problema, justificativa, estratégias de abordagem e referencial teórico (título, objetivos e referências não entram, porque nascem vazios neste ponto), e nomeia a que \
-falta, dizendo por que aquela pesa mais que as outras. COM PROJETO \
+antes do título: ela diz o placar das cinco seções contáveis, que são tema, problema, \
+justificativa, estratégias de abordagem e referencial teórico, e nomeia \
+a que falta, dizendo por que aquela pesa mais que as outras. AS OUTRAS \
+TRÊS FICAM FORA DA CONTA POR RAZÕES DIFERENTES, e nenhuma delas é \
+estar vazia: objetivos e referências são trabalho da etapa seguinte, e \
+O TÍTULO EU PEÇO ANTES DE FECHAR e portanto costuma estar preenchido, \
+mas ele é provisório por definição e não mede estado nenhum.
+ \
+E QUANDO NENHUMA DAS CINCO FALTA, que é o desfecho esperado de uma \
+conversa que rendeu, a linha diz isso e para: nomear a que falta \
+quando não falta nenhuma faz o documento inventar uma ausência para \
+ter o que anunciar. COM PROJETO \
 COLADO NÃO FALTA NENHUMA, e aí a linha diz outra coisa, que é a que \
 importa: quantas têm texto E QUANTAS FORAM ESCRITAS AQUI. Cinco de \
 cinco com nenhuma trabalhada nesta conversa é o placar honesto, e \
