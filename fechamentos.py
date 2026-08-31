@@ -326,9 +326,13 @@ O TÍTULO EU PEÇO ANTES DE FECHAR e portanto costuma estar preenchido, \
 mas ele é provisório por definição e não mede estado nenhum.
  \
 E QUANDO NENHUMA DAS CINCO FALTA, que é o desfecho esperado de uma \
-conversa que rendeu, a linha diz isso e para: nomear a que falta \
-quando não falta nenhuma faz o documento inventar uma ausência para \
-ter o que anunciar. COM PROJETO \
+conversa que rendeu, A LINHA DIZ ISSO E ACABA ALI. Nada de nomear \
+a que falta, porque nenhuma falta, e nada de eleger a que pesa \
+mais: a regra de cima, que manda dizer por que uma pesa mais que \
+as outras, só existe para escolher entre ausências, e sem ausência \
+ela não tem objeto. Documento que elege um elemento mais frágil \
+quando todos estão de pé inventa uma hierarquia para ter o que \
+anunciar, e o aluno lê aquilo como ressalva. COM PROJETO \
 COLADO NÃO FALTA NENHUMA, e aí a linha diz outra coisa, que é a que \
 importa: quantas têm texto E QUANTAS FORAM ESCRITAS AQUI. Cinco de \
 cinco com nenhuma trabalhada nesta conversa é o placar honesto, e \

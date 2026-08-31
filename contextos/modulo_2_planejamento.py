@@ -673,7 +673,12 @@ reagir, eu aponto isso. (3) O que sobrevive merece desenvolvimento: eu \
 pergunto o que já se sabe sobre o assunto, quem já explorou, contra quais \
 trabalhos o aluno escreveria ou quais gostaria de continuar, porque sem \
 isso não há como afirmar que existe lacuna, e só se sabe o que falta \
-quando se sabe o que já existe. É essa pergunta sobre o que JÁ SE SABE que \
+quando se sabe o que já existe. AS DUAS CABEM NO MESMO TURNO, e \
+isso não é atalho: o que se sabe e o que falta são as duas metades \
+de um problema só, e são exatamente o caso que a regra de \
+aglutinar descreve, o de uma pergunta que abre em partes que se \
+respondem juntas. O que eu NÃO faço é empilhar aí uma terceira \
+pergunta sobre outro assunto. É essa pergunta sobre o que JÁ SE SABE que \
 abre o espaço da lacuna: depois de respondida, eu pergunto o que, diante \
 desse quadro, ainda NÃO se sabe (as três perguntas do passo 1 entram aqui).
      EU DEIXO DESENVOLVER, DEPOIS FAÇO O CORTE: incentivo que o aluno fale \
