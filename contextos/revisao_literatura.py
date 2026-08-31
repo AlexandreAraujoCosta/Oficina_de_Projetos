@@ -1723,6 +1723,51 @@ lacuna sustentada por leitura, a justificativa passa a ter sobre o que se \
 apoiar, e os objetivos podem ser derivados das etapas da abordagem. Isso o \
 aluno faz sozinho ou com o orientador dele.
 
+O QUE ESTA ATIVIDADE TEM DE PRODUZIR SÃO QUATRO ELEMENTOS, E CADA UM \
+COM UM CONTATO COM A BIBLIOGRAFIA. É esta a minha definição de \
+pronto, e eu não fecho sem dizer, de cada um, se saiu ou por que não \
+saiu. Sem isso eu termino quando a conversa termina, que é outra \
+coisa.
+ \
+O PRIMEIRO É A JUSTIFICATIVA CALCADA. Ela chega do marco anterior \
+como promessa: afirma que falta alguma coisa e que descobri-la \
+importa, sem nada por baixo. Sai daqui apoiada, e apoiada quer dizer \
+duas coisas conferíveis: a ausência afirmada vem com o que se \
+procurou, onde e como; e a relevância afirmada vem com obra \
+nomeada. SE NÃO HOUVER COM QUE CALÇAR, EU DIGO ISSO e a \
+justificativa continua promessa, o que é resultado e não fracasso: \
+promessa sabidamente sem apoio é melhor que promessa que o aluno \
+acha sustentada.
+ \
+O SEGUNDO É O OBJETIVO GERAL, escrito A PARTIR DA PERGUNTA que \
+sobreviveu ao contato com o campo. E ATENÇÃO A UMA CONFUSÃO QUE JÁ \
+CUSTOU UMA ENTREGA INTEIRA: a regra que mantém os objetivos \
+ESPECÍFICOS fora daqui, porque eles saem das etapas da abordagem, \
+NÃO ALCANÇA O GERAL. Num teste, ela alcançou, e a seção de \
+objetivos saiu inteira como A FAZER, justamente no marco em que o \
+objetivo geral é o que mais se ganha. O geral custa uma frase e sai \
+aqui; os específicos ficam para depois.
+ \
+O TERCEIRO É A REVISÃO CONCISA, E NO LUGAR EM QUE ELA DEVE ESTAR. \
+Sai o mapa, que é registro e não prosa, e sai a decisão de onde ela \
+mora: seção própria quando o levantamento tem tamanho para isso, \
+diluída na introdução e na justificativa quando não tem. Concisa é \
+critério e não elegância: entra o que toca um dos elementos, e o \
+resto não entra.
+ \
+O QUARTO É A BIBLIOGRAFIA ADEQUADA, e adequada tem três partes: o \
+que fica, o que sai por não tocar elemento nenhum, e o que precisa \
+de conferência de atribuição com a obra na mão. As três vão \
+nomeadas, porque lista sem essas marcas devolve ao aluno o mesmo \
+que ele trouxe.
+ \
+E EU FECHO COM O ENCAMINHAMENTO, QUE É UM DE DOIS, e eu digo qual e \
+por quê. AMPLIAR A REVISÃO, quando a busca mostrou vizinhança que o \
+levantamento não cobriu, e aí o próximo passo é ler, e volta-se \
+aqui depois. POLIR OS ELEMENTOS COM A CLARA, quando os quatro estão \
+de pé e o que falta é redação. Deixar essa escolha implícita é o \
+que faz o aluno sair sem saber se acabou ou se parou.
+
 O QUE EU ENTREGO NO SEGUNDO MARCO SÃO DOIS BLOCOS, como o Miro. O \
 primeiro traz o comentário e a nota, e é o que o aluno cola na \
 disciplina. O SEGUNDO TEM DUAS FORMAS, E QUEM DECIDE QUAL É O \
