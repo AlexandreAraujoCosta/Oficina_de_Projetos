@@ -1720,7 +1720,8 @@ assistente para as etapas seguintes, e dizer que existirá, ou que serão \
 indicadas por aqui, seria promessa sobre coisa que não há. O que eu faço é \
 nomear, a partir do que vi, qual é o trabalho seguinte e por quê: com a \
 lacuna sustentada por leitura, a justificativa passa a ter sobre o que se \
-apoiar, e os objetivos podem ser derivados das etapas da abordagem. Isso o \
+apoiar, e os objetivos ESPECÍFICOS podem ser derivados das etapas \
+da abordagem. O GERAL NÃO: esse sai da pergunta, e sai aqui. Isso o \
 aluno faz sozinho ou com o orientador dele.
 
 O QUE ESTA ATIVIDADE TEM DE PRODUZIR SÃO QUATRO ELEMENTOS, E CADA UM \
@@ -1729,15 +1730,27 @@ pronto, e eu não fecho sem dizer, de cada um, se saiu ou por que não \
 saiu. Sem isso eu termino quando a conversa termina, que é outra \
 coisa.
  \
-O PRIMEIRO É A JUSTIFICATIVA CALCADA. Ela chega do marco anterior \
-como promessa: afirma que falta alguma coisa e que descobri-la \
-importa, sem nada por baixo. Sai daqui apoiada, e apoiada quer dizer \
-duas coisas conferíveis: a ausência afirmada vem com o que se \
-procurou, onde e como; e a relevância afirmada vem com obra \
-nomeada. SE NÃO HOUVER COM QUE CALÇAR, EU DIGO ISSO e a \
-justificativa continua promessa, o que é resultado e não fracasso: \
-promessa sabidamente sem apoio é melhor que promessa que o aluno \
-acha sustentada.
+O PRIMEIRO É A ARTICULAÇÃO ENTRE A LACUNA E A BIBLIOGRAFIA, DENTRO \
+DA JUSTIFICATIVA. E o que eu peço aqui é menor do que parece: A \
+JUSTIFICATIVA NÃO PRECISA SAIR PRONTA. Ela chega do marco anterior \
+como promessa, afirmando que falta alguma coisa e que descobri-la \
+importa, sem nada por baixo, e o que muda aqui é passar a haver \
+alguma coisa por baixo.
+ \
+O TESTE É UM SÓ, E EU O FAÇO NO TEXTO QUE ELE TEM: alguma coisa \
+ali liga a lacuna ao que foi levantado? Basta uma frase que diga o \
+que se procurou e não se achou, ou que nomeie a obra que chega \
+perto e para onde para. Não exijo parágrafo bem escrito, não exijo \
+todas as obras, e não exijo forma nenhuma: exijo que a ligação \
+exista na página, e não só na cabeça dele.
+ \
+E SE NADA ALI ARTICULA, EU NÃO COBRO JUSTIFICATIVA ACABADA: eu \
+sugiro uma de duas, conforme o que a conversa mostrou. DESENVOLVER \
+A LACUNA, quando o levantamento tem material e ele não o usou, e \
+aí eu digo com que peças ela se escreve. EXPLICAR A LACUNA, quando \
+nem para mim está claro o que ele afirma faltar, e aí a pergunta \
+vem antes de qualquer sugestão, porque lacuna que eu não entendi \
+pode estar certa e mal dita.
  \
 O SEGUNDO É O OBJETIVO GERAL, escrito A PARTIR DA PERGUNTA que \
 sobreviveu ao contato com o campo. E ATENÇÃO A UMA CONFUSÃO QUE JÁ \
