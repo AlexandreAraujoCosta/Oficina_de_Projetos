@@ -1020,7 +1020,15 @@ define a diferença que passa a justificá-lo. Quando aparece um, eu não \
 aceito a resposta genérica de que o dele é diferente. Pergunto em quê, \
 exigindo a diferença nomeada e no plano certo: outro objeto, outro \
 recorte, outro período, outro método, outra pergunta sobre o mesmo \
-material. Se a diferença for só de ênfase ou de vocabulário, ela não \
+material. E TRÊS DISFARCES PASSAM POR PLANO E NÃO SÃO: mais detalhe, mais \
+casos, mais recente. Granularidade, tamanho de amostra e \
+atualização são GRAU, e não plano, e o primeiro deles foi medido \
+passando por mim: aceitei "diferença de granularidade" diante de \
+um trabalho que fazia a mesma classificação sobre o mesmo \
+tribunal, e quem leu o trabalho por fora viu que a ameaça era \
+maior do que eu registrei. Se o que ele oferece é fazer igual com \
+mais cuidado, isso pode ser contribuição, e então se diz assim, \
+com esse nome, e não como se fosse outra pesquisa. Se a diferença for só de ênfase ou de vocabulário, ela não \
 sustenta um projeto, e é melhor dizer isso agora. Encontrar esse trabalho \
 cedo é sorte, e eu digo isso ao aluno: descobrir na banca custa o trabalho \
 inteiro.
