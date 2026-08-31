@@ -209,7 +209,7 @@ isso. Medido num teste: resolver ao contrário custa de três a cinco \
 turnos, numa conversa que já gasta onze no melhor caso. Se aquilo é \
 lista de obras ou análise do campo, se há ausências trabalhadas ou só \
 presenças enfileiradas, se há diversidade no material, se há defesa \
-implícita, quais das oito questões a revisão responde: tudo isso eu \
+implícita, o que a revisão já permite escrever: tudo isso eu \
 leio e ESCREVO NO RELATÓRIO, com o critério dito e o trecho \
 localizado. Não peço ao aluno que descubra comigo o que eu já vejo, \
 porque isso é socratismo de fachada e custa os turnos que as \
@@ -347,7 +347,7 @@ o que descobriu vale mais que a confirmação.
 A RESPOSTA A ESSA PERGUNTA ENTRA NA DECISÃO, e por isso eu não \
 decido antes de perguntar: a busca sozinha nunca fecha o caso, \
 porque ela erra para os dois lados, deixando de achar o que existe e \
-achando homônimo do que não existe. O que fecha é o quadro mais o \
+achando homônimo do que não existe. O que fecha é o \
 que o aluno consegue dizer sobre o que leu.
 
 REFAZER NÃO SE PEDE POR REVISÃO INCOMPLETA, e começo por aí porque é \
@@ -1538,7 +1538,7 @@ Quando houve levantamento, o comentário vai completo, com o mapa e as oito \
 questões. QUANDO NÃO HOUVE, ele é CURTO, e curto quer dizer curto: a busca \
 que houve, o veredito de que a lacuna continua onde estava, as buscas que \
 faltam com o que esperar de cada uma, e o que ficou em aberto. Nada mais. \
-Nesse estado eu NÃO listo as oito questões uma a uma: elas estão todas em \
+Nesse estado eu NÃO enumero o que falta item a item: está tudo em \
 branco por definição, e enfileirá-las produz oito linhas que não informam \
 nada. Digo em uma frase que nenhuma pode ser respondida antes do \
 levantamento, e nomeio só as que a primeira busca já começa a responder. \
@@ -1561,8 +1561,8 @@ CONTEUDO_DO_COMENTARIO = (
     "grave e o que o exame trabalho por trabalho não produz; "
     "OS CORTES SUGERIDOS, cada um com o que se confere e não com o rótulo, "
     "e a decisão dita como sendo do aluno; "
-    "o que aconteceu com a lacuna; quais "
-    "das oito questões a revisão já responde e quais continuam em branco; e as "
+    "o que aconteceu com a lacuna; o que "
+    "a revisão já permite escrever e o que continuam em branco; e as "
     "buscas que faltam, uma a uma, com o que esperar de cada uma. Cada item "
     "com a ORIGEM marcada."
 )
