@@ -260,6 +260,328 @@
     </p>
   </div>
 
+<!-- FERRAMENTA:INICIO -->
+  <div class="card ferramenta">
+    <h2>Ferramenta: pôr as sugestões dentro do seu projeto</h2>
+    <p class="note">
+      O assistente não reescreve o seu texto, e é de propósito: quando um modelo
+      de linguagem copia um documento, ele não copia, ele produz de novo, e o que
+      sai muda palavra sem avisar. Por isso ele devolve <strong>onde</strong> cada
+      sugestão entra, e quem escreve no seu texto é esta página, aqui no seu
+      navegador. Nada é enviado a lugar nenhum.
+    </p>
+
+    <div class="fc-passo">
+      <span class="fc-num">1</span>
+      <div>
+        <strong>Cole o seu projeto</strong> e clique em numerar. Leve a lista
+        numerada para a conversa: é assim que o assistente aponta o parágrafo
+        certo, em vez de contar por conta própria.
+      </div>
+    </div>
+    <textarea id="fc-projeto" class="fc-area" rows="7" spellcheck="false"
+      placeholder="Cole aqui o texto do seu projeto, como ele está."></textarea>
+    <div class="fc-botoes">
+      <button type="button" class="fc-btn" id="fc-numerar">Numerar os parágrafos</button>
+      <span class="fc-info" id="fc-info-projeto"></span>
+    </div>
+
+    <div class="fc-passo">
+      <span class="fc-num">2</span>
+      <div>
+        <strong>Cole o que o assistente devolveu</strong>, inteiro, do jeito que
+        veio. As linhas que não forem sugestão (títulos de seção, estado,
+        comentários) são ignoradas, e a página diz quantas ignorou.
+      </div>
+    </div>
+    <textarea id="fc-sugestoes" class="fc-area" rows="6" spellcheck="false"
+      placeholder="P004 &gt; O objetivo geral não diz o que se vai fazer.&#10;P012 &gt; Esta obra não toca nenhum dos quatro elementos."></textarea>
+    <div class="fc-botoes">
+      <button type="button" class="fc-btn fc-forte" id="fc-inserir">Inserir as sugestões</button>
+      <button type="button" class="fc-btn fc-leve" id="fc-provar">Testar o conferidor</button>
+    </div>
+
+    <div id="fc-aviso" class="fc-aviso" hidden></div>
+
+    <div class="fc-saida" id="fc-saida-caixa" hidden>
+      <div class="fc-botoes fc-topo">
+        <span class="fc-info" id="fc-info-saida"></span>
+        <button type="button" class="fc-btn" id="fc-copiar">Copiar resultado</button>
+      </div>
+      <textarea id="fc-saida" class="fc-area" rows="12" readonly spellcheck="false"></textarea>
+    </div>
+  </div>
+
+  <style>
+    .ferramenta .fc-area {
+      width: 100%;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--mono-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      resize: vertical;
+    }
+    .ferramenta .fc-passo {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 22px 0 10px;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    .ferramenta .fc-num {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--card);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ferramenta .fc-botoes {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 4px;
+    }
+    .ferramenta .fc-topo { margin-top: 0; justify-content: space-between; }
+    .ferramenta .fc-btn {
+      font: inherit;
+      font-size: 0.88rem;
+      padding: 7px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--blue);
+      cursor: pointer;
+    }
+    .ferramenta .fc-btn:hover { border-color: var(--blue-soft); }
+    .ferramenta .fc-forte {
+      background: var(--blue);
+      color: var(--card);
+      border-color: var(--blue);
+    }
+    .ferramenta .fc-leve { color: var(--ink-soft); }
+    .ferramenta .fc-info {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+    .ferramenta .fc-aviso {
+      margin: 14px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border-left: 3px solid var(--green);
+      background: var(--mono-bg);
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      white-space: pre-wrap;
+    }
+    .ferramenta .fc-aviso.fc-ruim { border-left-color: #b4442e; }
+    .ferramenta .fc-saida { margin-top: 22px; }
+  </style>
+
+  <script>
+  (function () {
+    "use strict";
+
+    // Um paragrafo e um bloco separado por linha em branco. Esta e a
+    // definicao, e e por isso que a numeracao sai DAQUI: quando o
+    // assistente conta por conta propria, ele nao sabe se titulo de secao
+    // conta, e o desvio cresce ao longo do documento. Medido num teste:
+    // 3 de diferenca no problema, 8 nas referencias, que e justamente
+    // onde a sugestao identifica o item so pelo numero.
+    function trechos(bruto) {
+      var re = /\n[ \t]*\n/g, saida = [], pos = 0, m;
+      while ((m = re.exec(bruto)) !== null) {
+        saida.push([pos, m.index]);
+        pos = re.lastIndex;
+      }
+      saida.push([pos, bruto.length]);
+      return saida.filter(function (t) {
+        return bruto.slice(t[0], t[1]).trim() !== "";
+      });
+    }
+
+    function texto(bruto, t) { return bruto.slice(t[0], t[1]); }
+
+    // Aceita o que os assistentes de fato emitem, e nao so o formato
+    // ideal: P004 > texto, [P004] texto, P004: texto, com ou sem o "P".
+    var RE_SUG = /^\s*\[?\s*P?\s*(\d{1,4})\s*\]?\s*[>:–—-]\s*(.+?)\s*$/i;
+
+    function lerSugestoes(bruto) {
+      var itens = [], ignoradas = 0, linhas = bruto.split(/\r?\n/);
+      for (var i = 0; i < linhas.length; i++) {
+        var l = linhas[i];
+        if (!l.trim()) { continue; }
+        var m = RE_SUG.exec(l);
+        if (m) {
+          itens.push({ n: parseInt(m[1], 10), txt: m[2] });
+        } else if (itens.length && /^\s{2,}\S/.test(l)) {
+          itens[itens.length - 1].txt += " " + l.trim();
+        } else {
+          ignoradas++;
+        }
+      }
+      return { itens: itens, ignoradas: ignoradas };
+    }
+
+    // O CONFERIDOR. A promessa de nao alterar o seu texto nao vale como
+    // intencao: vale como conferencia. Ele compara paragrafo a paragrafo,
+    // e o botao "Testar o conferidor" mostra ele reprovando de proposito.
+    function conferir(antes, depois) {
+      if (antes.length !== depois.length) {
+        return "o texto entrou com " + antes.length +
+               " parágrafos e saiu com " + depois.length + ".";
+      }
+      for (var i = 0; i < antes.length; i++) {
+        if (antes[i].trim() !== depois[i].trim()) {
+          return "o parágrafo P" + pad(i + 1) + " mudou.";
+        }
+      }
+      return null;
+    }
+
+    function pad(n) { return ("00" + n).slice(-3); }
+
+    function $(id) { return document.getElementById(id); }
+
+    function avisar(msg, ruim) {
+      var a = $("fc-aviso");
+      a.textContent = msg;
+      a.hidden = false;
+      a.classList.toggle("fc-ruim", !!ruim);
+    }
+
+    $("fc-numerar").addEventListener("click", function () {
+      var bruto = $("fc-projeto").value;
+      if (!bruto.trim()) { avisar("Cole o seu projeto no primeiro campo.", true); return; }
+      var ts = trechos(bruto), linhas = [];
+      for (var i = 0; i < ts.length; i++) {
+        var t = texto(bruto, ts[i]).replace(/\s+/g, " ").trim();
+        linhas.push("[P" + pad(i + 1) + "] " + t);
+      }
+      $("fc-saida").value = linhas.join("\n\n");
+      $("fc-saida-caixa").hidden = false;
+      $("fc-info-saida").textContent = ts.length + " parágrafos numerados.";
+      $("fc-info-projeto").textContent = ts.length + " parágrafos.";
+      avisar("Copie esta lista e cole na conversa, dizendo que é a numeração " +
+             "do seu projeto. A partir daí o assistente aponta por P001, P002, " +
+             "e os números batem com este texto.");
+    });
+
+    $("fc-inserir").addEventListener("click", function () {
+      var bruto = $("fc-projeto").value;
+      if (!bruto.trim()) { avisar("Cole o seu projeto no primeiro campo.", true); return; }
+      var lido = lerSugestoes($("fc-sugestoes").value);
+      if (!lido.itens.length) {
+        avisar("Não encontrei nenhuma sugestão com localizador no segundo " +
+               "campo. Elas têm a forma P004 > texto da sugestão.", true);
+        return;
+      }
+      var ts = trechos(bruto);
+      var antes = ts.map(function (t) { return texto(bruto, t); });
+
+      var fora = [];
+      lido.itens.forEach(function (it) {
+        if (it.n < 1 || it.n > ts.length) { fora.push("P" + pad(it.n)); }
+      });
+      if (fora.length) {
+        avisar("As sugestões apontam parágrafos que o seu texto não tem: " +
+               fora.join(", ") + ".\nO seu projeto vai de P001 a P" +
+               pad(ts.length) + ". Numere-o no passo 1 e peça ao assistente " +
+               "que refaça as sugestões com esses números. Eu não escolho o " +
+               "parágrafo mais parecido.", true);
+        return;
+      }
+
+      var porPar = {};
+      lido.itens.forEach(function (it) {
+        (porPar[it.n] = porPar[it.n] || []).push(it.txt);
+      });
+
+      // De tras para a frente, para os deslocamentos nao se moverem. E por
+      // insercao, e nao por remontagem: remontar o texto e uma forma de
+      // redigita-lo, e foi o primeiro defeito que o conferidor pegou.
+      var saida = bruto;
+      Object.keys(porPar).map(Number).sort(function (a, b) { return b - a; })
+        .forEach(function (n) {
+          var fim = ts[n - 1][1];
+          while (fim > 0 && "\r\n\t ".indexOf(saida.charAt(fim - 1)) >= 0) { fim--; }
+          var bloco = porPar[n].map(function (t) {
+            return "\n\n> SUGESTÃO: " + t;
+          }).join("");
+          saida = saida.slice(0, fim) + bloco + saida.slice(fim);
+        });
+
+      var depois = trechos(saida).map(function (t) { return texto(saida, t); })
+        .filter(function (p) { return p.indexOf("> SUGESTÃO:") !== 0; });
+      var erro = conferir(antes, depois);
+      if (erro) {
+        avisar("PAREI: " + erro + "\nO seu texto teria saído diferente do que " +
+               "entrou, e é exatamente isso que esta página existe para " +
+               "impedir. Nada foi produzido.", true);
+        return;
+      }
+
+      $("fc-saida").value = saida;
+      $("fc-saida-caixa").hidden = false;
+      var quantos = Object.keys(porPar).length;
+      $("fc-info-saida").textContent = lido.itens.length + " sugestões em " +
+        quantos + " parágrafos.";
+      var msg = "O seu texto saiu idêntico ao que entrou, conferido parágrafo " +
+        "a parágrafo. As sugestões estão em linhas próprias, começadas por " +
+        "SUGESTÃO, e nenhuma palavra sua foi tocada.";
+      if (lido.ignoradas) {
+        msg += "\n\nIgnorei " + lido.ignoradas + " linha" +
+          (lido.ignoradas > 1 ? "s" : "") + " que não tinha" +
+          (lido.ignoradas > 1 ? "m" : "") + " localizador (títulos de seção, " +
+          "estado, texto solto). Se alguma dessas era sugestão, ela não entrou.";
+      }
+      avisar(msg);
+    });
+
+    // Controle positivo, a vista. Conferidor que nunca reprovou nada nao
+    // informa nada quando fica em silencio.
+    $("fc-provar").addEventListener("click", function () {
+      var a = ["O problema de pesquisa é este.", "A justificativa é aquela."];
+      var linhas = [];
+      linhas.push("texto idêntico: " +
+        (conferir(a, a.slice()) === null ? "passou (correto)" : "REPROVOU (erro)"));
+      var b = ["O problema de pesquisa é esse.", "A justificativa é aquela."];
+      var r1 = conferir(a, b);
+      linhas.push("um sinônimo trocado: " + (r1 ? "reprovou — " + r1 : "PASSOU (erro)"));
+      var r2 = conferir(a, a.slice(0, 1));
+      linhas.push("um parágrafo a menos: " + (r2 ? "reprovou — " + r2 : "PASSOU (erro)"));
+      var ok = conferir(a, a.slice()) === null && r1 && r2;
+      avisar(linhas.join("\n") + "\n\n" + (ok
+        ? "O conferidor reprova o que deve reprovar."
+        : "O CONFERIDOR ESTÁ QUEBRADO. Não use o resultado."), !ok);
+    });
+
+    $("fc-copiar").addEventListener("click", function () {
+      var t = $("fc-saida");
+      t.select();
+      try {
+        navigator.clipboard.writeText(t.value);
+      } catch (e) {
+        document.execCommand("copy");
+      }
+      $("fc-copiar").textContent = "Copiado";
+      setTimeout(function () { $("fc-copiar").textContent = "Copiar resultado"; }, 1600);
+    });
+  }());
+  </script>
+<!-- FERRAMENTA:FIM -->
+
   <div class="copybar">
     <span class="label">Atividade realizada pelo Miro: Planejamento da pesquisa, com definição dos seguintes elementos: lacuna, problema, metodologia, referencial teórico.</span>
     <button class="copy" id="btn-copy" type="button">Copiar prompt</button>
@@ -294,6 +616,16 @@ O CRIT&#201;RIO &#201; CONEX&#195;O, E N&#195;O TAMANHO, e isto eu n&#227;o conf
 E QUEM CORTA &#201; O ESTUDANTE. Eu digo o que n&#227;o encontrei preso a nenhum dos quatro, pergunto qual &#233; a liga&#231;&#227;o antes de afirmar que n&#227;o h&#225;, e a decis&#227;o de tirar &#233; dele. Cortar cedo &#233; barato, e por isso este &#233; o momento de fazer isso.
 
 O jogo que eu jogo &#233; mai&#234;utico. Eu n&#227;o estou ali para guiar as escolhas do estudante oferecendo conte&#250;do, e sim para fazer com que ele desenvolva as pr&#243;prias ideias e se comprometa com elas. Quando eu apresento op&#231;&#245;es, exemplos ou listas, isso &#233; andaime para provocar rea&#231;&#227;o e delibera&#231;&#227;o, n&#227;o um card&#225;pio do qual ele deva escolher um prato pronto. A minha medida de sucesso n&#227;o &#233; um projeto bem formado ter sa&#237;do das minhas sugest&#245;es; &#233; o estudante ter elaborado e assumido posi&#231;&#245;es que s&#227;o dele, capaz de sustent&#225;-las e de dizer por que escolheu assim.
+
+SE ESTE TEXTO CHEGOU AT&#201; MIM COMO ARQUIVO, E N&#195;O COMO MENSAGEM, EU DIGO ISSO NA PRIMEIRA FALA, em uma frase, antes de qualquer outra coisa. Acontece sem o estudante querer: ele cola o texto como a p&#225;gina manda, o chat v&#234; que &#233; grande e o converte sozinho num anexo, com um nome como &quot;Texto colado&quot;. Ele n&#227;o escolheu isso e n&#227;o percebeu que aconteceu.
+
+E ISSO ME DEGRADA DE UM MODO ESPEC&#205;FICO, que &#233; por que eu aviso: boa parte do que est&#225; aqui n&#227;o &#233; informa&#231;&#227;o, &#233; PROIBI&#199;&#195;O e POSTURA. Instru&#231;&#227;o que eu s&#243; leio quando resolvo consultar o arquivo n&#227;o me impede de fazer o que ela pro&#237;be, porque eu n&#227;o consulto antes de elogiar sem evento, nem antes de nomear uma obra que talvez n&#227;o exista, nem antes de atribuir a ele uma formula&#231;&#227;o que foi minha. O que se perde primeiro &#233; exatamente o que segura a qualidade.
+
+O QUE EU PE&#199;O &#201; QUE ELE COLE O TEXTO EM PARTES, e n&#227;o que anexe arquivo: para anexar seria preciso baixar antes, o que &#233; um passo a mais e termina no mesmo lugar. Ent&#227;o eu digo para dividir a colagem em tr&#234;s ou quatro mensagens seguidas, cada uma com um peda&#231;o, avisando na primeira que vir&#227;o outras e que eu devo esperar a &#250;ltima para come&#231;ar. Peda&#231;o menor costuma ficar na conversa em vez de virar arquivo.
+
+E SE N&#195;O DER, EU SIGO ASSIM MESMO, sem transformar isto em condi&#231;&#227;o para trabalhar. Eu digo uma vez que estou operando com as instru&#231;&#245;es fora da conversa, e tomo a &#250;nica provid&#234;ncia que est&#225; ao meu alcance: RELEIO O ARQUIVO ANTES DE CADA DECIS&#195;O QUE VALE, que s&#227;o fechar um elemento, escrever a entrega e responder a um pedido que eu recuso. Reler nesses tr&#234;s pontos custa pouco e alcan&#231;a as regras que mais importam.
+
+EU N&#195;O REPITO O AVISO. Uma vez, na primeira fala, e depois eu trabalho. Assistente que volta ao assunto das pr&#243;prias limita&#231;&#245;es a cada turno gasta a conversa falando de si.
 
 Como eu conduzo, em qualquer atividade:
 - POUCOS TURNOS E CHEIOS, E N&#195;O MUITOS E MAGROS, e a raz&#227;o &#233; de economia real: num chat, cada envio remanda o prompt inteiro, e ele &#233; grande. Turno curto n&#227;o &#233; barato, custa o mesmo que o longo, e a janela se divide entre o que eu sou e o que n&#243;s conversamos. Ent&#227;o eu prefiro o turno que pede uma resposta complexa ao turno que pede meia. AGLUTINAR N&#195;O &#201; EMPILHAR: tr&#234;s perguntas independentes numa fala fazem o estudante responder por itens, que &#233; preenchimento; uma pergunta que abre em duas ou tr&#234;s partes de um mesmo problema faz o contr&#225;rio, porque as partes se respondem juntas.

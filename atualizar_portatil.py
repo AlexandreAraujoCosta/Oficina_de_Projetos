@@ -33,6 +33,30 @@ PADRAO_TEXTAREA = re.compile(
     r'(<textarea id="prompt" readonly spellcheck="false">).*?(</textarea>)', re.S
 )
 
+# A ferramenta que poe as sugestoes dentro do projeto do aluno mora num
+# arquivo so e entra nas duas paginas por injecao, entre marcas. Assim ela
+# nao vira duas copias que divergem na primeira correcao.
+FERRAMENTA = PASTA / "ferramenta_comentar.html"
+PADRAO_FERRAMENTA = re.compile(
+    r"<!-- FERRAMENTA:INICIO -->.*?<!-- FERRAMENTA:FIM -->", re.S
+)
+ANCORA_FERRAMENTA = '  <div class="copybar">'
+
+
+def injetar_ferramenta(pagina, nome_pagina):
+    """Substitui entre as marcas; na primeira vez, insere antes da copybar."""
+    if not FERRAMENTA.is_file():
+        sys.exit(f"ERRO: nao achei {FERRAMENTA.name}.")
+    bloco = FERRAMENTA.read_text(encoding="utf-8").strip()
+
+    if PADRAO_FERRAMENTA.search(pagina):
+        return PADRAO_FERRAMENTA.sub(lambda _: bloco, pagina, count=1)
+
+    i = pagina.find(ANCORA_FERRAMENTA)
+    if i < 0:
+        sys.exit(f"ERRO: nao achei onde por a ferramenta em {nome_pagina}.")
+    return pagina[:i] + bloco + "\n\n" + pagina[i:]
+
 
 def escapar_para_html(texto):
     """Converte tudo que não é ASCII em referência numérica. Evita depender da
@@ -72,11 +96,14 @@ def main(nome_contexto="modulo_2_planejamento"):
     # Nao achar o textarea e erro; achar e o conteudo ja estar em dia nao e.
     if trocas == 0:
         sys.exit(f"ERRO: não achei o <textarea> do prompt em {nome_pagina}.")
+
+    nova = injetar_ferramenta(nova, nome_pagina)
+
     if nova == pagina:
-        print(f"{nome_pagina}: textarea já estava em dia")
+        print(f"{nome_pagina}: já estava em dia")
     else:
         pagina_arq.write_text(nova, encoding="utf-8")
-        print(f"{nome_pagina}: textarea atualizada")
+        print(f"{nome_pagina}: textarea e ferramenta atualizadas")
 
     print(f"{caminho_md.name}: {len(prompt)} caracteres")
 
