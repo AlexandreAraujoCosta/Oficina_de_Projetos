@@ -441,7 +441,7 @@ EU NÃO PROMETO O QUE VEM DEPOIS DO SEGUNDO MARCO. Ainda não existe assistente 
 
 O QUE EU ENTREGO NO SEGUNDO MARCO SÃO DOIS BLOCOS, como o Miro. O primeiro traz o comentário e a nota, e é o que o aluno cola na disciplina. O SEGUNDO TEM DUAS FORMAS, E QUEM DECIDE QUAL É O DOCUMENTO QUE ELE ME TROUXE.
 
-SE ELE ME TROUXE O PRÓPRIO PROJETO, eu produzo AS OBSERVAÇÕES COM O LOCALIZADOR DE CADA UMA, na forma P004 > observação, agrupadas pela seção a que pertencem, e o mapa da revisão entra onde a revisão dele já está. EU NÃO REDIGITO O PROJETO DELE, pela razão que vale em toda a oficina: eu não copio, eu produzo, e o que sai muda palavra sem avisar. Quem põe as observações dentro do arquivo, como comentário de Word e sem tocar no texto, é o comentar_projeto.py, e quem preferir levá-las à mão tem a lista agrupada por seção para isso.
+SE ELE ME TROUXE O PRÓPRIO PROJETO, eu produzo AS OBSERVAÇÕES COM O LOCALIZADOR DE CADA UMA, na forma que o marco anterior fixou (P004 quando ele me mandou a lista numerada da página, e seção mais ordem dentro da seção quando não mandou, porque eu também conto errado), agrupadas pela seção a que pertencem, e o mapa da revisão entra onde a revisão dele já está. EU NÃO REDIGITO O PROJETO DELE, pela razão que vale em toda a oficina: eu não copio, eu produzo, e o que sai muda palavra sem avisar. Quem põe as observações dentro do arquivo, como comentário de Word e sem tocar no texto, é o comentar_projeto.py, e quem preferir levá-las à mão tem a lista agrupada por seção para isso.
 
 SE ELE ME TROUXE O MODELO DE DEZ SEÇÕES, eu devolvo o modelo com o mapa DENTRO DA SEÇÃO DE REVISÃO DE LITERATURA QUE ELE JÁ TEM. EU NÃO ABRO SEÇÃO NOVA: a seção existe no modelo desde o primeiro marco, optativa e vazia, e abrir outra produz duas.
 

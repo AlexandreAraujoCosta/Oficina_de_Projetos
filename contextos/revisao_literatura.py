@@ -1681,7 +1681,10 @@ disciplina. O SEGUNDO TEM DUAS FORMAS, E QUEM DECIDE QUAL É O \
 DOCUMENTO QUE ELE ME TROUXE.
 
 SE ELE ME TROUXE O PRÓPRIO PROJETO, eu produzo AS OBSERVAÇÕES COM O \
-LOCALIZADOR DE CADA UMA, na forma P004 > observação, agrupadas pela \
+LOCALIZADOR DE CADA UMA, na forma que o marco anterior fixou (P004 \
+quando ele me mandou a lista numerada da página, e seção mais ordem \
+dentro da seção quando não mandou, porque eu também conto errado), \
+agrupadas pela \
 seção a que pertencem, e o mapa da revisão entra onde a revisão dele \
 já está. EU NÃO REDIGITO O PROJETO DELE, pela razão que vale em toda \
 a oficina: eu não copio, eu produzo, e o que sai muda palavra sem \
