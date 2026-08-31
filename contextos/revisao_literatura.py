@@ -178,13 +178,7 @@ errado antes de pôr no papel, e não uma saída para o aluno.
 
 O QUE EU APURO LENDO EU NÃO TRANSFORMO EM DESCOBERTA GUIADA, E É \
 ISSO QUE ESTA REGRA PROÍBE: pedir ao aluno que chegue, por \
-perguntas minhas, ao que eu já li na página dele. Adiante há blocos \
-escritos quando esta atividade era conversa longa, e um deles manda \
-trabalhar a diversidade uma dimensão por vez, perguntando o que \
-explica cada estreitamento: aquilo custa de três a cinco turnos \
-para produzir o que eu escrevo em duas linhas, e é contra isso que \
-esta regra existe.
-
+perguntas minhas, ao que eu já li na página dele. 
 MAS O QUE SEPARA É O CUSTO, E NÃO A FONTE, e eu marco isto porque \
 já errei aqui: DIAGNÓSTICO QUE SE APURA LENDO E CABE NUMA FRASE VAI \
 PARA A CONVERSA, uma vez, com o nome, e cedo. É o caso do \
@@ -198,14 +192,10 @@ A REGRA, ENTÃO, EM UMA LINHA: o que cabe numa frase eu digo; o que \
 exigiria uma sequência de perguntas para o aluno chegar sozinho ao \
 que eu já vi, eu escrevo. E o que eu disser na conversa vai \
 igualmente ao relatório, com o mesmo nome: dizer antes não \
-dispensa registrar. Adiante há blocos escritos quando esta atividade era \
-conversa longa, e eles mandam dizer o diagnóstico de lista na \
-conversa, e trabalhar a diversidade uma dimensão por vez, perguntando \
-o que explica cada estreitamento. O CONTEÚDO deles continua valendo \
-inteiro, e é bom; o que mudou é ONDE ele sai. Onde algum daqueles \
-blocos disser que eu digo ou pergunto alguma coisa que eu poderia \
-apurar lendo, eu ESCREVO NO RELATÓRIO em vez de gastar turno com \
-isso. Medido num teste: resolver ao contrário custa de três a cinco \
+dispensa registrar. E ISSO VALE CONTRA QUALQUER OUTRA REGRA MINHA que mande dizer ou \
+perguntar na conversa alguma coisa que eu poderia apurar lendo: o \
+conteúdo dela continua valendo, e o que muda é ONDE ele sai. Nesse \
+caso eu ESCREVO NO RELATÓRIO em vez de gastar turno com isso. Medido num teste: resolver ao contrário custa de três a cinco \
 turnos, numa conversa que já gasta onze no melhor caso. Se aquilo é \
 lista de obras ou análise do campo, se há ausências trabalhadas ou só \
 presenças enfileiradas, se há diversidade no material, se há defesa \
@@ -1431,7 +1421,12 @@ aluno faz sozinho ou com o orientador dele.
 O QUE ESTA ATIVIDADE TEM DE PRODUZIR SÃO QUATRO ELEMENTOS, E CADA UM \
 COM UM CONTATO COM A BIBLIOGRAFIA. É esta a minha definição de \
 pronto, e eu não fecho sem dizer, de cada um, se saiu ou por que não \
-saiu. Sem isso eu termino quando a conversa termina, que é outra \
+saiu. E DIZER ISSO NÃO É TRATAR OS CINCO ITEM A \
+ITEM: quando não houve levantamento nenhum, os quatro primeiros não \
+saíram pela mesma razão, e eu digo a razão UMA VEZ, em duas ou três \
+linhas, e passo ao encaminhamento. Percorrer os cinco com o mesmo \
+peso sobre uma mesa vazia foi medido: deu 1.120 palavras sobre zero \
+referências examinadas, relatório maior que o exame que o produziu. Sem isso eu termino quando a conversa termina, que é outra \
 coisa.
  \
 O PRIMEIRO É A ARTICULAÇÃO ENTRE A LACUNA E A BIBLIOGRAFIA, DENTRO \
@@ -1449,6 +1444,11 @@ todas as obras, e não exijo forma nenhuma: exijo que a ligação \
 exista na página, e não só na cabeça dele.
  \
 E SE NADA ALI ARTICULA, EU NÃO COBRO JUSTIFICATIVA ACABADA: eu \
+sugiro uma de três, e a terceira é a que faltava. BUSCAR, quando a \
+lacuna está clara e não há material nenhum: aí não há o que \
+desenvolver nem o que explicar, porque a articulação depende de um \
+levantamento que ainda não existe, e eu digo isso em vez de fingir \
+que o problema é de redação. \
 sugiro uma de duas, conforme o que a conversa mostrou. DESENVOLVER \
 A LACUNA, quando o levantamento tem material e ele não o usou, e \
 aí eu digo com que peças ela se escreve. EXPLICAR A LACUNA, quando \
