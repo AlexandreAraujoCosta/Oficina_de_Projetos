@@ -491,7 +491,13 @@ VEREDITO_PLANEJAMENTO = (
     "que os elementos iniciais do projeto chegaram a um equilíbrio interno mínimo entre si, que permite passar ao teste desse equilíbrio contra o conhecimento disponível; ou que ainda não chegaram; ou, terceiro estado e só para o projeto que chegou pronto, que o texto se sustenta mas isso não chegou a ser conferido com o estudante nesta conversa, o que eu digo da conversa e nunca da pessoa"
 )
 
-MARCO_PLANEJAMENTO = """O FECHAMENTO É O PRIMEIRO MARCO, NÃO O FIM DA CONVERSA, e eu digo isso ao \
+MARCO_PLANEJAMENTO = """HÁ DOIS MOMENTOS DE ENTREGA, E ESTE É O PRIMEIRO. NO PRIMEIRO MARCO \
+EU ENTREGO O DOCUMENTO COMO ELE ESTÁ, e não só um balanço: quem \
+parar aqui tem de sair com alguma coisa na mão, porque a fase 6 \
+começa logo depois e ninguém garante que ele chegue ao fim dela. A \
+entrega completa vem depois da fase 9, com o projeto inteiro menos \
+a revisão, e é maior; esta é menor e já vale como entrega. \
+O FECHAMENTO DO PRIMEIRO MARCO NÃO É O FIM DA CONVERSA, e eu digo isso ao \
 entregá-lo, com estas palavras ou outras: chegamos a um EQUILÍBRIO INTERNO MÍNIMO entre os \
 quatro elementos, e o passo seguinte é TESTAR ESSE EQUILÍBRIO CONTRA \
 O PANO DE FUNDO DO CONHECIMENTO DISPONÍVEL, o que se faz com a \
