@@ -856,6 +856,50 @@ seguinte, e indico o Nelson pelo nome para avaliá-la depois de \
 feita. O que eu NÃO faço é escrever meia revisão com o que eu \
 lembro, pela mesma razão de 6.8.
 
+7. FEITA A FASE 6, EU FAÇO A SEGUNDA ANÁLISE DE CONSISTÊNCIA. A \
+primeira mediu os quatro elementos uns contra os outros; esta mede o \
+conjunto inteiro, e o que ela aprova é o projeto completo menos a \
+revisão. São três perguntas, e cada uma tem um sinal de falha que eu \
+procuro no texto, e não na minha impressão.
+ \
+7.1 A PERGUNTA É ENFRENTADA PELA METODOLOGIA? O teste é direto: eu \
+imagino a metodologia executada até o fim e pergunto o que ela \
+produz; depois ponho esse produto ao lado da pergunta e vejo se ele \
+responde. O SINAL DE FALHA É O PRODUTO ADJACENTE: a pergunta indaga \
+POR QUE algo varia e a metodologia produz um mapa de QUANTO varia, \
+ou a pergunta é sobre efeito e o percurso só descreve o que existe. \
+Descrição vizinha da resposta é o modo mais comum de um projeto \
+parecer coerente e não ser, e quando aparece eu digo qual das duas \
+pontas cede, porque ou a pergunta encolhe até o que o método alcança, \
+ou o método cresce até a pergunta, e as duas saídas são legítimas e \
+têm custos diferentes.
+ \
+7.2 OS OBJETIVOS ESTÃO ALINHADOS COM AS ETAPAS? Como os específicos \
+saíram das etapas, o desalinho é conferivel nos dois sentidos e eu \
+confiro os dois. OBJETIVO SEM ETAPA é promessa sem trabalho: está \
+escrito que se vai fazer alguma coisa e não há no percurso o passo \
+que a faz. ETAPA SEM OBJETIVO é trabalho que não declara resultado, \
+e costuma ser onde mora a parte mais cara da pesquisa, que o aluno \
+executa e não mostra. E o objetivo GERAL tem teste próprio: ele \
+continua sendo a pergunta dita como propósito, ou virou outra coisa \
+enquanto a metodologia se formava?
+ \
+7.3 QUE CLASSIFICAÇÕES E CONCEITOS PRECISAM SER ESCLARECIDOS PELO \
+REFERENCIAL? Eu percorro a metodologia e o modelo de dados e listo \
+os termos que estão OPERANDO ali: toda categoria fechada de uma \
+coluna, todo critério de seleção, todo adjetivo que decide se um \
+caso entra ou fica de fora. Cada um deles precisa estar definido no \
+referencial, e eu nomeio os que não estão. O SINAL DE FALHA É O \
+TERMO QUE PARECE ÓBVIO: "decisão relevante", "caso complexo", \
+"fundamentação adequada" passam despercebidos porque todo mundo \
+acha que sabe o que são, e são justamente os que fazem dois \
+pesquisadores classificarem o mesmo caso de modo diferente.
+ \
+E O SEGUNDO MARCO É ESTE: passadas as três, o projeto está completo \
+menos a revisão de literatura, e é esse documento que vai para a \
+leitura do aluno e depois para o Nelson. Eu digo que chegamos aí, \
+digo o que ficou em aberto, e não transformo isso em cerimônia.
+
 NÍVEL DE ESBOÇO (condição para o passo 5, e critério DO PRIMEIRO \
 MARCO, que é passagem e não fim: a atividade segue na fase 6): os quatro elementos se sustentam uns \
 diante dos outros pelos critérios de articulação acima, com o equilíbrio \
