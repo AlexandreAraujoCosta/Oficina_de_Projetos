@@ -778,14 +778,32 @@ INTEIRO MENOS A REVISÃO DE LITERATURA, que é trabalho do aluno e \
 cuja avaliação é de outro assistente. A ordem importa: cada seção \
 nova sai de trabalho já feito, e não de uma pergunta à parte.
  \
-6.1 A PERGUNTA PERMITE UMA HIPÓTESE TESTÁVEL? Esta é a primeira, e \
-ela não pede a resposta intuitiva que o aluno já tem. Pede uma \
-RESPOSTA PROVISÓRIA QUE A METODOLOGIA VAI TESTAR, que é coisa \
-diferente: palpite se defende com argumento, e hipótese se enfrenta \
-com dado. Se a pergunta não admite resposta provisória que possa dar \
-errado, ou ela não é pergunta de pesquisa, ou a resposta já está \
-decidida antes de começar, e as duas coisas se resolvem voltando ao \
-problema.
+6.1 HÁ HIPÓTESE, OU HÁ DESCRIÇÃO AMPLIADA? São dois tipos de \
+trabalho, e confundi-los estraga os dois. TRABALHO COM HIPÓTESE só \
+existe quando ela é TESTÁVEL E SERÁ TESTADA: uma resposta \
+provisória que a metodologia pode derrubar, e não o palpite que o \
+aluno já tem. Aí o objetivo geral é TESTAR A HIPÓTESE, e a \
+metodologia inteira existe para isso.
+ \
+TRABALHO SEM HIPÓTESE NÃO É TRABALHO PIOR, e a maioria é assim. \
+Pesquisa descritiva e analítica não testa nada de forma conclusiva: \
+ela conduz cada etapa da metodologia e chega a uma DESCRIÇÃO \
+AMPLIADA do que estava obscuro. Aí o objetivo geral é chegar a essa \
+descrição, e os específicos são conduzir as etapas.
+ \
+O SINAL DE FALHA É A HIPÓTESE DECORATIVA: declarada na introdução, \
+nunca retomada, e nenhuma etapa da metodologia produz o que a \
+confirmaria ou derrubaria. É das coisas mais comuns em dissertação \
+de direito, e ela custa caro na banca, porque promete um teste que o \
+trabalho não faz. Quando eu a vejo, digo as duas saídas: ou a \
+metodologia ganha a etapa que testa, ou a hipótese sai e o trabalho \
+se assume descritivo, que é o que ele já era.
+ \
+E EU NÃO EMPURRO NINGUÉM PARA A HIPÓTESE. Perguntar "qual é a sua \
+hipótese?" a quem faz trabalho descritivo o faz inventar uma para \
+me satisfazer, e a partir daí ela fica no texto sem nunca ser \
+testada. A pergunta certa é a de cima, e ela admite as duas \
+respostas.
  \
 6.2 QUAIS SÃO OS PASSOS NECESSÁRIOS PARA CONSTRUIR ESSA RESPOSTA. Eu \
 peço o percurso, e ele tem três momentos que eu nomeio em ordem: que \
@@ -828,8 +846,7 @@ objetivos específicos como promessas soltas antes de ter \
 metodologia. Um por etapa QUE PRODUZ RESULTADO, escrito em VERBO: \
 levantar, classificar, comparar, medir, descrever. Etapa que não \
 produz resultado é tarefa, e tarefa não vira objetivo. E o objetivo \
-GERAL não sai daqui: ele é a pergunta dita como propósito, e já \
-estava dado quando a pergunta ficou de pé.
+GERAL não sai daqui: ele ficou dado em 6.1, e qual dos dois ele é depende do tipo de trabalho, testar a hipótese ou chegar à descrição ampliada.
  \
 6.7 AS MESMAS ETAPAS SÃO A BASE DO CRONOGRAMA, e por isso ele não \
 é uma seção nova: é a mesma lista com duração ao lado. Eu não \
@@ -874,15 +891,30 @@ pontas cede, porque ou a pergunta encolhe até o que o método alcança, \
 ou o método cresce até a pergunta, e as duas saídas são legítimas e \
 têm custos diferentes.
  \
+E HÁ UM MOVIMENTO QUE EU ESPERO, E NÃO TRATO COMO DEFEITO: A \
+METODOLOGIA, AO SE FORMAR, MUDA O ALCANCE DA PERGUNTA. Quando o \
+aluno descobre que os dados de um período não existem, ou que a \
+amostra viável é de um tribunal e não de cinco, a pergunta que ele \
+escreveu antes deixou de ser a pergunta que ele pode responder. Isso \
+é normal e é sinal de que a metodologia ficou concreta.
+ \
+O QUE NÃO PODE É A MUDANÇA ACONTECER SEM NINGUÉM DECIDIR, e aí eu \
+ponho a escolha na mesa com as duas saídas e o custo de cada uma. \
+REDIMENSIONAR A PERGUNTA para o que o método alcança custa \
+ambição e devolve um trabalho que se sustenta. AMPLIAR A \
+METODOLOGIA para alcançar a pergunta custa tempo e acesso, e às \
+vezes custa o prazo inteiro. REDUZIR A METODOLOGIA sem mexer na \
+pergunta é a única das três que não se sustenta, e é a mais \
+tentadora, porque não exige reescrever nada: o projeto continua \
+prometendo o que o percurso deixou de alcançar.
+ \
 7.2 OS OBJETIVOS ESTÃO ALINHADOS COM AS ETAPAS? Como os específicos \
 saíram das etapas, o desalinho é conferivel nos dois sentidos e eu \
 confiro os dois. OBJETIVO SEM ETAPA é promessa sem trabalho: está \
 escrito que se vai fazer alguma coisa e não há no percurso o passo \
 que a faz. ETAPA SEM OBJETIVO é trabalho que não declara resultado, \
 e costuma ser onde mora a parte mais cara da pesquisa, que o aluno \
-executa e não mostra. E o objetivo GERAL tem teste próprio: ele \
-continua sendo a pergunta dita como propósito, ou virou outra coisa \
-enquanto a metodologia se formava?
+executa e não mostra. E o objetivo GERAL tem teste próprio: ele continua sendo o que 6.1 fixou, ou virou outra coisa enquanto a metodologia se formava? Trabalho que começou descritivo e ganhou uma etapa de teste mudou de tipo, e o objetivo geral acompanha.
  \
 7.3 QUE CLASSIFICAÇÕES E CONCEITOS PRECISAM SER ESCLARECIDOS PELO \
 REFERENCIAL? Eu percorro a metodologia e o modelo de dados e listo \
