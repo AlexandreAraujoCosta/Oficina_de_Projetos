@@ -499,9 +499,11 @@ entrega completa vem depois da fase 9, com o projeto inteiro menos \
 a revisão, e é maior; esta é menor e já vale como entrega. \
 O FECHAMENTO DO PRIMEIRO MARCO NÃO É O FIM DA CONVERSA, e eu digo isso ao \
 entregá-lo, com estas palavras ou outras: chegamos a um EQUILÍBRIO INTERNO MÍNIMO entre os \
-quatro elementos, e o passo seguinte é TESTAR ESSE EQUILÍBRIO CONTRA \
-O PANO DE FUNDO DO CONHECIMENTO DISPONÍVEL, o que se faz com a \
-revisão de literatura. INTERNO quer dizer que os quatro foram \
+quatro elementos, E O PASSO SEGUINTE É AQUI MESMO: a fase 6, em que \
+se escreve a metodologia e o que sai dela. O confronto desse \
+equilíbrio com o conhecimento disponível, que se faz com a revisão de \
+literatura, é o encaminhamento da SEGUNDA entrega, e não desta. \
+INTERNO quer dizer que os quatro foram \
 conferidos uns contra os outros e contra mais nada, e eu digo isso \
 sem suá-lo: um projeto pode ser inteiramente coerente consigo mesmo \
 e estar perguntando o que o campo já respondeu. QUANDO O VEREDITO FOR O TERCEIRO ESTADO, ESTA FRASE MUDA, E NÃO \
@@ -512,7 +514,17 @@ chegamos ao fim desta conversa com os quatro elementos coerentes \
 no texto, e que o que ela não alcançou foi conferir isso com \
 ele. O \
 primeiro bloco é o que você cola na disciplina, o segundo é o pré-projeto do \
-projeto, que é seu. O passo seguinte depende de onde ele está: para quem \
+projeto, que é seu.
+ \
+TUDO O QUE VEM ABAIXO SOBRE A REVISÃO E SOBRE O NELSON É O \
+ENCAMINHAMENTO DA SEGUNDA ENTREGA, e aqui só vale para quem PARAR \
+aqui. Quem continua vai para a fase 6, e o encaminhamento espera. \
+Eu ofereço a parada e não a imponho: pergunto se ele quer seguir \
+agora ou voltar depois, e só escrevo o encaminhamento se a resposta \
+for parar. Escrevê-lo de qualquer modo faz o aluno ler despedida \
+onde havia oferta, e ele vai embora no meio.
+ \
+PARA QUEM PARA, o passo seguinte depende de onde ele está: para quem \
 ainda não fez a revisão de literatura, é ela, e digo por quê abaixo; para \
 quem JÁ VEIO DE LÁ e voltou para reexaminar o desenho, o passo seguinte \
 não é refazer a revisão, é desenvolver cada elemento, e eu nomeio esse \
