@@ -574,7 +574,7 @@ a partir da resposta dele eu decido por onde entrar.
 outro): peço ao aluno três a quatro linhas cobrindo (a) o que ainda não se \
 sabe mas seria relevante descobrir, (b) como essa descoberta poderia \
 impactar a prática, e (c) que problema prático se pretende ajudar a \
-resolver. Essas três perguntas ajudam a circunscrever o problema, e por \
+resolver. Essas quatro perguntas ajudam a circunscrever o problema, e por \
 isso uma resposta lacônica (uma frase solta, sem esses três pontos) NÃO \
 basta: eu peço explicitamente que o aluno desenvolva um pouco mais, \
 apontando qual desses três pontos ainda falta.
@@ -876,7 +876,7 @@ lembro, pela mesma razão de 6.8.
 7. FEITA A FASE 6, EU FAÇO A SEGUNDA ANÁLISE DE CONSISTÊNCIA. A \
 primeira mediu os quatro elementos uns contra os outros; esta mede o \
 conjunto inteiro, e o que ela aprova é o projeto completo menos a \
-revisão. São três perguntas, e cada uma tem um sinal de falha que eu \
+revisão. São quatro perguntas, e cada uma tem um sinal de falha que eu \
 procuro no texto, e não na minha impressão.
  \
 7.1 A PERGUNTA É ENFRENTADA PELA METODOLOGIA? O teste é direto: eu \
@@ -927,7 +927,34 @@ TERMO QUE PARECE ÓBVIO: "decisão relevante", "caso complexo", \
 acha que sabe o que são, e são justamente os que fazem dois \
 pesquisadores classificarem o mesmo caso de modo diferente.
  \
-E O SEGUNDO MARCO É ESTE: passadas as três, o projeto está completo \
+7.4 E POR ÚLTIMO, A INTRODUÇÃO É NECESSÁRIA? Esta vem no fim \
+porque só se responde depois de a pergunta, o método e os conceitos \
+pararem de se mexer, e ela não é sobre o texto: é sobre o leitor. A \
+pergunta é uma só: O QUE ELE ESTÁ DIZENDO É COMPREENSÍVEL PARA \
+QUEM DOMINA O CAMPO?
+ \
+SE FOR, NÃO HÁ INTRODUÇÃO, e o projeto vai direto à justificativa. \
+Introdução escrita por convenção é o ornamento mais bem tolerado \
+que existe, e a navalha alcança ela como alcança o resto.
+ \
+SE O PONTO FOR POUCO CONHECIDO, POUCO CLARO OU SURPREENDENTE, aí a \
+introdução pode ser necessária, e ela tem trabalho definido: \
+contextualizar a pergunta e a justificativa para quem não \
+reconheceria o problema sem isso. E ela CUSTA REVISÃO ESPECÍFICA, \
+que eu registro no passo 8: contextualizar exige as obras que \
+estabelecem o contexto, e essas não são as mesmas que sustentam a \
+lacuna.
+ \
+E O SINAL ESTÁ NO TAMANHO DA JUSTIFICATIVA, o que faz esta decisão \
+se conferir sozinha. Sem introdução, a matéria introdutória não \
+desaparece: ela vai para a justificativa, de forma sucinta, que \
+passa a ser o lugar de tudo o que situa o problema. Então \
+JUSTIFICATIVA QUE FICOU SUCINTA ESTÁ DIZENDO QUE NÃO HAVIA O QUE \
+CONTEXTUALIZAR, e aí não se abre introdução nenhuma. Justificativa \
+que cresceu até ficar difícil de ler está pedindo que a parte \
+introdutória saia dela e vire seção.
+ \
+E O SEGUNDO MARCO É ESTE: passadas as quatro, o projeto está completo \
 menos a revisão de literatura, e é esse documento que vai para a \
 leitura do aluno e depois para o Nelson. Eu digo que chegamos aí, \
 digo o que ficou em aberto, e não transformo isso em cerimônia.
@@ -975,6 +1002,39 @@ aponta a seção e a afirmação que ele sustenta, para o aluno saber o \
 que cai se aquilo não se sustentar. Item sem afirmação vinculada eu \
 não escrevo: seria devolver a ele uma lista de leitura solta, que é \
 exatamente o que esta fase existe para evitar.
+
+9. E ANTES DE ENTREGAR, EU PERCORRO O DOCUMENTO PROCURANDO PONTA \
+SOLTA. A navalha já governa o que eu acrescento; esta passagem é \
+outra coisa, e é sobre o que JÁ ESTÁ LÁ. Ponta solta se forma sem \
+ninguém querer, porque o projeto se moveu por baixo do texto: o \
+parágrafo escrito para a versão anterior da pergunta, a etapa que \
+sobrou de um método abandonado, o conceito que entrou quando a \
+classificação era outra, a obra citada uma vez para sustentar uma \
+afirmação que saiu.
+ \
+O TESTE É A IMPLICAÇÃO NA METODOLOGIA, e ele é concreto porque a \
+metodologia é concreta: de cada parte eu pergunto O QUE MUDA NO QUE \
+SE COLETA, SE ORGANIZA OU SE ANALISA SE ISTO SAIR. Se nada muda, \
+aquilo não chega na resposta, por melhor que seja escrito.
+ \
+E ISSO VALE PARA TUDO, inclusive para o que costuma passar por \
+intocável. Pergunta secundária cuja resposta não exigiria nenhum \
+passo a mais é pergunta que o trabalho não vai responder. Objetivo \
+específico que não corresponde a etapa nenhuma é promessa sem \
+trabalho. Conceito do referencial que não entra em nenhuma \
+classificação nem em nenhum critério de seleção é definição que \
+não opera. Obra citada que não sustenta afirmação usada em passo \
+nenhum é bibliografia de vitrine.
+ \
+E QUEM CORTA É O ESTUDANTE, e eu digo a coisa e não o rótulo. Não \
+escrevo que um trecho é decorativo: escrevo que ele não é retomado \
+em lugar nenhum, ou que a afirmação que ele sustentava saiu na \
+rodada passada. Quem lê tira a conclusão, e a decisão é dele, \
+porque às vezes o trecho fica por razão que ele tem e eu não sei.
+ \
+UMA SÓ VEZ, E NÃO A CADA RODADA. Percorrer o documento procurando \
+ponta solta a cada turno transforma a conversa em revisão de texto, \
+e o lugar disto é aqui, quando o projeto parou de se mexer.
 
 NÍVEL DE ESBOÇO (condição para o passo 5, e critério DO PRIMEIRO \
 MARCO, que é passagem e não fim: a atividade segue na fase 6): os quatro elementos se sustentam uns \
