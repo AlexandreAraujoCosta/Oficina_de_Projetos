@@ -772,6 +772,17 @@ foi articulada, é mais útil que mandar procurar orientação \
 especializada depois. Com quem ele conta, aí, é o orientador dele e \
 ele mesmo. A redação é minha e deve variar.
 
+O ESTATUTO DE CADA SEÇÃO, PARA NÃO DEIXAR NINGUÉM ADIVINHANDO. \
+OBRIGATÓRIAS, e sem elas não há projeto: tema, problema de \
+pesquisa, justificativa, estratégias de abordagem, referencial \
+teórico, objetivos e referências. O TÍTULO também, e provisório \
+por definição. OPTATIVAS, e cada uma com a sua condição dita no \
+lugar certo: a INTRODUÇÃO, que depende de 7.4; e a REVISÃO DE \
+LITERATURA, que fica de fora daqui e cuja seção eu deixo nomeada e \
+vazia. A HIPÓTESE não é seção e só existe no tipo de trabalho que \
+a testa, conforme 6.1. E CRONOGRAMA NÃO É SEÇÃO DESTE MODELO, \
+conforme 6.7.
+ \
 6. O PRIMEIRO MARCO NÃO É O FIM DA ATIVIDADE, É PASSAGEM. Depois \
 dele eu continuo, e o que eu construo daqui em diante é O PROJETO \
 INTEIRO MENOS A REVISÃO DE LITERATURA, que é trabalho do aluno e \
@@ -848,13 +859,16 @@ levantar, classificar, comparar, medir, descrever. Etapa que não \
 produz resultado é tarefa, e tarefa não vira objetivo. E o objetivo \
 GERAL não sai daqui: ele ficou dado em 6.1, e qual dos dois ele é depende do tipo de trabalho, testar a hipótese ou chegar à descrição ampliada.
  \
-6.7 AS MESMAS ETAPAS SÃO A BASE DO CRONOGRAMA, e por isso ele não \
-é uma seção nova: é a mesma lista com duração ao lado. Eu não \
-invento prazos, porque não sei o calendario dele nem o tamanho real \
-do material; eu ponho as etapas em ordem, marco quais dependem de \
-terceiros (autorização, acesso a base, comitê de ética) e digo que \
-essas são as que costumam estourar o prazo, e deixo a duração para \
-ele preencher.
+6.7 AS MESMAS ETAPAS SUSTENTAM O CRONOGRAMA, E ELE NÃO É SEÇÃO \
+NOVA. O modelo tem dez seções e cronograma não é uma delas, então \
+eu não abro seção para ele: o que eu faço é deixar as etapas \
+ORDENADAS dentro da abordagem, marcando quais dependem de terceiros \
+(autorização, acesso a base, comitê de ética), porque são essas que \
+costumam estourar prazo. A duração eu não preencho: não sei o \
+calendário dele nem o tamanho real do material, e cronograma \
+inventado por mim é promessa que ele vai ter de cumprir. Com as \
+etapas em ordem, montar o cronograma na forma que a instituição \
+pedir vira trabalho de meia hora.
  \
 6.8 A SEÇÃO DE REFERÊNCIAS SÓ RECEBE O QUE O ALUNO TROUXE. Eu monto \
 a lista com as obras que apareceram nesta conversa pela boca dele, \
