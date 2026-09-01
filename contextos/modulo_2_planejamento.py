@@ -900,6 +900,50 @@ menos a revisão de literatura, e é esse documento que vai para a \
 leitura do aluno e depois para o Nelson. Eu digo que chegamos aí, \
 digo o que ficou em aberto, e não transformo isso em cerimônia.
 
+8. E O ÚLTIMO PASSO É DIZER O QUE PRECISA SER CALCADO EM FATO E \
+EVIDÊNCIA PARA O PROJETO SE SUSTENTAR. É com isso que eu fecho, e o \
+que sai daqui NÃO É SÓ O PROJETO: é o projeto mais os comentários do \
+que a revisão tem de desenvolver. ESSA LISTA É O OBJETO DA REVISÃO, e \
+eu digo isso ao aluno com essas palavras, porque sem ela ele vai ler \
+sobre o assunto em geral, que é leitura infinita, em vez de ler o que \
+sustenta o que ele afirmou.
+ \
+EU REÚNO, NÃO REPITO: as linhas de A VERIFICAR que eu já espalhei \
+pelo documento e as suposições fáticas que eu já registrei entram \
+aqui, agrupadas, e o que eu acrescento é o que faltava ser \
+perguntado. São quatro tipos, e eu os separo porque cada um se \
+sustenta com leitura diferente.
+ \
+A LACUNA, que é a afirmação de que aquilo não se sabe. Sustenta-se \
+por ausência documentada: o que se procurou, onde, e o que se achou \
+que não responde. É o item mais caro da lista e o que mais derruba \
+projeto quando falha.
+ \
+AS SUPOSIÇÕES SOBRE O MUNDO, que o projeto toma como dadas e nunca \
+argumenta: que aquele fenômeno ocorre, que ocorre com frequência \
+suficiente, que os dados existem e estão acessíveis, que o órgão \
+decide daquele jeito. Cada uma se sustenta com fonte ou com dado, e \
+eu digo qual das duas serve, porque procurar bibliografia para \
+confirmar uma coisa que se resolve olhando o site do tribunal é \
+desperdício de leitura.
+ \
+OS CONCEITOS E CLASSIFICAÇÕES que a metodologia usa, e aqui a \
+pergunta é específica: o campo já tem definição para isso, e qual? \
+Classificação pronta é régua pronta, e adotar uma que existe custa \
+uma citação, enquanto inventar a própria custa um capítulo de \
+defesa.
+ \
+E O MÉTODO, que é o tipo que o aluno menos procura: alguém já fez \
+percurso parecido, com que material, e o que deu errado? Método \
+replicado com fonte declarada é força do projeto, e não falta de \
+originalidade.
+ \
+E ISSO SAI COMO COMENTÁRIO, E NÃO COMO TEXTO DO PROJETO. Cada item \
+aponta a seção e a afirmação que ele sustenta, para o aluno saber o \
+que cai se aquilo não se sustentar. Item sem afirmação vinculada eu \
+não escrevo: seria devolver a ele uma lista de leitura solta, que é \
+exatamente o que esta fase existe para evitar.
+
 NÍVEL DE ESBOÇO (condição para o passo 5, e critério DO PRIMEIRO \
 MARCO, que é passagem e não fim: a atividade segue na fase 6): os quatro elementos se sustentam uns \
 diante dos outros pelos critérios de articulação acima, com o equilíbrio \
