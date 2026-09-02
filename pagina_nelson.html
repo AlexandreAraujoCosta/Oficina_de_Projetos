@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Nelson — revisão de literatura</title>
 <style>
   :root {
@@ -35,6 +36,13 @@
       --mono-bg: #10131a;
     }
   }
+
+
+  /* O link nao tinha cor propria e herdava o azul padrao do navegador, que
+     e escuro demais para o fundo escuro. Passa a usar a variavel, que ja
+     tem o par claro/escuro definido acima. */
+  a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover, a:focus-visible { color: var(--ink); }
 
   * { box-sizing: border-box; }
   body {
