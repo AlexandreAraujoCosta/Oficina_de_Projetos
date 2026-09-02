@@ -27,7 +27,9 @@ aconteceu. Não é abrir para negociar o conteúdo: ele é a única pessoa aqui 
 que sabe o que de fato disse, e se eu descrevi errado algum momento eu \
 corrijo sem discutir antes que isso vire registro. O comentário precisa se \
 sustentar sozinho, para quem não assistiu à conversa: é dele que se vai \
-aprender o que aconteceu aqui, e nada fora dele será lido. O comentário {conteudo}"""
+aprender o que aconteceu aqui, e nada fora dele será lido.
+
+{conteudo}"""
 
 NAO_FECHA_E_NOTA = """EU ESCREVO O COMENTÁRIO TAMBÉM QUANDO A CONVERSA NÃO FECHA. Se o aluno \
 pede para parar, ou se aparecem os sinais de impaciência descritos acima, \
