@@ -186,6 +186,25 @@
     button.copy { width: 100%; }
   }
 </style>
+<style>
+  .vias-titulo { font-family: Georgia, "Iowan Old Style", serif; font-size: 1.05rem;
+                 margin: 30px 0 14px; color: var(--ink); }
+  .vias-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+                margin-bottom: 10px; }
+  @media (max-width: 720px) { .vias-grade { grid-template-columns: 1fr; } }
+  .via-bt { display: block; text-align: left; font: inherit; color: inherit;
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 8px; padding: 16px; cursor: pointer; }
+  .via-bt:hover, .via-bt:focus-visible { border-color: var(--blue-soft); }
+  .via-bt[aria-pressed="true"] { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+  .via-nome { display: block; font-family: Georgia, "Iowan Old Style", serif;
+              font-size: 1.3rem; line-height: 1.15; margin-bottom: 8px; color: var(--blue); }
+  .via-txt { display: block; font-size: 0.92rem; line-height: 1.5; margin-bottom: 8px; }
+  .via-volta { display: block; font-size: 0.86rem; color: var(--ink-soft); line-height: 1.45; }
+  .vias-nota { font-size: 0.88rem; color: var(--ink-soft); margin: 14px 0 26px;
+               padding-top: 12px; border-top: 1px solid var(--line); }
+  .via-guia { margin: 8px 0 26px; }
+</style>
 
 <div class="page">
   <span class="eyebrow">Universidade de Brasília · Planejamento da pesquisa</span>
@@ -244,6 +263,39 @@
     de entregar.
   </p>
 
+  <p class="vias-titulo">Escolha a via pela qual você vai usar o Miro, para
+  ver só as orientações daquela via.</p>
+
+  <div class="vias-grade">
+    <button type="button" class="via-bt" data-via="chat">
+      <span class="via-nome">Chat</span>
+      <span class="via-txt">Você tem uma conta de assistente e nada instalado.
+      Cola-se o prompt numa conversa nova, em quatro partes.</span>
+      <span class="via-volta">A conversa acontece ali, e o comentário final sai
+      como texto para você copiar.</span>
+    </button>
+
+    <button type="button" class="via-bt" data-via="claude">
+      <span class="via-nome">Claude&nbsp;Code</span>
+      <span class="via-txt">Um agente sobre a pasta do seu projeto. O prompt
+      entra inteiro, sem divisão em partes.</span>
+      <span class="via-volta">Volta arquivo: o pré-projeto é gravado na sua
+      pasta, e não copiado à mão.</span>
+    </button>
+
+    <button type="button" class="via-bt" data-via="vscode">
+      <span class="via-nome">VS&nbsp;Code + Agente</span>
+      <span class="via-txt">O mesmo, dentro do VS Code, com o Copilot ou com a
+      sua própria chave de API.</span>
+      <span class="via-volta">Volta arquivo, e serve a quem já tem o Copilot
+      pela conta do GitHub.</span>
+    </button>
+  </div>
+
+  <p class="vias-nota">Nas três, o modelo pesa: escolha o melhor que a sua conta
+  oferecer e evite o modo automático. O Miro foi testado em Sonnet e em GPT.</p>
+
+  <div class="via-guia" id="guia-chat" hidden>
   <div class="card">
     <h2>Como usar</h2>
     <p class="note" style="border-left-color: var(--green); margin-top: 0;">
@@ -295,404 +347,7 @@
     </p>
   </div>
 
-  <div class="card">
-    <h2>Outra via: usar com um agente, em vez do chat</h2>
-    <p class="note" style="border-left-color: var(--green); margin-top: 0;">
-      <strong>Num agente o prompt entra inteiro, de uma vez.</strong> Não há
-      divisão em quatro partes, não há risco de virar anexo, e não há o botão de
-      converter para procurar: o agente lê o arquivo. Se você tem acesso a um,
-      é a via mais simples, e não a mais avançada.
-    </p>
-    <p style="margin: 0 0 14px; color: var(--ink-soft);">
-      Agente aqui quer dizer um assistente que roda dentro de um programa, com
-      acesso à sua pasta e a um terminal: o Claude Code, o Copilot em modo
-      agente, e outros do mesmo tipo. O que ele acrescenta não é a leitura, é o
-      arquivo de volta. No chat, o pré-projeto sai como um bloco de texto que
-      você copia à mão e cola num editor. Num agente, ele é escrito como arquivo
-      na sua pasta, com o nome que você quiser, e fica lá.
-    </p>
-    <ol class="steps">
-      <li><strong>Salve o prompt como arquivo</strong> na pasta do seu projeto,
-      com nome simples, por exemplo <code>miro.md</code>. Pode copiar as quatro
-      partes em sequência para o mesmo arquivo: a divisão existe só por causa da
-      colagem no chat, e aqui ela não faz falta.</li>
-      <li><strong>Abra essa pasta no agente</strong> e ponha-o em modo agente, e
-      não em modo pergunta. A diferença não é anunciada: no modo de pergunta o
-      assistente responde <em>sobre</em> o que você pediu em vez de fazer.</li>
-      <li><strong>Peça a leitura</strong>, com estas palavras ou outras:
-      <em>"Leia o arquivo miro.md e siga as instruções dele como se fossem suas.
-      A partir da sua próxima resposta, converse comigo seguindo o que está
-      ali."</em></li>
-      <li><strong>Converse normalmente.</strong> Daí em diante é igual ao chat,
-      com uma diferença: quando ele escrever o pré-projeto, peça que grave como
-      arquivo em vez de mostrar na tela.</li>
-    </ol>
-    <p class="note">
-      <strong>O modelo decide mais que o resto.</strong> Escolha o melhor que a
-      sua conta oferecer e evite o modo automático, porque modelo escolhido pelo
-      serviço é modelo desconhecido. Testamos o Miro em Sonnet e ele aplica os
-      critérios; dos modelos mais fracos não temos medição.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>A mesma via no VS Code, passo a passo</h2>
-    <p style="margin: 0 0 14px; color: var(--ink-soft);">
-      Vale a pena se você já usa o VS Code ou tem o Copilot pela conta do GitHub.
-      Instala-se uma coisa só: o <strong>VS Code</strong> e, dentro dele, a
-      extensão <strong>GitHub Copilot</strong>, pelo painel de extensões. Ela
-      pede login na conta do GitHub.
-    </p>
-    <ol class="steps">
-      <li><strong>Abra o chat do Copilot.</strong> Pelo menu
-      <code>Exibir › Chat</code>, pelo atalho <code>Ctrl+Alt+I</code>, ou pela
-      paleta de comandos (<code>Ctrl+Shift+P</code>, digite <em>chat</em>). Se
-      não houver ícone de balão na barra lateral, isso é diagnóstico e não
-      detalhe: a extensão não foi instalada ou falta o login.</li>
-      <li><strong>Ponha em modo agente</strong>, no seletor no alto do painel,
-      onde costuma estar escrito <em>Ask</em>.</li>
-      <li><strong>Escolha o modelo à mão</strong>, no seletor, e não deixe no
-      automático.</li>
-      <li><strong>Salve o prompt como <code>miro.md</code></strong> na pasta
-      aberta, e faça o pedido da via anterior.</li>
-    </ol>
-    <p class="note">
-      <strong>Sobre a franquia do GitHub Education, o que se sabe e o que não.</strong>
-      O Student Developer Pack dá acesso ao Copilot sem custo, e é por isso que
-      esta via interessa a quem é estudante. Desde 12 de março de 2026 o plano de
-      estudante não oferece mais a seleção de Opus e Sonnet, mas oferece os
-      modelos GPT, e com eles o comportamento como agente é estável: ele lê o
-      arquivo, roda o que precisa e devolve arquivo, que é o que esta via
-      acrescenta. O que ainda não medimos é outra coisa, e vale saber: como os
-      critérios do Miro saem no GPT em comparação com o Sonnet, em que ele foi
-      testado. Se a sua conta oferecer Sonnet ou melhor, prefira; se oferecer
-      GPT, use sem receio quanto à estabilidade, e leia o comentário final com
-      atenção antes de entregar.
-    </p>
-  </div>
-
-<!-- FERRAMENTA:INICIO -->
-  <div class="card ferramenta">
-    <h2>Ferramenta: pôr as sugestões dentro do seu projeto</h2>
-    <p class="note">
-      O assistente não reescreve o seu texto, e é de propósito: quando um modelo
-      de linguagem copia um documento, ele não copia, ele produz de novo, e o que
-      sai muda palavra sem avisar. Por isso ele devolve <strong>onde</strong> cada
-      sugestão entra, e quem escreve no seu texto é esta página, aqui no seu
-      navegador. Nada é enviado a lugar nenhum.
-    </p>
-
-    <div class="fc-passo">
-      <span class="fc-num">1</span>
-      <div>
-        <strong>Cole o seu projeto</strong> e clique em numerar. Leve a lista
-        numerada para a conversa: é assim que o assistente aponta o parágrafo
-        certo, em vez de contar por conta própria.
-      </div>
-    </div>
-    <textarea id="fc-projeto" class="fc-area" rows="7" spellcheck="false"
-      placeholder="Cole aqui o texto do seu projeto, como ele está."></textarea>
-    <div class="fc-botoes">
-      <button type="button" class="fc-btn" id="fc-numerar">Numerar os parágrafos</button>
-      <span class="fc-info" id="fc-info-projeto"></span>
-    </div>
-
-    <div class="fc-passo">
-      <span class="fc-num">2</span>
-      <div>
-        <strong>Cole o que o assistente devolveu</strong>, inteiro, do jeito que
-        veio. As linhas que não forem sugestão (títulos de seção, estado,
-        comentários) são ignoradas, e a página diz quantas ignorou.
-      </div>
-    </div>
-    <textarea id="fc-sugestoes" class="fc-area" rows="6" spellcheck="false"
-      placeholder="P004 &gt; O objetivo geral não diz o que se vai fazer.&#10;P012 &gt; Esta obra não toca nenhum dos quatro elementos."></textarea>
-    <div class="fc-botoes">
-      <button type="button" class="fc-btn fc-forte" id="fc-inserir">Inserir as sugestões</button>
-      <button type="button" class="fc-btn fc-leve" id="fc-provar">Testar o conferidor</button>
-    </div>
-
-    <div id="fc-aviso" class="fc-aviso" hidden></div>
-
-    <div class="fc-saida" id="fc-saida-caixa" hidden>
-      <div class="fc-botoes fc-topo">
-        <span class="fc-info" id="fc-info-saida"></span>
-        <button type="button" class="fc-btn" id="fc-copiar">Copiar resultado</button>
-      </div>
-      <textarea id="fc-saida" class="fc-area" rows="12" readonly spellcheck="false"></textarea>
-    </div>
-  </div>
-
-  <style>
-    .ferramenta .fc-area {
-      width: 100%;
-      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-      font-size: 0.86rem;
-      line-height: 1.5;
-      color: var(--ink);
-      background: var(--mono-bg);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 10px 12px;
-      resize: vertical;
-    }
-    .ferramenta .fc-passo {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin: 22px 0 10px;
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-    }
-    .ferramenta .fc-num {
-      flex: 0 0 auto;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--blue);
-      color: var(--card);
-      font-size: 0.8rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .ferramenta .fc-botoes {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 10px 0 4px;
-    }
-    .ferramenta .fc-topo { margin-top: 0; justify-content: space-between; }
-    .ferramenta .fc-btn {
-      font: inherit;
-      font-size: 0.88rem;
-      padding: 7px 14px;
-      border-radius: 7px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      color: var(--blue);
-      cursor: pointer;
-    }
-    .ferramenta .fc-btn:hover { border-color: var(--blue-soft); }
-    .ferramenta .fc-forte {
-      background: var(--blue);
-      color: var(--card);
-      border-color: var(--blue);
-    }
-    .ferramenta .fc-leve { color: var(--ink-soft); }
-    .ferramenta .fc-info {
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-    }
-    .ferramenta .fc-aviso {
-      margin: 14px 0 0;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border-left: 3px solid var(--green);
-      background: var(--mono-bg);
-      font-size: 0.88rem;
-      color: var(--ink-soft);
-      white-space: pre-wrap;
-    }
-    .ferramenta .fc-aviso.fc-ruim { border-left-color: #b4442e; }
-    .ferramenta .fc-saida { margin-top: 22px; }
-  </style>
-
-  <script>
-  (function () {
-    "use strict";
-
-    // Um paragrafo e um bloco separado por linha em branco. Esta e a
-    // definicao, e e por isso que a numeracao sai DAQUI: quando o
-    // assistente conta por conta propria, ele nao sabe se titulo de secao
-    // conta, e o desvio cresce ao longo do documento. Medido num teste:
-    // 3 de diferenca no problema, 8 nas referencias, que e justamente
-    // onde a sugestao identifica o item so pelo numero.
-    function trechos(bruto) {
-      var re = /\n[ \t]*\n/g, saida = [], pos = 0, m;
-      while ((m = re.exec(bruto)) !== null) {
-        saida.push([pos, m.index]);
-        pos = re.lastIndex;
-      }
-      saida.push([pos, bruto.length]);
-      return saida.filter(function (t) {
-        return bruto.slice(t[0], t[1]).trim() !== "";
-      });
-    }
-
-    function texto(bruto, t) { return bruto.slice(t[0], t[1]); }
-
-    // Aceita o que os assistentes de fato emitem, e nao so o formato
-    // ideal: P004 > texto, [P004] texto, P004: texto, com ou sem o "P".
-    var RE_SUG = /^\s*\[?\s*P?\s*(\d{1,4})\s*\]?\s*[>:–—-]\s*(.+?)\s*$/i;
-
-    function lerSugestoes(bruto) {
-      var itens = [], ignoradas = 0, linhas = bruto.split(/\r?\n/);
-      for (var i = 0; i < linhas.length; i++) {
-        var l = linhas[i];
-        if (!l.trim()) { continue; }
-        var m = RE_SUG.exec(l);
-        if (m) {
-          itens.push({ n: parseInt(m[1], 10), txt: m[2] });
-        } else if (itens.length && /^\s{2,}\S/.test(l)) {
-          itens[itens.length - 1].txt += " " + l.trim();
-        } else {
-          ignoradas++;
-        }
-      }
-      return { itens: itens, ignoradas: ignoradas };
-    }
-
-    // O CONFERIDOR. A promessa de nao alterar o seu texto nao vale como
-    // intencao: vale como conferencia. Ele compara paragrafo a paragrafo,
-    // e o botao "Testar o conferidor" mostra ele reprovando de proposito.
-    function conferir(antes, depois) {
-      if (antes.length !== depois.length) {
-        return "o texto entrou com " + antes.length +
-               " parágrafos e saiu com " + depois.length + ".";
-      }
-      for (var i = 0; i < antes.length; i++) {
-        if (antes[i].trim() !== depois[i].trim()) {
-          return "o parágrafo P" + pad(i + 1) + " mudou.";
-        }
-      }
-      return null;
-    }
-
-    function pad(n) { return ("00" + n).slice(-3); }
-
-    function $(id) { return document.getElementById(id); }
-
-    function avisar(msg, ruim) {
-      var a = $("fc-aviso");
-      a.textContent = msg;
-      a.hidden = false;
-      a.classList.toggle("fc-ruim", !!ruim);
-    }
-
-    $("fc-numerar").addEventListener("click", function () {
-      var bruto = $("fc-projeto").value;
-      if (!bruto.trim()) { avisar("Cole o seu projeto no primeiro campo.", true); return; }
-      var ts = trechos(bruto), linhas = [];
-      for (var i = 0; i < ts.length; i++) {
-        var t = texto(bruto, ts[i]).replace(/\s+/g, " ").trim();
-        linhas.push("[P" + pad(i + 1) + "] " + t);
-      }
-      $("fc-saida").value = linhas.join("\n\n");
-      $("fc-saida-caixa").hidden = false;
-      $("fc-info-saida").textContent = ts.length + " parágrafos numerados.";
-      $("fc-info-projeto").textContent = ts.length + " parágrafos.";
-      avisar("Copie esta lista e cole na conversa, dizendo que é a numeração " +
-             "do seu projeto. A partir daí o assistente aponta por P001, P002, " +
-             "e os números batem com este texto.");
-    });
-
-    $("fc-inserir").addEventListener("click", function () {
-      var bruto = $("fc-projeto").value;
-      if (!bruto.trim()) { avisar("Cole o seu projeto no primeiro campo.", true); return; }
-      var lido = lerSugestoes($("fc-sugestoes").value);
-      if (!lido.itens.length) {
-        avisar("Não encontrei nenhuma sugestão com localizador no segundo " +
-               "campo. Elas têm a forma P004 > texto da sugestão.", true);
-        return;
-      }
-      var ts = trechos(bruto);
-      var antes = ts.map(function (t) { return texto(bruto, t); });
-
-      var fora = [];
-      lido.itens.forEach(function (it) {
-        if (it.n < 1 || it.n > ts.length) { fora.push("P" + pad(it.n)); }
-      });
-      if (fora.length) {
-        avisar("As sugestões apontam parágrafos que o seu texto não tem: " +
-               fora.join(", ") + ".\nO seu projeto vai de P001 a P" +
-               pad(ts.length) + ". Numere-o no passo 1 e peça ao assistente " +
-               "que refaça as sugestões com esses números. Eu não escolho o " +
-               "parágrafo mais parecido.", true);
-        return;
-      }
-
-      var porPar = {};
-      lido.itens.forEach(function (it) {
-        (porPar[it.n] = porPar[it.n] || []).push(it.txt);
-      });
-
-      // De tras para a frente, para os deslocamentos nao se moverem. E por
-      // insercao, e nao por remontagem: remontar o texto e uma forma de
-      // redigita-lo, e foi o primeiro defeito que o conferidor pegou.
-      var saida = bruto;
-      Object.keys(porPar).map(Number).sort(function (a, b) { return b - a; })
-        .forEach(function (n) {
-          var fim = ts[n - 1][1];
-          while (fim > 0 && "\r\n\t ".indexOf(saida.charAt(fim - 1)) >= 0) { fim--; }
-          var bloco = porPar[n].map(function (t) {
-            return "\n\n> SUGESTÃO: " + t;
-          }).join("");
-          saida = saida.slice(0, fim) + bloco + saida.slice(fim);
-        });
-
-      var depois = trechos(saida).map(function (t) { return texto(saida, t); })
-        .filter(function (p) { return p.indexOf("> SUGESTÃO:") !== 0; });
-      var erro = conferir(antes, depois);
-      if (erro) {
-        avisar("PAREI: " + erro + "\nO seu texto teria saído diferente do que " +
-               "entrou, e é exatamente isso que esta página existe para " +
-               "impedir. Nada foi produzido.", true);
-        return;
-      }
-
-      $("fc-saida").value = saida;
-      $("fc-saida-caixa").hidden = false;
-      var quantos = Object.keys(porPar).length;
-      $("fc-info-saida").textContent = lido.itens.length + " sugestões em " +
-        quantos + " parágrafos.";
-      var msg = "O seu texto saiu idêntico ao que entrou, conferido parágrafo " +
-        "a parágrafo. As sugestões estão em linhas próprias, começadas por " +
-        "SUGESTÃO, e nenhuma palavra sua foi tocada.";
-      if (lido.ignoradas) {
-        msg += "\n\nIgnorei " + lido.ignoradas + " linha" +
-          (lido.ignoradas > 1 ? "s" : "") + " que não tinha" +
-          (lido.ignoradas > 1 ? "m" : "") + " localizador (títulos de seção, " +
-          "estado, texto solto). Se alguma dessas era sugestão, ela não entrou.";
-      }
-      avisar(msg);
-    });
-
-    // Controle positivo, a vista. Conferidor que nunca reprovou nada nao
-    // informa nada quando fica em silencio.
-    $("fc-provar").addEventListener("click", function () {
-      var a = ["O problema de pesquisa é este.", "A justificativa é aquela."];
-      var linhas = [];
-      linhas.push("texto idêntico: " +
-        (conferir(a, a.slice()) === null ? "passou (correto)" : "REPROVOU (erro)"));
-      var b = ["O problema de pesquisa é esse.", "A justificativa é aquela."];
-      var r1 = conferir(a, b);
-      linhas.push("um sinônimo trocado: " + (r1 ? "reprovou — " + r1 : "PASSOU (erro)"));
-      var r2 = conferir(a, a.slice(0, 1));
-      linhas.push("um parágrafo a menos: " + (r2 ? "reprovou — " + r2 : "PASSOU (erro)"));
-      var ok = conferir(a, a.slice()) === null && r1 && r2;
-      avisar(linhas.join("\n") + "\n\n" + (ok
-        ? "O conferidor reprova o que deve reprovar."
-        : "O CONFERIDOR ESTÁ QUEBRADO. Não use o resultado."), !ok);
-    });
-
-    $("fc-copiar").addEventListener("click", function () {
-      var t = $("fc-saida");
-      t.select();
-      try {
-        navigator.clipboard.writeText(t.value);
-      } catch (e) {
-        document.execCommand("copy");
-      }
-      $("fc-copiar").textContent = "Copiado";
-      setTimeout(function () { $("fc-copiar").textContent = "Copiar resultado"; }, 1600);
-    });
-  }());
-  </script>
-<!-- FERRAMENTA:FIM -->
-
+  
   <div class="copybar">
     <span class="label"><strong>Miro I</strong> — cole esta primeira e envie; ele vai pedir a próxima</span>
     <button class="copy" id="btn-copy-1" type="button">Copiar parte 1</button>
@@ -1207,7 +862,447 @@ Eu N&#195;O pe&#231;o a lacuna nesta primeira fala, nem ofere&#231;o recortes ou
 </textarea>
   </div>
 
+  </div>
+
+  <div class="via-guia" id="guia-claude" hidden>
+  <div class="card">
+    <h2>Outra via: usar com um agente, em vez do chat</h2>
+    <p class="note" style="border-left-color: var(--green); margin-top: 0;">
+      <strong>Num agente o prompt entra inteiro, de uma vez.</strong> Não há
+      divisão em quatro partes, não há risco de virar anexo, e não há o botão de
+      converter para procurar: o agente lê o arquivo. Se você tem acesso a um,
+      é a via mais simples, e não a mais avançada.
+    </p>
+    <p style="margin: 0 0 14px; color: var(--ink-soft);">
+      Agente aqui quer dizer um assistente que roda dentro de um programa, com
+      acesso à sua pasta e a um terminal: o Claude Code, o Copilot em modo
+      agente, e outros do mesmo tipo. O que ele acrescenta não é a leitura, é o
+      arquivo de volta. No chat, o pré-projeto sai como um bloco de texto que
+      você copia à mão e cola num editor. Num agente, ele é escrito como arquivo
+      na sua pasta, com o nome que você quiser, e fica lá.
+    </p>
+    <p class="note" style="border-left-color: var(--green);">
+      <strong>Onde está o arquivo do prompt.</strong> Aqui você não copia nada
+      desta página: o agente lê arquivo, e o arquivo mora no repositório, em
+      <a href="https://github.com/AlexandreAraujoCosta/miro">github.com/AlexandreAraujoCosta/miro</a>. O que interessa é
+      <code>prompt_portatil_modulo_2_planejamento.md</code>, na raiz. Baixe-o (no GitHub,
+      abra o arquivo e use <em>Download raw file</em>) e ponha na pasta do seu
+      projeto, ou clone o repositório inteiro, se preferir manter atualizado com
+      <code>git pull</code>.
+    </p>
+    <ol class="steps">
+      <li><strong>Ponha o arquivo</strong> na pasta do seu projeto. A divisão em
+      quatro partes não existe aqui: ela serve só à colagem no chat.</li>
+      <li><strong>Abra essa pasta no agente</strong> e ponha-o em modo agente, e
+      não em modo pergunta. A diferença não é anunciada: no modo de pergunta o
+      assistente responde <em>sobre</em> o que você pediu em vez de fazer.</li>
+      <li><strong>Peça a leitura</strong>, com estas palavras ou outras:
+      <em>"Leia o arquivo prompt_portatil_modulo_2_planejamento.md e siga as instruções dele como se fossem suas.
+      A partir da sua próxima resposta, converse comigo seguindo o que está
+      ali."</em></li>
+      <li><strong>Converse normalmente.</strong> Daí em diante é igual ao chat,
+      com uma diferença: quando ele escrever o pré-projeto, peça que grave como
+      arquivo em vez de mostrar na tela.</li>
+    </ol>
+    <p class="note">
+      <strong>O modelo decide mais que o resto.</strong> Escolha o melhor que a
+      sua conta oferecer e evite o modo automático, porque modelo escolhido pelo
+      serviço é modelo desconhecido. Testamos o Miro em Sonnet e ele aplica os
+      critérios; dos modelos mais fracos não temos medição.
+    </p>
+  </div>
+
+  </div>
+
+  <div class="via-guia" id="guia-vscode" hidden>
+  <div class="card">
+    <h2>A mesma via no VS Code, passo a passo</h2>
+    <p style="margin: 0 0 14px; color: var(--ink-soft);">
+      Vale a pena se você já usa o VS Code ou tem o Copilot pela conta do GitHub.
+      Instala-se uma coisa só: o <strong>VS Code</strong> e, dentro dele, a
+      extensão <strong>GitHub Copilot</strong>, pelo painel de extensões. Ela
+      pede login na conta do GitHub.
+    </p>
+    <ol class="steps">
+      <li><strong>Abra o chat do Copilot.</strong> Pelo menu
+      <code>Exibir › Chat</code>, pelo atalho <code>Ctrl+Alt+I</code>, ou pela
+      paleta de comandos (<code>Ctrl+Shift+P</code>, digite <em>chat</em>). Se
+      não houver ícone de balão na barra lateral, isso é diagnóstico e não
+      detalhe: a extensão não foi instalada ou falta o login.</li>
+      <li><strong>Ponha em modo agente</strong>, no seletor no alto do painel,
+      onde costuma estar escrito <em>Ask</em>.</li>
+      <li><strong>Escolha o modelo à mão</strong>, no seletor, e não deixe no
+      automático.</li>
+            <li><strong>Ponha o arquivo do prompt</strong> na pasta aberta. Ele está no
+      repositório, em <a href="https://github.com/AlexandreAraujoCosta/miro">github.com/AlexandreAraujoCosta/miro</a>,
+      com o nome <code>prompt_portatil_modulo_2_planejamento.md</code>. Aqui você
+      não copia nada desta página: o agente lê o arquivo.</li>
+      <li><strong>Faça o pedido</strong>, com as palavras da via do Claude Code:
+      peça que ele leia o arquivo e siga as instruções como se fossem suas.</li>
+    </ol>
+    <p class="note">
+      <strong>Sobre a franquia do GitHub Education, o que se sabe e o que não.</strong>
+      O Student Developer Pack dá acesso ao Copilot sem custo, e é por isso que
+      esta via interessa a quem é estudante. Desde 12 de março de 2026 o plano de
+      estudante não oferece mais a seleção de Opus e Sonnet, mas oferece os
+      modelos GPT, e com eles o comportamento como agente é estável: ele lê o
+      arquivo, roda o que precisa e devolve arquivo, que é o que esta via
+      acrescenta. O que ainda não medimos é outra coisa, e vale saber: como os
+      critérios do Miro saem no GPT em comparação com o Sonnet, em que ele foi
+      testado. Se a sua conta oferecer Sonnet ou melhor, prefira; se oferecer
+      GPT, use sem receio quanto à estabilidade, e leia o comentário final com
+      atenção antes de entregar.
+    </p>
+  </div>
+
+  </div>
+
+<!-- FERRAMENTA:INICIO -->
+  <div class="card ferramenta">
+    <h2>Ferramenta: pôr as sugestões dentro do seu projeto</h2>
+    <p class="note">
+      O assistente não reescreve o seu texto, e é de propósito: quando um modelo
+      de linguagem copia um documento, ele não copia, ele produz de novo, e o que
+      sai muda palavra sem avisar. Por isso ele devolve <strong>onde</strong> cada
+      sugestão entra, e quem escreve no seu texto é esta página, aqui no seu
+      navegador. Nada é enviado a lugar nenhum.
+    </p>
+
+    <div class="fc-passo">
+      <span class="fc-num">1</span>
+      <div>
+        <strong>Cole o seu projeto</strong> e clique em numerar. Leve a lista
+        numerada para a conversa: é assim que o assistente aponta o parágrafo
+        certo, em vez de contar por conta própria.
+      </div>
+    </div>
+    <textarea id="fc-projeto" class="fc-area" rows="7" spellcheck="false"
+      placeholder="Cole aqui o texto do seu projeto, como ele está."></textarea>
+    <div class="fc-botoes">
+      <button type="button" class="fc-btn" id="fc-numerar">Numerar os parágrafos</button>
+      <span class="fc-info" id="fc-info-projeto"></span>
+    </div>
+
+    <div class="fc-passo">
+      <span class="fc-num">2</span>
+      <div>
+        <strong>Cole o que o assistente devolveu</strong>, inteiro, do jeito que
+        veio. As linhas que não forem sugestão (títulos de seção, estado,
+        comentários) são ignoradas, e a página diz quantas ignorou.
+      </div>
+    </div>
+    <textarea id="fc-sugestoes" class="fc-area" rows="6" spellcheck="false"
+      placeholder="P004 &gt; O objetivo geral não diz o que se vai fazer.&#10;P012 &gt; Esta obra não toca nenhum dos quatro elementos."></textarea>
+    <div class="fc-botoes">
+      <button type="button" class="fc-btn fc-forte" id="fc-inserir">Inserir as sugestões</button>
+      <button type="button" class="fc-btn fc-leve" id="fc-provar">Testar o conferidor</button>
+    </div>
+
+    <div id="fc-aviso" class="fc-aviso" hidden></div>
+
+    <div class="fc-saida" id="fc-saida-caixa" hidden>
+      <div class="fc-botoes fc-topo">
+        <span class="fc-info" id="fc-info-saida"></span>
+        <button type="button" class="fc-btn" id="fc-copiar">Copiar resultado</button>
+      </div>
+      <textarea id="fc-saida" class="fc-area" rows="12" readonly spellcheck="false"></textarea>
+    </div>
+  </div>
+
+  <style>
+    .ferramenta .fc-area {
+      width: 100%;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--mono-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      resize: vertical;
+    }
+    .ferramenta .fc-passo {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 22px 0 10px;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    .ferramenta .fc-num {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--card);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ferramenta .fc-botoes {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 4px;
+    }
+    .ferramenta .fc-topo { margin-top: 0; justify-content: space-between; }
+    .ferramenta .fc-btn {
+      font: inherit;
+      font-size: 0.88rem;
+      padding: 7px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--blue);
+      cursor: pointer;
+    }
+    .ferramenta .fc-btn:hover { border-color: var(--blue-soft); }
+    .ferramenta .fc-forte {
+      background: var(--blue);
+      color: var(--card);
+      border-color: var(--blue);
+    }
+    .ferramenta .fc-leve { color: var(--ink-soft); }
+    .ferramenta .fc-info {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+    .ferramenta .fc-aviso {
+      margin: 14px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border-left: 3px solid var(--green);
+      background: var(--mono-bg);
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      white-space: pre-wrap;
+    }
+    .ferramenta .fc-aviso.fc-ruim { border-left-color: #b4442e; }
+    .ferramenta .fc-saida { margin-top: 22px; }
+  </style>
+
+  <script>
+  (function () {
+    "use strict";
+
+    // Um paragrafo e um bloco separado por linha em branco. Esta e a
+    // definicao, e e por isso que a numeracao sai DAQUI: quando o
+    // assistente conta por conta propria, ele nao sabe se titulo de secao
+    // conta, e o desvio cresce ao longo do documento. Medido num teste:
+    // 3 de diferenca no problema, 8 nas referencias, que e justamente
+    // onde a sugestao identifica o item so pelo numero.
+    function trechos(bruto) {
+      var re = /\n[ \t]*\n/g, saida = [], pos = 0, m;
+      while ((m = re.exec(bruto)) !== null) {
+        saida.push([pos, m.index]);
+        pos = re.lastIndex;
+      }
+      saida.push([pos, bruto.length]);
+      return saida.filter(function (t) {
+        return bruto.slice(t[0], t[1]).trim() !== "";
+      });
+    }
+
+    function texto(bruto, t) { return bruto.slice(t[0], t[1]); }
+
+    // Aceita o que os assistentes de fato emitem, e nao so o formato
+    // ideal: P004 > texto, [P004] texto, P004: texto, com ou sem o "P".
+    var RE_SUG = /^\s*\[?\s*P?\s*(\d{1,4})\s*\]?\s*[>:–—-]\s*(.+?)\s*$/i;
+
+    function lerSugestoes(bruto) {
+      var itens = [], ignoradas = 0, linhas = bruto.split(/\r?\n/);
+      for (var i = 0; i < linhas.length; i++) {
+        var l = linhas[i];
+        if (!l.trim()) { continue; }
+        var m = RE_SUG.exec(l);
+        if (m) {
+          itens.push({ n: parseInt(m[1], 10), txt: m[2] });
+        } else if (itens.length && /^\s{2,}\S/.test(l)) {
+          itens[itens.length - 1].txt += " " + l.trim();
+        } else {
+          ignoradas++;
+        }
+      }
+      return { itens: itens, ignoradas: ignoradas };
+    }
+
+    // O CONFERIDOR. A promessa de nao alterar o seu texto nao vale como
+    // intencao: vale como conferencia. Ele compara paragrafo a paragrafo,
+    // e o botao "Testar o conferidor" mostra ele reprovando de proposito.
+    function conferir(antes, depois) {
+      if (antes.length !== depois.length) {
+        return "o texto entrou com " + antes.length +
+               " parágrafos e saiu com " + depois.length + ".";
+      }
+      for (var i = 0; i < antes.length; i++) {
+        if (antes[i].trim() !== depois[i].trim()) {
+          return "o parágrafo P" + pad(i + 1) + " mudou.";
+        }
+      }
+      return null;
+    }
+
+    function pad(n) { return ("00" + n).slice(-3); }
+
+    function $(id) { return document.getElementById(id); }
+
+    function avisar(msg, ruim) {
+      var a = $("fc-aviso");
+      a.textContent = msg;
+      a.hidden = false;
+      a.classList.toggle("fc-ruim", !!ruim);
+    }
+
+    $("fc-numerar").addEventListener("click", function () {
+      var bruto = $("fc-projeto").value;
+      if (!bruto.trim()) { avisar("Cole o seu projeto no primeiro campo.", true); return; }
+      var ts = trechos(bruto), linhas = [];
+      for (var i = 0; i < ts.length; i++) {
+        var t = texto(bruto, ts[i]).replace(/\s+/g, " ").trim();
+        linhas.push("[P" + pad(i + 1) + "] " + t);
+      }
+      $("fc-saida").value = linhas.join("\n\n");
+      $("fc-saida-caixa").hidden = false;
+      $("fc-info-saida").textContent = ts.length + " parágrafos numerados.";
+      $("fc-info-projeto").textContent = ts.length + " parágrafos.";
+      avisar("Copie esta lista e cole na conversa, dizendo que é a numeração " +
+             "do seu projeto. A partir daí o assistente aponta por P001, P002, " +
+             "e os números batem com este texto.");
+    });
+
+    $("fc-inserir").addEventListener("click", function () {
+      var bruto = $("fc-projeto").value;
+      if (!bruto.trim()) { avisar("Cole o seu projeto no primeiro campo.", true); return; }
+      var lido = lerSugestoes($("fc-sugestoes").value);
+      if (!lido.itens.length) {
+        avisar("Não encontrei nenhuma sugestão com localizador no segundo " +
+               "campo. Elas têm a forma P004 > texto da sugestão.", true);
+        return;
+      }
+      var ts = trechos(bruto);
+      var antes = ts.map(function (t) { return texto(bruto, t); });
+
+      var fora = [];
+      lido.itens.forEach(function (it) {
+        if (it.n < 1 || it.n > ts.length) { fora.push("P" + pad(it.n)); }
+      });
+      if (fora.length) {
+        avisar("As sugestões apontam parágrafos que o seu texto não tem: " +
+               fora.join(", ") + ".\nO seu projeto vai de P001 a P" +
+               pad(ts.length) + ". Numere-o no passo 1 e peça ao assistente " +
+               "que refaça as sugestões com esses números. Eu não escolho o " +
+               "parágrafo mais parecido.", true);
+        return;
+      }
+
+      var porPar = {};
+      lido.itens.forEach(function (it) {
+        (porPar[it.n] = porPar[it.n] || []).push(it.txt);
+      });
+
+      // De tras para a frente, para os deslocamentos nao se moverem. E por
+      // insercao, e nao por remontagem: remontar o texto e uma forma de
+      // redigita-lo, e foi o primeiro defeito que o conferidor pegou.
+      var saida = bruto;
+      Object.keys(porPar).map(Number).sort(function (a, b) { return b - a; })
+        .forEach(function (n) {
+          var fim = ts[n - 1][1];
+          while (fim > 0 && "\r\n\t ".indexOf(saida.charAt(fim - 1)) >= 0) { fim--; }
+          var bloco = porPar[n].map(function (t) {
+            return "\n\n> SUGESTÃO: " + t;
+          }).join("");
+          saida = saida.slice(0, fim) + bloco + saida.slice(fim);
+        });
+
+      var depois = trechos(saida).map(function (t) { return texto(saida, t); })
+        .filter(function (p) { return p.indexOf("> SUGESTÃO:") !== 0; });
+      var erro = conferir(antes, depois);
+      if (erro) {
+        avisar("PAREI: " + erro + "\nO seu texto teria saído diferente do que " +
+               "entrou, e é exatamente isso que esta página existe para " +
+               "impedir. Nada foi produzido.", true);
+        return;
+      }
+
+      $("fc-saida").value = saida;
+      $("fc-saida-caixa").hidden = false;
+      var quantos = Object.keys(porPar).length;
+      $("fc-info-saida").textContent = lido.itens.length + " sugestões em " +
+        quantos + " parágrafos.";
+      var msg = "O seu texto saiu idêntico ao que entrou, conferido parágrafo " +
+        "a parágrafo. As sugestões estão em linhas próprias, começadas por " +
+        "SUGESTÃO, e nenhuma palavra sua foi tocada.";
+      if (lido.ignoradas) {
+        msg += "\n\nIgnorei " + lido.ignoradas + " linha" +
+          (lido.ignoradas > 1 ? "s" : "") + " que não tinha" +
+          (lido.ignoradas > 1 ? "m" : "") + " localizador (títulos de seção, " +
+          "estado, texto solto). Se alguma dessas era sugestão, ela não entrou.";
+      }
+      avisar(msg);
+    });
+
+    // Controle positivo, a vista. Conferidor que nunca reprovou nada nao
+    // informa nada quando fica em silencio.
+    $("fc-provar").addEventListener("click", function () {
+      var a = ["O problema de pesquisa é este.", "A justificativa é aquela."];
+      var linhas = [];
+      linhas.push("texto idêntico: " +
+        (conferir(a, a.slice()) === null ? "passou (correto)" : "REPROVOU (erro)"));
+      var b = ["O problema de pesquisa é esse.", "A justificativa é aquela."];
+      var r1 = conferir(a, b);
+      linhas.push("um sinônimo trocado: " + (r1 ? "reprovou — " + r1 : "PASSOU (erro)"));
+      var r2 = conferir(a, a.slice(0, 1));
+      linhas.push("um parágrafo a menos: " + (r2 ? "reprovou — " + r2 : "PASSOU (erro)"));
+      var ok = conferir(a, a.slice()) === null && r1 && r2;
+      avisar(linhas.join("\n") + "\n\n" + (ok
+        ? "O conferidor reprova o que deve reprovar."
+        : "O CONFERIDOR ESTÁ QUEBRADO. Não use o resultado."), !ok);
+    });
+
+    $("fc-copiar").addEventListener("click", function () {
+      var t = $("fc-saida");
+      t.select();
+      try {
+        navigator.clipboard.writeText(t.value);
+      } catch (e) {
+        document.execCommand("copy");
+      }
+      $("fc-copiar").textContent = "Copiado";
+      setTimeout(function () { $("fc-copiar").textContent = "Copiar resultado"; }, 1600);
+    });
+  }());
+  </script>
+<!-- FERRAMENTA:FIM -->
+
 </div>
+
+<script>
+  // molde da pagina do Luis: a via escolhida mostra so a sua guia, e a
+  // URL aceita #chat, #claude e #vscode para linkar direto
+  (function () {
+    var bts = Array.prototype.slice.call(document.querySelectorAll(".via-bt"));
+    var guias = { chat: "guia-chat", claude: "guia-claude", vscode: "guia-vscode" };
+    function mostrar(via) {
+      bts.forEach(function (o) {
+        o.setAttribute("aria-pressed", String(o.dataset.via === via));
+      });
+      Object.keys(guias).forEach(function (k) {
+        var el = document.getElementById(guias[k]);
+        if (el) el.hidden = k !== via;
+      });
+    }
+    bts.forEach(function (b) {
+      b.addEventListener("click", function () { mostrar(b.dataset.via); });
+    });
+    var daUrl = (location.hash || "").replace("#", "");
+    if (Object.prototype.hasOwnProperty.call(guias, daUrl)) mostrar(daUrl);
+  })();
+</script>
 
 <script>
   // um botao por parte; o texto vai para a area de transferencia e o
