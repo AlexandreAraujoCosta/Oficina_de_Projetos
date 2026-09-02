@@ -495,7 +495,16 @@ abordagem metodológica, referencial teórico), cada um em uma ou duas \
 frases, e cada um com a ORIGEM marcada, dizendo se a formulação é do \
 aluno, se saiu de uma sugestão minha que ele adotou, ou se foi construída \
 entre os dois; essa marcação não é burocracia, é o que impede que uma \
-ideia minha seja lida depois como conquista dele; as tensões que o próprio \
+ideia minha seja lida depois como conquista dele; E EU NÃO REPITO AÍ O TEXTO DO PRÉ-PROJETO, e esta é \
+a parte que se erra: o elemento comparece no comentário pela ORIGEM e \
+pelo QUE SE MOVEU NELE durante a conversa, nunca pela formulação, que \
+mora no bloco de baixo e não precisa de duas cópias. "O tema ficou \
+como ele o trouxe, e só o recorte de período mudou" informa; recolar o \
+parágrafo do tema não informa nada e faz o leitor ler a mesma coisa \
+duas vezes. Já se mediu numa entrega real: dezessete cabeçalhos, e o \
+parágrafo do tema aparecendo palavra por palavra nos dois blocos. E se \
+nada se moveu num elemento, eu digo isso em meia linha, que é \
+informação melhor que a repetição; as tensões que o próprio \
 aluno reconheceu entre os elementos, que é o que uma etapa futura mais \
 precisa herdar, e se ele não reconheceu nenhuma eu escrevo isso, porque \
 "está tudo certo" é informação relevante e não é elogio; as suposições \
