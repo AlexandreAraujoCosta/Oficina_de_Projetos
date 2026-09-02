@@ -21,6 +21,8 @@ from pathlib import Path
 
 from gerar_prompt_portatil import gerar
 
+from dividir_partes import dividir, conferir
+
 PASTA = Path(__file__).parent
 
 # Cada assistente tem a sua pagina. O Miro herdou o nome antigo do arquivo e
@@ -32,6 +34,16 @@ PAGINAS = {
 PADRAO_TEXTAREA = re.compile(
     r'(<textarea id="prompt" readonly spellcheck="false">).*?(</textarea>)', re.S
 )
+
+# A pagina do Miro entrega o prompt em QUATRO partes, porque colagem longa
+# vira anexo e anexo nao governa a conversa (ver dividir_partes.py). A do
+# Nelson continua com um campo so, e por isso as duas formas coexistem aqui.
+def padrao_parte(k):
+    return re.compile(
+        r'(<textarea id="prompt-%d" readonly spellcheck="false">).*?(</textarea>)'
+        % k,
+        re.S,
+    )
 
 # A ferramenta que poe as sugestoes dentro do projeto do aluno mora num
 # arquivo so e entra nas duas paginas por injecao, entre marcas. Assim ela
@@ -90,12 +102,31 @@ def main(nome_contexto="modulo_2_planejamento"):
     pagina_arq = PASTA / nome_pagina
 
     pagina = pagina_arq.read_text(encoding="utf-8")
-    nova, trocas = PADRAO_TEXTAREA.subn(
-        lambda m: m.group(1) + escapar_para_html(prompt) + m.group(2), pagina
-    )
-    # Nao achar o textarea e erro; achar e o conteudo ja estar em dia nao e.
-    if trocas == 0:
-        sys.exit(f"ERRO: não achei o <textarea> do prompt em {nome_pagina}.")
+
+    if 'id="prompt-1"' in pagina:
+        # pagina em partes: divide, confere e injeta uma a uma
+        partes = dividir(prompt)
+        if not conferir(prompt, partes):
+            sys.exit("ERRO: as partes nao reproduzem o prompt original.")
+        nova = pagina
+        for k, parte in enumerate(partes, 1):
+            nova, trocas = padrao_parte(k).subn(
+                lambda m, p=parte: m.group(1) + escapar_para_html(p) + m.group(2),
+                nova,
+            )
+            if trocas == 0:
+                sys.exit(f"ERRO: não achei o <textarea> da parte {k} em {nome_pagina}.")
+        print(
+            "partes: "
+            + ", ".join("%d=%d" % (k, len(p)) for k, p in enumerate(partes, 1))
+        )
+    else:
+        nova, trocas = PADRAO_TEXTAREA.subn(
+            lambda m: m.group(1) + escapar_para_html(prompt) + m.group(2), pagina
+        )
+        # Nao achar o textarea e erro; achar e o conteudo ja estar em dia nao e.
+        if trocas == 0:
+            sys.exit(f"ERRO: não achei o <textarea> do prompt em {nome_pagina}.")
 
     nova = injetar_ferramenta(nova, nome_pagina)
 
