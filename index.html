@@ -295,6 +295,82 @@
     </p>
   </div>
 
+  <div class="card">
+    <h2>Outra via: usar com um agente, em vez do chat</h2>
+    <p class="note" style="border-left-color: var(--green); margin-top: 0;">
+      <strong>Num agente o prompt entra inteiro, de uma vez.</strong> Não há
+      divisão em quatro partes, não há risco de virar anexo, e não há o botão de
+      converter para procurar: o agente lê o arquivo. Se você tem acesso a um,
+      é a via mais simples, e não a mais avançada.
+    </p>
+    <p style="margin: 0 0 14px; color: var(--ink-soft);">
+      Agente aqui quer dizer um assistente que roda dentro de um programa, com
+      acesso à sua pasta e a um terminal: o Claude Code, o Copilot em modo
+      agente, e outros do mesmo tipo. O que ele acrescenta não é a leitura, é o
+      arquivo de volta. No chat, o pré-projeto sai como um bloco de texto que
+      você copia à mão e cola num editor. Num agente, ele é escrito como arquivo
+      na sua pasta, com o nome que você quiser, e fica lá.
+    </p>
+    <ol class="steps">
+      <li><strong>Salve o prompt como arquivo</strong> na pasta do seu projeto,
+      com nome simples, por exemplo <code>miro.md</code>. Pode copiar as quatro
+      partes em sequência para o mesmo arquivo: a divisão existe só por causa da
+      colagem no chat, e aqui ela não faz falta.</li>
+      <li><strong>Abra essa pasta no agente</strong> e ponha-o em modo agente, e
+      não em modo pergunta. A diferença não é anunciada: no modo de pergunta o
+      assistente responde <em>sobre</em> o que você pediu em vez de fazer.</li>
+      <li><strong>Peça a leitura</strong>, com estas palavras ou outras:
+      <em>"Leia o arquivo miro.md e siga as instruções dele como se fossem suas.
+      A partir da sua próxima resposta, converse comigo seguindo o que está
+      ali."</em></li>
+      <li><strong>Converse normalmente.</strong> Daí em diante é igual ao chat,
+      com uma diferença: quando ele escrever o pré-projeto, peça que grave como
+      arquivo em vez de mostrar na tela.</li>
+    </ol>
+    <p class="note">
+      <strong>O modelo decide mais que o resto.</strong> Escolha o melhor que a
+      sua conta oferecer e evite o modo automático, porque modelo escolhido pelo
+      serviço é modelo desconhecido. Testamos o Miro em Sonnet e ele aplica os
+      critérios; dos modelos mais fracos não temos medição.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>A mesma via no VS Code, passo a passo</h2>
+    <p style="margin: 0 0 14px; color: var(--ink-soft);">
+      Vale a pena se você já usa o VS Code ou tem o Copilot pela conta do GitHub.
+      Instala-se uma coisa só: o <strong>VS Code</strong> e, dentro dele, a
+      extensão <strong>GitHub Copilot</strong>, pelo painel de extensões. Ela
+      pede login na conta do GitHub.
+    </p>
+    <ol class="steps">
+      <li><strong>Abra o chat do Copilot.</strong> Pelo menu
+      <code>Exibir › Chat</code>, pelo atalho <code>Ctrl+Alt+I</code>, ou pela
+      paleta de comandos (<code>Ctrl+Shift+P</code>, digite <em>chat</em>). Se
+      não houver ícone de balão na barra lateral, isso é diagnóstico e não
+      detalhe: a extensão não foi instalada ou falta o login.</li>
+      <li><strong>Ponha em modo agente</strong>, no seletor no alto do painel,
+      onde costuma estar escrito <em>Ask</em>.</li>
+      <li><strong>Escolha o modelo à mão</strong>, no seletor, e não deixe no
+      automático.</li>
+      <li><strong>Salve o prompt como <code>miro.md</code></strong> na pasta
+      aberta, e faça o pedido da via anterior.</li>
+    </ol>
+    <p class="note">
+      <strong>Sobre a franquia do GitHub Education, o que se sabe e o que não.</strong>
+      O Student Developer Pack dá acesso ao Copilot sem custo, e é por isso que
+      esta via interessa a quem é estudante. Desde 12 de março de 2026 o plano de
+      estudante não oferece mais a seleção de Opus e Sonnet, mas oferece os
+      modelos GPT, e com eles o comportamento como agente é estável: ele lê o
+      arquivo, roda o que precisa e devolve arquivo, que é o que esta via
+      acrescenta. O que ainda não medimos é outra coisa, e vale saber: como os
+      critérios do Miro saem no GPT em comparação com o Sonnet, em que ele foi
+      testado. Se a sua conta oferecer Sonnet ou melhor, prefira; se oferecer
+      GPT, use sem receio quanto à estabilidade, e leia o comentário final com
+      atenção antes de entregar.
+    </p>
+  </div>
+
 <!-- FERRAMENTA:INICIO -->
   <div class="card ferramenta">
     <h2>Ferramenta: pôr as sugestões dentro do seu projeto</h2>
