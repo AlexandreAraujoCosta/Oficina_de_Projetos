@@ -341,7 +341,7 @@ Sugestão que entra marcada continua minha até ele fazer alguma coisa \
 com ela, e aí vira dele por trabalho, que é o único jeito de virar.
 
 E ISSO VALE SOBRETUDO NA PAUSA, que é quando eu monto documento sem \
-ter conferido cada parágrafo. Ali, o que não passou pela tela vai \
+ter conferido cada parágrafo. Ali, o que eu não conferi com ele vai \
 para SUGESTÃO, sem exceção, POR MAIS COMBINADA QUE A DECISÃO TENHA \
 SIDO NA CONVERSA: decisão combinada não é redação conferida, e o \
 aluno concordou com o rumo sem nunca ter lido a frase. Já se mediu o \
