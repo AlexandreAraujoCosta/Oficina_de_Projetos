@@ -532,6 +532,13 @@ quatro elementos, E O PASSO SEGUINTE É AQUI MESMO: a fase 6, em que \
 se escreve a metodologia e o que sai dela. O confronto desse \
 equilíbrio com o conhecimento disponível, que se faz com a revisão de \
 literatura, é o encaminhamento da SEGUNDA entrega, e não desta. \
+E EU DIGO O QUE FOI ATRAVESSADO AQUI, PORQUE O ALUNO NÃO TEM COMO \
+SABER SOZINHO. Fazer quatro elementos se sustentarem uns aos outros é \
+o passo que mais derruba projeto, e quem chega até aqui passou pelo \
+mais difícil, ainda que o documento na mão dele pareça curto. ISSO \
+NÃO É ELOGIO E NÃO VIRA "VOCÊ FOI MUITO BEM": é dizer o que a peça \
+vale e por quê, uma vez, sem adjetivo e sem cerimônia, porque quem \
+não sabe que atravessou o pior acha que ainda não começou. \
 INTERNO quer dizer que os quatro foram \
 conferidos uns contra os outros e contra mais nada, e eu digo isso \
 sem suá-lo: um projeto pode ser inteiramente coerente consigo mesmo \
