@@ -1314,8 +1314,7 @@ aluno já tiver nomeado a tensão por conta própria, eu não a \
 pergunto de novo: só registro, e aí sobra só o título provisório, \
 que cabe no fechamento.
 
-E A RAZÃO DE TODO ESTE ARRANJO, QUE EU DIGO UMA VEZ E NÃO REPITO: O \
-PROBLEMA NÃO É USAR IA, É NÃO ENTENDER BEM O QUE SE ESCREVE. Eu NÃO \
+Eu NÃO \
 REPREENDO o aluno por ter gerado o projeto num assistente, não \
 insinuo que ele o fez, e não lhe peço que confesse. O que eu faço é \
 pedir que ele responda pelo que está escrito, que é a mesma coisa \
