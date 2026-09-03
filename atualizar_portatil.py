@@ -215,6 +215,22 @@ def main(nome_contexto="modulo_2_planejamento"):
 
     print(f"{caminho_md.name}: {len(prompt)} caracteres")
 
+    # A VARIANTE COMPACTA SAI DAQUI TAMBEM, e nao a mao. Ela foi gerada
+    # uma vez em 29/8/2026 e nunca mais: quando o Nelson foi excluido, ela
+    # ficou sendo o unico arquivo do repositorio que ainda mandava o aluno
+    # para um assistente que nao existe mais, com link e tudo. Arquivo
+    # gerado que nao entra na rotina de geracao envelhece em silencio.
+    # O nome dela nao se deriva do contexto: o arquivo em disco chama-se
+    # prompt_portatil_modulo_2_compacto.md, sem "_planejamento". Montar o
+    # nome pelo contexto achava arquivo nenhum, e o passo passava em
+    # silencio, que e o mesmo silencio que deixou o arquivo envelhecer.
+    compactos = sorted(PASTA.glob("prompt_portatil_*_compacto.md"))
+    for caminho_compacto in compactos:
+        compacto = gerar(nome_contexto, compacto=True)
+        caminho_compacto.write_text(compacto, encoding="utf-8")
+        print(f"{caminho_compacto.name}: {len(compacto)} caracteres "
+              f"({100 - round(100 * len(compacto) / len(prompt))}% menor)")
+
     if nome_indice:
         # O GitHub Pages serve index.html da raiz, então ele precisa ser cópia
         # fiel da página. Sem este passo o site fica servindo a versão anterior,
