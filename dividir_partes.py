@@ -89,19 +89,65 @@ def dividir(texto, n=4, teto=TETO):
     i = corpo.find(ANCORA_PRIMEIRA_FALA)
     corpo = corpo[:i] + abertura + "\n\n" + corpo[i:]
 
-    alvo = len(corpo) // n
-    cortes, pos = [], 0
-    for k in range(n - 1):
-        c = corpo.find("\n\n", pos + alvo)
-        assert c > 0, "nao achei quebra de paragrafo para o corte %d" % (k + 1)
-        cortes.append(c + 2)
-        pos = c + 2
+    # EQUILIBRIO, E NAO DIVISAO IGUAL. Cortar em len/n e cair na quebra
+    # seguinte parece justo e nao e: uma sequencia de paragrafos longos
+    # empurra uma parte para perto do teto enquanto outra sobra. Em
+    # 3/9/2026 isso produziu uma parte com 709 caracteres de folga contra
+    # o limiar em que o chat converte a colagem em anexo. Entao o corte
+    # passa a ser por EMPACOTAMENTO: procura-se o menor teto com que os
+    # paragrafos ainda cabem em n partes, e usa-se esse.
+    blocos = corpo.split("\n\n")
+    blocos = [b + "\n\n" for b in blocos[:-1]] + [blocos[-1]]
+    envelope = max(len(e) + 2 for e in ENVELOPES)
 
-    pedacos, ant = [], 0
-    for c in cortes:
-        pedacos.append(corpo[ant:c])
-        ant = c
-    pedacos.append(corpo[ant:])
+    def cabe(cap):
+        """Empacota os blocos em partes que nao passem de cap. Devolve a
+        lista de partes, ou None se precisar de mais que n."""
+        partes, atual = [], ""
+        for b in blocos:
+            if atual and envelope + len(atual) + len(b) > cap:
+                partes.append(atual)
+                atual = b
+            else:
+                atual += b
+            if envelope + len(atual) > cap:
+                return None          # um bloco sozinho ja estoura
+        partes.append(atual)
+        return partes if len(partes) <= n else None
+
+    baixo, alto, melhor = 1, teto, None
+    while baixo <= alto:
+        meio = (baixo + alto) // 2
+        r = cabe(meio)
+        if r is None:
+            baixo = meio + 1
+        else:
+            melhor, alto = r, meio - 1
+    assert melhor is not None, (
+        "os paragrafos nao cabem em %d partes de %d caracteres" % (n, teto))
+
+    pedacos = melhor + [""] * (n - len(melhor))
+
+    # O primeiro ajuste enche as primeiras partes e larga a sobra na
+    # ultima. Uma passada de reequilibrio empurra o ultimo bloco da parte
+    # mais gorda para a seguinte, enquanto isso diminuir a maior de todas.
+    def maior(ps):
+        return max(len(p) for p in ps)
+
+    for _ in range(200):
+        i = max(range(n), key=lambda k: len(pedacos[k]))
+        if i == n - 1:
+            break
+        corte = pedacos[i].rfind("\n\n", 0, len(pedacos[i]) - 2)
+        if corte < 0:
+            break
+        tentativa = list(pedacos)
+        tentativa[i], movido = pedacos[i][:corte + 2], pedacos[i][corte + 2:]
+        tentativa[i + 1] = movido + pedacos[i + 1]
+        if maior(tentativa) >= maior(pedacos):
+            break
+        pedacos = tentativa
+
     assert "".join(pedacos) == corpo, "a divisao perdeu ou duplicou texto"
 
     partes = [env + "\n\n" + ped for env, ped in zip(ENVELOPES, pedacos)]
