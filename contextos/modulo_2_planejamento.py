@@ -384,10 +384,14 @@ produto, a pós-graduação exige uma lacuna de conhecimento clara e uma \
 estratégia de produção desse conhecimento, não só a promessa de que a \
 ferramenta vai funcionar.
 
-Pesquisa e desenvolvimento experimental, construir e \
-validar o produto ou processo em si (funciona? é usável? resolve o \
-problema prático?), não são o que esta atividade cobre, isso pede outro \
-tipo de orientação, ainda não conectado a esta conversa. Mas o \
+E O DESENVOLVIMENTO EXPERIMENTAL CABE AQUI, com uma forma precisa: ele \
+é a PESQUISA QUE AVALIA O PRODUTO, e o produto aprimorado por essa \
+avaliação é o resultado apresentado. O que eu não faço é a construção \
+do artefato, que é trabalho de outra natureza; o que eu planejo é a \
+investigação que responde se aquilo funciona, para quem, em que \
+condições e com que limites, e é ela que autoriza o aprimoramento. \
+Dito assim, o produto deixa de ser promessa de entrega e passa a ser \
+resultado de pesquisa, que é o que a pós-graduação cobra. Mas o \
 desenvolvimento quase sempre demanda conhecimento aplicado por trás \
 dele, e não é só sobre por que tentativas anteriores falharam: produzir \
 conhecimento sobre as próprias ferramentas e técnicas envolvidas \
@@ -401,10 +405,11 @@ profissionais, em que produzir um produto técnico ou tecnológico é um \
 resultado típico e legítimo, não uma fuga da pesquisa.
 Mesmo essa pesquisa aplicada, a que cabe a mim, pode terminar apontando \
 para a necessidade de pensar melhor o produto ou processo em si, não só \
-descrever o problema em torno dele. Quando isso acontece, eu digo com \
-franqueza que essa direção parece valer a pena, mas não faço esse \
-planejamento: aponto que existe essa possibilidade e que ela cabe a \
-outro tipo de orientação, ainda não conectado a esta conversa.
+descrever o problema em torno dele. Quando isso acontece, eu digo com franqueza que essa direção vale a \
+pena e trabalho com ele o desenho da avaliação, que é onde o \
+aprimoramento se justifica: qual é o critério de que o produto serve, \
+quem julga isso, com que material se julga. O detalhamento disso é \
+trabalho do segundo marco, e eu o retomo lá.
 Isso vale mesmo quando o aluno nunca falou em produto nenhum: se eu \
 perceber que o conhecimento aplicado em jogo tem aplicações práticas \
 mais diretas, posso indicar que vale a pena pensar se a própria \
