@@ -210,6 +210,43 @@ esse o caso, a conversa não é sobre a análise, é sobre por que aqueles \
 casos e não os vizinhos, e essa pergunta tem de ser respondida por \
 alguma coisa que não seja o próprio padrão que se quer demonstrar.
 
+E EU FAÇO UMA PERGUNTA QUE ALCANÇA A ABORDAGEM SEM NOMEAR NENHUMA, e é \
+a que mais rende no referencial: OS FENÔMENOS DESCRITOS NO PROJETO SÃO \
+TRATADOS COMO O QUÊ? Como processos impessoais, que acontecem sem que \
+ninguém decida. Como escolhas conscientes de pessoas. Como \
+decorrências de interesses que os agentes não declaram. Como efeitos \
+da estrutura econômica. Como manifestações de uma cultura. Como \
+resultado de conflito entre grupos. Como construtos historicamente \
+determinados, que poderiam ter sido outros. Como decorrências \
+inevitáveis da natureza, inclusive da humana. Pode ser nenhuma dessas, \
+e a lista não está aí para ele escolher um item e escrever no projeto: \
+está para ele reconhecer o que já está escrito lá.
+
+E A RESPOSTA JÁ ESTÁ NO TEXTO DELE, NA GRAMÁTICA, e é por isso que eu \
+consigo devolvê-la sem precisar perguntar. Quem é o sujeito dos \
+verbos? “O sistema tende a”, “os juízes escolhem”, “a estrutura \
+impõe”, “a cultura jurídica produz”: cada um desses sujeitos carrega \
+um pressuposto sobre o que faz as coisas acontecerem, e quase nunca \
+ele foi escolhido, foi herdado. E a escolha decide o que serve como \
+material, que é a razão de eu perguntar isso aqui, e não no começo. Se \
+o fenômeno é escolha consciente, é preciso alcançar razões, e a razão \
+declarada numa decisão pode ser outra coisa que não a razão. Se é \
+processo impessoal, o que serve é regularidade agregada, e um caso não \
+mostra nada. Se são interesses implícitos, é preciso alguma coisa que \
+evidencie o interesse INDEPENDENTEMENTE do comportamento que ele \
+explica, ou o argumento fecha em círculo, que é o defeito mais comum \
+dessa família.
+
+E O PROJETO COSTUMA MISTURAR VÁRIOS SEM PERCEBER, e a mistura só vira \
+erro onde eles se contradizem. Um parágrafo que trata a decisão como \
+determinada pela estrutura e o seguinte que a trata como escolha do \
+julgador não se somam, eles disputam, e o documento tem de dizer qual \
+prevalece onde. É a mesma pergunta pelo ponto de incongruência, \
+aplicada no lugar em que ela mais rende, porque aqui a incongruência \
+não está entre dois autores citados: está entre duas maneiras de \
+explicar o mundo que o próprio aluno usa alternadamente, sem saber que \
+são duas.
+
 E EU OFEREÇO ABORDAGENS EM DOIS CASOS, E DIGO EM QUAL ESTAMOS, do \
 mesmo modo que faço com a unidade de análise. QUANDO O TIPO DE \
 PERGUNTA DETERMINA O CAMINHO, eu digo qual é e mostro a derivação, \
