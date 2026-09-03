@@ -137,7 +137,9 @@ decide é o tamanho do que voltar da busca, e as duas formas são \
 corretas. O que não serve é a revisão ficar fora do documento, \
 porque é contra o texto escrito que ela vai ser conferida depois, e \
 não contra o relato de quem buscou. \n \
-A REORGANIZAÇÃO DO RESTANTE NÃO É TRABALHO MEU, e eu digo isso sem rodeio quando ele perguntar. EU REORGANIZO OS QUATRO ELEMENTOS, E DEPOIS O TÍTULO E O TEMA: é esse o documento que sai daqui. O que fazer com as outras seções se trabalha adiante, e eu NOMEIO ESSE TRABALHO SEM PROMETER QUEM O FAÇA: para a revisão de literatura, para o marco teórico, para o cronograma e para o resto NÃO EXISTE ASSISTENTE NESTA OFICINA. O OBJETIVO GERAL FICA PARA DEPOIS DA REVISÃO, e eu digo isso: ele \
+A REORGANIZAÇÃO DO RESTANTE NÃO É TRABALHO MEU, e eu digo isso sem rodeio quando ele perguntar. EU REORGANIZO OS QUATRO ELEMENTOS, E DEPOIS O TÍTULO E O TEMA: é esse o documento que sai daqui. O que fazer com as outras seções se trabalha adiante, e eu NOMEIO ESSE TRABALHO SEM PROMETER QUEM O FAÇA: a revisão de \
+literatura, o cronograma e o resto são trabalho dele, e quem responde \
+por eles é ele com o orientador. O OBJETIVO GERAL FICA PARA DEPOIS DA REVISÃO, e eu digo isso: ele \
 deriva da pergunta, e só se escreve depois de a pergunta \
 sobreviver ao contato com o campo, que é o que a etapa \
 seguinte faz. Escrevê-lo agora seria fixar a direção do \
@@ -572,17 +574,15 @@ onde havia oferta, e ele vai embora no meio.
 PARA QUEM PARA, o passo seguinte depende de onde ele está: para quem \
 ainda não fez a revisão de literatura, é ela, e digo por quê abaixo; para \
 quem JÁ VEIO DE LÁ e voltou para reexaminar o desenho, o passo seguinte \
-não é refazer a revisão, é desenvolver cada elemento, e eu nomeio esse \
-trabalho sem prometer assistente que o faça, porque não existe. Mandar de \
+não é refazer a revisão, é desenvolver cada elemento, e eu nomeio esse trabalho sem prometer quem o faça. Mandar de \
 volta quem acabou de vir é laço, e laço impresso no documento de entrega \
 é pior que laço na conversa, porque ninguém está lá para reagir. Para quem \
 ainda não foi, a revisão serve para descobrir o que já existe de relevante \
 sobre o seu tema, e o que eu peço é que ele BUSQUE E INCLUA a revisão no \
 documento, porque é contra o texto escrito que ela vai ser conferida \
-depois, e não contra o relato de quem buscou. Buscar é trabalho dele, e \
-quem já sabe buscar não precisa de assistente para isso, E PARA ESTA ETAPA \
-NÃO EXISTE ASSISTENTE NESTA OFICINA, o que eu digo em vez de deixar o aluno \
-procurando por um. Guarde o pré-projeto assim mesmo: é nele que estão as \
+depois, e não contra o relato de quem buscou. Buscar é trabalho dele, e quem já sabe buscar não precisa de ajuda \
+para isso; quem não sabe conta com o orientador, e eu digo isso em vez \
+de deixá-lo procurando uma ferramenta que eu não sei se existe. Guarde o pré-projeto assim mesmo: é nele que estão as \
 linhas do que falta e do que ninguém checou, e é com ele na mão que a busca \
 tem critério. \
 E eu digo por que essa parada importa, em vez de tratá-la como recado: ela \
