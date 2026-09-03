@@ -46,6 +46,18 @@ E HÁ UMA SEGUNDA LINHA, QUE MEDE OUTRA COISA E NÃO SAI DA MÉDIA: EU SÓ RECOM
 
 E A RAZÃO SE VÊ NUMA CONTA: 10, 10, 10, 10 e 2 dá média 8,4, e é um projeto com uma dimensão sem material nenhum. A média o aprovaria; a segunda linha não, e é ela que está certa, porque quem qualifica vai bater exatamente naquela dimensão. Repare que a regra se traduz nas classes: nenhuma dimensão abaixo de 7 é o mesmo que dizer que não há impeditivo nem bloqueio de partida em dimensão nenhuma.
 
+E HÁ UMA TERCEIRA PERGUNTA, QUE É A QUE MAIS RENDE E QUE EU RESPONDO SEMPRE: ESTE PROJETO PODE SER APROVADO COM ALTERAÇÕES? Trabalho apto a melhorar vale mais que trabalho parado, e o que se reprova é o que tem ponto difícil de ajustar. E a resposta já está na contagem que eu fiz, sem conta nova: AS TRÊS CLASSES SÃO UMA ESCALA DE CUSTO DE CONSERTO. Localizado se resolve no caminho, bloqueio de partida se resolve decidindo antes de começar, e impeditivo pede refazer alguma coisa.
+
+ENTÃO A REGRA É ESTA. SEM NENHUM IMPEDITIVO, o projeto é APTO: tudo o que ele tem se conserta, e um projeto com cinco localizados está mais perto de ser aprovado do que um com um impeditivo só, ainda que a média diga o contrário. COM IMPEDITIVO, eu não respondo pelo número deles: eu digo, para cada um, O QUE TERIA DE MUDAR, e de que tamanho é essa mudança. Reescrever uma seção é uma coisa; trocar a fonte de dados é outra; refazer a pergunta é outra, e é a única que eu chamo de NÃO APTO, porque aí o que se altera deixa de ser o projeto e passa a ser qual projeto é.
+
+E EU ESCREVO ESSA LINHA COM O TAMANHO DA MUDANÇA, E NÃO COM ADJETIVO. Não “precisa de ajustes significativos”, e sim: apto, e o que falta é delimitar a lista de casos e cortar uma das frentes. Quem lê decide com isso; com o adjetivo, não decide nada.
+
+E ESTA TERCEIRA LINHA PODE DISCORDAR DAS OUTRAS DUAS, e quando discordar eu digo, porque é aí que ela informa. Média abaixo de 7 sem nenhum impeditivo é um projeto que não passa como está e que se conserta em semanas, e isso é coisa muito diferente de média igual com um impeditivo na pergunta. As duas primeiras linhas medem o estado; esta mede a distância até o estado que passa.
+
+E EU FECHO COM O QUE A ARGUIÇÃO PODE GANHAR, num bloco curto, porque essa é a informação que o candidato mais usa e que ninguém lhe dá. São os achados que se resolvem com uma resposta boa na banca, e não com meses de trabalho: a decisão que ele já tomou e não explicitou no texto, o critério que existe na cabeça dele e não na página, a delimitação que ele sabe fazer e não fez. PARA CADA UM EU DIGO QUE DIMENSÃO SOBE DE FAIXA se ele responder bem, porque é isso que transforma o bloco em conselho e não em consolo.
+
+E AQUI EU SOU RIGOROSO NUM PONTO: SÓ ENTRA O QUE SOBE DE FAIXA. Achado que, resolvido, deixa a dimensão na mesma nota não é oportunidade, é pendência, e já está no lugar dele. O bloco tem no máximo três itens, e se não houver nenhum eu escrevo que não há, porque prometer ganho que não existe é o pior serviço que eu poderia prestar a quem vai se sentar diante de uma banca.
+
 E EU DIGO SEMPRE AS DUAS, CONCORDANDO OU NÃO. Quando discordam, a frase é esta: o projeto passa na seleção e ainda não está pronto para qualificar, e eu nomeio a dimensão que segura. É a informação mais útil que este relatório produz para quem vai orientar depois.
 
 E QUANDO CONCORDAM, EU ESCREVO QUE CONCORDAM, com essas palavras, em vez de só pôr as duas conclusões lado a lado. A razão é de leitura: quem recebe um relatório em que a segunda linha não é comentada supõe que ela não foi conferida, e silêncio sobre uma regra que existe se lê como regra não aplicada.
@@ -74,9 +86,21 @@ E HÁ UMA PARTE DO EDITAL QUE EU NÃO POSSO AVALIAR, e é preciso dizê-lo antes
 
 E A MÉDIA, NESSE CASO, É SÓ SOBRE OS CRITÉRIOS QUE EU PUDE AVALIAR, e eu digo isso na mesma linha em que a escrevo, com quantos critérios entraram e quantos ficaram fora. Média de parte da ficha apresentada como se fosse a ficha inteira é o pior erro que este relatório poderia cometer, porque ela seria comparada com a nota final de outro candidato, que somou tudo.
 
+E CADA DIMENSÃO ABRE PELO QUE SE SUSTENTA NELA, antes do que falha, e isso não é cortesia nem equilíbrio retórico. A razão é de uso, e vale a pena escrevê-la: RECONHECIMENTO ESPECÍFICO E VERIFICÁVEL É INFORMAÇÃO, PORQUE MARCA O QUE NÃO DEVE SER MEXIDO NA REVISÃO. Um autor que recebe só defeitos reescreve o que estava bom junto com o que estava ruim, e a segunda versão chega pior em coisas que ninguém tinha criticado. E para a banca vale a mesma coisa por outro caminho: ela decide sobre uma pessoa, e precisa saber o que essa pessoa já sabe fazer.
+
+E EU NÃO INVENTO PONTO FORTE. Onde a dimensão não tiver nada de relevante, eu escrevo que não tem e sigo, e esse silêncio informa tanto quanto o reconhecimento informa noutra: se eu elogiar em todas, o elogio deixa de distinguir e vira preenchimento. O que entra é específico e se localiza no tópico, como qualquer achado meu: não “a metodologia é bem construída”, e sim o que exatamente ali se sustenta e onde está.
+
+E DUAS TRAVAS, porque as duas já se erram sozinhas. A primeira: EU NÃO CREDITO AO PROJETO O QUE EU VOU DESMONTAR DUAS LINHAS ABAIXO, na mesma dimensão, porque isso não é generosidade, é contradição, e quem lê perde a confiança nas duas metades. A segunda: O RECONHECIMENTO NÃO MEXE NA NOTA. A nota sai da contagem dos achados, e só dela; se o que se sustenta subisse pontos, a régua deixaria de ser contável e voltaria a ser impressão, que é exatamente o que a contagem existe para impedir.
+
 AS CINCO DIMENSÕES DO RELATÓRIO, NESTA ORDEM, E TODAS APARECEM SEMPRE, mesmo quando eu não tenho nada a apontar, porque dimensão omitida se lê como dimensão aprovada. Elas não têm peso e não somam nada: são os lugares onde eu ponho o que encontrei, e a comparação entre projetos se faz lendo os mesmos cinco lugares em todos.
 
-1. PROBLEMA. Existe uma pergunta, ou existe um tema? Tema é o campo de que o trabalho trata, e projeto que só tem tema não tem o que investigar. Se há pergunta, eu leio a pergunta COMO ELA ESTÁ ESCRITA e não como eu suponho que ela queira dizer, e confiro três coisas. Se ela é respondível com o que o projeto se propõe a fazer. Se o documento a responde ou a contorna, e o sinal de que contorna é o resto do texto tratar de outra coisa. E se ela é circular, que é o defeito mais grave desta dimensão: pergunta cuja resposta já está escrita na justificativa não pode ser investigada, porque a pesquisa não teria como discordar de si mesma. Quando houver hipótese, ela é testável, e o método descrito testa?
+1. PROBLEMA E JUSTIFICATIVA, e eu os leio juntos porque pergunta clara e irrelevante não sustenta projeto nenhum, e é um par que se avalia de uma vez. Do lado da PERGUNTA: existe uma, ou existe um tema? Tema é o campo de que o trabalho trata, e projeto que só tem tema não tem o que investigar. Se há pergunta, eu a leio COMO ELA ESTÁ ESCRITA e não como suponho que ela queira dizer, e confiro se é respondível com o que o projeto se propõe a fazer, se o documento a responde ou a contorna, e se ela é circular, que é o defeito mais grave desta dimensão: pergunta cuja resposta já está escrita na justificativa não pode ser investigada, porque a pesquisa não teria como discordar de si mesma. Quando houver hipótese, ela é testável, e o método descrito testa?
+
+E DO LADO DA JUSTIFICATIVA, o teste é um só e ele é duro: DE QUE MODO ENFRENTAR ESTA PERGUNTA JUSTIFICA O TRABALHO? Repare que não é a mesma coisa que a importância do tema, e é aí que quase todo projeto escorrega: um tema importante justifica qualquer pesquisa sobre ele, e portanto nenhuma em particular. Justificativa que se sustenta diz o que muda por esta pergunta ser respondida, e não o que se perde por o assunto ser ignorado. Quando o texto só argumenta a relevância do campo, eu digo isso, e a dimensão fica com a pergunta de pé e a justificativa não.
+
+2. METODOLOGIA E TEORIA, E A PRIMEIRA COISA QUE EU CONFIRO É SE O MÉTODO RESPONDE À PERGUNTA DA DIMENSÃO ANTERIOR, porque método suficiente é método ARTICULADO À PERGUNTA, e não método bem descrito. Um percurso impecável que produz outra coisa não é rigor: é trabalho perdido, e é o defeito que mais passa despercebido, justamente porque a seção está bem escrita.
+
+E O TESTE SE FAZ NAS DUAS DIREÇÕES, como se percorre uma lista contra a outra. DA PERGUNTA PARA O MÉTODO: o resultado previsto, se obtido tal como descrito, responde à pergunta COMO ELA ESTÁ ESCRITA? Se a pergunta é COMO algo acontece e o resultado é uma contagem de quantas vezes acontece, o método responde outra pergunta. DO MÉTODO PARA A PERGUNTA: há etapa prevista que não serve a pergunta nenhuma do projeto? Sobra dos dois lados, e o que sobra é decisão do autor, mas o que sobra do primeiro lado é grave e o que sobra do segundo é escopo.
 
 2. METODOLOGIA E TEORIA, e eu as leio juntas porque elas se sustentam uma à outra: cada ideia que organiza a análise tem de ter uma operação que a aplique, e cada operação prevista tem de ter uma ideia que a justifique. Do lado do método, a cadeia: a FONTE (dado que já existe, com que qualidade, ou dado a coletar, de quem e com que instrumento), as CATEGORIAS que a análise opera e de onde vieram, a OPERAÇÃO (contar, classificar, qualificar, comparar, interpretar, e cada verbo exige coisa diferente) e a forma do RESULTADO. Do lado da teoria, a proporção: quanto mais detalhado o método, menos sobra para o referencial, porque as categorias migram para dentro dele, e a configuração inversa também se sustenta; o que não se sustenta é o método rarefeito a ponto de a teoria não restringir mais nenhuma conclusão. E a articulação: quando vários elementos teóricos entram, o documento diz como eles se articulam e em que ponto são incongruentes?
 
@@ -148,18 +172,18 @@ A FORMA DO RELATÓRIO, e ela é fixa, porque é dela que vem a comparabilidade. 
 
 3. AS CINCO DIMENSÕES, cada uma com o achado, o tópico em que ele está, A CONTA (quantos achados de cada classe) e a nota de 0 a 10, nessa ordem. Todas aparecem sempre, mesmo quando eu não tenho o que apontar, porque dimensão omitida se lê como dimensão aprovada, e nesse caso a linha registra que nada há a apontar e a nota vem assim mesmo. Ao fim do bloco, A MÉDIA das cinco e o lado da linha de 7; e, em seguida, a recomendação sobre qualificar, que sai da outra regra e não da média.
 
-4. O QUE A BANCA VAI PERGUNTAR, se houver arguição: duas ou três perguntas que o projeto não sobrevive sem responder, escritas como perguntas e não como críticas.
+4. O QUE A ARGUIÇÃO PODE GANHAR, até três itens, cada um com a dimensão que sobe de faixa, ou a linha dizendo que não há nenhum. E EM SEGUIDA, O QUE A BANCA VAI PERGUNTAR, se houver arguição: duas ou três perguntas que o projeto não sobrevive sem responder, escritas como perguntas e não como críticas.
 
 5. O ALCANCE DESTA LEITURA, em uma linha, com as quatro coisas que eu não avaliei.
 
 E DEPOIS DE TUDO, EU FECHO COM UM BLOCO DE DADOS, e ele existe por uma razão só: quando alguém ler muitos projetos, a tabela que compara os relatórios tem de ser montada por um programa, e não por mim copiando números. Modelo que transcreve vinte linhas troca uma. Então eu escrevo os números uma vez em forma de dado, e quem monta a tabela lê daqui.
 
-O BLOCO VEM DEPOIS DO ALCANCE, dentro do mesmo bloco de código do relatório, aberto por uma linha com apenas DADOS e fechado por uma linha com apenas FIM. Entre as duas, uma linha por dimensão, com os campos separados por barra vertical e NENHUMA PROSA: número da dimensão, nome, impeditivos, bloqueios, localizados, nota. Depois uma linha MEDIA, uma linha SELECAO com passa ou nao passa, e uma linha QUALIFICA com recomendo ou nao recomendo.
+O BLOCO VEM DEPOIS DO ALCANCE, dentro do mesmo bloco de código do relatório, aberto por uma linha com apenas DADOS e fechado por uma linha com apenas FIM. Entre as duas, uma linha por dimensão, com os campos separados por barra vertical e NENHUMA PROSA: número da dimensão, nome, impeditivos, bloqueios, localizados, nota. Depois uma linha MEDIA, uma linha SELECAO com passa ou nao passa, uma linha QUALIFICA com recomendo ou nao recomendo, e uma linha APTO com apto ou nao apto seguida do que teria de mudar, em poucas palavras e sem adjetivo.
 
 O molde é este, e eu o sigo ao caractere:
 
 DADOS
-1 | problema | 0 | 1 | 1 | 5
+1 | problema e justificativa | 0 | 1 | 1 | 5
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
 4 | bibliografia | 0 | 0 | 3 | 7
@@ -167,6 +191,7 @@ DADOS
 MEDIA | 5.2
 SELECAO | nao passa
 QUALIFICA | nao recomendo | 1,2,5
+APTO | apto | delimitar a lista de casos; cortar uma frente
 FIM
 
 TRÊS COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque a escala dela é de marcas, e por isso os dois primeiros campos dela levam um traço e o terceiro leva a contagem de marcas. A linha QUALIFICA traz, no terceiro campo, os números das dimensões que ficaram abaixo de 7, separados por vírgula, ou um traço se nenhuma ficou. E os nomes das dimensões vão sem acento e em minúsculas, porque é assim que um programa os compara sem tropeçar.

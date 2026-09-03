@@ -44,7 +44,7 @@ import re
 import sys
 from pathlib import Path
 
-DIMENSOES = ["problema", "metodologia e teoria", "contribuicoes e impacto",
+DIMENSOES = ["problema e justificativa", "metodologia e teoria", "contribuicoes e impacto",
              "bibliografia", "indicios de ia"]
 LINHA_SELECAO = 7.0
 
@@ -227,7 +227,7 @@ def agregar(pasta):
 
 # --------------------------------------------------------------- controle
 BOM = """DADOS
-1 | problema | 0 | 1 | 1 | 5
+1 | problema e justificativa | 0 | 1 | 1 | 5
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
 4 | bibliografia | 0 | 0 | 3 | 7

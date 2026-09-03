@@ -60,10 +60,15 @@ como dimensão aprovada.</p>
 
 <div class="fluxo">
   <ol>
-    <li><strong>Problema.</strong> Há pergunta, ou só tema? Ela é respondível
-    com o que o projeto se propõe? E é circular, isto é, a resposta já está
-    escrita na justificativa?</li>
-    <li><strong>Metodologia e teoria</strong>, lidas juntas. A fonte, as
+    <li><strong>Problema e justificativa</strong>, lidos juntos, porque
+    pergunta clara e irrelevante não sustenta projeto. Há pergunta, ou só tema?
+    Ela é respondível? É circular? E, do outro lado, <b>de que modo enfrentá-la
+    justifica o trabalho</b> — que não é a mesma coisa que a importância do
+    tema, porque um tema importante justifica qualquer pesquisa sobre ele, e
+    portanto nenhuma.</li>
+    <li><strong>Metodologia e teoria</strong>, lidas juntas, e a primeira coisa
+    é se <b>o método responde à pergunta</b>: método suficiente é método
+    articulado à pergunta, e não método bem descrito. A fonte, as
     categorias, a operação (contar, classificar, qualificar, comparar,
     interpretar) e a forma do resultado. A proporção entre as duas: método
     rarefeito demais faz a teoria deixar de restringir qualquer conclusão.
@@ -126,6 +131,19 @@ projeto com uma dimensão sem material nenhum.</p>
     decisão se toma com as vagas, a linha e os outros candidatos.</p>
   </section>
 </div>
+
+<h3>A terceira pergunta: dá para aprovar com alterações?</h3>
+<p>É a que mais rende, e a resposta já está na contagem, sem conta nova:
+<strong>as três classes são uma escala de custo de conserto.</strong> Sem
+nenhum impeditivo, o projeto é apto, e um projeto com cinco localizados está
+mais perto de ser aprovado do que um com um impeditivo só, ainda que a média
+diga o contrário. Com impeditivo, ela diz para cada um o que teria de mudar e
+de que tamanho é a mudança: reescrever uma seção é uma coisa, refazer a
+pergunta é outra, e só essa última é não apto.</p>
+<p>E o relatório fecha com <strong>o que a arguição pode ganhar</strong>: até
+três achados que se resolvem com uma resposta boa na banca, cada um com a
+dimensão que sobe de faixa se ele responder bem. Só entra o que sobe de faixa;
+o resto é pendência e já está no lugar dele.</p>
 
 <h3>A pergunta do escopo, e o movimento de subtrair</h3>
 <p>As três classes são todas sobre <b>falta</b>: apontam o que não está lá.
