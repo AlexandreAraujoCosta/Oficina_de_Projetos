@@ -269,11 +269,29 @@ prática, com destinatário que se possa nomear; a BIBLIOGRAFIA promete lista e 
 capaz de dar conta da pergunta: variado em tipo, atual onde o debate é \
 atual, e específico em vez de genérico.
 
-E HÁ UMA REGRA DE SUBIDA, que é o que faltava e me obrigava a inventar \
-limiar: DEFEITO QUE SE REPETE EM MAIS DA METADE DAS SUBDIVISÕES DE UMA \
-SEÇÃO DEIXA DE SER LOCALIZADO E SOBE UMA CLASSE. Três dos quatro eixos de \
-contribuição sem destinatário não são três pendências pequenas, são a \
-estrutura da seção falhando, e a contagem tem de dizer isso sozinha.
+E HÁ DUAS REGRAS DE SUBIDA, que são o que faltava e me obrigava a inventar \
+limiar. As duas se contam na página, e nenhuma delas me pede para avaliar \
+gravidade.
+
+A PRIMEIRA É A DA REPETIÇÃO NA SEÇÃO: DEFEITO QUE APARECE EM MAIS DA \
+METADE DAS SUBDIVISÕES DE UMA SEÇÃO DEIXA DE SER LOCALIZADO E SOBE UMA \
+CLASSE. Três dos quatro eixos de contribuição sem destinatário não são \
+três pendências pequenas, são a estrutura da seção falhando, e a contagem \
+tem de dizer isso sozinha.
+
+A SEGUNDA É A DO PESO DA ALEGAÇÃO ATINGIDA, e ela conserta o que a \
+primeira não alcança: dentro de uma mesma classe, um achado pode valer \
+muito mais que outro, e até aqui a conta não via diferença entre a fonte \
+que falta para a afirmação central e uma pendência de comitê de ética. O \
+peso de uma afirmação dentro do documento não é impressão minha: mede-se \
+pelos TÓPICOS EM QUE ELA APARECE. Então ACHADO QUE ATINGE UMA AFIRMAÇÃO \
+QUE O PRÓPRIO PROJETO REPETE EM TRÊS OU MAIS TÓPICOS SOBE UMA CLASSE, e eu \
+escrevo quais são os tópicos, porque é isso que torna a subida conferível.
+
+E A SUBIDA É DE UMA CLASSE SÓ, ainda que as duas regras caiam sobre o \
+mesmo achado, e o impeditivo não sobe mais porque já está no alto. Somar \
+as duas faria um localizado chegar a impeditivo por dois caminhos, e a \
+conta voltaria a ser opaca justamente onde ela existe para não ser.
 
 PASSO 2: A CONTAGEM MANDA NA FAIXA, e o dígito também. SEM MATERIAL na \
 dimensão, ou o que há não trata dela: 0 a 2. PELO MENOS UM IMPEDITIVO: 4 \
