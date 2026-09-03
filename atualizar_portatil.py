@@ -120,6 +120,21 @@ def main(nome_contexto="modulo_2_planejamento"):
             "partes: "
             + ", ".join("%d=%d" % (k, len(p)) for k, p in enumerate(partes, 1))
         )
+
+        # A QUINTA PARTE NAO E UMA DAS QUATRO: ela nao entra na divisao,
+        # porque nao se cola no comeco. E gerada a parte e injetada no
+        # campo proprio, se a pagina tiver um.
+        if 'id="prompt-5"' in nova:
+            from miro_v import gerar as gerar_v
+            texto_v = gerar_v()
+            (PASTA / "prompt_miro_v.md").write_text(texto_v, encoding="utf-8")
+            nova, trocas = padrao_parte(5).subn(
+                lambda m: m.group(1) + escapar_para_html(texto_v) + m.group(2),
+                nova,
+            )
+            if trocas == 0:
+                sys.exit("ERRO: nao achei o <textarea> da parte 5.")
+            print("miro V: %d caracteres" % len(texto_v))
     else:
         nova, trocas = PADRAO_TEXTAREA.subn(
             lambda m: m.group(1) + escapar_para_html(prompt) + m.group(2), pagina
