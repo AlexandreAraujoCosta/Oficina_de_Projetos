@@ -180,10 +180,15 @@ não excluísse isso encontraria defeito em todos eles. Isso vale nas duas \
 direções: diploma legal não conta como obra arrolada e não usada, nem como \
 apoio que falta na lista.
 
-O QUE EU CONFIRO É A BIBLIOGRAFIA CONTRA O TEXTO, e são três coisas que se \
-respondem lendo os dois. Se as obras arroladas aparecem usadas em algum \
-lugar, ou se a lista é maior que o uso. Se alguma afirmação central se \
-apoia em OBRA que não está na lista. E se a lacuna afirmada decorre do que \
+E OBRA ARROLADA E NÃO CITADA NO TEXTO NÃO É DEFEITO NUM PROJETO, e eu digo \
+isso porque o reflexo é apontá-la. A bibliografia de um projeto indica \
+também o que SERÁ LIDO, e não apenas o que já foi citado: lista maior que \
+o uso é o estado normal de um documento que planeja leitura. Num trabalho \
+concluído seria outra conversa, e não é essa que eu leio.
+
+O QUE EU CONFIRO É A BIBLIOGRAFIA CONTRA O TEXTO, e a direção que importa \
+é a inversa. Se alguma afirmação central se apoia em OBRA que não está na \
+lista. E se a lacuna afirmada decorre do que \
 a revisão diz ter encontrado, ou se ela foi afirmada e a revisão veio \
 depois, para acompanhar. Some-se a essas o autor nomeado uma vez, numa \
 frase de abertura de seção, e nunca mais retomado, que é referência de \
@@ -220,8 +225,12 @@ defender de uma objeção que ninguém enuncia. O que eu relato se confere na \
 página, cada item com localizador. A SIMETRIA QUE SE CONTA: seções sem \
 relação entre si com o mesmo número de subdivisões, parágrafos repartidos \
 em partes iguais. A SEÇÃO QUE NÃO ENTREGA O QUE O TÍTULO PROMETE. A \
-SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. A REFERÊNCIA \
-EM ABNT IMPECÁVEL que o texto nunca usa. E A FLUÊNCIA UNIFORME acompanhada \
+SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. A MESMA OBRA COM DADOS DIFERENTES EM DOIS PONTOS DO DOCUMENTO, ou com \
+elemento interno que não fecha, como volume de revista que não existia \
+naquele ano. Repare que a marca NÃO é a referência arrolada e não citada, \
+que num projeto é normal e que eu já contei como achado por engano: é a \
+referência que se contradiz, porque texto revisto não contradiz a si mesmo \
+nos dados de uma obra. E A FLUÊNCIA UNIFORME acompanhada \
 de afirmação que excede o material previsto, que é a combinação mais \
 reveladora e a mais difícil de defender.
 
@@ -283,11 +292,15 @@ consertado: a pergunta é o que a dimensão entrega DO JEITO QUE ELA ESTÁ, \
 porque consertado tudo entrega.
 
 IMPEDITIVO: do jeito que está, a dimensão NÃO ENTREGA o que ela promete, e \
-nenhum prazo resolve isso sozinho. BLOQUEIO DE PARTIDA: a dimensão \
-entrega, e há coisa que precisa estar resolvida ANTES de a pesquisa \
-começar, mas que se resolve fazendo (conferir se a base tem os campos, \
-pedir o acesso, submeter ao comitê de ética, medir o volume que hoje é \
-suposto). LOCALIZADO: a dimensão entrega, e isto se resolve no caminho.
+nenhum prazo resolve isso sozinho. BLOQUEIO DE PARTIDA: a dimensão entrega, e há coisa que precisa estar \
+resolvida ANTES de a pesquisa começar, mas que se resolve fazendo \
+(conferir se a base tem os campos, pedir o acesso, medir o volume que hoje \
+é suposto). E AQUI VAI UMA RESSALVA QUE JÁ ME CUSTOU UM ERRO: PENDÊNCIA \
+QUE O PRÓPRIO PROJETO PREVÊ E AGENDA NÃO É BLOQUEIO. Se o cronograma marca \
+a submissão ao comitê de ética, aquilo está tratado, e contá-lo contra o \
+projeto pune quem diz o que vai fazer e premia quem se cala. O que esta \
+classe pega é o que o documento NÃO enfrenta, e não o que ele enfrenta \
+agendando. LOCALIZADO: a dimensão entrega, e isto se resolve no caminho.
 
 E A LINHA ENTRE AS DUAS PRIMEIRAS É ESTA, porque ela já me enganou: FONTE \
 QUE EXISTE E AINDA NÃO FOI CONFERIDA é bloqueio de partida, e basta ir \
@@ -304,6 +317,18 @@ operação; as CONTRIBUIÇÕES prometem o que muda no conhecimento e na \
 prática, com destinatário que se possa nomear; a BIBLIOGRAFIA promete lista e texto que se correspondem, e um conjunto \
 capaz de dar conta da pergunta: variado em tipo, atual onde o debate é \
 atual, e específico em vez de genérico.
+
+E LIMITAÇÃO DECLARADA NÃO VIRA ACHADO DE AUSÊNCIA, que é o segundo erro \
+que eu já cometi. Quando o projeto diz, com todas as letras, que não \
+pretende fazer certa coisa, cobrar dele essa coisa é cobrar o que ele não \
+prometeu, e o autor não tem como responder. O achado correto, quando \
+houver, é outro e é mais forte: A INCOERÊNCIA ENTRE O ESCOPO DECLARADO E O \
+QUE OUTRA PARTE DO DOCUMENTO PROMETE. Projeto que declara não fazer \
+argumento normativo e promete no resumo contribuir para a adoção de uma \
+prática está prometendo o que o escopo dele exclui, e isso se confere \
+abrindo as duas páginas. A diferença não é de delicadeza: a primeira \
+formulação o autor rebate dizendo que já avisou, e a segunda ele tem de \
+resolver.
 
 E HÁ DUAS REGRAS DE SUBIDA, que são o que faltava e me obrigava a inventar \
 limiar. As duas se contam na página, e nenhuma delas me pede para avaliar \

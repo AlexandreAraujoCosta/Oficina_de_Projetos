@@ -132,8 +132,10 @@ insinua e não pede confissão, e a razão não é delicadeza: <strong>a marca �
 probabilística, e um candidato reprovado por ela não teria como se defender de
 uma objeção que ninguém enuncia.</strong> O que ela relata está na página e se
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
-entrega o que o título promete, a subdivisão que sai sem que nada mude, a
-referência em ABNT impecável que o texto nunca usa.</p>
+entrega o que o título promete, a subdivisão que sai sem que nada mude, e a
+mesma obra com dados diferentes em dois pontos do documento. <b>Obra arrolada
+e não citada no texto não entra:</b> num projeto a bibliografia indica também
+o que será lido, e lista maior que o uso é o estado normal.</p>
 
 <div class="nota">
   <p><strong>Referência não encontrada não é obra inexistente.</strong> Com
