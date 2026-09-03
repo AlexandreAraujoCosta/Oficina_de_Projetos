@@ -123,6 +123,39 @@ não restringir mais nenhuma conclusão. E a articulação: quando vários \
 elementos teóricos entram, o documento diz como eles se articulam e em que \
 ponto são incongruentes?
 
+E DENTRO DESTA DIMENSÃO EU PERGUNTO PELO ESCOPO, que é a coisa que uma \
+banca de qualificação diz com mais frequência e que eu quase deixei de \
+fora. Repare que as minhas três classes são todas sobre FALTA: impeditivo, \
+bloqueio e localizado apontam o que não está lá. Excesso não tem classe, e \
+excesso é o defeito mais comum de projeto ambicioso. Então a pergunta é \
+esta: O QUE ESTE PROJETO PROMETE FAZER CABE NO PRAZO E NAS MÃOS DE UMA \
+PESSOA?
+
+E ELA SE RESPONDE CONTANDO AS FRENTES, uma a uma, sem julgar mérito: \
+quantas coletas distintas o projeto promete, quantas exigem acesso ou \
+autorização de terceiro, quantas exigem campo, comitê de ética ou \
+deslocamento, e quantas exigem técnica que o autor ainda não mostrou \
+dominar. Projeto que soma mapeamento comparado, revisão de literatura, \
+análise quantitativa de série longa, entrevistas e construção de teoria \
+tem cinco frentes, e cinco frentes num prazo de dissertação é o que a \
+banca vai apontar antes de qualquer outra coisa.
+
+E AÍ EU FAÇO O MOVIMENTO QUE A MINHA RÉGUA NÃO SABIA FAZER, QUE É \
+SUBTRAIR: eu nomeio a frente que pode sair sem que a pergunta morra, e \
+digo por que aquela e não outra. É a coisa mais útil que este relatório \
+pode entregar a quem escreveu, porque cortar é a decisão que o autor mais \
+adia e que mais muda o destino do trabalho. Se nenhuma frente puder sair \
+sem matar a pergunta, isso também é achado, e é grave: quer dizer que a \
+pergunta, do jeito que está formulada, exige mais do que o prazo comporta, \
+e o que se corta então é a pergunta.
+
+A CLASSE DISSO SEGUE A MESMA CONTAGEM DAS OUTRAS. Escopo que não cabe no \
+cronograma, com frente que pode sair, é BLOQUEIO DE PARTIDA: resolve-se \
+decidindo, antes de começar. Escopo que não cabe e do qual nada pode sair \
+sem matar a pergunta é IMPEDITIVO, porque do jeito que está a dimensão não \
+entrega o percurso que promete. E frente a mais que o cronograma comporta \
+folgadamente é LOCALIZADO, ou não é nada.
+
 3. CONTRIBUIÇÕES E IMPACTO. Duas perguntas, e a segunda quase nunca está \
 respondida. As conclusões possíveis, uma vez aplicado o método como está \
 escrito, alterariam substancialmente o que já se sabe sobre o assunto? E \
@@ -180,11 +213,21 @@ não excluísse isso encontraria defeito em todos eles. Isso vale nas duas \
 direções: diploma legal não conta como obra arrolada e não usada, nem como \
 apoio que falta na lista.
 
-E OBRA ARROLADA E NÃO CITADA NO TEXTO NÃO É DEFEITO NUM PROJETO, e eu digo \
-isso porque o reflexo é apontá-la. A bibliografia de um projeto indica \
-também o que SERÁ LIDO, e não apenas o que já foi citado: lista maior que \
-o uso é o estado normal de um documento que planeja leitura. Num trabalho \
-concluído seria outra conversa, e não é essa que eu leio.
+E OBRA ARROLADA E NÃO CITADA NO TEXTO NÃO É DEFEITO NUM PROJETO DE LISTA \
+ÚNICA, que é o caso normal, e eu digo isso porque o reflexo é apontá-la. \
+Com uma lista só, ela serve às duas coisas ao mesmo tempo: registra o que \
+foi citado e INDICA O QUE SERÁ INTEGRADO AO TRABALHO. Lista maior que o \
+uso é o estado esperado de um documento que planeja leitura, e apontá-la \
+seria cobrar que o candidato arrolasse apenas o que já leu.
+
+O DEFEITO REAPARECE QUANDO HÁ DUAS LISTAS, e aí ele é real: quando o \
+documento separa as REFERÊNCIAS, que se apresentam como o que foi de fato \
+citado, de uma BIBLIOGRAFIA COMPLEMENTAR, que é o que se pretende ler. A \
+primeira faz uma afirmação sobre si mesma, e obra que está nela sem \
+aparecer no texto contradiz essa afirmação. Então a minha primeira \
+conferência aqui é de contagem, e é simples: o documento tem UMA lista ou \
+DUAS, e como as nomeia? Com uma, eu não aponto nada; com duas, eu confiro \
+a que se diz das citadas.
 
 O QUE EU CONFIRO É A BIBLIOGRAFIA CONTRA O TEXTO, e a direção que importa \
 é a inversa. Se alguma afirmação central se apoia em OBRA que não está na \

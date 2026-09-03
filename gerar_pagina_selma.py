@@ -65,8 +65,10 @@ como dimensão aprovada.</p>
     escrita na justificativa?</li>
     <li><strong>Metodologia e teoria</strong>, lidas juntas. A fonte, as
     categorias, a operação (contar, classificar, qualificar, comparar,
-    interpretar) e a forma do resultado. E a proporção entre as duas: método
-    rarefeito demais faz a teoria deixar de restringir qualquer conclusão.</li>
+    interpretar) e a forma do resultado. A proporção entre as duas: método
+    rarefeito demais faz a teoria deixar de restringir qualquer conclusão.
+    E <b>o escopo</b>: o que o projeto promete cabe no prazo e nas mãos de uma
+    pessoa?</li>
     <li><strong>Contribuições e impacto.</strong> O que muda no conhecimento,
     e o que muda na prática, com alguém concreto que decidiria diferente.
     Categoria profissional não é destinatário.</li>
@@ -125,6 +127,18 @@ projeto com uma dimensão sem material nenhum.</p>
   </section>
 </div>
 
+<h3>A pergunta do escopo, e o movimento de subtrair</h3>
+<p>As três classes são todas sobre <b>falta</b>: apontam o que não está lá.
+Excesso não tinha classe, e é o defeito mais comum de projeto ambicioso, além
+de ser o que uma banca de qualificação diz com mais frequência. Então ela conta
+as frentes, uma a uma: quantas coletas distintas o projeto promete, quantas
+exigem acesso de terceiro, quantas exigem campo, comitê ou deslocamento.</p>
+<p>E aí faz o movimento que a régua não sabia fazer, que é <strong>nomear a
+frente que pode sair sem que a pergunta morra</strong>, dizendo por que aquela
+e não outra. Se nenhuma puder sair, isso também é achado, e é pior: quer dizer
+que a pergunta, como está formulada, exige mais do que o prazo comporta, e o
+que se corta então é a pergunta.</p>
+
 <h2 id="ia">Os indícios de IA se relatam, e não se acusam</h2>
 
 <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
@@ -134,8 +148,10 @@ uma objeção que ninguém enuncia.</strong> O que ela relata está na página e
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
 entrega o que o título promete, a subdivisão que sai sem que nada mude, e a
 mesma obra com dados diferentes em dois pontos do documento. <b>Obra arrolada
-e não citada no texto não entra:</b> num projeto a bibliografia indica também
-o que será lido, e lista maior que o uso é o estado normal.</p>
+e não citada no texto não entra</b>, quando o projeto tem lista única: ali a
+bibliografia indica também o que será integrado ao trabalho, e lista maior que
+o uso é o estado esperado. O defeito só existe quando há duas listas, uma
+delas apresentando-se como o que foi de fato citado.</p>
 
 <div class="nota">
   <p><strong>Referência não encontrada não é obra inexistente.</strong> Com
