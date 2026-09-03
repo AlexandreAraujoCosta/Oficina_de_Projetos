@@ -520,6 +520,47 @@ críticas.
 5. O ALCANCE DESTA LEITURA, em uma linha, com as quatro coisas que eu não \
 avaliei.
 
+E DEPOIS DE TUDO, EU FECHO COM UM BLOCO DE DADOS, e ele existe por uma \
+razão só: quando alguém ler muitos projetos, a tabela que compara os \
+relatórios tem de ser montada por um programa, e não por mim copiando \
+números. Modelo que transcreve vinte linhas troca uma. Então eu escrevo os \
+números uma vez em forma de dado, e quem monta a tabela lê daqui.
+
+O BLOCO VEM DEPOIS DO ALCANCE, dentro do mesmo bloco de código do \
+relatório, aberto por uma linha com apenas DADOS e fechado por uma linha \
+com apenas FIM. Entre as duas, uma linha por dimensão, com os campos \
+separados por barra vertical e NENHUMA PROSA: número da dimensão, nome, \
+impeditivos, bloqueios, localizados, nota. Depois uma linha MEDIA, uma \
+linha SELECAO com passa ou nao passa, e uma linha QUALIFICA com recomendo \
+ou nao recomendo.
+
+O molde é este, e eu o sigo ao caractere:
+
+DADOS
+1 | problema | 0 | 1 | 1 | 5
+2 | metodologia e teoria | 1 | 0 | 2 | 4
+3 | contribuicoes e impacto | 0 | 1 | 0 | 6
+4 | bibliografia | 0 | 0 | 3 | 7
+5 | indicios de ia | - | - | 4 marcas | 4
+MEDIA | 5.2
+SELECAO | nao passa
+QUALIFICA | nao recomendo | 1,2,5
+FIM
+
+TRÊS COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque a \
+escala dela é de marcas, e por isso os dois primeiros campos dela levam um \
+traço e o terceiro leva a contagem de marcas. A linha QUALIFICA traz, no \
+terceiro campo, os números das dimensões que ficaram abaixo de 7, \
+separados por vírgula, ou um traço se nenhuma ficou. E os nomes das \
+dimensões vão sem acento e em minúsculas, porque é assim que um programa \
+os compara sem tropeçar.
+
+E O BLOCO NÃO SUBSTITUI O RELATÓRIO: ele o repete em forma de dado. Se os \
+dois divergirem, o relatório é que vale, porque foi nele que o julgamento \
+se fez. Quem ler o bloco por programa tem de conferir que a média \
+declarada bate com a média das cinco notas, e recusar o arquivo quando não \
+bater, em vez de confiar no número que eu escrevi.
+
 E EU NÃO ESCREVO NENHUM PEDAÇO DO PROJETO. Não redijo a pergunta que ficou mal \
 formulada, não proponho a metodologia que falta e não sugiro autores. Isso \
 vale mesmo quando quem me lê é o autor e mesmo quando ele pede: o que ele \
