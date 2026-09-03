@@ -52,6 +52,23 @@ from pathlib import Path
 RE_P = re.compile(rb"<w:p(?:\s[^>]*)?(?:/>|>.*?</w:p>)", re.S)
 RE_T = re.compile(rb"<w:t(?:\s[^>]*)?>(.*?)</w:t>", re.S)
 
+MARCA_GERAL = "> GERAL:"
+MARCA_SUG = "> SUGESTAO:"
+
+# O ACHADO QUE NAO TEM ONDE SER ANCORADO. Comentario de margem diz o
+# que ha de errado NAQUELE trecho, e ha achado que nao e de trecho
+# nenhum: que o desenho e circular, que nenhum trabalho toca o
+# referencial, que a lacuna e aposta. Forcar isso no primeiro
+# paragrafo mente sobre onde o problema esta. Entao esses entram como
+# BLOCO NO ALTO DO DOCUMENTO, em texto e nao em comentario, para serem
+# lidos, e marcados para serem apagados. A marca serve a tres coisas de
+# uma vez: o autor ve que aquilo nao e dele, o conferidor sabe o que nao
+# contar, e uma rodada seguinte reconhece o bloco em vez de ler a
+# propria fala anterior como texto do projeto.
+AVISO_GERAL = ("> GERAL: APAGUE ESTE BLOCO ANTES DE ENTREGAR O PROJETO. "
+               "As linhas abaixo sao comentarios sobre o documento "
+               "inteiro, e nao fazem parte dele.")
+
 AUTOR = "assistente"
 DATA = "2026-01-01T00:00:00Z"
 NS_W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
@@ -93,6 +110,24 @@ def ler_sugestoes(caminho):
     if not itens:
         sys.exit("o arquivo de sugestoes esta vazio.")
     return itens
+
+
+def ler_gerais(caminho):
+    """Um comentario geral por linha. Linha vazia separa e nao conta."""
+    bruto = caminho.read_text(encoding="utf-8")
+    return [l.strip() for l in bruto.splitlines() if l.strip()]
+
+
+def guardar_contra_bloco_antigo(paras, nome):
+    """Bloco de uma rodada anterior que ficou no arquivo contaria como
+    texto do autor, e a partir dali toda a numeracao anda."""
+    velhos = [i for i, p in enumerate(paras, 1)
+              if p.lstrip().startswith((MARCA_GERAL, MARCA_SUG))]
+    if velhos:
+        sys.exit("%s ja traz %d paragrafo(s) marcado(s) de uma rodada "
+                 "anterior (o primeiro e P%03d). Apague o bloco antes "
+                 "de rodar de novo: se ele ficar, conta como texto seu "
+                 "e a numeracao inteira anda." % (nome, len(velhos), velhos[0]))
 
 
 # ----------------------------------------------------------------- docx
@@ -139,7 +174,14 @@ def com_tipo(tipos):
     return tipos[:corte] + novo + tipos[corte:]
 
 
-def fazer_docx(origem, saida, itens):
+def paragrafos_gerais_xml(gerais):
+    linhas = [AVISO_GERAL] + ["%s %s" % (MARCA_GERAL, g) for g in gerais]
+    return "".join(
+        '<w:p><w:r><w:t xml:space="preserve">%s</w:t></w:r></w:p>' % escapar(l)
+        for l in linhas).encode("utf-8")
+
+
+def fazer_docx(origem, saida, itens, gerais=()):
     with zipfile.ZipFile(origem) as z:
         conteudo = {n: z.read(n) for n in z.namelist()}
 
@@ -148,6 +190,8 @@ def fazer_docx(origem, saida, itens):
     if not paras:
         sys.exit("nao achei paragrafos em %s" % origem.name)
 
+    guardar_contra_bloco_antigo(
+        [desescapar(texto(q)) for q in paras], origem.name)
     conferir_localizadores(itens, len(paras), origem.name)
 
     por_paragrafo = {}
@@ -167,7 +211,13 @@ def fazer_docx(origem, saida, itens):
         pos = m.end()
     partes.append(doc[pos:])
 
-    conteudo["word/document.xml"] = b"".join(partes)
+    novo_doc = b"".join(partes)
+    if gerais:
+        # No alto do corpo, antes do primeiro paragrafo do autor.
+        corte = novo_doc.find(b"<w:body>") + len(b"<w:body>")
+        novo_doc = (novo_doc[:corte] + paragrafos_gerais_xml(gerais)
+                    + novo_doc[corte:])
+    conteudo["word/document.xml"] = novo_doc
     conteudo["word/comments.xml"] = comentarios_xml(itens)
     conteudo["[Content_Types].xml"] = com_tipo(conteudo["[Content_Types].xml"])
     conteudo["word/_rels/document.xml.rels"] = com_relacao(
@@ -182,7 +232,9 @@ def fazer_docx(origem, saida, itens):
 def texto_do_docx(caminho):
     with zipfile.ZipFile(caminho) as z:
         doc = z.read("word/document.xml")
-    return [desescapar(texto(m.group(0))) for m in RE_P.finditer(doc)]
+    return [p for p in (desescapar(texto(m.group(0)))
+                        for m in RE_P.finditer(doc))
+            if not p.lstrip().startswith((MARCA_GERAL, MARCA_SUG))]
 
 
 # ----------------------------------------------------------------- md
@@ -204,11 +256,12 @@ def paragrafos_md(bruto):
     return [bruto[a:b] for a, b in trechos_md(bruto)]
 
 
-def fazer_md(origem, saida, itens):
+def fazer_md(origem, saida, itens, gerais=()):
     """Insere no deslocamento, e nao reconstroi: reconstruir e redigitar."""
     bruto = origem.read_text(encoding="utf-8")
     trechos = trechos_md(bruto)
     antes = [bruto[a:b] for a, b in trechos]
+    guardar_contra_bloco_antigo(antes, origem.name)
     conferir_localizadores(itens, len(trechos), origem.name)
 
     por_paragrafo = {}
@@ -223,13 +276,17 @@ def fazer_md(origem, saida, itens):
         bloco = "".join("\n\n> SUGESTAO: " + t for t in por_paragrafo[n])
         bruto = bruto[:fim] + bloco + bruto[fim:]
 
+    if gerais:
+        alto = (chr(10) * 2).join(
+            [AVISO_GERAL] + ["%s %s" % (MARCA_GERAL, g) for g in gerais])
+        bruto = alto + chr(10) * 2 + bruto
     saida.write_text(bruto.rstrip("\n") + "\n", encoding="utf-8")
     return antes
 
 
 def texto_do_md(caminho):
     return [p for p in paragrafos_md(caminho.read_text(encoding="utf-8"))
-            if not p.lstrip().startswith("> SUGESTAO:")]
+            if not p.lstrip().startswith((MARCA_GERAL, MARCA_SUG))]
 
 
 # ----------------------------------------------------------------- comuns
@@ -296,6 +353,10 @@ def main():
     p.add_argument("--numerar", action="store_true",
                    help="lista os paragrafos numerados e sai")
     p.add_argument("--sugestoes", help="arquivo com 'P004 > texto', uma por linha")
+    p.add_argument("--gerais",
+                   help="arquivo com os achados que nao tem paragrafo "
+                        "para apontar, um por linha; entram como bloco "
+                        "no alto do documento")
     p.add_argument("-o", "--saida", help="o arquivo de saida")
     p.add_argument("--provar", action="store_true",
                    help="mostra o conferidor reprovando uma alteracao")
@@ -333,15 +394,21 @@ def main():
     if saida.exists() and saida.resolve() == origem.resolve():
         sys.exit("a saida nao pode ser o proprio arquivo do autor.")
 
-    antes = (fazer_docx(origem, saida, itens) if docx
-             else fazer_md(origem, saida, itens))
+    gerais = ler_gerais(Path(a.gerais)) if a.gerais else []
+    antes = (fazer_docx(origem, saida, itens, gerais) if docx
+             else fazer_md(origem, saida, itens, gerais))
     depois = texto_do_docx(saida) if docx else texto_do_md(saida)
     conferir_texto(antes, depois, saida)
 
     print("%d sugestoes em %d paragrafos de %s."
           % (len(itens), len({n for n, _ in itens}), origem.name))
     print("O texto do autor saiu identico ao que entrou, conferido "
-          "paragrafo a paragrafo.\n")
+          "paragrafo a paragrafo.")
+    if gerais:
+        print("%d comentario(s) geral(is) no alto do documento, "
+              "marcados e com o aviso de apagar antes de entregar."
+              % len(gerais))
+    print()
 
     # ONDE CADA SUGESTAO FOI PARAR. Se o assistente numerou o que foi
     # colado no chat e o arquivo tem paragrafos a mais (titulo, linha em
