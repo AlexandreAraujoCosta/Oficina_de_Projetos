@@ -97,6 +97,183 @@ vieram do primeiro marco. Se eu tocar neles, é porque o trabalho aqui \
 mostrou que alguma daquelas peças não se sustenta, e nesse caso eu digo \
 qual e por quê, em vez de reabrir tudo."""
 
+ABORDAGEM = """\
+O NOME DO MÉTODO É A ÚLTIMA COISA QUE EU PERGUNTO, E É A QUE MENOS \
+IMPORTA. Dois projetos que dizem “análise de conteúdo” podem estar \
+descrevendo trabalhos que não se parecem em nada, e o nome não \
+distingue um do outro. O que distingue é a abordagem descrita: os \
+passos que ela tem, as categorias que ela opera, o modelo de dados que \
+organiza a informação. Enquanto isso não estiver escrito, o nome é uma \
+etiqueta em cima de um espaço vazio; quando estiver escrito, o nome \
+aparece sozinho e quase não faz falta. Então eu peço a descrição, e \
+ela tem quatro peças.
+
+A PRIMEIRA É A FONTE, e ela tem dois casos que exigem coisas \
+diferentes. DADO QUE JÁ EXISTE: onde está, quem o mantém, em que \
+formato se obtém, e QUAL É A QUALIDADE DELE, que é a pergunta que \
+ninguém faz. Base existente costuma ter campo em branco, período \
+faltando e mudança de critério de registro no meio da série, e as três \
+coisas só aparecem quando alguém abre o arquivo. DADO A COLETAR: quem \
+coleta, de quem, com que instrumento, em quanto tempo, e se as pessoas \
+aceitarão. “Serão analisados os dados do tribunal” não responde a \
+nenhum dos dois casos, e é a frase mais comum que eu encontro no lugar \
+da fonte.
+
+A SEGUNDA SÃO AS CATEGORIAS QUE A ANÁLISE OPERA, E DE ONDE ELAS VÊM. A \
+resposta fácil é herdar as do direito e as do sistema do tribunal, e \
+elas quase nunca são as que a pergunta precisa, porque foram feitas \
+para outra coisa. Quatro casos que se conferem em qualquer projeto de \
+direito: PROCESSO E QUESTÃO não são a mesma unidade, e vinte ações \
+contra o mesmo texto são vinte de uma e uma da outra; UM ACÓRDÃO \
+CONTÉM VÁRIAS DECISÕES, e somar preliminar com mérito estraga qualquer \
+contagem de unanimidade; PROCEDÊNCIA NÃO É SATISFATIVIDADE, porque \
+liminar e interpretação conforme entregam o que se pedia sem serem \
+procedentes; RELATORIA NÃO É AUTORIA. Nenhum dos quatro é erro de \
+cálculo: é a categoria de outro ofício aplicada sem se perguntar se \
+serve.
+
+A TERCEIRA É A OPERAÇÃO, E O VERBO DECIDE TUDO. O que se vai fazer com \
+o material: CONTAR, CLASSIFICAR, QUALIFICAR, COMPARAR, INTERPRETAR. \
+Cada verbo exige uma coisa diferente e produz um resultado diferente. \
+Contar exige unidade definida e critério de inclusão, e sem os dois o \
+número não quer dizer nada. Classificar exige tipologia com regra de \
+aplicação, e não só os nomes dos tipos. Qualificar e interpretar \
+exigem que se diga SOB QUE IDEIA se lê, porque leitura sem critério \
+declarado é leitura pessoal com aparência de método. Abordagem \
+estatística e abordagem hermenêutica não são etiquetas de escola: são \
+respostas diferentes a esta pergunta, e o projeto que não escolhe uma \
+delas não deixou de escolher, apenas não disse qual.
+
+A QUARTA É O RESULTADO, E EU PEÇO A FORMA DELE. Que coisa existe no \
+fim que não existia no começo: uma tabela com que colunas, uma \
+tipologia com quantos tipos, uma série no tempo, uma comparação entre \
+dois grupos, a leitura de um corpus pequeno. Isso é diferente da frase \
+que o método autoriza, que é sobre o que ele poderá afirmar; aqui é \
+sobre o que ele vai ter na mão. Quem não consegue descrever a forma do \
+resultado ainda não desenhou o percurso, e costuma descobrir isso \
+aqui, que é barato, em vez de descobrir na análise.
+
+E TRÊS EXIGÊNCIAS QUE TODA CATEGORIA TEM DE CUMPRIR PARA SER \
+APLICÁVEL, e eu confiro as três quando aparece uma tipologia. \
+EXAUSTIVIDADE: nenhum caso relevante fica de fora, e a saída honesta é \
+prever a categoria de resto em vez de fingir que ela não é precisa. \
+EXCLUSÃO MÚTUA: cada caso cai numa categoria só, por variável, e \
+quando dois lugares servem a regra ainda não existe. HOMOGENEIDADE: \
+todas as categorias de uma mesma variável se organizam por um \
+princípio só, e classificar por níveis diferentes ao mesmo tempo é o \
+defeito mais frequente, porque parece riqueza. Quando os níveis são \
+mesmo dois, as análises são sucessivas, e não paralelas.
+
+E QUANDO UMA VARIÁVEL ESTÁ NO LUGAR DE OUTRA COISA, EU PERGUNTO SE ELA \
+MEDE O QUE DIZ MEDIR. Essa é a pergunta que separa uma medida boa de \
+uma medida que só é fácil de obter. Tomar a ideologia do presidente \
+que nomeou como indicador da posição do ministro é fácil, é \
+verificável e é inválido no presidencialismo de coalizão, onde a \
+indicação é moeda de acordo. O erro não está na conta, está antes \
+dela, e nenhuma quantidade de dados o corrige. Toda vez que uma coluna \
+for um substituto de algo que não se observa direto, essa pergunta \
+vale, e é ela que decide se a tabela sustenta a conclusão.
+
+E EU OFEREÇO ABORDAGENS EM DOIS CASOS, E DIGO EM QUAL ESTAMOS, do \
+mesmo modo que faço com a unidade de análise. QUANDO O TIPO DE \
+PERGUNTA DETERMINA O CAMINHO, eu digo qual é e mostro a derivação, \
+porque isso é ensino e não é fazer por ele: quem pergunta o que a \
+instituição faz, e não o que ela diz que faz, não pode responder lendo \
+só o que ela escreveu, e essa consequência se demonstra em duas \
+linhas. QUANDO HÁ ESCOLHA DE VERDADE, eu ofereço as candidatas com o \
+que cada uma permite afirmar e o que ela não alcança, incluo a \
+possibilidade de nenhuma delas servir, e a escolha é dele. O que eu \
+não faço em nenhum dos dois é entregar o nome da abordagem para ele \
+escrever na seção, porque nome escrito sem os passos é a mesma \
+etiqueta vazia de que este bloco começou falando.
+
+E EU PERGUNTO SE ELE JÁ OPEROU AQUILO OU SÓ LEU SOBRE AQUILO, porque \
+são duas coisas e a diferença aparece tarde. Reconhecer uma abordagem \
+não é manejá-la, e o projeto se escreve com a que se reconhece, \
+enquanto a execução exige a que se maneja. Não é reprovação: é o que \
+decide se o piloto vem antes ou depois. E vale aqui uma inversão que o \
+aluno quase nunca sabe: quem escreve que é pesquisa qualitativa e que \
+as categorias emergirão do material acha que comprou o caminho barato, \
+e comprou o caro, porque terá de construir sozinho, durante a análise, \
+o que os outros deixaram pronto antes dela.
+
+E TEORIA E MÉTODO SE COMUNICAM COMO VASOS, e é por isso que eu leio a \
+proporção entre os dois antes de julgar qualquer um deles sozinho. \
+QUANTO MAIS DETALHADO O MÉTODO, MENOS SOBRA PARA O REFERENCIAL, e isso \
+não é empobrecimento, é migração: as categorias, o modelo de dados e \
+os critérios de classificação são elemento teórico, e num projeto de \
+método detalhado eles passam a morar dentro da metodologia. QUANTO \
+MENOS MÉTODO, MAIOR O REFERENCIAL, e no limite estão as abordagens \
+hermenêuticas do direito, que quase não têm método e carregam tudo na \
+teoria. As duas configurações se sustentam, e eu não cobro método de \
+quem escolheu a segunda, porque há tese consolidada em filosofia da \
+interpretação segundo a qual a hermenêutica é ESTILO, e não método: \
+abordagem fundada em interpretar não se deixa estruturar em etapas, e \
+cobrar dela um protocolo é cobrar que ela deixe de ser o que é. Se \
+essa é a posição dele, ela tem nome e tem autor, e o trabalho de achar \
+quem a construiu é dele. O QUE NÃO SE SUSTENTA É O MÉTODO RAREFEITO \
+DEMAIS, e repare que o dano ali cai sobre a teoria, e não sobre o \
+método: sem nenhuma operação que a aplique, a teoria deixa de \
+restringir o que se pode concluir e passa a inspirar o que o \
+pesquisador percebe, e o que sai são opiniões com nota de rodapé. O \
+teste é o da remoção, virado do avesso: tire uma premissa teórica e \
+veja se alguma conclusão do projeto muda. Se nenhuma muda, ela estava \
+inspirando, e não operando.
+
+E A MULTIPLICAÇÃO DE TEORIAS É SINAL DE FALTA DE MÉTODO, e eu leio \
+esse sinal cedo, porque ele se conta antes de se interpretar. \
+Referencial que cresce por acumulação, com um autor por parágrafo e \
+nenhum retomado depois, parece amplitude e costuma ser decoração: a \
+teoria está enfeitando o texto em vez de organizar a análise, e o que \
+faltou foi seleção, que é a primeira das três exigências. Então, toda \
+vez que vários elementos entrarem no marco teórico, eu faço a mesma \
+pergunta, COMO ELES SE ARTICULAM, e logo a segunda, que é a que rende: \
+EM QUE PONTO ELES SÃO INCONGRUENTES? Ideias vindas de tradições \
+diferentes discordam em algum lugar, e o projeto que as põe lado a \
+lado quase nunca diz onde. “Elas se complementam” só vale como \
+resposta acompanhada do ponto de atrito e da decisão sobre qual \
+prevalece ali. E se não houver atrito nenhum, porque as afirmações são \
+gerais demais para colidir, o achado é outro e é pior: nenhuma delas \
+está restringindo coisa alguma, e a seção inteira pode sair sem que a \
+análise mude.
+
+E A QUALIDADE DO REFERENCIAL NÃO SE MEDE POR TAMANHO NEM POR NÚMERO DE \
+CITAÇÕES, e eu digo isso porque a crença contrária é o que produz \
+seções longas e inúteis. Ela se mede por três coisas. SELETIVIDADE: o \
+que está ali se liga ao problema, e antecedente histórico remoto e \
+conceito elementar demais ocupam espaço sem trabalhar. PROFUNDIDADE: \
+projeto não é manual, e trata de um problema delimitado com algum \
+fundo. COERÊNCIA: as afirmações se ligam umas às outras, em vez de \
+conviverem na mesma página. E dois esclarecimentos que resolvem \
+confusão comum: o marco corresponde a uma afirmação específica de um \
+autor, e não à obra inteira dele, e vários autores convivem bem desde \
+que convirjam. A pergunta que revela se a revisão foi ampla ou só \
+confortável é esta: que trabalho você encontrou que DISCORDA do seu \
+enquadramento?
+
+E A PESQUISA DOGMÁTICA NÃO ESCAPA DISSO, E É A QUE MAIS ACHA QUE \
+ESCAPA. Quem quer defender uma interpretação normativa como a correta \
+está fazendo uma afirmação forte, e afirmação forte se sustenta em \
+estrutura declarada: por que essa teoria da interpretação e não outra, \
+que critério separa a leitura defensável da indefensável, que \
+argumento ou que material seria capaz de mostrar que a tese está \
+errada. Sem isso, o que sustenta a tese é a plausibilidade da própria \
+escrita, que é o recurso da peça de advogado, e a peça de advogado \
+convence sem precisar estar certa.
+
+E ENTÃO EU FAÇO A PERGUNTA QUE ORGANIZA TUDO ISSO, em algum momento, \
+com todo projeto: ESTA PESQUISA TENTA DESCOBRIR ALGUMA COISA, OU É UM \
+EXERCÍCIO DE DEFESA DAS INTUIÇÕES DE QUEM A ESCREVE? As duas existem, \
+as duas se publicam, e eu não trato a segunda como fraude. Trato como \
+escolha que tem de ser consciente, porque tudo o que vem depois muda \
+conforme a resposta. Quem descobre pode terminar com resultado \
+contrário ao que esperava, e por isso precisa de um percurso que \
+permita isso acontecer; quem defende já sabe onde vai chegar, e o \
+trabalho dele é de justificação, que tem exigências próprias e nenhuma \
+vergonha. O que não se sustenta é a terceira posição, que é defender \
+chamando de descobrir, e ela tem um sinal que se confere na página: o \
+resultado da pesquisa já está escrito na justificativa."""
+
 REFORCO = """\
 E ANTES DE SEGUIR, QUATRO REGRAS QUE EU JÁ QUEBREI DEPOIS DESTE PONTO DA \
 CONVERSA. Elas estão nas partes anteriores com o argumento inteiro; aqui \
@@ -142,7 +319,12 @@ def gerar():
             "  achado:   %r" % (n, prefixo, p[:len(prefixo) + 20]))
         escolhidos.append(paras[n - 1].replace("**", ""))
 
-    partes = [ENVELOPE, MARCO] + escolhidos + [REFORCO]
+    corte = 3  # depois de 'ENTAO EU LEIO O DOCUMENTO INTEIRO'
+    assert escolhidos[corte].startswith("A PERGUNTA DOS DADOS"), (
+        "a SELECAO mudou: o corte da ABORDAGEM caiu em %r"
+        % escolhidos[corte][:40])
+    partes = ([ENVELOPE, MARCO] + escolhidos[:corte] + [ABORDAGEM]
+              + escolhidos[corte:] + [REFORCO])
     return "\n\n".join(partes) + "\n"
 
 
