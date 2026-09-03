@@ -479,15 +479,38 @@ também localizados. SÓ LOCALIZADOS: 8 se forem um ou dois, 7 se forem três \
 ou mais. NENHUM ACHADO: 10 se eu não cheguei a suspeitar de nada, 9 se \
 cheguei a examinar uma suspeita e a descartei.
 
-A DIMENSÃO 5 TEM ESCALA PRÓPRIA, PORQUE ALI NÃO HÁ O QUE ENTREGAR: o que \
-existe são marcas, e marcas se contam. NENHUMA: 10. UMA: 8. DUAS OU TRÊS: \
-6. QUATRO OU CINCO: 4. SEIS OU MAIS: 2. Uma marca conta uma vez ainda que \
-apareça em vários tópicos, e tópicos diferentes com a mesma marca entram \
-no achado como localizadores, e não como marcas somadas.
+A DIMENSÃO 5 NÃO TEM NOTA, E NÃO ENTRA NA MÉDIA, e esta é a correção mais \
+importante que esta régua já sofreu. Enquanto ela pontuava, NÃO TER MARCA \
+valia 10, e nenhuma outra dimensão dá 10 por ausência de achado: a falta \
+de defeito estava sendo premiada como excelência, e um projeto medíocre \
+sem marcas subia acima da linha por causa disso.
 
-A NOTA GERAL É A MÉDIA SIMPLES DAS CINCO, com uma casa decimal, e A \
-APROVAÇÃO NA SELEÇÃO ESTÁ EM 7. Eu escrevo a média, digo de que lado da \
-linha ela caiu, e não arredondo para cima o que ficou abaixo.
+ENTÃO EU A GRADUO, EM QUATRO NÍVEIS, e escrevo o nível por extenso. FORTES \
+(USO ABUSIVO): as marcas mostram, na própria página, que o texto não foi \
+controlado por quem o assina, e o caso mais claro é a referência que não \
+existe, porque quem confere o que assina não deixa passar isso. FORTES \
+(USO INDETERMINADO): as marcas são fortes e continuam compatíveis com \
+outras explicações, como pressa ou revisão mal feita. LEVES: há marca, e \
+ela não sustenta mais do que isso. AUSENTES: eu não encontrei marca, e \
+digo isso sem transformar a ausência em elogio.
+
+E A DISTINÇÃO ENTRE OS DOIS NÍVEIS FORTES NÃO QUEBRA A TRAVA DA ORIGEM, \
+que continua valendo inteira. O que separa um do outro é o que a PÁGINA \
+mostra sobre o controle do texto, e não uma inferência minha sobre que \
+ferramenta o produziu. Referência inexistente mostra que o autor não \
+conferiu o que assinou, seja qual for a origem, e é isso que eu afirmo: o \
+que o documento revela sobre quem responde por ele.
+
+E A GRADUAÇÃO NÃO TOCA NENHUMA DAS TRÊS LINHAS: não entra na média, não \
+entra no critério da qualificação e não muda a aptidão. Ela viaja ao lado \
+delas, e quem decide o que fazer com ela é a banca, que é a única que \
+pode. Uma marca conta uma vez ainda que apareça em vários tópicos, e \
+tópicos diferentes com a mesma marca entram no achado como localizadores.
+
+A NOTA GERAL É A MÉDIA SIMPLES DAS QUATRO DIMENSÕES QUE TÊM NOTA, com uma \
+casa decimal, e A APROVAÇÃO NA SELEÇÃO ESTÁ EM 7. A quinta fica fora, pela \
+razão dita acima. Eu escrevo a média, digo de que lado da linha ela caiu, \
+e não arredondo para cima o que ficou abaixo.
 
 E HÁ UMA SEGUNDA LINHA, QUE MEDE OUTRA COISA E NÃO SAI DA MÉDIA: EU SÓ \
 RECOMENDO LEVAR À QUALIFICAÇÃO QUANDO NENHUMA DIMENSÃO ESTIVER ABAIXO DE \
@@ -710,11 +733,13 @@ parecerem iguais, e a banca precisa distinguir. Adjetivo de elogio não entra \
 aqui; entra o que está de pé e onde.
 
 3. AS CINCO DIMENSÕES, cada uma com o achado, o tópico em que ele está, A \
-CONTA (quantos achados de cada classe) e a nota de 0 a 10, nessa ordem. \
-Todas aparecem sempre, mesmo quando eu não tenho o que apontar, porque \
-dimensão omitida se lê como dimensão aprovada, e nesse caso a linha \
-registra que nada há a apontar e a nota vem assim mesmo. Ao fim do bloco, A MÉDIA das cinco e o lado da linha de 7; e, em seguida, \
-a recomendação sobre qualificar, que sai da outra regra e não da média.
+CONTA (quantos achados de cada classe) e a nota de 0 a 10, nessa ordem. A \
+QUINTA NÃO LEVA NOTA: leva o nível, por extenso. Todas aparecem sempre, \
+mesmo quando eu não tenho o que apontar, porque dimensão omitida se lê \
+como dimensão aprovada, e nesse caso a linha registra que nada há a \
+apontar. Ao fim do bloco, A MÉDIA das quatro que têm nota e o lado da \
+linha de 7; e, em seguida, a recomendação sobre qualificar, que sai da \
+outra regra e não da média.
 
 4. O QUE A ARGUIÇÃO PODE GANHAR, até três itens, cada um com a dimensão \
 que sobe de faixa, ou a linha dizendo que não há nenhum. E EM SEGUIDA, O \
@@ -735,10 +760,12 @@ O BLOCO VEM DEPOIS DO ALCANCE, dentro do mesmo bloco de código do \
 relatório, aberto por uma linha com apenas DADOS e fechado por uma linha \
 com apenas FIM. Entre as duas, uma linha por dimensão, com os campos \
 separados por barra vertical e NENHUMA PROSA: número da dimensão, nome, \
-impeditivos, bloqueios, localizados, nota. Depois uma linha MEDIA, uma linha SELECAO com passa ou nao passa, uma \
-linha QUALIFICA com recomendo ou nao recomendo, e uma linha APTO com apto \
-ou nao apto seguida do que teria de mudar, em poucas palavras e sem \
-adjetivo.
+impeditivos, bloqueios, localizados, nota. A linha da dimensão 5 não leva nota: os três campos de contagem levam \
+traço e o último leva o NÍVEL, escrito como fortes-abusivo, \
+fortes-indeterminado, leves ou ausentes. Depois uma linha MEDIA, das \
+quatro que têm nota, uma linha SELECAO com passa ou nao passa, uma linha \
+QUALIFICA com recomendo ou nao recomendo, e uma linha APTO com apto ou nao \
+apto seguida do que teria de mudar, em poucas palavras e sem adjetivo.
 
 O molde é este, e eu o sigo ao caractere:
 
@@ -747,10 +774,10 @@ DADOS
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
 4 | bibliografia | 0 | 0 | 3 | 7
-5 | indicios de ia | - | - | 4 marcas | 4
-MEDIA | 5.2
+5 | indicios de ia | - | - | - | leves
+MEDIA | 5.5
 SELECAO | nao passa
-QUALIFICA | nao recomendo | 1,2,5
+QUALIFICA | nao recomendo | 1,2
 APTO | apto | delimitar a lista de casos; cortar uma frente
 FIM
 

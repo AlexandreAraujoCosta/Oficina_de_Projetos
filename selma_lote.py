@@ -47,6 +47,8 @@ from pathlib import Path
 DIMENSOES = ["problema e justificativa", "metodologia e teoria", "contribuicoes e impacto",
              "bibliografia", "indicios de ia"]
 LINHA_SELECAO = 7.0
+# A dimensao 5 nao tem nota e nao entra na media: leva o NIVEL.
+NIVEIS = ["fortes-abusivo", "fortes-indeterminado", "leves", "ausentes"]
 
 
 # --------------------------------------------------------------- preparar
@@ -108,6 +110,7 @@ def ler_bloco(texto, origem="?"):
         raise BlocoInvalido("%s: nao achei o bloco DADOS...FIM" % origem)
     linhas = [l.strip() for l in m.group(1).strip().split("\n") if l.strip()]
     notas, media, selecao, qualifica, abaixo = {}, None, None, None, None
+    nivel = None
     for l in linhas:
         campos = [c.strip() for c in l.split("|")]
         if campos[0] == "MEDIA":
@@ -125,6 +128,12 @@ def ler_bloco(texto, origem="?"):
             if nome != DIMENSOES[i - 1]:
                 raise BlocoInvalido("%s: dimensao %d chamada %r, esperava %r"
                                     % (origem, i, nome, DIMENSOES[i - 1]))
+            if i == 5:
+                if campos[5] not in NIVEIS:
+                    raise BlocoInvalido("%s: nivel %r invalido, esperava um de %s"
+                                        % (origem, campos[5], "/".join(NIVEIS)))
+                nivel = campos[5]
+                continue
             nota = int(campos[5])
             if not 0 <= nota <= 10:
                 raise BlocoInvalido("%s: nota %d fora de 0-10" % (origem, nota))
@@ -132,14 +141,17 @@ def ler_bloco(texto, origem="?"):
         else:
             raise BlocoInvalido("%s: linha nao reconhecida: %r" % (origem, l))
 
-    if len(notas) != 5:
-        raise BlocoInvalido("%s: %d dimensoes, esperava 5" % (origem, len(notas)))
+    if len(notas) != 4:
+        raise BlocoInvalido("%s: %d dimensoes com nota, esperava 4"
+                            % (origem, len(notas)))
+    if nivel is None:
+        raise BlocoInvalido("%s: falta o nivel da dimensao 5" % origem)
     if media is None or selecao is None or qualifica is None:
         raise BlocoInvalido("%s: falta MEDIA, SELECAO ou QUALIFICA" % origem)
 
     # A media declarada tem de bater com as cinco notas. O relatorio e que
     # vale; o bloco so o repete, e bloco que nao bate se recusa.
-    calc = round(sum(notas.values()) / 5.0, 1)
+    calc = round(sum(notas.values()) / 4.0, 1)
     if abs(calc - media) > 0.05:
         raise BlocoInvalido("%s: MEDIA diz %.1f e as notas dao %.1f"
                             % (origem, media, calc))
@@ -154,7 +166,7 @@ def ler_bloco(texto, origem="?"):
         raise BlocoInvalido("%s: QUALIFICA aponta %r e as notas dao %r"
                             % (origem, declaradas, baixas))
     return {"notas": notas, "media": media, "selecao": selecao,
-            "qualifica": qualifica, "abaixo": baixas}
+            "qualifica": qualifica, "abaixo": baixas, "nivel": nivel}
 
 
 def agregar(pasta):
@@ -231,25 +243,28 @@ BOM = """DADOS
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
 4 | bibliografia | 0 | 0 | 3 | 7
-5 | indicios de ia | - | - | 4 marcas | 4
-MEDIA | 5.2
+5 | indicios de ia | - | - | - | leves
+MEDIA | 5.5
 SELECAO | nao passa
-QUALIFICA | nao recomendo | 1,2,3,5
+QUALIFICA | nao recomendo | 1,2,3
 FIM"""
 
 
 def controle():
     """Positivo: cada defeito que o conferidor deveria pegar tem de reprovar."""
     ok = ler_bloco(BOM, "controle")
-    assert ok["media"] == 5.2 and ok["abaixo"] == [1, 2, 3, 5], ok
+    assert ok["media"] == 5.5 and ok["abaixo"] == [1, 2, 3], ok
+    assert ok["nivel"] == "leves", ok
     print("  o bloco bom passa                                 ok")
 
     casos = [
-        ("media que nao bate", BOM.replace("MEDIA | 5.2", "MEDIA | 7.4")),
+        ("media que nao bate", BOM.replace("MEDIA | 5.5", "MEDIA | 7.4")),
         ("selecao contradiz a media", BOM.replace("nao passa", "passa")),
         ("qualifica omite uma dimensao baixa",
-         BOM.replace("| 1,2,3,5", "| 1,2,3")),
-        ("nota fora de 0-10", BOM.replace("| 4 marcas | 4", "| 4 marcas | 14")),
+         BOM.replace("| 1,2,3", "| 1,2")),
+        ("nota fora de 0-10", BOM.replace("| 0 | 3 | 7", "| 0 | 3 | 17")),
+        ("nivel invalido", BOM.replace("| leves", "| razoavel")),
+        ("dimensao 5 com nota", BOM.replace("- | leves", "- | 8")),
         ("dimensao com nome trocado",
          BOM.replace("metodologia e teoria", "metodologia")),
         ("falta uma dimensao",
@@ -264,7 +279,8 @@ def controle():
         else:
             sys.exit("CONTROLE FALHOU: %s passou e devia reprovar" % nome)
     print()
-    print("O conferidor reprova os sete casos. Sem este controle, um bloco")
+    print("O conferidor reprova os %d casos. Sem este controle, um bloco"
+          % len(casos))
     print("aceito nao informaria nada: silencio de conferidor quebrado tem a")
     print("mesma aparencia de silencio de dado correto.")
 

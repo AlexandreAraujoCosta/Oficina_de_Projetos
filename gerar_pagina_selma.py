@@ -79,7 +79,8 @@ como dimensão aprovada.</p>
     <li><strong>Bibliografia.</strong> A lista contra o texto, a composição da
     lista, e a existência das obras quando há busca.</li>
     <li><strong>Indícios de uso de IA.</strong> As marcas que se conferem na
-    página, e o que elas custam.</li>
+    página, e o que elas custam. <b>Esta não tem nota e não entra na média:</b>
+    é graduada em quatro níveis, e viaja ao lado das outras.</li>
   </ol>
 </div>
 
@@ -167,7 +168,21 @@ qualquer bibliografia escrita por gente. O que fica é conteúdo: se as obras
 existem, se a lista dá conta da pergunta, se afirmação central se apoia em obra
 ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
 
-<h2 id="ia">Os indícios de IA se relatam, e não se acusam</h2>
+<h2 id="ia">Os indícios de IA se graduam, e não se contam</h2>
+
+<div class="nota" style="border-left-color: var(--warn);">
+  <p><strong>Esta dimensão não tem nota e ficou fora da média</strong>, e a
+  correção veio de um defeito medido: enquanto ela pontuava, <b>não ter marca
+  valia 10</b>, e nenhuma outra dimensão dá 10 por ausência de achado. A falta
+  de defeito estava sendo premiada como excelência, e um projeto mediano sem
+  marcas subia acima da linha por causa disso.</p>
+  <p>No lugar da nota, quatro níveis: <b>fortes (uso abusivo)</b>, quando as
+  marcas mostram na página que o texto não foi controlado por quem o assina;
+  <b>fortes (uso indeterminado)</b>, quando são fortes e ainda compatíveis com
+  pressa ou revisão mal feita; <b>leves</b>; e <b>ausentes</b>. O nível não
+  entra na média, não entra no critério da qualificação e não muda a aptidão:
+  viaja ao lado, e quem decide o que fazer com ele é a banca.</p>
+</div>
 
 <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
 insinua e não pede confissão, e a razão não é delicadeza: <strong>a marca é
