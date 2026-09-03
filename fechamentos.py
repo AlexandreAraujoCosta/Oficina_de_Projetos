@@ -89,7 +89,7 @@ registro do desenho para quem for ler depois.
 # O bloco do pre-projeto tem duas partes. A MONTAGEM (quando montar, a condicao
 # das cinco secoes, o que dizer quando nao monta) so serve a quem o monta
 # pela primeira vez, isto e, o Miro. As REGRAS valem tambem para quem o
-# atualiza depois, e por isso o Nelson herda so estas.
+# atualiza depois, e por isso quem so atualiza herda so estas.
 ESBOCO_MONTAGEM = """DEPOIS DO COMENTÁRIO, EU MONTO O PRÉ-PROJETO, num segundo bloco de código, \
 separado do primeiro. Ele não é opcional e eu não espero que o aluno peça: \
 ele é ao mesmo tempo A ENTREGA DESTA ATIVIDADE e o que ele leva para a \

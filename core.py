@@ -560,15 +560,14 @@ def construir_schema(campos_perfil):
 
 
 def base_com_nome(nome):
-    """A base de estilo e a mesma para todos os assistentes; so o nome muda.
-    Miro cuida do planejamento, Nelson da revisao de literatura."""
+    """A base de estilo e a mesma para todos os assistentes; so o nome muda."""
     return SYSTEM_PROMPT_BASE.replace(
         "Eu sou o Miro,", "Eu sou o %s," % nome, 1)
 
 
 # Itens da base que so servem a uma atividade de desenho aberto, como a do
 # Miro, em que o estudante pode chegar com qualquer coisa. Num assistente que
-# recebe uma estrutura ja equilibrada, como o Nelson, eles nao disparam, e
+# recebe uma estrutura ja equilibrada eles nao disparam, e
 # dois deles ficam quebrados, porque remetem a coisas definidas so no contexto
 # do planejamento (circularidade; a tabela de leituras por tipo de confusao).
 SO_PARA_DESENHO_ABERTO = [

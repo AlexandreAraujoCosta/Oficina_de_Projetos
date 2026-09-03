@@ -12,8 +12,7 @@ Miro não entrega um projeto pronto: conduz uma conversa maiêutica até o estud
 - `app.py` — servidor Flask (rotas HTML para o iframe do Canvas e JSON para testes automatizados).
 - `teste_aluno_simulado.py` — personas adversariais para testar o Miro por HTTP.
 - `gerar_prompt_portatil.py` + `atualizar_portatil.py` — geram a versão portátil (o texto que se cola em qualquer IA gratuita) a partir do mesmo código-fonte de `core.py`/`contextos/`, para as duas versões nunca divergirem. **Nunca editar `prompt_portatil_modulo_2_planejamento.md` ou `pagina_prompt_portatil.html` diretamente** — rodar `atualizar_portatil.py` depois de qualquer mudança em `core.py` ou `contextos/`.
-- `contextos/revisao_literatura.py` — o Nelson, assistente da revisão de literatura (segundo marco). Recebe o esboço que o Miro entrega no primeiro marco e refaz contra a literatura a prova de consistência que lá se fez entre os elementos. Página publicada: [Nelson](https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73). Regenerar com `python atualizar_portatil.py revisao_literatura`.
-- `fechamentos.py` — as peças de fechamento comuns aos dois (entrega em bloco de código, nota sobre a conversa, molde do veredito, regras do esboço), compostas por `montar()`. Evita que os dois prompts divirjam.
+- `fechamentos.py` — as peças de fechamento comuns aos contextos (entrega em bloco de código, nota sobre a conversa, molde do veredito, regras do esboço), compostas por `montar()`. Evita que os dois prompts divirjam.
 - `pagina_prompt_portatil.html` — a página publicada com a versão portátil e botão de copiar (a mesma fonte também vive como [Claude Artifact](https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb)).
 
 `conversas_miro/`, `conversas_miro_teste/` e `perfis_projeto/` guardam dados de sessões de alunos reais e ficam fora do controle de versão (`.gitignore`) — nunca sobem para o GitHub.

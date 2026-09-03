@@ -29,15 +29,14 @@ PASTA = Path(__file__).parent
 # tambem alimenta o index.html, que e o que o GitHub Pages serve da raiz.
 PAGINAS = {
     "modulo_2_planejamento": ("pagina_prompt_portatil.html", "index.html"),
-    "revisao_literatura": ("pagina_nelson.html", None),
 }
 PADRAO_TEXTAREA = re.compile(
     r'(<textarea id="prompt" readonly spellcheck="false">).*?(</textarea>)', re.S
 )
 
 # A pagina do Miro entrega o prompt em QUATRO partes, porque colagem longa
-# vira anexo e anexo nao governa a conversa (ver dividir_partes.py). A do
-# Nelson continua com um campo so, e por isso as duas formas coexistem aqui.
+# vira anexo e anexo nao governa a conversa (ver dividir_partes.py). A forma de campo unico
+# continua reconhecida, para paginas que ainda a usem.
 def padrao_parte(k):
     return re.compile(
         r'(<textarea id="prompt-%d" readonly spellcheck="false">).*?(</textarea>)'

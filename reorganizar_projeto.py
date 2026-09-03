@@ -13,8 +13,8 @@ texto e este programa, copiando do proprio arquivo.
 
 E A REORGANIZACAO DE CONTEUDO NAO E DESTE PROGRAMA. Decidir que um
 paragrafo pertence a justificativa e nao a introducao e juizo sobre o que
-o paragrafo faz, e isso e trabalho de quem avalia: o Miro, para os quatro
-elementos, e o Nelson, para a revisao. Este programa esta na familia da
+o paragrafo faz, e isso e trabalho de quem avalia, e nao
+deste programa. Ele esta esta na familia da
 Norma, que nao usa modelo e nao avalia nada, e por isso ele EXIGE o mapa
 e NAO O INFERE: sem mapa ele para, e nunca adivinha destino a partir do
 texto. Programa que adivinha produz documento errado com cara de

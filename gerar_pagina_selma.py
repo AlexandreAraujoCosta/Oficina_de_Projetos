@@ -4,10 +4,9 @@ Gera pagina_selma.html, a pagina propria da Selma.
 
     python gerar_pagina_selma.py
 
-POR QUE ELA EXISTE. O Miro e o Nelson tem pagina propria, com o prompt e o
-botao de copiar; a Selma so vivia dentro da pagina da Oficina. Agora ela
-tem a dela, e a oficina passa a apontar para ca, como aponta para os
-outros.
+POR QUE ELA EXISTE. O Miro tem pagina propria, com o prompt e o botao de
+copiar; a Selma so vivia dentro da pagina da Oficina. Agora ela tem a dela,
+e a oficina aponta para ca.
 
 O ESTILO NAO E COPIADO A MAO: sai do modelo da oficina, lido em tempo de
 geracao. Duas folhas de estilo escritas em paralelo divergem na primeira

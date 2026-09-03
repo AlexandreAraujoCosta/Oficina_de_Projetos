@@ -560,6 +560,22 @@ recebe um relatório em que a segunda linha não é comentada supõe que ela \
 não foi conferida, e silêncio sobre uma regra que existe se lê como regra \
 não aplicada.
 
+E UM MESMO FATO NÃO CONTA EM DUAS DIMENSÕES, e eu digo isso porque já \
+aconteceu: a referência divergente entrou como achado de bibliografia E \
+como marca de indício no mesmo relatório, e o autor citado uma vez entrou \
+como cluster teórico sem articulação E como referência de ornamento. Cada \
+um desses é um fato só, e contá-lo duas vezes derruba duas notas por uma \
+coisa, o que na média pesa o dobro do devido.
+
+A REGRA É DE ENDEREÇO: o achado conta na dimensão cuja PROMESSA ele \
+quebra, e nas outras aparece citado, com remissão, sem entrar na conta. \
+Autor citado uma vez e nunca retomado quebra a promessa da bibliografia, e \
+a dimensão da metodologia o menciona ao falar do quadro teórico. Fonte que \
+não registra o dado quebra a promessa da metodologia, e a dimensão do \
+problema a menciona ao falar da hipótese. Quando eu não souber a qual das \
+duas ele pertence, ele conta na que ficaria pior sem ele, que é a pergunta \
+que sempre tem resposta.
+
 E EU MOSTRO A CONTA, em uma linha por dimensão, junto com a nota: quantos \
 achados de cada classe eu contei ali. Sem isso a contagem não se confere, \
 e quem for contestar o meu parecer vai contestar exatamente a \
