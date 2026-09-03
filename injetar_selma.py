@@ -1,18 +1,18 @@
-"""Injeta o prompt da Clara na pagina da Oficina de Projetos.
+"""Injeta o prompt da Selma na pagina da Oficina de Projetos.
 
 O texto do prompt nunca e digitado a mao na pagina: este programa le
-prompt_clara.md e o insere no lugar do marcador. E o mesmo principio do
+prompt_selma.md e o insere no lugar do marcador. E o mesmo principio do
 inserir_trechos.py da outra oficina, e pela mesma razao: quem transcreve e o
 codigo, entao nao existe palavra trocada.
 
-Uso:  python injetar_clara.py
+Uso:  python injetar_selma.py
 """
 import html
 from pathlib import Path
 
 PAGINA = Path("pagina_oficina_projetos.html")
-PROMPT = Path("prompt_clara.md")
-MARCADOR = "{{PROMPT_CLARA}}"
+PROMPT = Path("prompt_selma.md")
+MARCADOR = "{{PROMPT_SELMA}}"
 
 def main():
     prompt = PROMPT.read_text(encoding="utf-8").strip()
@@ -23,7 +23,7 @@ def main():
             "partir do modelo em vez de editar o texto do prompt a mao.")
     nova = pagina.replace(MARCADOR, html.escape(prompt, quote=False))
     PAGINA.write_text(nova, encoding="utf-8")
-    print(f"Injetados {len(prompt)} caracteres do prompt da Clara.")
+    print(f"Injetados {len(prompt)} caracteres do prompt da Selma.")
     print(f"Pagina com {len(nova)} caracteres.")
 
 if __name__ == "__main__":

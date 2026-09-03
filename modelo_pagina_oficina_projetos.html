@@ -326,13 +326,13 @@
   }
   button.copiar:hover { opacity: 0.88; }
   button.copiar:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  textarea#clara {
+  textarea#selma {
     display: block; width: 100%; height: 22rem; resize: vertical;
     border: none; background: var(--surface); color: var(--ink-soft);
     font-family: var(--mono); font-size: 0.74rem; line-height: 1.55;
     padding: 0.9rem 1rem; white-space: pre-wrap;
   }
-  textarea#clara:focus { outline: none; }
+  textarea#selma:focus { outline: none; }
 
   footer {
     margin-top: 4.5rem; padding-top: 1.4rem;
@@ -351,9 +351,7 @@
     <a href="#qual">Ferramentas disponíveis</a>
     <span class="sep">·</span>
     <a href="#miro"><span class="num">[01]</span> Miro</a>
-    <a href="#nelson"><span class="num">[02]</span> Nelson</a>
-    <a href="#clara"><span class="num">[03]</span> Clara</a>
-    <a href="#norma">Norma</a>
+    <a href="#selma"><span class="num">[02]</span> Selma</a>
     <span class="sep">·</span>
     <a href="#termos">Esclarecimentos</a>
     <span class="sep">·</span>
@@ -371,7 +369,7 @@
     <span class="sep">·</span>
     <a href="#medido">Os testes</a>
     <span class="sep">·</span>
-    <a href="#prompt">O prompt da Clara</a>
+    <a href="#prompt">O prompt da Selma</a>
   </div>
 </nav>
 
@@ -379,7 +377,7 @@
 
 <header>
   <h1>Oficina de Projetos</h1>
-  <p class="lead">Três assistentes para o projeto de pesquisa, antes de a pesquisa
+  <p class="lead">Dois assistentes para o projeto de pesquisa, antes de a pesquisa
   existir. Dois são conversa e trabalham por pergunta; o terceiro lê o projeto
   escrito e devolve um relatório. Nenhum deles julga resultado, porque ainda não
   há resultado: o que está em exame é se o desenho, executado como está escrito,
@@ -415,7 +413,7 @@
 
 <h2 id="qual">Ferramentas disponíveis</h2>
 
-<p class="deck">Duas conversas e duas leituras. <b>A conversa trabalha o que
+<p class="deck">Uma conversa e uma leitura. <b>A conversa trabalha o que
 ainda não está decidido</b>, uma pergunta por vez, e o que fica dela é o
 pré-projeto. <b>A leitura trabalha o que já está escrito</b>, sem diálogo, e o que
 fica dela é um relatório dizendo o que precisa ser desenvolvido.</p>
@@ -437,49 +435,22 @@ projeto à conversa.</p>
     teórico:</b> faz o que vem antes dessas três coisas e sem o que nenhuma delas
     rende. Ao fechar, manda buscar e incluir a revisão no documento.</div>
   </div>
-  <div class="route-row">
-    <div class="route-a">
-      <span class="route-n">02</span><a href="https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73">Nelson</a>
-      <span class="route-sub">ajuda na busca, para quem precisar</span>
-    </div>
-    <div class="route-q">Não é passo obrigatório. Quem já sabe buscar, busca e
-    inclui. Quem quiser ajuda nessa etapa, que é a que os alunos mais penam,
-    trabalha com ele os termos, as bases, o que trazer de volta, e o que o que
-    voltou faz com a lacuna.</div>
+  voltou faz com a lacuna.</div>
   </div>
 </div>
 
-<p class="grupo-linha">Devolvem um relatório</p>
+<p class="grupo-linha">Devolve um relatório</p>
 <div class="route">
   <div class="route-row">
     <div class="route-a">
-      <span class="route-n">03</span><a href="#clara">Clara</a>
-      <span class="route-sub">o projeto com a revisão dentro</span>
+      <span class="route-n">02</span><a href="#selma">Selma</a>
+      <span class="route-sub">a leitura de banca de seleção</span>
     </div>
-    <div class="route-q">Lê e diz <b>o que precisa ser desenvolvido</b>. Confere a
-    revisão contra o texto escrito, e não contra o relato de quem buscou; coteja a
-    teoria com o método; e verifica o encaixe entre todos os elementos. <b>Duas
-    vias:</b> no chat, relatório na conversa; com os programas, o
-    <code>.docx</code> anotado e o PDF.</div>
-  </div>
-  <div class="route-row">
-    <div class="route-a">
-      <a href="#norma">Norma</a>
-      <span class="route-sub">normalizador do arquivo, antes das leituras</span>
-    </div>
-    <div class="route-q">Põe o <code>.docx</code> em ordem antes de alguém o ler.
-    É a mesma ferramenta da Oficina de Orientação e <b>não usa modelo</b>, por isso
-    não custa nada e não roda no chat.</div>
-  </div>
-  <div class="route-row">
-    <div class="route-a">
-      <span class="route-n">04</span><a href="https://claude.ai/code/artifact/13aa2c5a-6df6-4b99-abfa-dcc258671fd1">Luis</a>
-      <span class="route-sub">a leitura cara, para quem orienta</span>
-    </div>
-    <div class="route-q">A leitura da oficina irmã, com a camada
-    <code>PROJETO.md</code> que diz o que muda quando não há resultados nem
-    conclusões. Quatro passos com cotejo, e ela declara quais deles ficam sem
-    objeto num projeto. Roda só com os programas.</div>
+    <div class="route-q">Lê o projeto escrito e devolve <b>o que uma banca
+    veria</b>, em cinco dimensões fixas, com nota de 0 a 10 em cada, média e
+    linha de aprovação em 7. Todo achado traz o tópico em que está.
+    <b>Não recomenda admitir nem não admitir:</b> a decisão continua com quem
+    responde por ela.</div>
   </div>
 </div>
 
@@ -598,182 +569,80 @@ projeto à conversa.</p>
   do Miro, com o prompt para colar</a></p>
 </div>
 
-<!-- ============ 02 NELSON ============ -->
-<div class="instrumento" id="nelson">
+<!-- ============ 02 SELMA ============ -->
+<div class="instrumento" id="selma">
   <div class="cabeca">
     <span class="indice">[02]</span>
-    <h2>Nelson</h2>
+    <h2>Selma</h2>
   </div>
-  <p class="resumo">Continua o Miro. Recebe o pré-projeto e trabalha a revisão de
-  literatura, que é o ponto em que a inteligência artificial rende menos e as
-  bases de dados rendem mais: quem procura é o estudante, e o assistente trabalha
-  o que voltou.</p>
+  <p class="resumo">Lê o projeto como uma banca de seleção o leria, e devolve
+  um relatório curto, com nota por dimensão. Não há conversa: ela lê, classifica
+  e entrega. O relatório é escrito <b>para a banca</b>, e quem o usa para ver o
+  próprio projeto está vendo o que a banca veria.</p>
 
   <dl class="ficha">
-    <div><dt>tamanho</dt><dd>~92 mil caracteres</dd></div>
-    <div><dt>pede</dt><dd>o pré-projeto gerado pelo Miro</dd></div>
-    <div><dt>entrega</dt><dd>comentário e pré-projeto atualizado</dd></div>
-    <div><dt>devolve ao Miro</dt><dd>quando a lacuna se desloca</dd></div>
-  </dl>
-
-  <div class="confere">
-    <section class="sim">
-      <h3>Trabalha</h3>
-      <p>Se houve busca declarável, com termos, bases e filtros, porque é ela que
-      dá peso à ausência. Se o conjunto é diverso, entre artigo e livro, línguas e
-      perspectivas. Se o que se escreveu é análise do campo por questões em
-      disputa ou lista de obras. Se apareceu trabalho muito próximo, ou que já
-      executa parte do planejado. E se a busca procurou o que contradiz a tese.</p>
-    </section>
-    <section class="nao">
-      <h3>Não faz</h3>
-      <p>Não faz a busca no lugar do estudante e não nomeia obra que ele não
-      trouxe. Não conta trabalhos para medir lacuna, porque lacuna se mede por
-      falta. E não fecha etapa com revisão que não impacta: revisão que não altera
-      nem corrobora nada do projeto ainda não é revisão.</p>
-    </section>
-  </div>
-
-  <h3>A diretriz</h3>
-  <p>A revisão é boa quando ela impacta. O que se pergunta ao fim não é quantas
-  obras entraram, e sim em que a revisão altera ou corrobora o projeto: se amplia,
-  se restringe, se sugere mudança de rumo. Revisão que deixa tudo como estava
-  quase sempre significa que a busca não procurou onde doía.</p>
-
-  <p><a href="https://claude.ai/code/artifact/db55fd13-9d1d-4ed1-bc5c-0f673b242f73">Página
-  do Nelson, com o prompt para colar</a></p>
-</div>
-
-<!-- ============ 03 CLARA ============ -->
-<div class="instrumento" id="clara">
-  <div class="cabeca">
-    <span class="indice">[03]</span>
-    <h2>Clara</h2>
-  </div>
-  <p class="resumo">Lê o projeto com a revisão já incluída e diz o que precisa ser
-  desenvolvido. Não há conversa: ela lê, decide e entrega. Examina-se o projeto, e
-  não o texto; a metodologia, e não os resultados, que ainda não existem.</p>
-
-  <dl class="ficha">
-    <div><dt>tamanho</dt><dd>~17 mil caracteres</dd></div>
-    <div><dt>relatório</dt><dd>metade do projeto, teto de 1.600 palavras</dd></div>
-    <div><dt>no chat</dt><dd>relatório na conversa</dd></div>
-    <div><dt>no agente</dt><dd>o <code>.docx</code> anotado e o PDF</dd></div>
+    <div><dt>tamanho</dt><dd>~26 mil caracteres</dd></div>
+    <div><dt>relatório</dt><dd>uma página, cinco blocos fixos</dd></div>
+    <div><dt>nota</dt><dd>0 a 10 por dimensão, média, aprovação em 7</dd></div>
+    <div><dt>localizador</dt><dd>o tópico do projeto, em todo achado</dd></div>
   </dl>
 
   <div class="confere">
     <section class="sim">
       <h3>Confere</h3>
-      <p><b>A revisão, contra o texto escrito</b>, e não contra o relato de quem
-      buscou: se a busca é declarável, se é lista ou análise do campo por questões
-      em disputa, se a lacuna se mede por falta, se apareceu o trabalho muito
-      próximo, e se a busca procurou o que contradiz a tese. <b>A teoria com o
-      método</b>, pelas duas perguntas espelhadas. <b>O encaixe geral</b> e o
-      alinhamento entre objetivos e metodologia. E <b>as suposições de
-      viabilidade</b> que ninguém conferiu.</p>
+      <p>Cinco dimensões, sempre as mesmas e sempre na mesma ordem.
+      <b>Problema:</b> há pergunta ou só tema, ela é respondível, e a resposta
+      já está escrita na justificativa? <b>Metodologia e teoria:</b> a fonte, as
+      categorias, a operação e a forma do resultado, e se cada ideia tem
+      operação que a aplique. <b>Contribuições e impacto:</b> o que muda no
+      conhecimento e na prática, e quem, concretamente, decidiria diferente.
+      <b>Bibliografia:</b> lista contra texto, composição da lista, e a
+      existência das obras quando há busca. <b>Indícios de uso de IA:</b> as
+      marcas que se conferem na página.</p>
     </section>
     <section class="nao">
       <h3>Não confere</h3>
-      <p>Não valida nada por fora: não diz se a lacuna existe no mundo, se as
-      fontes existem como descritas, nem se a bibliografia diz o que o texto lhe
-      atribui. Não dá nota nem carimbo de pronto, porque aprovar é ato da banca.
-      Não avalia o autor. E não corrige redação no corpo do relatório, porque o
-      objeto é o desenho.</p>
+      <p>Não diz se a lacuna existe de fato no campo, nem se as obras dizem o
+      que o projeto lhes atribui: as duas coisas pedem as bases percorridas e as
+      obras lidas. Não julga originalidade. Não lê o candidato, só o projeto.
+      Não compara projetos entre si, porque vê um de cada vez. E não recomenda
+      admitir ou não admitir, porque a decisão se toma com as vagas, a linha e
+      os outros candidatos, que ela não tem.</p>
     </section>
   </div>
 
-  <h3>A triagem, antes do relatório</h3>
-  <p>O critério do encaminhamento é <strong>falta, não fraqueza</strong>. Elemento
-  presente e frágil ela analisa; elemento ausente, ou presente só no nome, ela
-  encaminha e para. Relatório sobre elemento que não existe devolve ao autor uma
-  lista de ausências que ele já conhece.</p>
-  <p>E ela não repete o que o documento já diz de si. Quando o texto declara as
-  próprias pendências, reorganizá-las não acrescenta nada, porque foi o autor quem
-  as escreveu. O que ela acrescenta é a ordem e a razão da ordem.</p>
+  <h3>A nota sai de uma contagem, e não de uma impressão</h3>
+  <p>Cada achado se classifica em uma de três classes, com o teste feito
+  <strong>com o defeito no lugar</strong>, e não depois de imaginá-lo
+  consertado. <b>Impeditivo:</b> do jeito que está, a dimensão não entrega o que
+  promete, e nenhum prazo resolve. <b>Bloqueio de partida:</b> a dimensão
+  entrega, e há coisa a resolver antes de começar, que se resolve fazendo.
+  <b>Localizado:</b> resolve-se no caminho. Depois a contagem manda na faixa e
+  no dígito, e o relatório mostra a conta.</p>
+  <p>Duas regras de subida corrigem o que a contagem sozinha não veria, e as
+  duas se contam na página: defeito que aparece em mais da metade das
+  subdivisões de uma seção sobe uma classe, e achado que atinge afirmação que o
+  próprio projeto repete em três ou mais tópicos também sobe. A subida é de uma
+  classe só, ainda que as duas caiam sobre o mesmo achado.</p>
 
-  <h3>O veredicto sobre a revisão tem três estados</h3>
-  <p><b>Bem articulada</b>, e ela diz o que falta para fechá-la. <b>Presente e
-  insuficiente</b>, e volta para ser refeita, com o que precisa mudar dito em uma
-  linha por item. <b>Ausente</b>, e aí é encaminhamento: o autor busca antes, e o
-  Nelson ajuda quem quiser ajuda.</p>
-
-  <h3>Sólido ou preenchimento vazio de slots</h3>
-  <p>É a pergunta mais dura que ela faz, e ela a faz sem acusar ninguém, pelo
-  <strong>teste da remoção</strong>: tire o conceito, a análise muda? Tire a
-  operação, o que o projeto afirma muda? Se não muda nas duas, aquilo está ali para
-  ocupar a seção. O aluno recebeu uma lista de seções e preencheu cada uma, e o
-  teste diz quais das que ele preencheu trabalham.</p>
+  <h3>Os indícios de IA se relatam, e não se acusam</h3>
+  <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
+  insinua e não pede confissão, e a razão não é delicadeza: a marca é
+  probabilística, e um candidato reprovado por ela não teria como se defender de
+  uma objeção que ninguém enuncia. O que ela relata está na página e se conta: a
+  simetria repetida entre seções sem relação entre si, a seção que não entrega o
+  que o título promete, a subdivisão que sai sem que nada mude, a referência em
+  ABNT impecável que o texto nunca usa. E ela diz o que essas marcas custam, que
+  é o que a banca precisa saber.</p>
 
   <div class="nota">
-    <p><strong>O localizador, e não a transcrição.</strong> Na linha do agente a
-    Clara escreve <code>[P123]</code> e nunca copia frase do projeto: quem insere
-    o texto dos parágrafos é um programa, que lê a fonte e copia. Como quem
-    transcreve é o código, não existe artigo trocado, e citação errada num
-    relatório destrói a autoridade de tudo o mais que ele diz.</p>
+    <p><strong>Referência não encontrada não é obra inexistente.</strong> Quando
+    tem busca, a Selma confere se as obras existem, porque projeto escrito com
+    IA e sem revisão traz referência inventada em ABNT impecável. Mas busca que
+    falha é busca que falha, e há obra real fora das bases. Ela escreve que não
+    encontrou, com os termos que usou, e manda conferir; nunca que o candidato
+    fabricou. Sem busca, diz que não conferiu, e não julga por memória.</p>
   </div>
-</div>
-
-<!-- ============ NORMA, ANTES DA CLARA ============ -->
-<div class="instrumento" id="norma">
-  <div class="cabeca">
-    <span class="indice">optativa</span>
-    <h2>Norma</h2>
-  </div>
-  <p class="resumo">Põe o arquivo em ordem antes que alguém o leia. É a mesma
-  ferramenta da Oficina de Orientação, e aqui serve só à Clara: o Miro e o Nelson
-  são conversa e não recebem arquivo.</p>
-
-  <dl class="ficha">
-    <div><dt>o que é</dt><dd>programa em Python, sem modelo de IA</dd></div>
-    <div><dt>custo</dt><dd>nenhum</dd></div>
-    <div><dt>tempo</dt><dd>segundos</dd></div>
-    <div><dt>roda em</dt><dd>Python, e não roda no chat</dd></div>
-  </dl>
-
-  <p>Projeto de estudante raramente chega formatado por estilo: o parágrafo típico
-  não usa o estilo Normal, o estilo muda ao longo do texto, e sobre ele vem uma
-  camada de formatação direta que deixa tudo parecido na tela sem deixar nada igual
-  no arquivo. O espaço entre blocos costuma ser feito com parágrafo vazio.</p>
-
-  <div class="confere">
-    <section class="sim">
-      <h3>Faz</h3>
-      <p>Apaga parágrafo vazio convertendo a altura em espaço depois do parágrafo
-      anterior. Junta espaço repetido. Reconhece três papéis, corpo, referência e
-      legenda, e <strong>alinha cada um a uma forma só</strong>, criando um estilo
-      com a forma que aquele grupo já tinha. Põe no estilo de legenda os parágrafos
-      que descrevem figura.</p>
-    </section>
-    <section class="nao">
-      <h3>Não faz</h3>
-      <p>Não toca na formatação de corrida de texto, onde moram fonte e corpo de
-      letra. Não inventa forma: cada estilo recebe a que aqueles parágrafos já
-      tinham. E <strong>não alinha quando não há a que alinhar</strong>: se nenhuma
-      forma reúne metade do papel, para e diz que escolher uma é decisão de quem
-      escreveu.</p>
-    </section>
-  </div>
-
-  <h3>Duas maneiras de usá-la</h3>
-  <p><strong>Por padrão ela roda em silêncio</strong>, como primeira fase da leitura
-  da Clara, porque num arquivo comum são centenas de mudanças e revisá-las uma a uma
-  não é atividade real.</p>
-  <p><strong>Rodá-la em separado, antes</strong>, serve a quem quer o controle da
-  forma: ela diz quantos estilos o projeto tem de fato e o que mudaria, e você
-  ajusta antes de mandar analisar o conteúdo.</p>
-
-  <div class="nota">
-    <p><strong>O arquivo devolvido não é byte a byte o que foi enviado.</strong> Por
-    isso o relatório de normalização vai anexo ao fim da entrega, dizendo quantos
-    estilos havia, quantos parágrafos vazios saíram e quantos ficaram por trava, e
-    onde ela se recusou a alinhar.</p>
-  </div>
-
-  <p>A descrição completa, com as travas que impedem apagar parágrafo que seja
-  estrutura e a medição em cinco trabalhos, está na
-  <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">página
-  da Oficina de Orientação</a>. Aquela medição foi feita sobre dissertações, e não
-  sobre projetos.</p>
 </div>
 
 <h2 id="termos">Esclarecimentos terminológicos</h2>
@@ -784,7 +653,7 @@ lugares diferentes. Estes são os sentidos em uso nesta oficina.</p>
 <div class="registros">
   <div class="registro">
     <div class="marca">pré-projeto</div>
-    <p>O documento que o Miro e o Nelson produzem. Fala <em>ao autor</em> sobre o
+    <p>O documento que o Miro produz. Fala <em>ao autor</em> sobre o
     que ele ainda tem de fazer, e por isso traz pendências marcadas: <span
     class="mono">A FAZER</span> onde a seção ainda não tem o que a define, com a
     razão de não se escrever antes de outra coisa, e <span class="mono">A
@@ -796,42 +665,33 @@ lugares diferentes. Estes são os sentidos em uso nesta oficina.</p>
   <div class="registro">
     <div class="marca">projeto</div>
     <p>O documento com os elementos levados à qualificação, conforme as normas do
-    programa. Fala <em>a um leitor</em> sobre a pesquisa, em prosa contínua. É o
-    único objeto que a Clara lê.</p>
+    programa. Fala <em>a um leitor</em> sobre a pesquisa, em prosa contínua. É o único objeto que a Selma lê.</p>
   </div>
   <div class="registro">
     <div class="marca">lacuna</div>
     <p>Mede-se por <strong>falta</strong>, e não por presença. Não é o número de
     trabalhos que existem sobre o assunto: é o que ninguém respondeu, e ela pode ser
-    de tema, de recorte, de método ou de variável. Afirmar lacuna sem ter procurado
-    é aposta, e é isso que o Nelson trabalha.</p>
+    de tema, de recorte, de método ou de variável. Afirmar lacuna sem ter procurado é aposta, e o Miro a aceita assim, provisoriamente, registrando o que ficou por conferir.</p>
   </div>
   <div class="registro">
     <div class="marca">qualificação</div>
     <p>Etapa acadêmica em que uma banca avalia se um projeto está maduro para ser
     executado. <strong>Só faz sentido levar à qualificação projeto maduro e
-    desenvolvido</strong>, e é o que a Clara verifica antes de escrever uma linha
-    de relatório.</p>
+    desenvolvido</strong>, A Selma lê o mesmo documento com outro olho, o da seleção, que julga para decidir admissão.</p>
   </div>
 </div>
 
 <!-- ============ FORMAS DE USO ============ -->
-<h2 id="formas">Duas formas de uso das leituras</h2>
+<h2 id="formas">Duas formas de uso</h2>
 
-<p><strong>Pelo chat</strong> roda tudo o que é conversa, o Miro e o Nelson, e
-também a Clara na versão portátil. Cola-se o prompt numa janela nova e trabalha-se
-ali. Não volta arquivo, e no caso da Clara não há localizador de parágrafo, porque
-quem os cria é um programa.</p>
+<p><strong>Pelo chat</strong> rodam os dois: o Miro, que é conversa, e a Selma, que é leitura. Cola-se o prompt numa janela nova e trabalha-se ali. Não volta arquivo, e o localizador da Selma é o tópico do projeto, que num documento curto basta.</p>
 
-<p><strong>Com agente</strong>, no Claude Code ou no VS Code com chave de API
-própria, roda a Clara na versão completa, sobre a pasta onde está o projeto. Aqui a
-Norma passa antes, os localizadores existem, e volta o projeto anotado mais o
-relatório em PDF.</p>
+<p><strong>Com agente</strong>, no Claude Code ou no VS Code com chave de API própria, rodam os dois sobre a pasta onde está o projeto. Aqui volta arquivo: o projeto anotado, com as sugestões dentro dele. E a Selma ganha a busca, que é o que lhe permite conferir se as obras da bibliografia existem.</p>
 
 <p><strong>A diferença não é só de formato.</strong> Na oficina irmã, onde há
 medição, a etapa de cotejo por um leitor que não escreveu os apontamentos derruba
 de 10% a 31% dos achados, e essa etapa não existe no chat. Não há medição
-equivalente para a Clara, e não há razão para supor que ela se comporte melhor.</p>
+equivalente para a Selma, e não há razão para supor que ela se comporte melhor.</p>
 
 <!-- ============ FLUXO ============ -->
 <h2 id="fluxo">Fluxo de trabalho</h2>
@@ -841,20 +701,12 @@ equivalente para a Clara, e não há razão para supor que ela se comporte melho
     <li><strong>Miro.</strong> Trabalha as bases e fecha com o pré-projeto, que traz
     as linhas de <span class="mono">A FAZER</span> e <span class="mono">A
     VERIFICAR</span>.</li>
-    <li><strong>Nelson.</strong> Recebe o pré-projeto, trabalha a revisão e devolve o
-    pré-projeto atualizado. <em>Se a revisão deslocar a lacuna</em>, ele manda de volta
-    ao Miro, porque pergunta e lacuna se refazem juntas.</li>
+    <li><strong>A revisão de literatura.</strong> Etapa sem assistente, e o Miro diz isso ao fechar: quem busca é o estudante, e quem responde por ela é ele com o orientador. <em>Se o que voltar deslocar a lacuna</em>, o projeto volta ao Miro, porque pergunta e lacuna se refazem juntas.</li>
     <li><strong>O autor escreve o projeto.</strong> Esta etapa não tem assistente,
     e é deliberado: o pré-projeto é material de trabalho, e transformá-lo em projeto é
     escrever.</li>
-    <li><strong>Norma</strong>, se você quiser o controle da forma. Etapa
-    optativa: por padrão ela roda dentro da fase seguinte, em silêncio. Rodada
-    aqui, mostra quantos estilos o arquivo tem e o que mudaria, e você ajusta antes
-    de mandar analisar o conteúdo.</li>
-    <li><strong>Clara.</strong> Lê o projeto. <em>Se faltar peça</em>, encaminha
-    ao Miro (lacuna, pergunta, objetivos, estratégia, articulação) ou ao Nelson
-    (revisão ausente, ou lista sem análise do campo) e para. <em>Se estiver
-    inteiro</em>, escreve o relatório.</li>
+    
+    <li><strong>Selma.</strong> Lê o projeto escrito e devolve o relatório de banca, com as cinco dimensões e as notas. <em>Se faltar peça</em>, ela diz qual falta e põe a nota que a faixa mandar, porque dimensão sem material também é informação para quem decide.</li>
   </ol>
 </div>
 
@@ -878,195 +730,146 @@ no circuito, e pôr nome de terceiro seria atribuição falsa.</p>
 revisão tem de ser visível</strong>, e não o silêncio padrão: relatório que não diz
 que ninguém o leu chega como se alguém tivesse lido.</p>
 
-<p>Nas conversas o arranjo é outro, e vale dizê-lo. O comentário do Miro e o do
-Nelson são escritos para o estudante entregar na disciplina, e quem responde por
-eles é ele: por isso o assistente pede, antes de fechar, que ele confira se há no
+<p>Nas conversas o arranjo é outro, e vale dizê-lo. O comentário do Miro é escrito para o estudante entregar na disciplina, e quem responde por ele é o estudante: por isso o assistente pede, antes de fechar, que ele confira se há no
 comentário alguma afirmação sobre o que ele disse ou fez que não corresponda ao que
 aconteceu. É a única pessoa ali que sabe.</p>
 
-<h2 id="estrutura">Como o relatório da Clara é organizado</h2>
+<h2 id="estrutura">Como o relatório da Selma é organizado</h2>
 
-<p>A ordem das seções é crescente no que o autor tem de fazer, e é isso que ele
-precisa saber antes de qualquer item. Quem lê tem uma hora, e a maior parte dela
-vai para o começo.</p>
+<p>São cinco blocos, sempre os mesmos e sempre nesta ordem, e é dessa fixidez
+que vem a comparabilidade: quem lê vinte projetos lê os mesmos cinco lugares em
+todos, e compara lendo. O relatório cabe numa página, porque relatório de três
+páginas não é lido.</p>
 
-<div class="rolagem">
-<table>
-  <thead>
-    <tr><th>Seção</th><th>O que traz</th><th>Sigla</th></tr>
-  </thead>
-  <tbody>
-    <tr><td><strong>Ementa</strong></td><td>O estágio do projeto numa frase, com a
-    razão, e quantos itens em cada sigla. Aqui também vai o que ficou fora da
-    conferência.</td><td class="n">—</td></tr>
-    <tr><td>1. O que eu entendi</td><td>Um parágrafo com o que o projeto se propõe,
-    para o autor descobrir se a leitura entendeu outra coisa.</td><td class="n">—</td></tr>
-    <tr><td>2. Os elementos</td><td>Uma linha para os que se sustentam, nomeados.
-    Parágrafo só para os que não fazem o seu trabalho.</td><td class="n">—</td></tr>
-    <tr><td>3. As articulações</td><td>O que não fecha entre um elemento e outro. É
-    onde a leitura rende, porque elemento isolado quase sempre parece bem.</td><td class="n">A</td></tr>
-    <tr><td>4. Viabilidade</td><td>O que o projeto supõe e ninguém conferiu, com a
-    marca do que se confere antes de começar.</td><td class="n">V</td></tr>
-    <tr><td>5. Arguição</td><td>O que a banca aperta, e o que uma boa resposta
-    contém.</td><td class="n">B</td></tr>
-    <tr><td>6. Oportunidade</td><td>Decisão apresentada como tomada sem estar
-    tomada. Não é defeito: é o que se pode ganhar.</td><td class="n">O</td></tr>
-    <tr><td>7. Por onde começar</td><td>Três itens, em ordem de dependência, e não
-    lista de defeitos.</td><td class="n">—</td></tr>
-    <tr><td>8. Questões em aberto</td><td>O que a leitura notou e não consegue
-    resolver, porque resolver exige conhecer o campo ou abrir a fonte.</td><td class="n">Q</td></tr>
-    <tr><td><strong>Anexo</strong></td><td>Depois da quebra de página: correção que
-    não pede decisão nenhuma, e o que não coube no corpo.</td><td class="n">SC</td></tr>
-  </tbody>
-</table>
+<div class="fluxo">
+  <ol>
+    <li><strong>O que este projeto propõe</strong>, em até três linhas,
+    reconstruído pela leitura. O bloco é ele mesmo um teste: se a leitura não
+    consegue reconstruir, isso é o primeiro achado, porque a banca também não
+    vai conseguir.</li>
+    <li><strong>O que se sustenta</strong>, só com o que é específico e se
+    localiza. Não é cortesia: vinte relatórios só de defeitos fazem vinte
+    projetos parecerem iguais, e a banca precisa distinguir.</li>
+    <li><strong>As cinco dimensões</strong>, cada uma com o achado, o tópico em
+    que ele está, a conta dos achados por classe e a nota de 0 a 10. Todas
+    aparecem sempre, mesmo vazias, porque dimensão omitida se lê como dimensão
+    aprovada. Ao fim, a média e o lado da linha de 7.</li>
+    <li><strong>O que a banca vai perguntar</strong>: duas ou três perguntas que
+    o projeto não sobrevive sem responder, escritas como perguntas e não como
+    críticas.</li>
+    <li><strong>O alcance desta leitura</strong>, numa linha, com o que não foi
+    avaliado. Medição sem alcance declarado se lê como cobertura total.</li>
+  </ol>
 </div>
 
-<p><code>SC</code> corrige sem decidir nada, porque existe uma forma correta única
-derivável do próprio projeto. <code>A</code>, <code>V</code> e <code>B</code>
-apontam o que exige escolha do autor. <code>O</code> é o que ele pode ganhar na
-banca. <code>Q</code> é o que a leitura não alcança.</p>
-
-<p><strong>A ementa declara quantos itens em cada sigla</strong>, e essa contagem é
-o que nenhuma outra linha diz: doze itens todos em <code>SC</code> é um projeto,
-doze em <code>A</code> é outro, e sem a contagem os dois têm a mesma aparência.</p>
-
-<p>Pela via do chat as siglas continuam valendo, e o que muda é o localizador:
-sem a extração numerada não há <code>[P123]</code>, e a citação vai por seção e
-página.</p>
+<p><strong>A nota vem depois do achado, nunca no lugar dele.</strong> Primeiro o
+que se encontrou e em que tópico, e só então o número, que é a tradução daquilo
+para a ficha. Nota sem achado escrito ao lado não serve a quem decide, porque
+não há o que discutir com ela.</p>
 
 <h2 id="entrega">O que se entrega</h2>
 
-<div class="rolagem">
-<table>
-  <thead>
-    <tr><th>assistente</th><th>o que volta</th><th>para quê</th></tr>
-  </thead>
+<table class="tabela">
+  <thead><tr><th>assistente</th><th>o que volta</th><th>para quê</th></tr></thead>
   <tbody>
     <tr>
       <td>Miro</td>
       <td>A conversa, fechada por um comentário e pelo pré-projeto, num bloco de
       código só</td>
-      <td>Entrega da atividade na disciplina, e ponto de partida do Nelson</td>
+      <td>Entrega da atividade na disciplina, e material para escrever o
+      projeto</td>
     </tr>
     <tr>
-      <td>Nelson</td>
-      <td>Comentário com a busca declarada, o mapa do que foi encontrado e o que
-      aconteceu com a lacuna, mais o pré-projeto atualizado</td>
-      <td>Registro do levantamento, e base da seção de revisão</td>
+      <td>Selma, pelo chat</td>
+      <td>O relatório na conversa, com as cinco dimensões, as notas e a média</td>
+      <td>Leitura de banca antes de submeter, ou parecer para quem avalia</td>
     </tr>
     <tr>
-      <td>Clara, pelo chat</td>
-      <td>Relatório na conversa</td>
-      <td>Leitura antes da qualificação</td>
-    </tr>
-    <tr>
-      <td>Clara, com programas</td>
-      <td>Projeto anotado em <code>.docx</code>, relatório em PDF e a lista de
-      itens</td>
-      <td>O que se manda a quem escreveu, e onde o orientador responde na
-      margem</td>
+      <td>Selma, com agente</td>
+      <td>O mesmo relatório, mais a conferência de existência da bibliografia,
+      que só a via com busca permite</td>
+      <td>O que se manda a quem escreveu, e o que a banca lê ao decidir</td>
     </tr>
   </tbody>
 </table>
-</div>
 
-<p>O comentário do Word tem uma virtude que o PDF não tem: é conversa. Quem
-orienta lê, responde na mesma linha, e a resposta fica no arquivo. Cada comentário
-diz também <strong>em que página o item ocorre</strong>, porque o número de
-parágrafo é da extração e não existe dentro do Word.</p>
-
-<p><strong>Quando a origem é PDF não há margem em que comentar.</strong> No lugar do
-arquivo anotado sai um <code>.md</code> com o projeto e os parágrafos numerados, que
-é o que resolve os localizadores do relatório. E quando o projeto passou pela Norma,
-vai junto o anexo do que ela mudou.</p>
+<p><strong>O relatório é matéria para julgar, e não veredito.</strong> Os achados
+se conferem abrindo o projeto no tópico indicado, e alguns não se sustentam.
+Conferir antes de repassar é parte do uso, e a média não recomenda admitir nem
+não admitir: ela mede o projeto contra a linha de 7, e a decisão se toma com as
+vagas, a linha de pesquisa e os outros candidatos, que a leitura não tem.</p>
 
 <h2 id="custa">Quanto custa</h2>
 
-<p><strong>O Miro e o Nelson não custam nada</strong> e foram escritos para isso:
-rodam em conta gratuita de qualquer assistente, sem instalar coisa alguma. É por
-isso que o prompt é grande, porque tudo o que o assistente precisa saber tem de
-caber na primeira mensagem.</p>
+<p><strong>O Miro não custa nada</strong> e foi escrito para isso: roda em conta
+gratuita de qualquer assistente, sem instalar coisa alguma. É por isso que o
+prompt é grande, porque tudo o que o assistente precisa saber tem de caber nas
+primeiras mensagens.</p>
 
-<p><strong>A Clara pelo chat também não custa</strong>, e é a porta de entrada.</p>
+<p><strong>A Selma pelo chat também não custa</strong>, e é a porta de entrada:
+o prompt cabe numa colagem só. <strong>Com agente, custa o que o modelo cobrar
+pela leitura do projeto</strong>, e o que domina a conta é o projeto que entra,
+não o tamanho do prompt. Não há medição própria: na oficina irmã, uma
+dissertação de 37 mil palavras ficou em torno de meio dólar no Opus, e um
+projeto é uma fração disso.</p>
 
-<p><strong>A Clara com programas custa o que o modelo cobrar</strong> pela leitura
-do projeto, e o que domina a conta é o projeto que entra, não o tamanho do prompt.
-Não há medição própria: na oficina irmã, uma dissertação de 37 mil palavras ficou em
-torno de meio dólar no Opus, e um projeto é uma fração disso. A Norma não usa modelo
-e não custa nada.</p>
-
-<div class="nota">
-  <p><strong>Modelo pequeno não serve, e isso foi medido na oficina irmã</strong>,
-  sobre a mesma dissertação: um substituiu o método por leitura seletiva sem avisar
-  e entregou uma citação inventada; outro leu tudo e devolveu atestado de saúde, com
-  zero apontamentos. Escolha o melhor modelo que a sua conta oferecer, e evite o
-  modo automático: modelo escolhido pelo serviço é modelo desconhecido, e relatório
-  de modelo desconhecido não se compara com nenhum outro.</p>
-</div>
+<p><strong>Modelo pequeno não serve</strong>, e isso foi medido na oficina irmã,
+sobre a mesma dissertação: um substituiu o método por leitura seletiva sem
+avisar e entregou uma citação inventada; outro leu tudo e devolveu atestado de
+saúde, com zero apontamentos. Escolha o melhor modelo que a sua conta oferecer,
+e evite o modo automático: modelo escolhido pelo serviço é modelo desconhecido,
+e relatório de modelo desconhecido não se compara com nenhum outro.</p>
 
 <h2 id="medido">Os testes feitos e o que eles sugerem</h2>
 
-<p><strong>O Miro tem uso real e o resto não.</strong> Ele rodou com duas turmas
+<p><strong>O Miro tem uso real e a Selma não.</strong> Ele rodou com duas turmas
 em 2026, e foi desse uso que saíram as mudanças de entrega e as três proibições
 descritas acima. Cada uma delas corrige um caso observado, e não uma preferência
 de redação.</p>
 
-<p><strong>A Clara ainda não foi rodada a frio.</strong> Os testes até aqui
-foram feitos na mesma sessão em que ela foi escrita, o que mede coerência interna
-das regras e não fidelidade de um modelo que não as escreveu. Esses testes já
-renderam sete correções, entre elas a porta de entrada que separa projeto de
-documento de trabalho, e o teto de tamanho, que era fixo e não segurava nada: o
-relatório saía quase do tamanho do projeto analisado. O que falta medir é se ela
-para na porta quando o material dá para escrever relatório, e se inventa gravidade
-quando não encontra nada.</p>
+<p><strong>A Selma foi rodada cinco vezes sobre um projeto real</strong>,
+submetido a um processo seletivo, e cada rodada corrigiu o instrumento. A
+primeira produziu um achado falso, porque a regra da bibliografia não excluía
+diploma legal, e num projeto de direito quase toda afirmação central se apoia em
+lei. A terceira mostrou que as faixas de nota não decidiam sozinhas: em três das
+cinco dimensões a leitura teve de inventar o limiar, o que, com a aprovação em
+7, decidiria admissão. Daí vieram a contagem por classes e as duas regras de
+subida. A quinta conferiu a existência das dezessete obras da bibliografia, e as
+dezessete existem.</p>
 
-<p><strong>A Norma foi medida, e em dissertações.</strong> Em cinco trabalhos o
-texto saiu idêntico parágrafo a parágrafo, a contagem de marcadores e de campos se
-preservou, e o Word abre o arquivo. Nenhum projeto entrou nessa medição, e um
-projeto é documento mais curto e com menos figuras, de modo que o comportamento
-esperado é melhor, e esperado não é medido.</p>
+<p><strong>O que falta medir</strong> é se duas leituras independentes do mesmo
+projeto chegam à mesma nota, que é a única prova de que a contagem funciona; e
+se a trava da bibliografia segura, porque até aqui nenhuma busca falhou, e uma
+trava que nunca foi acionada não foi testada.</p>
 
-<div class="nota">
-  <p><strong>O relatório é matéria para julgar, e não veredito.</strong> Quem
-  orienta responde pelo que manda ao orientando. Os achados se conferem abrindo o
-  projeto no ponto indicado, e alguns não se sustentam. Conferir antes de
-  repassar é parte do uso.</p>
-</div>
+<h2 id="prompt">O prompt da Selma, para a via do chat</h2>
 
-<h2 id="prompt">O prompt da Clara, para a via do chat</h2>
-
-<p>Esta é a versão que cabe numa conversa só. A versão completa, que as vias com
-programas usam e que produz o arquivo anotado, está em
-<code>prompts/CLARA.md</code> no repositório da Oficina de Orientação.</p>
-
-<p><strong>Cole o texto, não o anexe como arquivo</strong>, e abra uma janela
-nova: o que já foi dito numa conversa em andamento entra na leitura sem avisar.</p>
+<p>Esta é a versão que cabe numa colagem só. Cole o texto, <strong>não o anexe como arquivo</strong>, e abra uma janela nova: o que já foi dito numa conversa em andamento entra na leitura sem avisar.entra na leitura sem avisar.</p>
 
 <div class="caixa-prompt">
   <div class="barra">
     <span id="tamanho"></span>
     <button class="copiar" id="btn-copiar" type="button">Copiar prompt</button>
   </div>
-  <textarea id="clara" readonly spellcheck="false">{{PROMPT_CLARA}}</textarea>
+  <textarea id="selma" readonly spellcheck="false">{{PROMPT_SELMA}}</textarea>
 </div>
 
 <footer>
   <p>Assistentes de leitura para projetos de pesquisa, feitos por Alexandre
-  Araújo Costa, Faculdade de Direito da UnB. A maquinaria da Clara e da Norma está
-  aberta em <code>github.com/AlexandreAraujoCosta/Oficina_de_Orientacao</code>, ao
+  Araújo Costa, Faculdade de Direito da UnB. A maquinaria dos dois está aberta em <code>github.com/AlexandreAraujoCosta/Oficina_de_Orientacao</code>, ao
   lado da oficina irmã.</p>
   <p>Feedback para <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>,
   e relatos de uso fora das disciplinas por
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este
   formulário</a>.</p>
-  <p>Última atualização: 29 de agosto de 2026.</p>
+  <p>Última atualização: 3 de setembro de 2026.</p>
 </footer>
 
 </div>
 
 <script>
   (function () {
-    var ta = document.getElementById('clara');
+    var ta = document.getElementById('selma');
     var btn = document.getElementById('btn-copiar');
     var medida = document.getElementById('tamanho');
     if (medida && ta) {
