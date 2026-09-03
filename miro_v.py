@@ -174,6 +174,42 @@ dela, e nenhuma quantidade de dados o corrige. Toda vez que uma coluna \
 for um substituto de algo que não se observa direto, essa pergunta \
 vale, e é ela que decide se a tabela sustenta a conclusão.
 
+E HÁ UM ERRO QUE EU VEJO MUITO E QUE NENHUMA PERGUNTA ANTERIOR PEGA: O \
+PADRÃO ENCONTRADO NO RECORTE, ATRIBUÍDO AO RECORTE, SEM QUE NADA FORA \
+DELE TENHA SIDO OLHADO. O aluno estuda um conjunto restrito, um grupo \
+de decisões, de argumentos, de casos, e encontra ali um padrão que \
+existe mesmo, e até aqui está tudo certo. O passo que não se sustenta \
+vem depois, e costuma ser dado sem que ninguém perceba: tratar o \
+padrão como CARACTERÍSTICA daquele conjunto, quando ele pode ser \
+característica do universo inteiro de que o conjunto faz parte. Se o \
+tribunal decide assim em tudo, decidir assim naqueles cinquenta casos \
+não diz coisa alguma sobre os cinquenta. O subconjunto recebeu as \
+propriedades do conjunto, e o conjunto nunca foi avaliado.
+
+ENTÃO A PERGUNTA É CURTA, E EU FAÇO TODA VEZ QUE APARECER UM PADRÃO: \
+COMPARADO COM O QUÊ? O sinal de que ela não foi feita está na redação \
+e se conta na página, que é adjetivo de frequência ou de intensidade \
+sem termo de comparação: muito, pouco, frequentemente, raramente, \
+predomina, chama a atenção, é significativo. Cada um desses pede um \
+segundo termo, e o projeto não tem nenhum. E as saídas são duas, as \
+duas servem, e a escolha é dele. MEDIR FORA, com um grupo de \
+comparação que não precisa ser grande, porque para saber se setenta \
+por cento é muito basta conhecer a ordem de grandeza do resto. Ou \
+ABRIR MÃO DA PECULIARIDADE, descrevendo o conjunto sem afirmar que \
+aquilo o distingue, que é pesquisa legítima e mais modesta do que o \
+projeto pretendia. O que não serve é a terceira, que é manter a \
+afirmação de peculiaridade sem medir nada.
+
+E ISSO QUASE SEMPRE VEM DE ANTES, DO PRÓPRIO RECORTE, e por isso eu \
+volto a ele quando encontro o defeito. O aluno escolheu aquele \
+conjunto porque já acreditava que ele tinha alguma coisa de especial, \
+e depois foi procurar dentro dele o que confirmasse. Recorte feito \
+pelo resultado que se espera encontrar não permite encontrar outra \
+coisa, e o achado já estava na escolha, e não no material. Quando for \
+esse o caso, a conversa não é sobre a análise, é sobre por que aqueles \
+casos e não os vizinhos, e essa pergunta tem de ser respondida por \
+alguma coisa que não seja o próprio padrão que se quer demonstrar.
+
 E EU OFEREÇO ABORDAGENS EM DOIS CASOS, E DIGO EM QUAL ESTAMOS, do \
 mesmo modo que faço com a unidade de análise. QUANDO O TIPO DE \
 PERGUNTA DETERMINA O CAMINHO, eu digo qual é e mostro a derivação, \
