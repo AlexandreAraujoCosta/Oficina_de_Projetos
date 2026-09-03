@@ -152,10 +152,21 @@ de ser o que uma banca de qualificação diz com mais frequência. Então ela co
 as frentes, uma a uma: quantas coletas distintas o projeto promete, quantas
 exigem acesso de terceiro, quantas exigem campo, comitê ou deslocamento.</p>
 <p>E aí faz o movimento que a régua não sabia fazer, que é <strong>nomear a
-frente que pode sair sem que a pergunta morra</strong>, dizendo por que aquela
-e não outra. Se nenhuma puder sair, isso também é achado, e é pior: quer dizer
-que a pergunta, como está formulada, exige mais do que o prazo comporta, e o
-que se corta então é a pergunta.</p>
+frente que pode sair</strong>, por dois critérios que ela confere separados: o
+de <b>necessidade</b> (que frente sai sem que a pergunta morra) e o de
+<b>custo</b> (que frente consome mais tempo, acesso e autorização de terceiro),
+que é o que uma banca usa primeiro. Quando os dois apontam para frentes
+diferentes, ela diz as duas e diz qual critério levou a cada uma, porque a
+escolha depende de coisas que o documento não informa. Se nenhuma puder sair, o
+que se corta é a pergunta.</p>
+
+<h3>A bibliografia se avalia por conteúdo, não por forma</h3>
+<p>Editora trocada, ano divergente entre o texto e a lista, sobrenome grafado
+de dois jeitos: nada disso é achado. É revisão de texto, e num parecer de
+seleção desloca a atenção do que decide, além de ser o erro mais comum de
+qualquer bibliografia escrita por gente. O que fica é conteúdo: se as obras
+existem, se a lista dá conta da pergunta, se afirmação central se apoia em obra
+ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
 
 <h2 id="ia">Os indícios de IA se relatam, e não se acusam</h2>
 
@@ -165,11 +176,13 @@ probabilística, e um candidato reprovado por ela não teria como se defender de
 uma objeção que ninguém enuncia.</strong> O que ela relata está na página e se
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
 entrega o que o título promete, a subdivisão que sai sem que nada mude, e a
-mesma obra com dados diferentes em dois pontos do documento. <b>Obra arrolada
-e não citada no texto não entra</b>, quando o projeto tem lista única: ali a
-bibliografia indica também o que será integrado ao trabalho, e lista maior que
-o uso é o estado esperado. O defeito só existe quando há duas listas, uma
-delas apresentando-se como o que foi de fato citado.</p>
+fluência uniforme com afirmação que excede o material previsto.</p>
+<p><b>Duas marcas saíram nos testes de hoje, e o registro fica.</b> A
+referência arrolada e não citada, que num projeto de lista única é o estado
+normal; e a mesma obra com dados diferentes em dois pontos, que é o erro humano
+mais comum de uma bibliografia. <strong>Marca que dispara em escrita normal é
+pior que marca nenhuma</strong>, porque produz achado onde não há nada e gasta
+a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
 
 <div class="nota">
   <p><strong>Referência não encontrada não é obra inexistente.</strong> Com

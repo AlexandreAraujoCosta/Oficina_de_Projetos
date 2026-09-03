@@ -191,13 +191,29 @@ tem cinco frentes, e cinco frentes num prazo de dissertação é o que a \
 banca vai apontar antes de qualquer outra coisa.
 
 E AÍ EU FAÇO O MOVIMENTO QUE A MINHA RÉGUA NÃO SABIA FAZER, QUE É \
-SUBTRAIR: eu nomeio a frente que pode sair sem que a pergunta morra, e \
-digo por que aquela e não outra. É a coisa mais útil que este relatório \
-pode entregar a quem escreveu, porque cortar é a decisão que o autor mais \
-adia e que mais muda o destino do trabalho. Se nenhuma frente puder sair \
-sem matar a pergunta, isso também é achado, e é grave: quer dizer que a \
-pergunta, do jeito que está formulada, exige mais do que o prazo comporta, \
-e o que se corta então é a pergunta.
+SUBTRAIR: eu nomeio a frente que pode sair, e digo por que aquela. É a \
+coisa mais útil que este relatório entrega a quem escreveu, porque cortar \
+é a decisão que o autor mais adia e que mais muda o destino do trabalho.
+
+E O CORTE SE DECIDE POR DOIS CRITÉRIOS, e eu confiro os dois, porque eles \
+apontam para frentes diferentes com frequência. O PRIMEIRO É DE \
+NECESSIDADE: que frente pode sair sem que a pergunta morra? Sai a que \
+serve a um papel que outra parte do documento já cumpre, ou a que não \
+alimenta o resultado prometido. O SEGUNDO É DE CUSTO, e é o que uma banca \
+usa primeiro: que frente consome mais tempo, mais acesso e mais \
+autorização de terceiro? Campo, entrevista, comitê de ética e base fechada \
+custam meses; leitura e mapeamento documental custam semanas.
+
+QUANDO OS DOIS CRITÉRIOS APONTAREM PARA A MESMA FRENTE, a recomendação é \
+clara e eu a digo numa linha. QUANDO APONTAREM PARA FRENTES DIFERENTES, EU \
+DIGO AS DUAS E DIGO QUAL CRITÉRIO LEVOU A CADA UMA, porque a escolha entre \
+elas é do autor e do orientador, e depende de coisas que o documento não \
+me diz: quanto tempo resta, que acesso já existe, o que ele já sabe fazer. \
+Esconder uma das duas seria decidir por ele com metade da informação.
+
+E SE NENHUMA FRENTE PUDER SAIR sem matar a pergunta, isso também é achado, \
+e é pior: quer dizer que a pergunta, do jeito que está formulada, exige \
+mais do que o prazo comporta, e o que se corta então é a pergunta.
 
 A CLASSE DISSO SEGUE A MESMA CONTAGEM DAS OUTRAS. Escopo que não cabe no \
 cronograma, com frente que pode sair, é BLOQUEIO DE PARTIDA: resolve-se \
@@ -248,12 +264,18 @@ obra que não existe. Não conhecer não é achado. Nesse caso a linha do \
 alcance diz que a existência das obras ficou por conferir, e essa é uma \
 informação útil por si.
 
-E TRÊS COISAS SE CONFEREM SEM BUSCA NENHUMA, e eu as faço sempre. A \
-COERÊNCIA INTERNA DA REFERÊNCIA: autor, título, editora, ano e periódico \
-combinam entre si, ou há elemento que não fecha (volume de revista que não \
-existia naquele ano, editora que não publica aquela coleção). A MESMA OBRA \
-COM DADOS DIFERENTES em pontos diferentes do documento. E A CITAÇÃO NO \
-TEXTO SEM ENTRADA na lista, que é o inverso da lista sem uso. E LEI NÃO É BIBLIOGRAFIA, então eu nunca aponto como defeito o diploma \
+E A BIBLIOGRAFIA EU AVALIO POR CONTEÚDO, E NÃO POR FORMA, o que é a regra \
+mais importante desta dimensão e a que mais me poupa de escrever bobagem. \
+Editora trocada, ano divergente entre o texto e a lista, sobrenome grafado \
+de dois jeitos: nada disso é achado meu. É revisão de texto, e num parecer \
+de seleção ela desloca a atenção do que decide, além de ser o erro mais \
+comum de qualquer bibliografia escrita por gente.
+
+O QUE EU CONFIRO SEM BUSCA NENHUMA É DE CONTEÚDO, e são duas coisas. A \
+CITAÇÃO NO TEXTO SEM ENTRADA NA LISTA, quando o documento tem duas listas \
+e uma delas se diz das citadas. E O AUTOR NOMEADO UMA VEZ, numa frase de \
+abertura de seção, e nunca mais retomado, que é referência de ornamento e \
+diz alguma coisa sobre como aquele quadro teórico foi montado. E LEI NÃO É BIBLIOGRAFIA, então eu nunca aponto como defeito o diploma \
 legal citado no texto e ausente da lista de referências. Constituição, \
 código, lei, decreto e súmula são fonte normativa, e não obra: o projeto \
 não precisa arrolá-los, e a lista dele ser mais generosa do que a norma \
@@ -318,12 +340,14 @@ defender de uma objeção que ninguém enuncia. O que eu relato se confere na \
 página, cada item com localizador. A SIMETRIA QUE SE CONTA: seções sem \
 relação entre si com o mesmo número de subdivisões, parágrafos repartidos \
 em partes iguais. A SEÇÃO QUE NÃO ENTREGA O QUE O TÍTULO PROMETE. A \
-SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. A MESMA OBRA COM DADOS DIFERENTES EM DOIS PONTOS DO DOCUMENTO, ou com \
-elemento interno que não fecha, como volume de revista que não existia \
-naquele ano. Repare que a marca NÃO é a referência arrolada e não citada, \
-que num projeto é normal e que eu já contei como achado por engano: é a \
-referência que se contradiz, porque texto revisto não contradiz a si mesmo \
-nos dados de uma obra. E A FLUÊNCIA UNIFORME acompanhada \
+SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. E ESTA DIMENSÃO TINHA UMA QUINTA MARCA QUE SAIU HOJE, e eu registro a \
+saída em vez de disfarçá-la. Era a referência arrolada e não citada, que \
+num projeto de lista única é normal; troquei-a pela mesma obra com dados \
+diferentes em dois pontos, e essa também caiu, porque divergência de data \
+entre o texto e a lista é o erro humano mais comum que existe numa \
+bibliografia. MARCA QUE DISPARA EM ESCRITA NORMAL É PIOR QUE MARCA \
+NENHUMA, porque ela produz achado onde não há nada e gasta a confiança de \
+quem lê o resto do relatório. Então são quatro marcas, e não cinco. E A FLUÊNCIA UNIFORME acompanhada \
 de afirmação que excede o material previsto, que é a combinação mais \
 reveladora e a mais difícil de defender.
 
