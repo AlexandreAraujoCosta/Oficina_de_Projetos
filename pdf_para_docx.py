@@ -88,7 +88,16 @@ MARCA = chr(1)   # delimita a chamada de nota dentro do texto da linha
 
 NS_W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
-ABRE_NOTA = re.compile(r"^(\d{1,3})([A-ZÀ-Úa-zà-ú])")
+# O NUMERO DA NOTA E O TEXTO DELA PODEM VIR SEPARADOS POR ESPACO, e a
+# versao anterior exigia que a letra viesse colada ao digito. Foi assim
+# que um projeto real perdeu as catorze notas de uma vez: o numero saia
+# num span proprio, em corpo 6,5, e a juncao das pecas da linha punha um
+# espaco entre ele e o texto, de modo que "12 Aqui, a investigacao" nao
+# casava. Sem nota aberta, TODO o texto das notas caiu no corpo, no meio
+# do argumento, e as chamadas viraram digito colado a palavra
+# ("substituicao administrativa10"), porque a chamada so vira referencia
+# quando ha nota com aquele numero.
+ABRE_NOTA = re.compile(r"^(\d{1,3})\s?([A-ZÀ-Úa-zà-ú])")
 NUMERO_SECAO = re.compile(r"^(\d+)(\.\d+)*\.?\s")
 
 
@@ -257,7 +266,11 @@ def itens_da_pagina(linhas, primeira):
     for n in notas:
         m = ABRE_NOTA.match(n)
         if m:
-            numeradas.append((int(m.group(1)), n[len(m.group(1)):].strip()))
+            # SEM strip(): o espaco que separa o numero do texto e uma
+            # palavra a menos ou a mais na conferencia. Com ele, o
+            # conferidor recusava o documento porque a extracao tinha
+            # '1' e 'MERRILL,' e o documento tinha '1MERRILL,'.
+            numeradas.append((int(m.group(1)), n[len(m.group(1)):]))
         else:                      # nota sem numero legivel fica como corpo
             itens.append(("Normal", n))
     return itens, numeradas

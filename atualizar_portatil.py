@@ -52,6 +52,8 @@ PADRAO_FERRAMENTA = re.compile(
     r"<!-- FERRAMENTA:INICIO -->.*?<!-- FERRAMENTA:FIM -->", re.S
 )
 ANCORA_FERRAMENTA = '  <div class="copybar">'
+MARCA_CHAT = 'id="guia-chat"'
+MARCA_AGENTE = 'id="guia-agente"'
 
 
 def injetar_ferramenta(pagina, nome_pagina):
@@ -67,6 +69,59 @@ def injetar_ferramenta(pagina, nome_pagina):
     if i < 0:
         sys.exit(f"ERRO: nao achei onde por a ferramenta em {nome_pagina}.")
     return pagina[:i] + bloco + "\n\n" + pagina[i:]
+
+
+def onde_esta_a_ferramenta(pagina):
+    """Devolve None se a ferramenta esta dentro do modo chat, e o defeito
+    em palavras se nao esta.
+
+    POR QUE ISTO EXISTE. A ferramenta e do MODO CHAT: no agente, quem
+    escreve o arquivo e o proprio agente. Ela estava FORA das duas guias,
+    e por isso aparecia sempre, encabecando o modo agente. Ficou visivel
+    para quem usa a pagina, e nao para quem a gera, e por isso a posicao
+    passa a ser conferida aqui.
+
+    E A CONTA COMECA NA ABERTURA DA TAG, e nao no id: comecando no id, a
+    abertura da propria guia nao entra na conta, a profundidade sai uma
+    unidade baixa, e os dois casos do controle dao a mesma resposta.
+    """
+    i = pagina.find(MARCA_CHAT)
+    if i < 0:
+        return None                        # pagina sem os dois modos
+    a = pagina.rfind("<div", 0, i)
+    f = pagina.find("<!-- FERRAMENTA:INICIO -->")
+    b = pagina.find(MARCA_AGENTE)
+    if f < 0:
+        return "nao achei a ferramenta"
+    if not (0 <= a < f < b):
+        return "a ferramenta nao esta entre a abertura do chat e a do agente"
+    prof = 0
+    for m in re.finditer(r"<div\b|</div>|<!-- FERRAMENTA:INICIO -->", pagina[a:]):
+        if m.group(0) == "<!-- FERRAMENTA:INICIO -->":
+            if prof >= 1:
+                return None
+            return "a ferramenta esta fora da guia do chat, e aparece nos dois modos"
+        prof += 1 if m.group(0).startswith("<div") else -1
+    return "nao achei a ferramenta"
+
+
+def provar_a_posicao(pagina):
+    """Controle positivo. Conferidor que nunca reprovou nada nao informa
+    nada quando fica em silencio."""
+    casos = [
+        ("a pagina como esta", pagina, True),
+        ("um </div> a mais antes dela",
+         pagina.replace("<!-- FERRAMENTA:INICIO -->",
+                        "</div>" + chr(10) + "<!-- FERRAMENTA:INICIO -->", 1), False),
+        ("a ferramenta depois do agente",
+         pagina.replace("<!-- FERRAMENTA:INICIO -->", "", 1)
+         + "<!-- FERRAMENTA:INICIO -->", False),
+    ]
+    ruins = []
+    for nome, texto, esperado in casos:
+        if (onde_esta_a_ferramenta(texto) is None) != esperado:
+            ruins.append(nome)
+    return ruins
 
 
 def escapar_para_html(texto):
@@ -143,6 +198,14 @@ def main(nome_contexto="modulo_2_planejamento"):
             sys.exit(f"ERRO: não achei o <textarea> do prompt em {nome_pagina}.")
 
     nova = injetar_ferramenta(nova, nome_pagina)
+    ruins = provar_a_posicao(nova)
+    if ruins:
+        sys.exit("ERRO: o conferidor de posicao da ferramenta nao separa "
+                 "os casos (%s). Nao confie no silencio dele."
+                 % ", ".join(ruins))
+    defeito = onde_esta_a_ferramenta(nova)
+    if defeito:
+        sys.exit("ERRO em %s: %s." % (nome_pagina, defeito))
 
     if nova == pagina:
         print(f"{nome_pagina}: já estava em dia")
