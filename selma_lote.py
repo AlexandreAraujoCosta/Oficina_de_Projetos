@@ -46,7 +46,6 @@ from pathlib import Path
 
 DIMENSOES = ["problema e justificativa", "metodologia e teoria", "contribuicoes e impacto",
              "bibliografia", "indicios de ia"]
-LINHA_SELECAO = 7.0
 # A dimensao 5 nao tem nota e nao entra na media: leva o NIVEL.
 NIVEIS = ["fortes-abusivo", "fortes-indeterminado", "leves", "ausentes"]
 
@@ -109,27 +108,38 @@ def ler_bloco(texto, origem="?"):
     if not m:
         raise BlocoInvalido("%s: nao achei o bloco DADOS...FIM" % origem)
     linhas = [l.strip() for l in m.group(1).strip().split("\n") if l.strip()]
-    notas, media, selecao, qualifica, abaixo = {}, None, None, None, None
-    nivel = apto = mudar = None
+    notas, contagem, abaixo = {}, {}, None
+    nivel = titulo = None
+    condicoes = []
     for l in linhas:
         campos = [c.strip() for c in l.split("|")]
-        if campos[0] == "MEDIA":
-            media = float(campos[1].replace(",", "."))
-        elif campos[0] == "SELECAO":
-            selecao = campos[1]
-        elif campos[0] == "QUALIFICA":
-            qualifica = campos[1]
-            abaixo = campos[2] if len(campos) > 2 else "-"
-        elif campos[0] == "APTO":
-            # A TERCEIRA LINHA. Ela entrou no prompt da Selma e nao aqui, e
-            # o agregador passou a RECUSAR TODA LEITURA REAL, dizendo
-            # "linha nao reconhecida". Quem mexe no bloco mexe nos dois
-            # lados, e o controle tem de ter um caso do lado novo.
-            apto = campos[1]
-            if apto not in ("apto", "nao apto"):
-                raise BlocoInvalido("%s: APTO diz %r, esperava apto ou "
-                                    "nao apto" % (origem, apto))
-            mudar = campos[2] if len(campos) > 2 else ""
+        if campos[0] == "TITULO":
+            # LOCALIZADOR, E NUNCA TEXTO. O titulo identifica a peca, e uma
+            # palavra trocada nele nao degrada uma citacao: faz a peca
+            # apontar para outro projeto. Quem o copia e o programa.
+            alvo = campos[1].strip()
+            m2 = re.fullmatch(r"[Pp]?0*(\d{1,4})", alvo)
+            if not m2:
+                raise BlocoInvalido(
+                    "%s: TITULO diz %r, e ali vai o LOCALIZADOR do titulo "
+                    "(P002), nunca o titulo escrito" % (origem, alvo))
+            titulo = int(m2.group(1))
+        elif campos[0] == "CONDICAO":
+            alvo = campos[1].strip()
+            texto_c = campos[2].strip() if len(campos) > 2 else ""
+            if alvo == "-":
+                if texto_c.lower() not in ("nenhuma", "nenhum", ""):
+                    raise BlocoInvalido(
+                        "%s: CONDICAO com traco diz %r, esperava nenhuma"
+                        % (origem, texto_c))
+                continue
+            if not alvo.isdigit() or not 1 <= int(alvo) <= 5:
+                raise BlocoInvalido("%s: CONDICAO aponta a dimensao %r, "
+                                    "esperava de 1 a 5" % (origem, alvo))
+            if not texto_c:
+                raise BlocoInvalido("%s: CONDICAO da dimensao %s nao diz o "
+                                    "que fazer" % (origem, alvo))
+            condicoes.append((int(alvo), texto_c))
         elif campos[0].isdigit():
             i = int(campos[0])
             if not 1 <= i <= 5:
@@ -148,6 +158,7 @@ def ler_bloco(texto, origem="?"):
             if not 0 <= nota <= 10:
                 raise BlocoInvalido("%s: nota %d fora de 0-10" % (origem, nota))
             notas[i] = nota
+            contagem[i] = (int(campos[2]), int(campos[3]), int(campos[4]))
         else:
             raise BlocoInvalido("%s: linha nao reconhecida: %r" % (origem, l))
 
@@ -156,38 +167,69 @@ def ler_bloco(texto, origem="?"):
                             % (origem, len(notas)))
     if nivel is None:
         raise BlocoInvalido("%s: falta o nivel da dimensao 5" % origem)
-    if media is None or selecao is None or qualifica is None:
-        raise BlocoInvalido("%s: falta MEDIA, SELECAO ou QUALIFICA" % origem)
-    if apto is None:
-        raise BlocoInvalido("%s: falta a linha APTO" % origem)
-    if apto == "apto" and not mudar.strip():
-        raise BlocoInvalido("%s: APTO diz apto e nao diz o que mudaria"
+    if titulo is None:
+        raise BlocoInvalido("%s: falta a linha TITULO com o localizador"
                             % origem)
+    if "CONDICAO" not in m.group(1):
+        raise BlocoInvalido("%s: nenhuma linha CONDICAO. Quando nao ha "
+                            "condicao, o bloco traz uma linha com traco e a "
+                            "palavra nenhuma" % origem)
 
-    # A media declarada tem de bater com as cinco notas. O relatorio e que
-    # vale; o bloco so o repete, e bloco que nao bate se recusa.
-    calc = round(sum(notas.values()) / 4.0, 1)
-    if abs(calc - media) > 0.05:
-        raise BlocoInvalido("%s: MEDIA diz %.1f e as notas dao %.1f"
-                            % (origem, media, calc))
-    passa = media >= LINHA_SELECAO
-    if passa != selecao.startswith("passa"):
-        raise BlocoInvalido("%s: SELECAO diz %r com media %.1f"
-                            % (origem, selecao, media))
+    # A CONTAGEM E A LISTA DE CONDICOES TEM DE SE CORRESPONDER. Impeditivo
+    # e bloqueio de partida viram condicao sempre; localizado nao vira. O
+    # bloco que diz zero impeditivos e zero bloqueios e traz condicao, ou o
+    # contrario, esta contando uma coisa e concluindo outra.
     baixas = sorted(i for i, n in notas.items() if n < 7)
-    declaradas = [] if abaixo in ("-", "", None) else \
-        sorted(int(x) for x in abaixo.split(",") if x.strip())
-    if baixas != declaradas:
-        raise BlocoInvalido("%s: QUALIFICA aponta %r e as notas dao %r"
-                            % (origem, declaradas, baixas))
+    caras = sorted(i for i in contagem if contagem[i][0] or contagem[i][1])
+    com_condicao = sorted({d for d, _ in condicoes})
+    faltando = [d for d in caras if d not in com_condicao]
+    if faltando:
+        raise BlocoInvalido(
+            "%s: a dimensao %s tem impeditivo ou bloqueio e nenhuma condicao "
+            "saiu dela" % (origem, ", ".join(str(x) for x in faltando)))
+    sobrando = [d for d in com_condicao if d in contagem
+                and not (contagem[d][0] or contagem[d][1])]
+    if sobrando:
+        raise BlocoInvalido(
+            "%s: a dimensao %s tem condicao e nenhum impeditivo ou bloqueio"
+            % (origem, ", ".join(str(x) for x in sobrando)))
     # O TEXTO DO RELATORIO VAI JUNTO, sem o bloco de dados: e ele que o
     # PDF do lote reproduz. O bloco sai porque ele existe para o programa
     # ler, e nao para a banca; deixa-lo faria a peca terminar em tabela
     # de campos separados por barra.
     corpo = (texto[:m.start()] + texto[m.end():]).strip()
-    return {"notas": notas, "media": media, "selecao": selecao,
-            "qualifica": qualifica, "abaixo": baixas, "nivel": nivel,
-            "apto": apto, "mudar": mudar, "texto": corpo}
+    return {"notas": notas, "abaixo": baixas, "nivel": nivel,
+            "titulo": titulo, "condicoes": condicoes, "texto": corpo}
+
+
+def copiar_titulo(projeto, localizador):
+    """Copia do projeto o paragrafo que a leitura apontou como titulo.
+
+    Devolve (titulo, aviso). O aviso e None quando deu certo, e diz o que
+    houve quando nao deu. NUNCA levanta: peca sem titulo ainda serve, e
+    peca com titulo inventado, nao.
+    """
+    caminho = Path(projeto)
+    if not caminho.is_file():
+        return None, "nao achei %s" % caminho
+    suf = caminho.suffix.lower()
+    try:
+        if suf == ".pdf":
+            from comentar_pdf import ler
+            paras = [p["texto"] for p in ler(str(caminho))]
+        elif suf == ".docx":
+            from comentar_projeto import texto_do_docx
+            paras = [p.strip() for p in texto_do_docx(caminho) if p.strip()]
+        else:
+            from comentar_projeto import texto_do_md
+            paras = [" ".join(p.split()) for p in texto_do_md(caminho)
+                     if p.strip()]
+    except Exception as e:                      # extrator quebrado nao inventa
+        return None, "nao consegui ler %s: %s" % (caminho.name, e)
+    if not 1 <= localizador <= len(paras):
+        return None, ("o relatorio aponta o titulo em P%03d e %s tem %d "
+                      "paragrafos" % (localizador, caminho.name, len(paras)))
+    return " ".join(paras[localizador - 1].split()), None
 
 
 def blocos_do_relatorio(texto):
@@ -223,10 +265,10 @@ def escrever_leitura(f, nome, d, com_tarja=True):
     from folha_pdf import COR_MARCA
     f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
     if com_tarja:
-        f.texto("media %.1f  |  selecao: %s  |  qualificacao: %s  |  "
-                "%s  |  indicios de IA: %s"
-                % (d["media"], d["selecao"], d["qualifica"], d["apto"],
-                   d["nivel"]),
+        f.texto("notas %s  |  indicios de IA: %s  |  %d condi%s"
+                % ("  ".join("%d:%d" % (i, d["notas"][i]) for i in (1, 2, 3, 4)),
+                   d["nivel"], len(d["condicoes"]),
+                   "cao" if len(d["condicoes"]) == 1 else "coes"),
                 corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
     for tipo, texto_bloco in blocos_do_relatorio(d["texto"]):
         if tipo == "titulo":
@@ -236,23 +278,7 @@ def escrever_leitura(f, nome, d, com_tarja=True):
             f.texto(texto_bloco, espaco_depois=6)
 
 
-def segura_quem(abaixo):
-    """A frase que nomeia as dimensoes abaixo de 7, com concordancia.
-
-    A primeira versao escrevia "Seguram a dimensao 1, 2, 4": verbo no
-    plural, substantivo no singular e virgula onde vai o e. Texto que a
-    banca le nao pode ter isso, e concordancia nao se resolve com format.
-    """
-    if not abaixo:
-        return ""
-    nums = [str(x) for x in abaixo]
-    if len(nums) == 1:
-        return " Segura a dimensao %s." % nums[0]
-    lista = ", ".join(nums[:-1]) + " e " + nums[-1]
-    return " Seguram as dimensoes %s." % lista
-
-
-def escrever_um(nome, d, caminho):
+def escrever_um(nome, d, caminho, titulo=None):
     """A leitura de UM projeto, em PDF.
 
     SEM TABELA COMPARATIVA E SEM CONTAGEM DE COORTE: a primeira compara
@@ -268,41 +294,46 @@ def escrever_um(nome, d, caminho):
 
     doc = fitz.open()
     f = Folha(doc)
-    f.texto("Leitura de banca de selecao", corpo=17, fonte="tibo",
+    f.texto("Leitura de projeto de pesquisa", corpo=17, fonte="tibo",
             espaco_depois=4)
-    f.texto(nome, corpo=11, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+    if titulo:
+        f.texto(titulo, corpo=11.5, fonte="tibo", espaco_depois=3)
+        f.texto("Titulo copiado do proprio projeto por programa, do paragrafo "
+                "P%03d." % d["titulo"],
+                corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+    else:
+        f.texto(nome, corpo=11.5, fonte="tibo", espaco_depois=3)
+        f.texto("Este e o nome do arquivo, e nao o titulo do projeto: o "
+                "projeto nao foi informado, e titulo nao se digita.",
+                corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
 
     n = d["notas"]
     tabela(f, ["dimensao", "nota"],
            [[DIMENSOES[i - 1], n[i]] for i in (1, 2, 3, 4)]
-           + [["media das quatro", "%.1f" % d["media"]],
-              [DIMENSOES[4] + " (sem nota, fora da media)", d["nivel"]]],
+           + [[DIMENSOES[4] + " (sem nota)", d["nivel"]]],
            [70, 30])
 
-    f.texto("As tres linhas, e elas medem coisas diferentes",
-            corpo=12.5, fonte="tibo", espaco_antes=8, espaco_depois=6)
-    for rotulo, valor, porque in [
-        ("Selecao", d["selecao"],
-         "media %.1f contra a linha de 7. Aqui a banca ordena candidatos, e "
-         "compensar um criterio com outro e o que ela de fato faz."
-         % d["media"]),
-        ("Qualificacao", d["qualifica"],
-         "exige que nenhuma dimensao esteja abaixo de 7, e nao sai da media: "
-         "a pergunta e se o desenho, executado como esta escrito, produz a "
-         "resposta, e para isso nao ha compensacao."
-         + segura_quem(d["abaixo"])),
-        ("Aptidao", d["apto"],
-         "o que teria de mudar: %s" % (d["mudar"].strip() or "nada indicado")),
-    ]:
-        f.texto("%s: %s" % (rotulo, valor), corpo=10.5, fonte="tibo",
-                espaco_depois=2)
-        f.texto(porque, corpo=9.5, fonte="tiro", cor=COR_FRACA, recuo=12,
-                espaco_depois=8)
+    f.texto("Condicoes para que o projeto seja apresentavel a uma banca de "
+            "qualificacao", corpo=12.5, fonte="tibo", espaco_antes=10,
+            espaco_depois=7)
+    if not d["condicoes"]:
+        f.texto("Nenhuma. Nenhum impeditivo e nenhum bloqueio de partida em "
+                "dimensao nenhuma.", espaco_depois=8)
+    else:
+        for k, (dim, texto_c) in enumerate(d["condicoes"], 1):
+            f.texto("%d. %s" % (k, texto_c), corpo=10.5, espaco_depois=2)
+            f.texto("dimensao %d, %s" % (dim, DIMENSOES[dim - 1]),
+                    corpo=9, fonte="tiit", cor=COR_FRACA, recuo=14,
+                    espaco_depois=7)
 
-    f.texto("O nivel dos indicios de IA nao entra na media, nao entra no "
-            "criterio da qualificacao e nao muda a aptidao. Ele viaja ao "
-            "lado, e quem decide o que fazer com ele e a banca.",
-            corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=10)
+    f.texto("Esta lista nao e recomendacao de admitir ou nao admitir. Ela diz "
+            "o que falta ao documento, e a decisao se toma com coisas que a "
+            "leitura nao tem: os outros candidatos, as vagas, a linha de "
+            "pesquisa, a trajetoria de cada um. E o nivel dos indicios de IA "
+            "nao vira condicao e nao entra em nota nenhuma: ele viaja ao lado, "
+            "e quem decide o que fazer com ele e a banca.",
+            corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_antes=4,
+            espaco_depois=10)
 
     f.nova()
     escrever_leitura(f, nome, d, com_tarja=False)
@@ -311,7 +342,7 @@ def escrever_um(nome, d, caminho):
     doc.close()
 
 
-def um(caminho_md, caminho_pdf=None):
+def um(caminho_md, caminho_pdf=None, projeto=None):
     """Le UM relatorio da Selma e escreve o PDF dele."""
     arq = Path(caminho_md)
     if not arq.is_file():
@@ -330,11 +361,24 @@ def um(caminho_md, caminho_pdf=None):
         print("  de pedir correcao; o programa nao recusou nada.")
         print()
 
+    # O TITULO SE COPIA DO PROJETO, e nao se digita. Sem o projeto na mao,
+    # a peca sai identificada pelo nome do arquivo, dizendo que e o nome do
+    # arquivo: peca que exibe titulo que ninguem copiou parece identificada
+    # e nao esta.
+    titulo, aviso = (None, "o projeto nao foi informado (use --projeto)")
+    if projeto:
+        titulo, aviso = copiar_titulo(projeto, d["titulo"])
+    if aviso:
+        print("SEM O TITULO: %s." % aviso)
+        print("A peca sai com o nome do arquivo, e dizendo que e o nome do")
+        print("arquivo. O relatorio aponta o titulo em P%03d." % d["titulo"])
+        print()
+
     saida = caminho_pdf or str(arq.with_suffix(".pdf"))
-    escrever_um(arq.stem, d, saida)
-    print("%s: media %.1f, %s, %s, %s, indicios %s."
-          % (saida, d["media"], d["selecao"], d["qualifica"], d["apto"],
-             d["nivel"]))
+    escrever_um(arq.stem, d, saida, titulo)
+    print("%s: notas %s, indicios %s, %d condicao(oes)."
+          % (saida, ", ".join(str(d["notas"][i]) for i in (1, 2, 3, 4)),
+             d["nivel"], len(d["condicoes"])))
     print("A ficha foi montada pelo programa a partir do bloco de dados ja")
     print("conferido, e nao redigitada.")
 
@@ -362,39 +406,40 @@ def escrever_pdf(lidos, caminho):
 
     doc = fitz.open()
     f = Folha(doc)
-    f.texto("Leituras de banca de selecao", corpo=17, fonte="tibo",
+    f.texto("Leituras de projetos de pesquisa", corpo=17, fonte="tibo",
             espaco_depois=4)
     f.texto("%d projetos. As notas vao de 0 a 10 em quatro dimensoes; os "
-            "indicios de IA nao tem nota, nao entram na media e viajam ao "
-            "lado. A ordem e alfabetica, e nao por media." % len(lidos),
+            "indicios de IA nao tem nota e viajam ao lado. A ultima coluna traz "
+            "quantas condicoes o projeto precisa cumprir para ser apresentavel "
+            "a uma banca de qualificacao. A ordem e alfabetica." % len(lidos),
             corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=16)
 
     # AS TRES LINHAS DO VEREDITO VAO NA TABELA, e nao so as duas: a
     # aptidao e a que diz se o trabalho se conserta, e e a que muda o que
     # a banca faz depois. Deixa-la so no corpo do relatorio obrigaria a
     # abrir cada leitura para saber.
-    cabecalho = ["projeto", "1", "2", "3", "4", "media", "selecao",
-                 "qualifica", "apto", "indicios de IA"]
+    cabecalho = ["projeto", "1", "2", "3", "4", "indicios de IA",
+                 "condicoes"]
     linhas = []
     for nome in sorted(lidos):
         d = lidos[nome]
         n = d["notas"]
-        linhas.append([nome, n[1], n[2], n[3], n[4], "%.1f" % d["media"],
-                       d["selecao"], d["qualifica"], d["apto"], d["nivel"]])
+        linhas.append([nome, n[1], n[2], n[3], n[4], d["nivel"],
+                       len(d["condicoes"])])
     # As larguras foram medidas na pagina renderizada, e nao chutadas:
     # com as anteriores, "media" quebrava em "medi/a" e "nao recomendo"
     # em duas linhas. As colunas de nota levam um digito e nao precisam
     # de espaco; as de veredito levam palavra e precisam.
-    tabela(f, cabecalho, linhas, [17, 3.2, 3.2, 3.2, 3.2, 7, 10, 13, 8.5, 14])
+    tabela(f, cabecalho, linhas, [38, 4, 4, 4, 4, 17, 10])
 
     total = len(lidos)
-    passam = sum(1 for d in lidos.values() if d["media"] >= LINHA_SELECAO)
-    qualif = sum(1 for d in lidos.values() if not d["abaixo"])
+    sem_condicao = sum(1 for d in lidos.values() if not d["condicoes"])
     f.texto("A coorte, e aqui so se conta", corpo=12.5, fonte="tibo",
             espaco_antes=10, espaco_depois=6)
     conta = ["projetos lidos: %d" % total,
-             "media 7 ou mais, que e a linha da selecao: %d" % passam,
-             "nenhuma dimensao abaixo de 7: %d" % qualif]
+             "sem nenhuma condicao a cumprir: %d" % sem_condicao,
+             "condicoes ao todo: %d"
+             % sum(len(d["condicoes"]) for d in lidos.values())]
     for i, nome in enumerate(DIMENSOES[:4], 1):
         baixas = sum(1 for d in lidos.values() if d["notas"][i] < 7)
         media = sum(d["notas"][i] for d in lidos.values()) / float(total)
@@ -567,27 +612,27 @@ def agregar(pasta, pdf=None):
     # o agregador quebrava na primeira linha. O controle nao pegou porque
     # ele exercita ler_bloco, e nao agregar.
     larg = max([len(k) for k in lidos] + [len("projeto (ordem alfabetica)")])
-    cab = "%-*s  %4s %4s %4s %4s  %5s  %-10s %-13s %s" % (
+    cab = "%-*s  %4s %4s %4s %4s  %-22s %s" % (
         larg, "projeto (ordem alfabetica)", "1", "2", "3", "4",
-        "media", "selecao", "qualifica", "indicios de IA")
+        "indicios de IA", "condicoes")
     print(cab)
     print("-" * len(cab))
     for nome in sorted(lidos):
         d = lidos[nome]
         n = d["notas"]
-        print("%-*s  %4d %4d %4d %4d  %5.1f  %-10s %-13s %s" % (
-            larg, nome, n[1], n[2], n[3], n[4], d["media"],
-            d["selecao"], d["qualifica"], d["nivel"]))
+        print("%-*s  %4d %4d %4d %4d  %-22s %d" % (
+            larg, nome, n[1], n[2], n[3], n[4], d["nivel"],
+            len(d["condicoes"])))
     print()
 
     # ------------------------------------------------ a coorte, so contagem
     total = len(lidos)
-    passam = sum(1 for d in lidos.values() if d["media"] >= LINHA_SELECAO)
-    qualif = sum(1 for d in lidos.values() if not d["abaixo"])
+    sem_condicao = sum(1 for d in lidos.values() if not d["condicoes"])
     print("COORTE, e aqui so se conta:")
     print("  projetos lidos                         : %d" % total)
-    print("  media 7 ou mais (linha da selecao)     : %d" % passam)
-    print("  nenhuma dimensao abaixo de 7           : %d" % qualif)
+    print("  sem nenhuma condicao a cumprir         : %d" % sem_condicao)
+    print("  condicoes ao todo                      : %d"
+          % sum(len(d["condicoes"]) for d in lidos.values()))
     # SO AS QUATRO QUE TEM NOTA. Percorrer DIMENSOES inteira aqui buscava
     # notas[5], que deixou de existir quando os indicios sairam da conta, e
     # o lote quebrava DEPOIS de imprimir metade do relatorio, que e o pior
@@ -618,9 +663,9 @@ def agregar(pasta, pdf=None):
         escrever_pdf(lidos, pdf)
         print("  %s: relatorio do lote com a tabela comparativa." % pdf)
         print()
-    print("  A ordem da tabela e alfabetica, e nao por media, de proposito:")
-    print("  ordenar por media transforma a leitura em ranking, e a media nao")
-    print("  foi validada para ordenar. Ela diz de que lado da linha caiu.")
+    print("  A ordem da tabela e alfabetica, de proposito. Nao ha media, e a")
+    print("  contagem de condicoes tambem nao ordena: duas condicoes pequenas")
+    print("  nao valem menos que uma grande, e o que pesa esta escrito nelas.")
 
     # ------------------------------------------------- o controle embutido
     pares = {}
@@ -638,48 +683,62 @@ def agregar(pasta, pdf=None):
         return
     print("CONTROLE DE ESTABILIDADE (duas leituras do mesmo projeto):")
     for k, v in sorted(duplos.items()):
-        difs = [abs(v["a"]["notas"][i] - v["b"]["notas"][i]) for i in range(1, 6)]
-        print("  %-30s por dimensao: %s | maior: %d | media %.1f vs %.1f"
-              % (k, difs, max(difs), v["a"]["media"], v["b"]["media"]))
+        difs = [abs(v["a"]["notas"][i] - v["b"]["notas"][i])
+                for i in range(1, 5)]
+        print("  %-30s por dimensao: %s | maior: %d | condicoes %d vs %d"
+              % (k, difs, max(difs), len(v["a"]["condicoes"]),
+                 len(v["b"]["condicoes"])))
 
 
 # --------------------------------------------------------------- controle
 BOM = """DADOS
+TITULO | P002
 1 | problema e justificativa | 0 | 1 | 1 | 5
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
 4 | bibliografia | 0 | 0 | 3 | 7
 5 | indicios de ia | - | - | - | leves
-MEDIA | 5.5
-SELECAO | nao passa
-QUALIFICA | nao recomendo | 1,2,3
-APTO | apto | delimitar a lista de casos
+CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
+CONDICAO | 2 | fechar a lista de casos antes de comecar
+CONDICAO | 3 | dizer que decisao passa a ser tomada de outro modo
 FIM"""
 
 
 def controle():
     """Positivo: cada defeito que o conferidor deveria pegar tem de reprovar."""
     ok = ler_bloco(BOM, "controle")
-    assert ok["media"] == 5.5 and ok["abaixo"] == [1, 2, 3], ok
+    assert ok["abaixo"] == [1, 2, 3], ok
     assert ok["nivel"] == "leves", ok
-    assert ok["apto"] == "apto" and ok["mudar"], ok
+    assert ok["titulo"] == 2, ok
+    assert len(ok["condicoes"]) == 3, ok
+    assert ok["condicoes"][0][0] == 1 and ok["condicoes"][0][1], ok
     print("  o bloco bom passa                                 ok")
 
     casos = [
-        ("media que nao bate", BOM.replace("MEDIA | 5.5", "MEDIA | 7.4")),
-        ("selecao contradiz a media", BOM.replace("nao passa", "passa")),
-        ("qualifica omite uma dimensao baixa",
-         BOM.replace("| 1,2,3", "| 1,2")),
         ("nota fora de 0-10", BOM.replace("| 0 | 3 | 7", "| 0 | 3 | 17")),
         ("nivel invalido", BOM.replace("| leves", "| razoavel")),
         ("dimensao 5 com nota", BOM.replace("- | leves", "- | 8")),
-        ("sem a linha APTO",
-         BOM.replace("APTO | apto | delimitar a lista de casos" + chr(10), "")),
-        ("APTO com palavra que nao existe",
-         BOM.replace("APTO | apto |", "APTO | talvez |")),
-        ("APTO diz apto e nao diz o que mudaria",
-         BOM.replace("APTO | apto | delimitar a lista de casos",
-                     "APTO | apto | ")),
+        ("sem a linha TITULO",
+         BOM.replace("TITULO | P002" + chr(10), "")),
+        ("TITULO com o titulo escrito, e nao o localizador",
+         BOM.replace("TITULO | P002",
+                     "TITULO | A deferencia judicial como limite")),
+        ("TITULO sem numero", BOM.replace("TITULO | P002", "TITULO | P")),
+        ("sem nenhuma linha CONDICAO",
+         chr(10).join(l for l in BOM.split(chr(10))
+                      if not l.startswith("CONDICAO"))),
+        ("CONDICAO aponta dimensao que nao existe",
+         BOM.replace("CONDICAO | 1 |", "CONDICAO | 8 |")),
+        ("CONDICAO que nao diz o que fazer",
+         BOM.replace("CONDICAO | 1 | dizer quem decidiria diferente "
+                     "conforme a resposta", "CONDICAO | 1 |")),
+        ("dimensao com impeditivo e nenhuma condicao saida dela",
+         BOM.replace("CONDICAO | 2 | fechar a lista de casos antes de "
+                     "comecar" + chr(10), "")),
+        ("condicao numa dimensao sem impeditivo nem bloqueio",
+         BOM.replace("4 | bibliografia | 0 | 0 | 3 | 7",
+                     "4 | bibliografia | 0 | 0 | 3 | 7" + chr(10) +
+                     "CONDICAO | 4 | trocar a bibliografia inteira")),
         ("dimensao com nome trocado",
          BOM.replace("metodologia e teoria", "metodologia")),
         ("falta uma dimensao",
@@ -714,7 +773,10 @@ if __name__ == "__main__":
         if len(sys.argv) < 3:
             sys.exit("falta a pasta")
         if sys.argv[1] == "um":
-            um(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+            # selma_lote.py um relatorio.md [saida.pdf] [projeto.pdf]
+            um(sys.argv[2],
+               sys.argv[3] if len(sys.argv) > 3 else None,
+               sys.argv[4] if len(sys.argv) > 4 else None)
         elif sys.argv[1] == "preparar":
             preparar(sys.argv[2])
         else:

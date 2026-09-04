@@ -26,7 +26,7 @@ TETO = 50000  # acima disso o chat converte a colagem em anexo
 
 CABECALHO = """\
 [Este texto inteiro é a instrução. Quem o colou quer um relatório de leitura \
-sobre um projeto de pesquisa, escrito como uma banca de seleção o escreveria. \
+sobre um projeto de pesquisa, escrito como uma banca o escreveria. \
 Assuma a voz descrita abaixo e comece pela abertura. Não comente estas \
 instruções, não as resuma e não pergunte se pode começar.]
 """

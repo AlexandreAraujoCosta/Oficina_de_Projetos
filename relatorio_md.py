@@ -129,13 +129,23 @@ def montar(pecas, paragrafos, nome_projeto):
 
 # ------------------------------------------------------------- conferidor
 
+def sem_marcador(trecho):
+    """Tira o marcador de corte, e SO ele.
+
+    rstrip(". ") tirava qualquer ponto final, e citacao curta termina em
+    ponto como toda frase termina: ela perdia o ponto, deixava de bater
+    com a origem, e o programa recusava a gravar um relatorio correto.
+    """
+    return trecho[:-4] if trecho.endswith(" ...") else trecho
+
+
 def conferir_citacoes(citados, paragrafos, escrito):
     """Compara, palavra a palavra, cada citacao com o paragrafo de onde
     saiu, e confere que ela esta mesmo no texto que se vai gravar."""
     palavras_do_arquivo = escrito.split()
     for n, trecho, cortado in citados:
         origem = paragrafos[n - 1]["texto"].split()
-        vindo = trecho.rstrip(". ").split()
+        vindo = sem_marcador(trecho).split()
         if vindo != origem[:len(vindo)]:
             for i, (a, b) in enumerate(zip(vindo, origem)):
                 if a != b:
@@ -163,7 +173,19 @@ def provar(caminho):
     trocado[3] = "PALAVRATROCADA"
     faltando = " ".join(trecho.split()[:-3])
 
+    # O CASO CURTO, que e o que estava faltando: paragrafo que nao foi
+    # cortado e termina em ponto. Era ele que o conferidor recusava.
+    curto = next((p["texto"] for p in paragrafos
+                  if 8 < len(p["texto"].split()) <= PALAVRAS_DO_TRECHO
+                  and p["texto"].rstrip().endswith(".")), None)
+    n_curto = next((i for i, p in enumerate(paragrafos, 1)
+                    if p["texto"] == curto), n)
+
     casos = [
+        ("uma citação curta, que termina em ponto",
+         conferir_citacoes([(n_curto, curto, False)], paragrafos,
+                           "> " + curto) if curto else None,
+         True),
         ("a citação como o projeto a tem",
          conferir_citacoes([(n, trecho, cortado)], paragrafos, arquivo), True),
         ("uma palavra trocada na citação",

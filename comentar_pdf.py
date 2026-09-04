@@ -82,6 +82,19 @@ TOLERANCIA_LINHA = 3.0
 # linha cheia, em pontos.
 FOLGA_MARGEM = 12.0
 
+# Fracao das linhas que precisa comecar na mesma margem esquerda para a
+# pagina contar como texto corrido. Medido nos projetos deste acervo:
+# paginas de corpo dao 92% e 97%, e capas centradas dao 50% e 55%.
+FRACAO_ALINHADA = 0.70
+
+# Duas margens esquerdas ate esta distancia contam como a mesma.
+TOLERANCIA_MARGEM = 2.0
+
+# Numa pagina que nao e texto corrido, o bloco fecha quando o salto
+# vertical passa desta fracao do salto tipico da pagina. Medido nas capas
+# deste acervo: dentro do bloco, 20,5 a 20,8 pontos; entre blocos, 62 a 95.
+SALTO_DE_BLOCO = 1.6
+
 # Diferenca de corpo a partir da qual duas linhas nao sao do mesmo bloco.
 # E o que separa a nota de rodape do texto, sem precisar decidir qual e
 # qual: basta que nao se juntem.
@@ -150,12 +163,65 @@ def so_numero(t):
     return re.fullmatch(r"\d{1,4}", t.strip()) is not None
 
 
+def alinhada_a_esquerda(linhas):
+    """A pagina e texto corrido, ou e capa e folha de rosto?
+
+    A regra da margem direita so vale onde o texto e justificado. Numa
+    capa centrada ela nunca fecha paragrafo, porque as linhas mais longas
+    da pagina sao as do titulo, e e a linha mais longa que define a
+    margem. O resultado era a capa inteira virando um paragrafo so, com o
+    titulo grudado no nome da instituicao.
+    """
+    if not linhas:
+        return True
+    grupos = {}
+    for l in linhas:
+        chave = round(l["x0"] / TOLERANCIA_MARGEM)
+        grupos[chave] = grupos.get(chave, 0) + 1
+    return max(grupos.values()) >= FRACAO_ALINHADA * len(linhas)
+
+
+def blocos_por_salto(linhas, indice):
+    """Agrupa as linhas de uma pagina centrada pelos saltos verticais.
+
+    Sem isto, a capa saia linha a linha e O TITULO OCUPAVA DOIS
+    PARAGRAFOS, de modo que o localizador do titulo alcancava metade dele.
+    """
+    saltos = sorted(linhas[i + 1]["y"] - linhas[i]["y"]
+                    for i in range(len(linhas) - 1))
+    tipico = saltos[len(saltos) // 2] if saltos else 0.0
+    limite = SALTO_DE_BLOCO * tipico if tipico > 0 else float("inf")
+
+    saida, atual = [], []
+
+    def fechar():
+        if not atual:
+            return
+        saida.append({
+            "pagina": indice,
+            "texto": " ".join(l["texto"] for l in atual),
+            "rects": [[l["x0"], l["y"], l["x1"], l["y1"]] for l in atual],
+        })
+        atual.clear()
+
+    for l in linhas:
+        if atual:
+            a = atual[-1]
+            if l["y"] - a["y"] > limite or l["negrito"] != a["negrito"]:
+                fechar()
+        atual.append(l)
+    fechar()
+    return saida
+
+
 def paragrafos_da_pagina(linhas, indice):
     """Devolve os paragrafos da pagina, cada um com texto e retangulos."""
     if linhas and so_numero(linhas[-1]["texto"]):
         linhas = linhas[:-1]                    # numero de pagina solto
     if not linhas:
         return []
+    if not alinhada_a_esquerda(linhas):
+        return blocos_por_salto(linhas, indice)
     margem = max(l["x1"] for l in linhas)
 
     saida, atual = [], []

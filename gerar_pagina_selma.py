@@ -27,21 +27,23 @@ SAIDA = PASTA / "pagina_selma.html"
 OFICINA = "https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd"
 MIRO = "https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb"
 
-CORPO = """<title>Selma — leitura de banca de seleção</title>
+CORPO = """<title>Selma — leitura de projeto de pesquisa</title>
 
 %(estilo)s
 
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Universidade de Brasília · Seleção e qualificação ·
+  <p class="eyebrow">Universidade de Brasília · Leitura de projetos ·
   <a href="%(oficina)s">Oficina de Projetos</a></p>
   <h1>Selma</h1>
-  <p class="lead"><strong>Selma lê um projeto de pesquisa como uma banca de
-  seleção o leria</strong>, e devolve um relatório de uma página, com nota por
-  dimensão. Não há conversa: ela lê, classifica e entrega. O
-  <a href="%(miro)s">Miro</a> trabalha com quem escreve, e não julga ninguém;
-  ela faz a leitura oposta, que é a que decide.</p>
+  <p class="lead"><strong>Selma lê um projeto de pesquisa como uma banca o
+  leria</strong>, e devolve um relatório curto: o que o projeto traz em cada
+  parte, o que cada parte vale, e <strong>que condições ele precisa cumprir
+  para ser apresentável a uma banca de qualificação</strong>. Não há conversa:
+  ela lê, classifica e entrega. O <a href="%(miro)s">Miro</a> trabalha com quem
+  escreve, e não julga ninguém; ela faz a leitura oposta, que é a que
+  decide.</p>
 </header>
 
 <div class="nota">
@@ -79,8 +81,8 @@ como dimensão aprovada.</p>
     <li><strong>Bibliografia.</strong> A lista contra o texto, a composição da
     lista, e a existência das obras quando há busca.</li>
     <li><strong>Indícios de uso de IA.</strong> As marcas que se conferem na
-    página, e o que elas custam. <b>Esta não tem nota e não entra na média:</b>
-    é graduada em quatro níveis, e viaja ao lado das outras.</li>
+    página, e o que elas custam. <b>Esta não tem nota:</b> é graduada em
+    quatro níveis, e viaja ao lado das outras.</li>
   </ol>
 </div>
 
@@ -88,8 +90,8 @@ como dimensão aprovada.</p>
 valem</strong>, na ordem e com os nomes que ele usa, porque quem avalia
 preenche uma ficha e relatório organizado por outros critérios obriga a banca
 a traduzir cada achado. O que o edital pontua e ela não lê (currículo,
-entrevista, proficiência) fica de fora, sem nota inventada, e ela diz que a
-média é só sobre o que pôde avaliar.</p>
+entrevista, proficiência) fica de fora, sem nota inventada, e ela diz
+quantos critérios entraram e quantos ficaram de fora.</p>
 
 <h2 id="nota">A nota sai de uma contagem</h2>
 
@@ -107,14 +109,27 @@ subdivisões</b> de uma seção sobe uma classe, e achado que atinge afirmação
 que o projeto repete em <b>três ou mais tópicos</b> também sobe. A subida é de
 uma classe só.</p>
 
-<h3>Duas linhas, e elas medem coisas diferentes</h3>
-<p><b>A aprovação na seleção está na média 7.</b> Ali a banca ordena
-candidatos, e compensar um critério com outro é o que ela de fato faz.
-<b>A recomendação de levar à qualificação não sai da média:</b> exige que
-nenhuma dimensão esteja abaixo de 7, porque a pergunta ali é se o desenho,
-executado como está escrito, produz a resposta, e para isso não há
-compensação. A conta mostra por quê: 10, 10, 10, 10 e 2 dá média 8,4, num
-projeto com uma dimensão sem material nenhum.</p>
+<h3>Uma conclusão só: as condições</h3>
+<p>Ela não calcula média e não dá veredito de aprovação. <b>A única coisa
+que ela conclui é a lista de condições para o projeto ser apresentável a uma
+banca de qualificação</b>, e essa lista já está na contagem, sem conta nova,
+porque as três classes são uma escala de custo de conserto. Impeditivo vira
+condição sempre; bloqueio de partida vira condição sempre; localizado não vira,
+porque se resolve no caminho, e listá-lo transformaria a peça numa lista de
+reparos.</p>
+
+<p><b>Cada condição se escreve como coisa a fazer</b>, no infinitivo, com a
+dimensão de onde vem e o tópico em que o problema está. Fechar a lista de casos
+antes de começar, e não “o corpus é frágil”. Quem lê decide com a primeira
+forma; com a segunda, não decide nada. E quando não há nenhuma, isso se
+escreve, e é a frase mais forte que a leitura pode produzir sobre um projeto:
+nenhum impeditivo e nenhum bloqueio de partida em dimensão nenhuma.</p>
+
+<p><b>A média saiu junto com o veredito</b>, e a razão é que ela só servia para
+dizer de que lado da linha de 7 o projeto caía. Sem a linha, seria número sem
+âncora, e número sem âncora numa ficha de banca é convite a ordenar por ele. As
+quatro notas por dimensão ficam: são o diagnóstico, e é delas que as condições
+saem.</p>
 
 <div class="confere">
   <section class="sim">
@@ -136,8 +151,8 @@ projeto com uma dimensão sem material nenhum.</p>
 <p>É a que mais rende, e a resposta já está na contagem, sem conta nova:
 <strong>as três classes são uma escala de custo de conserto.</strong> Sem
 nenhum impeditivo, o projeto é apto, e um projeto com cinco localizados está
-mais perto de ser aprovado do que um com um impeditivo só, ainda que a média
-diga o contrário. Com impeditivo, ela diz para cada um o que teria de mudar e
+mais perto de ser aprovado do que um com um impeditivo só, ainda que as notas
+digam o contrário. Com impeditivo, ela diz para cada um o que teria de mudar e
 de que tamanho é a mudança: reescrever uma seção é uma coisa, refazer a
 pergunta é outra, e só essa última é não apto.</p>
 <p>E o relatório fecha com <strong>o que a arguição pode ganhar</strong>: até
@@ -163,7 +178,7 @@ que se corta é a pergunta.</p>
 <h3>A bibliografia se avalia por conteúdo, não por forma</h3>
 <p>Editora trocada, ano divergente entre o texto e a lista, sobrenome grafado
 de dois jeitos: nada disso é achado. É revisão de texto, e num parecer de
-seleção desloca a atenção do que decide, além de ser o erro mais comum de
+banca desloca a atenção do que decide, além de ser o erro mais comum de
 qualquer bibliografia escrita por gente. O que fica é conteúdo: se as obras
 existem, se a lista dá conta da pergunta, se afirmação central se apoia em obra
 ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
@@ -171,17 +186,16 @@ ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
 <h2 id="ia">Os indícios de IA se graduam, e não se contam</h2>
 
 <div class="nota" style="border-left-color: var(--warn);">
-  <p><strong>Esta dimensão não tem nota e ficou fora da média</strong>, e a
-  correção veio de um defeito medido: enquanto ela pontuava, <b>não ter marca
-  valia 10</b>, e nenhuma outra dimensão dá 10 por ausência de achado. A falta
-  de defeito estava sendo premiada como excelência, e um projeto mediano sem
-  marcas subia acima da linha por causa disso.</p>
+  <p><strong>Esta dimensão não tem nota</strong>, e a correção veio de um
+  defeito medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e
+  nenhuma outra dimensão dá 10 por ausência de achado. A falta de defeito
+  estava sendo premiada como excelência.</p>
   <p>No lugar da nota, quatro níveis: <b>fortes (uso abusivo)</b>, quando as
   marcas mostram na página que o texto não foi controlado por quem o assina;
   <b>fortes (uso indeterminado)</b>, quando são fortes e ainda compatíveis com
   pressa ou revisão mal feita; <b>leves</b>; e <b>ausentes</b>. O nível não
-  entra na média, não entra no critério da qualificação e não muda a aptidão:
-  viaja ao lado, e quem decide o que fazer com ele é a banca.</p>
+  vira condição e não entra em nota nenhuma: viaja ao lado, e quem decide o
+  que fazer com ele é a banca.</p>
 </div>
 
 <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
@@ -242,12 +256,14 @@ vinte no mesmo contexto. Isso não é limitação a superar: se um modelo lê vi
 seguidos, o sétimo é lido contra a lembrança dos seis anteriores, e o mesmo
 defeito recebe nota diferente conforme o que veio antes.</p>
 
-<p>Cada relatório fecha com um <b>bloco de dados</b>, e é dele que a tabela do
-lote se monta, <b>por um programa e não por um modelo</b>: quem copia vinte
+<p>Cada relatório fecha com um <b>bloco de dados</b>, que traz também o
+localizador do título (o programa é que copia o título do projeto, porque
+título digitado por modelo faz a peça apontar para outro trabalho), e é dele
+que a tabela do lote se monta, <b>por um programa e não por um modelo</b>: quem copia vinte
 linhas de números troca uma. O programa recusa o relatório cujo bloco não
-fecha. <b>E a tabela sai em ordem alfabética, não por média</b>, porque tabela
-ordenada por média é um ranking, e a média foi feita para dizer de que lado da
-linha o projeto caiu, não para ordenar.</p>
+fecha. <b>E a tabela sai em ordem alfabética</b>: não há média para ordenar, e
+a contagem de condições também não ordena, porque duas condições pequenas não
+valem menos que uma grande.</p>
 
 <p><b>A saída do lote é um PDF</b>: a tabela comparativa, as contagens da
 coorte (só contagens: dizer que a turma tem dificuldade com metodologia seria
