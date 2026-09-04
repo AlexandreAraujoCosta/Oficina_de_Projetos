@@ -38,6 +38,10 @@ COR_FRACA = (0.42, 0.42, 0.45)
 COR_MARCA = (0.62, 0.42, 0.10)
 COR_FUNDO = (0.975, 0.965, 0.94)
 
+# Linhas que nao se deixam sozinhas de um lado da quebra. Uma linha solta
+# no pe ou no alto de uma pagina le-se como erro de quem escreveu.
+MINIMO_DE_LINHAS = 2
+
 
 class Folha:
     """Um cursor que desce pela pagina e vira a folha quando acaba."""
@@ -57,59 +61,141 @@ class Folha:
 
     def texto(self, txt, corpo=CORPO, fonte="tiro", cor=COR_TINTA,
               recuo=0, espaco_antes=0, espaco_depois=6, fundo=None):
-        """Escreve e desce o cursor pela altura QUE O PYMUPDF DIZ TER
-        USADO, e nao por uma altura que eu calcule antes.
+        """Escreve e desce o cursor pela altura DA TINTA.
 
-        A PRIMEIRA VERSAO MEDIA A ALTURA POR CONTA PROPRIA e passava a
-        caixa justa. insert_textbox precisa de folga (ascendente e
-        descendente da fonte) e devolvia negativo, que e o sinal de nao
-        coube; o meu tratamento de nao coube consumia o resto da pagina,
-        e sete itens sairam em vinte e cinco paginas. Agora a caixa vai
-        ate a margem de baixo e a altura usada e a caixa menos a sobra.
+        DUAS MEDIDAS JA FALHARAM AQUI, e as duas no mesmo sentido, o que
+        faz o bloco seguinte cair por cima do anterior. A sobra que o
+        insert_textbox devolve e curta: no bloco mais longo de uma peca
+        real, a tinta ocupou 328,0 pontos e a sobra disse 316,1. E a
+        contagem de linhas por text_length tambem e curta, porque o
+        insert_textbox quebra a linha um pouco antes: dizia 21 onde o
+        texto ocupou 22.
+
+        ENTAO A ALTURA SAI DO BBOX DO QUE FICOU DESENHADO, numa pagina
+        descartavel de mesma largura. Nao e estimativa.
+        """
+        resto = txt
+        primeiro = True
+        while resto:
+            resto = self._escrever_pedaco(
+                resto, corpo, fonte, cor, recuo,
+                espaco_antes if primeiro else 0,
+                espaco_depois, fundo, inteiro=(fundo is not None))
+            primeiro = False
+
+    def _escrever_pedaco(self, txt, corpo, fonte, cor, recuo, espaco_antes,
+                         espaco_depois, fundo, inteiro):
+        """Escreve o que couber e devolve o que sobrou.
+
+        BLOCO COM FUNDO NAO SE PARTE: a tarja pintada atras de uma citacao
+        cortada ao meio fica pior que a quebra que ela evita.
         """
         largura = LARGURA_UTIL - recuo
         fundo_da_pagina = ALTURA - MARGEM - 18
-
-        def tentar(y):
-            caixa = fitz.Rect(MARGEM + recuo, y,
-                              MARGEM + recuo + largura, fundo_da_pagina)
-            sobra = self.pagina.insert_textbox(
-                caixa, txt, fontsize=corpo, fontname=fonte, color=cor,
-                lineheight=ENTRELINHA, align=fitz.TEXT_ALIGN_LEFT)
-            return sobra, caixa
+        alt = self.altura_de(txt, corpo, fonte, recuo)
+        linha = corpo * ENTRELINHA
 
         y = self.y + espaco_antes
-        sobra, caixa = tentar(y)
-        if sobra < 0:                       # nao coube nesta pagina
-            self.nova()
-            y = self.y
-            sobra, caixa = tentar(y)
-            if sobra < 0:
-                sys.exit("ERRO: um bloco nao cabe nem numa pagina inteira. "
-                         "Encurte o comentario.")
-        usada = caixa.height - sobra
+        disponivel = fundo_da_pagina - y
+
+        if alt > disponivel:
+            cabem = int((disponivel - espaco_antes) // linha)
+            if inteiro or cabem < MINIMO_DE_LINHAS:
+                self.nova()
+                y = self.y
+                disponivel = fundo_da_pagina - y
+                alt = self.altura_de(txt, corpo, fonte, recuo)
+                if alt > disponivel:
+                    if inteiro:
+                        sys.exit("ERRO: um bloco com fundo nao cabe numa "
+                                 "pagina inteira. Encurte o texto.")
+                    cabem = int(disponivel // linha)
+                else:
+                    cabem = None
+            if cabem is not None:
+                aqui, sobra_txt = self._partir(txt, corpo, fonte, recuo,
+                                               disponivel, linha)
+                if sobra_txt:
+                    self._pintar(aqui, corpo, fonte, cor, recuo, y, largura,
+                                 fundo_da_pagina, None)
+                    self.nova()
+                    return sobra_txt
+                txt = aqui
+
+        alt = self.altura_de(txt, corpo, fonte, recuo)
+        self._pintar(txt, corpo, fonte, cor, recuo, y, largura,
+                     fundo_da_pagina, fundo, alt)
+        self.y = y + alt + espaco_depois
+        return ""
+
+    def _partir(self, txt, corpo, fonte, recuo, disponivel, linha):
+        """Acha onde partir, RECUANDO quando o resto ficaria com uma viuva.
+
+        A PRIMEIRA VERSAO RECUSAVA A QUEBRA nesse caso, e o paragrafo
+        inteiro saltava de pagina: media, oito linhas em branco no pe.
+        Tipografo nao recusa a quebra por causa da viuva, ele recua o
+        corte ate o resto ter duas linhas. Aqui e o mesmo: o teto do
+        pedaco de cima e o menor entre o que cabe na pagina e o que deixa
+        duas linhas para a seguinte.
+        """
+        palavras = txt.split()
+        alt = self.altura_de(txt, corpo, fonte, recuo)
+        teto = min(disponivel, alt - MINIMO_DE_LINHAS * linha)
+        if teto < MINIMO_DE_LINHAS * linha:
+            return "", txt            # nao ha como deixar duas de cada lado
+
+        baixo, alto_i, melhor = 1, len(palavras), 0
+        while baixo <= alto_i:
+            meio = (baixo + alto_i) // 2
+            h = self.altura_de(" ".join(palavras[:meio]), corpo, fonte, recuo)
+            if h <= teto:
+                melhor = meio
+                baixo = meio + 1
+            else:
+                alto_i = meio - 1
+        if melhor == 0:
+            return "", txt
+        aqui = " ".join(palavras[:melhor])
+        sobra = " ".join(palavras[melhor:])
+        if not sobra:
+            return txt, ""
+        if self.altura_de(aqui, corpo, fonte, recuo) < MINIMO_DE_LINHAS * linha:
+            return "", txt
+        return aqui, sobra
+
+    def _pintar(self, txt, corpo, fonte, cor, recuo, y, largura,
+                fundo_da_pagina, fundo, alt=None):
+        caixa = fitz.Rect(MARGEM + recuo, y,
+                          MARGEM + recuo + largura, fundo_da_pagina)
+        self.pagina.insert_textbox(
+            caixa, txt, fontsize=corpo, fontname=fonte, color=cor,
+            lineheight=ENTRELINHA, align=fitz.TEXT_ALIGN_LEFT)
         if fundo is not None:
             # overlay=False poe o retangulo ABAIXO do texto ja escrito.
             self.pagina.draw_rect(
                 fitz.Rect(MARGEM + recuo - 8, y - 4,
-                          MARGEM + LARGURA_UTIL, y + usada + 4),
+                          MARGEM + LARGURA_UTIL, y + alt + 4),
                 color=None, fill=fundo, overlay=False)
-        self.y = y + usada + espaco_depois
 
     def altura_de(self, txt, corpo, fonte, recuo=0):
-        """Quanto o bloco vai ocupar, medido pelo MESMO motor que escreve,
-        numa pagina descartavel. Medir por conta propria e o que ja errou
-        uma vez aqui."""
+        """Quanto a TINTA vai ocupar, medida no bbox do que fica desenhado
+        numa pagina descartavel de mesma largura."""
         rascunho = fitz.open()
         pg = rascunho.new_page(width=LARGURA, height=ALTURA)
-        caixa = fitz.Rect(MARGEM + recuo, MARGEM,
+        topo = MARGEM
+        caixa = fitz.Rect(MARGEM + recuo, topo,
                           MARGEM + recuo + LARGURA_UTIL - recuo,
                           ALTURA - MARGEM - 18)
         sobra = pg.insert_textbox(caixa, txt, fontsize=corpo, fontname=fonte,
                                   lineheight=ENTRELINHA,
                                   align=fitz.TEXT_ALIGN_LEFT)
+        if sobra < 0:
+            rascunho.close()
+            return caixa.height          # nao coube: quem chama decide
+        blocos = [b for b in pg.get_text("blocks") if b[6] == 0]
+        alt = (max(b[3] for b in blocos) - topo) if blocos else 0.0
         rascunho.close()
-        return caixa.height - sobra if sobra >= 0 else caixa.height
+        return alt
 
     def juntar(self, alturas):
         """Vira a folha ANTES do bloco quando o conjunto nao cabe. Sem
@@ -175,3 +261,74 @@ def tabela(f, cabecalho, linhas, larguras, corpo=9):
     for i, linha in enumerate(linhas):
         escrever(linha, "helv", (0.975, 0.972, 0.965) if i % 2 else None)
     f.y += 6
+
+
+def conferir_sobreposicao(doc, folga=0.5):
+    """Devolve a lista de sobreposicoes de tinta, pagina a pagina.
+
+    POR QUE ISTO EXISTE. Sobreposicao so aparece a olho, e a olho so
+    aparece quando alguem olha. Quatro pecas sairam hoje com um titulo
+    desenhado por cima da ultima linha do paragrafo anterior, e ninguem
+    olhou a pagina em que estava.
+
+    A FOLGA existe porque bloco vizinho pode encostar por meio ponto sem
+    que isso seja defeito; sobreposicao de verdade e de linha inteira.
+    """
+    achados = []
+    for pg in doc:
+        blocos = sorted((b for b in pg.get_text("blocks") if b[6] == 0),
+                        key=lambda b: b[1])
+        for i in range(1, len(blocos)):
+            de_cima, de_baixo = blocos[i - 1], blocos[i]
+            if de_baixo[1] < de_cima[3] - folga:
+                achados.append(
+                    "pagina %d: %r comeca em %.1f e o bloco acima acaba em "
+                    "%.1f" % (pg.number + 1,
+                              " ".join(de_baixo[4].split())[:40],
+                              de_baixo[1], de_cima[3]))
+    return achados
+
+
+def gravar(doc, caminho):
+    """Grava, e so grava se nada se sobrepuser."""
+    achados = conferir_sobreposicao(doc)
+    if achados:
+        for a in achados:
+            print("  SOBREPOSICAO: " + a)
+        sys.exit("PAREI: ha texto desenhado por cima de texto. Nada foi "
+                 "gravado.")
+    doc.save(caminho)
+
+
+def provar_a_folha():
+    """Controle positivo do conferidor de sobreposicao."""
+    bom = fitz.open()
+    f = Folha(bom)
+    for i in range(6):
+        f.texto("Paragrafo %d. " % i + "Palavra " * 60)
+    ruim = fitz.open()
+    pg = ruim.new_page(width=LARGURA, height=ALTURA)
+    pg.insert_textbox(fitz.Rect(MARGEM, 100, MARGEM + LARGURA_UTIL, 300),
+                      "Primeiro bloco. " + "Palavra " * 40, fontsize=CORPO,
+                      fontname="tiro")
+    pg.insert_textbox(fitz.Rect(MARGEM, 110, MARGEM + LARGURA_UTIL, 300),
+                      "Segundo bloco, desenhado por cima do primeiro.",
+                      fontsize=CORPO, fontname="tibo")
+
+    casos = [("uma folha montada pela Folha", bom, 0),
+             ("dois blocos desenhados por cima", ruim, 1)]
+    print("Controle positivo do conferidor de sobreposicao:")
+    ok = True
+    for nome, doc, esperados in casos:
+        houve = len(conferir_sobreposicao(doc))
+        certo = (houve == 0) == (esperados == 0)
+        ok = ok and certo
+        print("  %-36s %d achado(s), esperava %s  %s"
+              % (nome, houve, "nenhum" if esperados == 0 else "algum",
+                 "ok" if certo else "DIVERGIU"))
+    bom.close()
+    ruim.close()
+    print()
+    print("O conferidor separa os casos." if ok
+          else "O CONFERIDOR NAO SEPARA OS CASOS.")
+    return ok

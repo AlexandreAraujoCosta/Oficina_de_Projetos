@@ -239,50 +239,100 @@ def copiar_titulo(projeto, localizador):
     return " ".join(paras[localizador - 1].split()), None
 
 
+def e_titulo(linha):
+    """Linha curta e toda em maiusculas e titulo.
+
+    A leitura nao escreve "#": ela datilografa o titulo em caixa alta,
+    como num parecer. Enquanto o programa so reconhecia "#", os titulos
+    das cinco dimensoes sairam em corpo de texto, sem negrito e sem ar em
+    volta, e a peca ficou sem hierarquia nenhuma no corpo.
+
+    O TESTE E ESTRITO de proposito: todas as letras maiusculas. Paragrafo
+    de prosa tem minuscula na primeira palavra, sempre.
+    """
+    s = linha.strip().rstrip(":")
+    if not s or len(s) > 70:
+        return False
+    letras = [c for c in s if c.isalpha()]
+    return len(letras) >= 3 and all(c.isupper() for c in letras)
+
+
 def blocos_do_relatorio(texto):
     """Parte o relatorio em titulos e paragrafos.
 
     TITULO E BLOCO PROPRIO, ainda que nao venha seguido de linha em
     branco. Partindo so por linha em branco, o titulo grudava no
     paragrafo seguinte e A PAGINA INTEIRA SAIA EM NEGRITO, porque o bloco
-    todo herdava a fonte do titulo. O titulo de primeiro nivel sai fora:
-    o nome do projeto ja encabeca a peca.
+    todo herdava a fonte do titulo. O titulo de primeiro nivel, marcado
+    com um "#" so, sai fora: o nome do projeto ja encabeca a peca.
     """
     blocos, atual = [], []
+
+    def fechar():
+        if atual:
+            blocos.append(("prosa", " ".join(" ".join(atual).split())))
+            del atual[:]
+
     for linha in texto.split(chr(10)):
-        if linha.strip().startswith("#"):
-            if atual:
-                blocos.append(("prosa", " ".join(" ".join(atual).split())))
-                atual = []
+        crua = linha.strip()
+        if crua.startswith(chr(96) * 3):
+            # A CERCA DE CODIGO E MARCA DO TRANSPORTE, e nao do documento:
+            # a leitura entrega o relatorio dentro de um bloco de codigo, e
+            # as tres crases sairam impressas como se fossem paragrafo.
+            fechar()
+            continue
+        if crua.startswith("#"):
+            fechar()
             nivel = len(linha) - len(linha.lstrip("#"))
             if nivel > 1:
-                blocos.append(("titulo", linha.lstrip("# ").strip()))
-        elif linha.strip():
-            atual.append(linha.strip())
-        elif atual:
-            blocos.append(("prosa", " ".join(" ".join(atual).split())))
-            atual = []
-    if atual:
-        blocos.append(("prosa", " ".join(" ".join(atual).split())))
+                blocos.append(("titulo", crua.lstrip("# ").strip()))
+        elif e_titulo(crua):
+            fechar()
+            blocos.append(("titulo", crua.rstrip(":")))
+        elif crua:
+            atual.append(crua)
+        else:
+            fechar()
+    fechar()
     return [(tipo, txt) for tipo, txt in blocos if txt]
 
 
-def escrever_leitura(f, nome, d, com_tarja=True):
+def nivel_do_titulo(txt):
+    """Bloco do relatorio (1., 2., 3.) ou dimensao (1, 2, 3)?
+
+    Os dois sairam no mesmo corpo, e o segundo esta DENTRO do primeiro:
+    quem folheia nao via o encaixe. O ponto depois do numero e o que os
+    separa, e e a propria leitura que o escreve assim.
+    """
+    return 1 if re.match(r"^\d+\.", txt.strip()) else 2
+
+
+def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True):
     """A leitura inteira de um projeto, na folha que vier."""
-    from folha_pdf import COR_MARCA
-    f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
+    from folha_pdf import COR_MARCA, CORPO as CORPO_TEXTO
+    if cabecalho:
+        f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
     if com_tarja:
         f.texto("notas %s  |  indícios de IA: %s  |  %d condi%s"
                 % ("  ".join("%d:%d" % (i, d["notas"][i]) for i in (1, 2, 3, 4)),
                    d["nivel"], len(d["condicoes"]),
                    "ção" if len(d["condicoes"]) == 1 else "ções"),
                 corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
-    for tipo, texto_bloco in blocos_do_relatorio(d["texto"]):
+    blocos = blocos_do_relatorio(d["texto"])
+    for i, (tipo, texto_bloco) in enumerate(blocos):
         if tipo == "titulo":
-            f.texto(texto_bloco, corpo=12, fonte="tibo",
-                    espaco_antes=6, espaco_depois=5)
+            nivel = nivel_do_titulo(texto_bloco)
+            corpo = 12.5 if nivel == 1 else 11
+            antes = 18 if nivel == 1 else 13
+            # O TITULO NAO FICA SOZINHO NO PE DA PAGINA. Duas linhas do
+            # que vem depois bastam, porque o paragrafo agora se parte: o
+            # que nao couber continua na pagina seguinte.
+            f.juntar([antes, f.altura_de(texto_bloco, corpo, "tibo"), 6,
+                      2 * CORPO_TEXTO * 1.42])
+            f.texto(texto_bloco, corpo=corpo, fonte="tibo",
+                    espaco_antes=antes, espaco_depois=6)
         else:
-            f.texto(texto_bloco, espaco_depois=6)
+            f.texto(texto_bloco, espaco_depois=7)
 
 
 def escrever_um(nome, d, caminho, titulo=None):
@@ -297,7 +347,8 @@ def escrever_um(nome, d, caminho, titulo=None):
         import fitz
     except ImportError:
         sys.exit("A saida em PDF precisa do PyMuPDF: pip install pymupdf")
-    from folha_pdf import Folha, numerar_paginas, tabela, COR_FRACA
+    from folha_pdf import (Folha, numerar_paginas, tabela, gravar,
+                           COR_FRACA, CORPO as CORPO_TEXTO)
 
     doc = fitz.open()
     f = Folha(doc)
@@ -343,9 +394,11 @@ def escrever_um(nome, d, caminho, titulo=None):
             espaco_depois=10)
 
     f.nova()
-    escrever_leitura(f, nome, d, com_tarja=False)
+    # SEM CABECALHO: a pagina anterior ja traz o titulo copiado, e repetir
+    # o nome do arquivo ali foi o que pos "deferencia2" no alto da peca.
+    escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False)
     numerar_paginas(doc)
-    doc.save(caminho)
+    gravar(doc, caminho)
     doc.close()
 
 
@@ -409,7 +462,8 @@ def escrever_pdf(lidos, caminho):
         import fitz
     except ImportError:
         sys.exit("A saida em PDF precisa do PyMuPDF: pip install pymupdf")
-    from folha_pdf import Folha, numerar_paginas, tabela, COR_FRACA, COR_MARCA
+    from folha_pdf import (Folha, numerar_paginas, tabela, gravar,
+                           COR_FRACA, COR_MARCA)
 
     doc = fitz.open()
     f = Folha(doc)
@@ -468,7 +522,7 @@ def escrever_pdf(lidos, caminho):
         escrever_leitura(f, nome, lidos[nome])
 
     numerar_paginas(doc)
-    doc.save(caminho)
+    gravar(doc, caminho)
     doc.close()
 
 
@@ -763,6 +817,14 @@ def controle():
     print()
     if not provar_a_descricao():
         sys.exit(1)
+    print()
+    try:
+        from folha_pdf import provar_a_folha
+    except SystemExit:
+        print("(sem PyMuPDF: o conferidor de sobreposicao nao rodou)")
+    else:
+        if not provar_a_folha():
+            sys.exit(1)
     print()
     print("O conferidor reprova os %d casos. Sem este controle, um bloco"
           % len(casos))
