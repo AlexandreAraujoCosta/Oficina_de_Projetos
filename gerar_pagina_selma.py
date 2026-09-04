@@ -209,7 +209,7 @@ a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
 
 <h2 id="descricao">Cada dimensão sai em dois parágrafos</h2>
 
-<p>O primeiro <b>descreve o que o projeto traz</b> naquela dimensão, com os
+<p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquela dimensão, com os
 tópicos onde cada coisa está: a pergunta como o projeto a enuncia, a fonte que
 ele diz que vai usar, o recorte, as categorias que nomeia, os autores que
 mobiliza e para quê, o que promete entregar. O segundo <b>avalia</b>, com o

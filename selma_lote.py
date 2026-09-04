@@ -327,10 +327,18 @@ RE_JULGAM = [(p, re.compile(r"\b(?:%s)\b" % p, re.I)) for p in PADROES_QUE_JULGA
 def olhar_a_descricao(texto, origem="?"):
     """Devolve os avisos sobre o primeiro paragrafo de cada dimensao.
 
-    A REGRA QUE ELE OLHA: em cada dimensao, o primeiro paragrafo DESCREVE
-    o que o projeto traz e o segundo AVALIA. Descricao com adjetivo de
-    qualidade ja e avaliacao, e a banca que le so ela recebe juizo
-    achando que recebeu fato.
+    A REGRA QUE ELE OLHA: em cada dimensao, o paragrafo aberto por
+    "Descricao." descreve o que o projeto traz, e o aberto por
+    "Avaliacao." julga. Descricao com adjetivo de qualidade ja e
+    avaliacao, e a banca que le so ela recebe juizo achando que recebeu
+    fato.
+
+    O ROTULO E A FRONTEIRA, e nao a linha em branco. A primeira versao
+    fechava o paragrafo descritivo na primeira linha vazia, e a leitura
+    real nao pos linha vazia entre os dois: o conferidor tomou a dimensao
+    inteira por descricao e acusou "adequada" que estava na AVALIACAO,
+    nomeando a tese do proprio projeto. Num lote de vinte, isso e um jorro
+    de acusacao errada, e acusacao errada custa mais que silencio.
 
     O QUE ELE NAO FAZ: recusar. Busca por palavra acusa errado, e "falha"
     e o nome de fenomeno estudado em mais de um projeto deste acervo.
@@ -338,6 +346,8 @@ def olhar_a_descricao(texto, origem="?"):
     avisos = []
     linhas = texto.split(chr(10))
     dimensao, paragrafo, dentro = None, [], False
+    fim_do_descritivo = re.compile(r"^\s*Avalia[cç][aã]o\s*[.:]", re.I)
+    abre_descritivo = re.compile(r"^\s*Descri[cç][aã]o\s*[.:]", re.I)
 
     def fechar():
         # SO O PRIMEIRO paragrafo de cada dimensao, que e o descritivo.
@@ -361,7 +371,14 @@ def olhar_a_descricao(texto, origem="?"):
             continue
         if not dentro:
             continue
+        if fim_do_descritivo.match(linha):
+            fechar()
+            dentro = False
+            paragrafo = []
+            continue
         if linha.strip():
+            if abre_descritivo.match(linha) and paragrafo:
+                paragrafo = []          # o que veio antes nao era a descricao
             paragrafo.append(linha.strip())
         elif paragrafo:
             if fechar():
@@ -389,6 +406,14 @@ def provar_a_descricao():
         ("aspas na descricao",
          base % ("O projeto enuncia a pergunta como " + chr(34) +
                  "de que modo o juiz decide" + chr(34) + " no topico 2."), 1),
+        ("o adjetivo na Avaliacao, SEM linha em branco antes dela",
+         ("## 1. Problema e justificativa" + chr(10) +
+          "Descricao. O projeto enuncia a pergunta no topico 2." + chr(10) +
+          "Avaliacao. A categoria e adequada e a pergunta e vaga." + chr(10)), 0),
+        ("o adjetivo na Descricao rotulada",
+         ("## 1. Problema e justificativa" + chr(10) +
+          "Descricao. O projeto enuncia uma pergunta vaga no topico 2." + chr(10) +
+          "Avaliacao. Isso e bloqueio de partida." + chr(10)), 1),
         ("o adjetivo no paragrafo AVALIATIVO nao acusa",
          ("## 1. Problema e justificativa" + chr(10) +
           "O projeto enuncia a pergunta no topico 2." + chr(10) * 2 +
