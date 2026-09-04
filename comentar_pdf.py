@@ -280,12 +280,16 @@ def conferir_impressao(texto_do_relatorio, paragrafos, origem="o relatório"):
     agora = impressao_digital(paragrafos)
     if not m:
         return "sem", ("%s não traz a impressão digital da numeração, "
-                       "então ninguém conferiu se ele foi escrito contra "
-                       "esta. A desta numeração é %s." % (origem, agora))
+                       "então ninguém conferiu contra qual delas as "
+                       "indicações foram escritas. A desta é %s."
+                       % (origem, agora))
     if m.group(1) != agora:
-        return "diverge", ("%s foi escrito contra a numeração %s, e a deste "
-                           "projeto agora é %s. Os localizadores apontam "
-                           "outros parágrafos. Numere de novo e refaça as "
+        # SEM CONJUGAR EM GENERO: origem tanto e "o relatorio" quanto "as
+        # sugestoes" quanto "a leitura", e "%s foi escrito" saiu errado nos
+        # dois ultimos. A frase se escreve de modo a servir aos tres.
+        return "diverge", ("%s aponta a numeração %s, e a deste projeto "
+                           "agora é %s. Os localizadores apontam outros "
+                           "parágrafos. Numere de novo e refaça as "
                            "indicações." % (origem, m.group(1), agora))
     return "ok", ""
 

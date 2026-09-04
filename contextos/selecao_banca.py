@@ -779,11 +779,19 @@ números uma vez em forma de dado, e quem monta a tabela lê daqui.
 
 O BLOCO VEM DEPOIS DO ALCANCE, dentro do mesmo bloco de código do \
 relatório, aberto por uma linha com apenas DADOS e fechado por uma linha \
-com apenas FIM. A PRIMEIRA LINHA É TITULO, e nela eu NÃO ESCREVO O TÍTULO: \
-eu escrevo o NÚMERO DO PARÁGRAFO em que ele está, na forma P002. O título \
-é o que identifica esta peça, e uma palavra trocada nele não estraga uma \
-citação, faz a peça apontar para outro projeto; então quem o copia é o \
-programa, e não eu.
+com apenas FIM. A PRIMEIRA LINHA É TITULO, e nela eu NÃO ESCREVO O TÍTULO: eu escrevo o \
+NÚMERO DO PARÁGRAFO em que ele está, na forma P002. O título é o que \
+identifica esta peça, e uma palavra trocada nele não estraga uma citação, \
+faz a peça apontar para outro projeto; então quem o copia é o programa, e \
+não eu.
+
+A SEGUNDA É IMPRESSAO, e ela leva a impressão digital da numeração, se \
+quem me chamou tiver me dado uma. Ela vem escrita no fim da lista \
+numerada, na forma 172p-a51ff850, e eu a copio inteira. Localizador só \
+vale contra a numeração que o produziu: se a divisão dos parágrafos mudar, \
+P002 passa a apontar outro parágrafo e a peça sai identificada pelo texto \
+errado, com a aparência inteira de estar certa. Sem numeração informada, \
+eu escrevo um traço.
 
 Depois, uma linha por dimensão, com os campos separados por barra vertical \
 e NENHUMA PROSA: número da dimensão, nome, impeditivos, bloqueios, \
@@ -800,6 +808,7 @@ O molde é este, e eu o sigo ao caractere:
 
 DADOS
 TITULO | P002
+IMPRESSAO | 172p-a51ff850
 1 | problema e justificativa | 0 | 1 | 1 | 5
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6

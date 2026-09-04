@@ -116,7 +116,7 @@ def ler_bloco(texto, origem="?"):
         raise BlocoInvalido("%s: nao achei o bloco DADOS...FIM" % origem)
     linhas = [l.strip() for l in m.group(1).strip().split("\n") if l.strip()]
     notas, contagem, abaixo = {}, {}, None
-    nivel = titulo = None
+    nivel = titulo = impressao = None
     condicoes = []
     for l in linhas:
         campos = [c.strip() for c in l.split("|")]
@@ -131,6 +131,16 @@ def ler_bloco(texto, origem="?"):
                     "%s: TITULO diz %r, e ali vai o LOCALIZADOR do titulo "
                     "(P002), nunca o titulo escrito" % (origem, alvo))
             titulo = int(m2.group(1))
+        elif campos[0] == "IMPRESSAO":
+            # A impressao digital da numeracao. Traco quando nao houve
+            # numeracao: o localizador do titulo vale, e ninguem o conferiu.
+            alvo = campos[1].strip()
+            if alvo not in ("-", ""):
+                if not re.fullmatch(r"\d+p-[0-9a-f]{8}", alvo):
+                    raise BlocoInvalido(
+                        "%s: IMPRESSAO diz %r, e ali vai a impressao da "
+                        "numeracao, na forma 172p-a51ff850" % (origem, alvo))
+                impressao = alvo
         elif campos[0] == "CONDICAO":
             alvo = campos[1].strip()
             texto_c = campos[2].strip() if len(campos) > 2 else ""
@@ -206,7 +216,24 @@ def ler_bloco(texto, origem="?"):
     # de campos separados por barra.
     corpo = (texto[:m.start()] + texto[m.end():]).strip()
     return {"notas": notas, "abaixo": baixas, "nivel": nivel,
-            "titulo": titulo, "condicoes": condicoes, "texto": corpo}
+            "titulo": titulo, "impressao": impressao,
+            "condicoes": condicoes, "texto": corpo}
+
+
+def paragrafos_do_projeto_para_conferir(projeto):
+    """Os paragrafos do projeto, no formato que a impressao digital pede."""
+    caminho = Path(projeto)
+    suf = caminho.suffix.lower()
+    if suf == ".pdf":
+        from comentar_pdf import ler
+        return ler(str(caminho))
+    if suf == ".docx":
+        from comentar_projeto import texto_do_docx
+        return [{"texto": p.strip()} for p in texto_do_docx(caminho)
+                if p.strip()]
+    from comentar_projeto import texto_do_md
+    return [{"texto": " ".join(p.split())} for p in texto_do_md(caminho)
+            if p.strip()]
 
 
 def copiar_titulo(projeto, localizador):
@@ -427,7 +454,23 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
     # e nao esta.
     titulo, aviso = (None, "o projeto nao foi informado (use --projeto)")
     if projeto:
+        # A NUMERACAO PRIMEIRO. O localizador do titulo so vale contra a
+        # numeracao que o produziu, e copiar contra outra poe na peca o
+        # texto de outro paragrafo, com a aparencia inteira de estar certo.
+        if d["impressao"]:
+            from comentar_pdf import conferir_impressao
+            nivel, recado = conferir_impressao(
+                "IMPRESSAO | " + d["impressao"],
+                paragrafos_do_projeto_para_conferir(projeto),
+                "A leitura")
+            if nivel == "diverge":
+                sys.exit("PAREI: " + recado)
         titulo, aviso = copiar_titulo(projeto, d["titulo"])
+        if titulo and not d["impressao"]:
+            print("AVISO: a leitura nao informou a impressao da numeracao, "
+                  "entao ninguem conferiu se P%03d ainda e o titulo."
+                  % d["titulo"])
+            print()
     if aviso:
         print("SEM O TITULO: %s." % aviso)
         print("A peca sai com o nome do arquivo, e dizendo que e o nome do")
@@ -754,6 +797,7 @@ def agregar(pasta, pdf=None):
 # --------------------------------------------------------------- controle
 BOM = """DADOS
 TITULO | P002
+IMPRESSAO | 172p-a51ff850
 1 | problema e justificativa | 0 | 1 | 1 | 5
 2 | metodologia e teoria | 1 | 0 | 2 | 4
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
@@ -771,6 +815,7 @@ def controle():
     assert ok["abaixo"] == [1, 2, 3], ok
     assert ok["nivel"] == "leves", ok
     assert ok["titulo"] == 2, ok
+    assert ok["impressao"] == "172p-a51ff850", ok
     assert len(ok["condicoes"]) == 3, ok
     assert ok["condicoes"][0][0] == 1 and ok["condicoes"][0][1], ok
     print("  o bloco bom passa                                 ok")
@@ -785,6 +830,8 @@ def controle():
          BOM.replace("TITULO | P002",
                      "TITULO | A deferencia judicial como limite")),
         ("TITULO sem numero", BOM.replace("TITULO | P002", "TITULO | P")),
+        ("IMPRESSAO com forma que nao existe",
+         BOM.replace("IMPRESSAO | 172p-a51ff850", "IMPRESSAO | ontem")),
         ("sem nenhuma linha CONDICAO",
          chr(10).join(l for l in BOM.split(chr(10))
                       if not l.startswith("CONDICAO"))),
