@@ -334,7 +334,78 @@ def nivel_do_titulo(txt):
     return 1 if re.match(r"^\d+\.", txt.strip()) else 2
 
 
-def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True):
+def partir_preambulo(blocos):
+    """Separa as observacoes de abertura do corpo do relatorio.
+
+    ELAS VEM DEPOIS DO PRIMEIRO TITULO, e nao antes: o relatorio abre com
+    "RELATORIO DE LEITURA DE PROJETO DE PESQUISA", que e titulo, e as
+    observacoes (a quem a peca serve, de onde vem o localizador, o que
+    ficou fora) vem logo abaixo dele, ate o titulo seguinte.
+
+    O TITULO DE ABERTURA NAO VOLTA: ele repete o que o cabecalho da
+    pagina ja diz.
+    """
+    if not blocos or blocos[0][0] != "titulo":
+        return [], blocos
+    for i in range(1, len(blocos)):
+        if blocos[i][0] == "titulo":
+            return blocos[1:i], blocos[i:]
+    return blocos[1:], []
+
+
+def sem_acento(s):
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", s)
+                   if unicodedata.category(c) != "Mn").upper()
+
+
+def partir_peca(blocos):
+    """Devolve (observacoes, capa, analise).
+
+    A CAPA e o que uma banca le quando le uma coisa so: a descricao geral
+    e a ementa. A analise vem depois, para quem precisa do detalhe.
+
+    A BUSCA E POR NOME, e nao por posicao, porque posicao muda quando a
+    forma do relatorio muda e ninguem percebe. Quando os nomes nao
+    aparecem, o programa cai no recurso posicional E DIZ QUE CAIU.
+    """
+    observacoes, resto = partir_preambulo(blocos)
+    indices = [i for i, (tipo, _) in enumerate(resto) if tipo == "titulo"]
+    fim = None
+    for k, i in enumerate(indices):
+        nome = sem_acento(resto[i][1])
+        if "EMENTA" in nome:
+            fim = indices[k + 1] if k + 1 < len(indices) else len(resto)
+            break
+    if fim is None:
+        # Recurso: os dois primeiros blocos titulados sao a capa.
+        fim = indices[2] if len(indices) > 2 else len(resto)
+        print("AVISO: nao achei o bloco EMENTA pelo nome; usei os dois "
+              "primeiros blocos como capa.")
+    capa, analise = resto[:fim], resto[fim:]
+    # AS CONDICOES SAEM DO CORPO, sempre: a peca as monta na primeira
+    # pagina a partir do bloco de dados ja conferido, e lista repetida e
+    # onde as duas versoes divergem sem que ninguem veja.
+    analise = sem_condicoes(analise)
+    capa = sem_condicoes(capa)
+    return observacoes, capa, analise
+
+
+def sem_condicoes(blocos):
+    """Tira o bloco de condicoes e o que vem sob ele, ate o titulo seguinte."""
+    saida, pulando = [], False
+    for tipo, texto in blocos:
+        if tipo == "titulo":
+            pulando = "CONDIC" in sem_acento(texto) or "CONDIÇ" in texto.upper()
+            if pulando:
+                continue
+        if not pulando:
+            saida.append((tipo, texto))
+    return saida
+
+
+def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
+                     blocos=None):
     """A leitura inteira de um projeto, na folha que vier."""
     from folha_pdf import COR_MARCA, CORPO as CORPO_TEXTO
     if cabecalho:
@@ -345,7 +416,8 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True):
                    d["nivel"], len(d["condicoes"]),
                    "ção" if len(d["condicoes"]) == 1 else "ções"),
                 corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
-    blocos = blocos_do_relatorio(d["texto"])
+    if blocos is None:
+        blocos = blocos_do_relatorio(d["texto"])
     for i, (tipo, texto_bloco) in enumerate(blocos):
         if tipo == "titulo":
             nivel = nivel_do_titulo(texto_bloco)
@@ -392,10 +464,24 @@ def escrever_um(nome, d, caminho, titulo=None):
                 "projeto não foi informado, e título não se digita.",
                 corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
 
+    # AS OBSERVACOES DA LEITURA VEM ANTES DE QUALQUER NUMERO: elas dizem o
+    # que a peca e, e quem le um numero antes disso ja o le como veredito.
+    blocos = blocos_do_relatorio(d["texto"])
+    preambulo, capa, corpo_da_leitura = partir_peca(blocos)
+    for tipo, texto_bloco in preambulo:
+        f.texto(texto_bloco, corpo=9.5, fonte="tiit", cor=COR_FRACA,
+                espaco_depois=6)
+    if preambulo:
+        f.y += 8
+
+    f.texto("Avaliação proposta", corpo=12.5, fonte="tibo", espaco_antes=6,
+            espaco_depois=7)
     n = d["notas"]
-    tabela(f, ["dimensão", "nota"],
-           [[NOMES_LEGIVEIS[i - 1], n[i]] for i in (1, 2, 3, 4)]
-           + [[NOMES_LEGIVEIS[4] + " (sem nota)", d["nivel"]]],
+    # SEM A PALAVRA "dimensao": a numeracao ja diz o que ela diria, e o
+    # nome e vocabulario de quem construiu a regua, nao de quem le a peca.
+    tabela(f, ["", "nota"],
+           [["%d. %s" % (i, NOMES_LEGIVEIS[i - 1]), n[i]] for i in (1, 2, 3, 4)]
+           + [["5. %s (sem nota)" % NOMES_LEGIVEIS[4], d["nivel"]]],
            [70, 30])
 
     f.texto("Condições para que o projeto seja apresentável a uma banca de "
@@ -407,7 +493,7 @@ def escrever_um(nome, d, caminho, titulo=None):
     else:
         for k, (dim, texto_c) in enumerate(d["condicoes"], 1):
             f.texto("%d. %s" % (k, texto_c), corpo=10.5, espaco_depois=2)
-            f.texto("dimensão %d, %s" % (dim, NOMES_LEGIVEIS[dim - 1]),
+            f.texto("%d. %s" % (dim, NOMES_LEGIVEIS[dim - 1]),
                     corpo=9, fonte="tiit", cor=COR_FRACA, recuo=14,
                     espaco_depois=7)
 
@@ -420,10 +506,20 @@ def escrever_um(nome, d, caminho, titulo=None):
             corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_antes=4,
             espaco_depois=10)
 
-    f.nova()
-    # SEM CABECALHO: a pagina anterior ja traz o titulo copiado, e repetir
-    # o nome do arquivo ali foi o que pos "deferencia2" no alto da peca.
-    escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False)
+    # A CAPA FECHA A PRIMEIRA PARTE: descricao geral e ementa, logo depois
+    # das condicoes, para quem le uma coisa so ler tudo o que precisa.
+    escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
+                     blocos=capa)
+
+    # SEM VIRAR A PAGINA: a capa acabava no meio da folha e a avaliacao
+    # analitica abria a seguinte, o que gastava meia pagina em branco. O
+    # titulo dela ja separa as duas faces, e ele nao fica orfao porque a
+    # reserva pede duas linhas do que vem depois.
+    # SEM CABECALHO E SEM PREAMBULO: a pagina anterior ja traz o titulo
+    # copiado e as observacoes, e repetir o nome do arquivo ali foi o que
+    # pos "deferencia2" no alto da peca.
+    escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
+                     blocos=corpo_da_leitura)
     numerar_paginas(doc)
     gravar(doc, caminho)
     doc.close()
@@ -547,7 +643,7 @@ def escrever_pdf(lidos, caminho):
     for i, nome in enumerate(NOMES_LEGIVEIS[:4], 1):
         baixas = sum(1 for d in lidos.values() if d["notas"][i] < 7)
         media = sum(d["notas"][i] for d in lidos.values()) / float(total)
-        conta.append("dimensão %d, %s: abaixo de 7 em %d de %d, média %.1f"
+        conta.append("%d. %s: abaixo de 7 em %d de %d, média %.1f"
                      % (i, nome, baixas, total, media))
     for nivel in NIVEIS:
         quantos = sum(1 for d in lidos.values() if d["nivel"] == nivel)
@@ -744,7 +840,7 @@ def agregar(pasta, pdf=None):
     for i, nome in enumerate(DIMENSOES[:4], 1):
         baixas = sum(1 for d in lidos.values() if d["notas"][i] < 7)
         media = sum(d["notas"][i] for d in lidos.values()) / float(total)
-        print("  dim %d %-24s abaixo de 7 em %d de %d, media %.1f"
+        print("  %d. %-26s abaixo de 7 em %d de %d, media %.1f"
               % (i, nome, baixas, total, media))
     for nivel in NIVEIS:
         quantos = sum(1 for d in lidos.values() if d["nivel"] == nivel)
