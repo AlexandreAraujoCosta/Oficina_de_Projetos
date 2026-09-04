@@ -156,7 +156,12 @@ def ler_bloco(texto, origem="?"):
             if not texto_c:
                 raise BlocoInvalido("%s: CONDICAO da dimensao %s nao diz o "
                                     "que fazer" % (origem, alvo))
-            condicoes.append((int(alvo), texto_c))
+            # O QUARTO CAMPO, quando houver, e o ganho de arguicao: o que o
+            # autor pode dizer para o elemento subir de faixa antes de a
+            # condicao estar cumprida. Ele estava numa lista propria, e a
+            # lista repetia o material das condicoes noutro lugar da peca.
+            ganho = campos[3].strip() if len(campos) > 3 else ""
+            condicoes.append((int(alvo), texto_c, ganho))
         elif campos[0].isdigit():
             i = int(campos[0])
             if not 1 <= i <= 5:
@@ -198,7 +203,7 @@ def ler_bloco(texto, origem="?"):
     # contrario, esta contando uma coisa e concluindo outra.
     baixas = sorted(i for i, n in notas.items() if n < 7)
     caras = sorted(i for i in contagem if contagem[i][0] or contagem[i][1])
-    com_condicao = sorted({d for d, _ in condicoes})
+    com_condicao = sorted({c[0] for c in condicoes})
     faltando = [d for d in caras if d not in com_condicao]
     if faltando:
         raise BlocoInvalido(
@@ -529,11 +534,15 @@ def escrever_um(nome, d, caminho, titulo=None):
         f.texto("Nenhuma. Nenhum impeditivo e nenhum bloqueio de partida em "
                 "dimensão nenhuma.", espaco_depois=8)
     else:
-        for k, (dim, texto_c) in enumerate(d["condicoes"], 1):
+        for k, (dim, texto_c, ganho) in enumerate(d["condicoes"], 1):
             f.texto("%d. %s" % (k, texto_c), corpo=11.5, espaco_depois=2)
             f.texto("%d. %s" % (dim, NOMES_LEGIVEIS[dim - 1]),
                     corpo=10, fonte="tiit", cor=COR_FRACA, recuo=14,
-                    espaco_depois=7)
+                    espaco_depois=3 if ganho else 7)
+            if ganho:
+                f.texto("Na arguição, sobe de faixa se o autor disser: %s"
+                        % ganho, corpo=10, fonte="tiit", cor=COR_FRACA,
+                        recuo=14, espaco_depois=7)
 
     f.texto("Esta lista não é recomendação de admitir ou não admitir. Ela diz "
             "o que falta ao documento, e a decisão se toma com coisas que a "
@@ -938,7 +947,7 @@ IMPRESSAO | 172p-a51ff850
 3 | contribuicoes e impacto | 0 | 1 | 0 | 6
 4 | bibliografia | 0 | 0 | 3 | 7
 5 | indicios de ia | - | - | - | leves
-CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
+CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta | dizer que decisao mudaria
 CONDICAO | 2 | fechar a lista de casos antes de comecar
 CONDICAO | 3 | dizer que decisao passa a ser tomada de outro modo
 FIM"""
@@ -953,6 +962,8 @@ def controle():
     assert ok["impressao"] == "172p-a51ff850", ok
     assert len(ok["condicoes"]) == 3, ok
     assert ok["condicoes"][0][0] == 1 and ok["condicoes"][0][1], ok
+    assert ok["condicoes"][0][2], "a primeira condicao tem ganho"
+    assert ok["condicoes"][1][2] == "", "a segunda nao tem"
     print("  o bloco bom passa                                 ok")
 
     casos = [

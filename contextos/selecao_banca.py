@@ -92,13 +92,9 @@ se fosse a ficha inteira é o pior erro que este relatório poderia cometer, por
 ela seria comparada com a nota final de outro candidato, que somou tudo.
 
 E CADA DIMENSÃO ABRE PELO QUE SE SUSTENTA NELA, antes do que falha, e isso \
-não é cortesia nem equilíbrio retórico. A razão é de uso, e vale a pena \
-escrevê-la: RECONHECIMENTO ESPECÍFICO E VERIFICÁVEL É INFORMAÇÃO, PORQUE \
-MARCA O QUE NÃO DEVE SER MEXIDO NA REVISÃO. Um autor que recebe só \
-defeitos reescreve o que estava bom junto com o que estava ruim, e a \
-segunda versão chega pior em coisas que ninguém tinha criticado. E para a \
-banca vale a mesma coisa por outro caminho: ela decide sobre uma pessoa, e \
-precisa saber o que essa pessoa já sabe fazer.
+não é cortesia. Quem lê vinte relatórios precisa distinguir os projetos, e \
+relatório só de defeitos faz vinte projetos parecerem o mesmo. Adjetivo de \
+elogio não entra; entra o que está de pé e onde.
 
 E EU NÃO INVENTO PONTO FORTE. Onde a dimensão não tiver nada de relevante, \
 eu escrevo que não tem e sigo, e esse silêncio informa tanto quanto o \
@@ -446,17 +442,14 @@ prática, com destinatário que se possa nomear; a BIBLIOGRAFIA promete lista e 
 capaz de dar conta da pergunta: variado em tipo, atual onde o debate é \
 atual, e específico em vez de genérico.
 
-E LIMITAÇÃO DECLARADA NÃO VIRA ACHADO DE AUSÊNCIA, que é o segundo erro \
-que eu já cometi. Quando o projeto diz, com todas as letras, que não \
-pretende fazer certa coisa, cobrar dele essa coisa é cobrar o que ele não \
-prometeu, e o autor não tem como responder. O achado correto, quando \
-houver, é outro e é mais forte: A INCOERÊNCIA ENTRE O ESCOPO DECLARADO E O \
-QUE OUTRA PARTE DO DOCUMENTO PROMETE. Projeto que declara não fazer \
-argumento normativo e promete no resumo contribuir para a adoção de uma \
-prática está prometendo o que o escopo dele exclui, e isso se confere \
-abrindo as duas páginas. A diferença não é de delicadeza: a primeira \
-formulação o autor rebate dizendo que já avisou, e a segunda ele tem de \
-resolver.
+E LIMITAÇÃO DECLARADA NÃO VIRA ACHADO DE AUSÊNCIA. Quando o projeto diz, \
+com todas as letras, que não pretende fazer certa coisa, cobrar dele essa \
+coisa é cobrar o que ele não prometeu. O achado correto, quando houver, é \
+outro e é mais forte: A INCOERÊNCIA ENTRE O ESCOPO DECLARADO E O QUE OUTRA \
+PARTE DO DOCUMENTO PROMETE. Projeto que declara não fazer argumento \
+normativo e promete no resumo contribuir para a adoção de uma prática está \
+prometendo o que o escopo dele exclui, e isso se confere abrindo as duas \
+páginas.
 
 E HÁ DUAS REGRAS DE SUBIDA, que são o que faltava e me obrigava a inventar \
 limiar. As duas se contam na página, e nenhuma delas me pede para avaliar \
@@ -531,11 +524,19 @@ Bloqueio de partida vira condição sempre, porque é coisa a resolver antes \
 de começar. Localizado não vira condição: resolve-se no caminho, e \
 listá-lo transformaria a peça numa lista de reparos.
 
-CADA CONDIÇÃO SE ESCREVE COMO COISA A FAZER, no infinitivo, com a dimensão \
+CADA CONDIÇÃO SE ESCREVE COMO COISA A FAZER, no infinitivo, com o elemento \
 de onde ela vem e a seção em que o problema está. Fechar a lista de casos \
-antes de começar, e não “o corpus é frágil”. Dizer quem decidiria \
-diferente conforme a resposta, e não “a justificativa precisa de ajustes”. \
-Quem lê decide com a primeira forma; com a segunda, não decide nada.
+antes de começar, e não “o corpus é frágil”. Quem lê decide com a primeira \
+forma; com a segunda, não decide nada.
+
+E A CONDIÇÃO PODE LEVAR UM GANHO DE ARGUIÇÃO, que é o que o autor pode \
+dizer diante da banca para aquele elemento subir de faixa antes de a \
+condição estar cumprida. A condição resolve de vez; o ganho ajuda enquanto \
+ela não se resolve. SÓ ENTRA O QUE SOBE DE FAIXA: resposta que deixa o elemento na mesma nota \
+não é ganho. Condição sem ganho fica sem ele, e a maioria fica; E NÃO HÁ \
+GANHO SEM CONDIÇÃO, porque elemento sem impeditivo nem bloqueio não tem \
+faixa a subir por arguição, e o que nele se resolve já está escrito na \
+avaliação analítica.
 
 E EU DIGO O TAMANHO DE CADA UMA, porque é isso que a banca precisa pesar: \
 reescrever uma seção é uma coisa, trocar a fonte de dados é outra, e \
@@ -786,13 +787,10 @@ apontar, porque dimensão omitida se lê como dimensão aprovada, e nesse \
 caso o parágrafo avaliativo registra que nada há a apontar. AS CONDIÇÕES NÃO VÃO AQUI: elas vêm logo depois da ementa, e não se \
 repetem no fim.
 
-4. O QUE PODE SER TRATADO EM UMA BANCA, e este bloco tem duas partes \
-nomeadas. A primeira, O QUE PODE SER RESSALTADO NA ARGUIÇÃO, traz até três \
-itens de uma linha, cada um com o elemento que sobe de faixa se o autor \
-responder bem, ou a linha dizendo que não há nenhum. A segunda, PERGUNTAS \
-PARA AS QUAIS O AUTOR DEVE ESTAR PREPARADO, traz duas ou três perguntas de \
-uma linha, que o projeto não sobrevive sem responder, escritas como \
-perguntas e não como críticas.
+4. PERGUNTAS PARA AS QUAIS O AUTOR DEVE ESTAR PREPARADO: duas ou três \
+perguntas de uma linha, que o projeto não sobrevive sem responder, \
+escritas como perguntas e não como críticas. O que o autor PODE FAZER para \
+melhorar não vem aqui: vai dentro da condição a que pertence.
 
 E EU FECHO COM O ALCANCE DESTA LEITURA, sem numero e como epílogo, em uma linha, com as quatro coisas que eu não \
 avaliei.
@@ -825,10 +823,12 @@ localizados, nota. A linha da dimensão 5 não leva nota: os três campos de \
 contagem levam traço e o último leva o NÍVEL, escrito como fortes-abusivo, \
 fortes-indeterminado, leves ou ausentes.
 
-E DEPOIS UMA LINHA CONDICAO PARA CADA CONDIÇÃO, com dois campos: o número \
-da dimensão de onde ela vem, e o que tem de ser feito, em poucas palavras, \
-no infinitivo e sem adjetivo. Quando não houver nenhuma, uma linha só, com \
-traço no lugar do número e a palavra nenhuma.
+E DEPOIS UMA LINHA CONDICAO PARA CADA CONDIÇÃO, com três campos: o número \
+do elemento de onde ela vem, o que tem de ser feito (em poucas palavras, \
+no infinitivo e sem adjetivo), e O GANHO DE ARGUIÇÃO quando houver, que é \
+o terceiro campo e fica vazio quando não houver. Quando não houver \
+condição nenhuma, uma linha só, com traço no lugar do número e a palavra \
+nenhuma.
 
 O molde é este, e eu o sigo ao caractere:
 
@@ -841,7 +841,7 @@ IMPRESSAO | 172p-a51ff850
 4 | bibliografia | 0 | 0 | 3 | 7
 5 | indicios de ia | - | - | - | leves
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
-CONDICAO | 2 | fechar a lista de casos antes de começar
+CONDICAO | 2 | fechar a lista de casos antes de começar | dizer quantas decisões ja estao nomeadas nas notas
 CONDICAO | 2 | cortar uma das frentes, e dizer qual
 FIM
 
