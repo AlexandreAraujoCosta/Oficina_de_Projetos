@@ -31,7 +31,7 @@ LARGURA, ALTURA = fitz.paper_size("a4")
 MARGEM = 62
 LARGURA_UTIL = LARGURA - 2 * MARGEM
 
-CORPO = 10.5
+CORPO = 11.5
 ENTRELINHA = 1.42
 COR_TINTA = (0.12, 0.12, 0.13)
 COR_FRACA = (0.42, 0.42, 0.45)
@@ -60,7 +60,8 @@ class Folha:
         return self.y + altura <= ALTURA - MARGEM - 18
 
     def texto(self, txt, corpo=CORPO, fonte="tiro", cor=COR_TINTA,
-              recuo=0, espaco_antes=0, espaco_depois=6, fundo=None):
+              recuo=0, espaco_antes=0, espaco_depois=6, fundo=None,
+              justificar=True):
         """Escreve e desce o cursor pela altura DA TINTA.
 
         DUAS MEDIDAS JA FALHARAM AQUI, e as duas no mesmo sentido, o que
@@ -80,11 +81,12 @@ class Folha:
             resto = self._escrever_pedaco(
                 resto, corpo, fonte, cor, recuo,
                 espaco_antes if primeiro else 0,
-                espaco_depois, fundo, inteiro=(fundo is not None))
+                espaco_depois, fundo, inteiro=(fundo is not None),
+                justificar=justificar)
             primeiro = False
 
     def _escrever_pedaco(self, txt, corpo, fonte, cor, recuo, espaco_antes,
-                         espaco_depois, fundo, inteiro):
+                         espaco_depois, fundo, inteiro, justificar=True):
         """Escreve o que couber e devolve o que sobrou.
 
         BLOCO COM FUNDO NAO SE PARTE: a tarja pintada atras de uma citacao
@@ -117,14 +119,15 @@ class Folha:
                                                disponivel, linha)
                 if sobra_txt:
                     self._pintar(aqui, corpo, fonte, cor, recuo, y, largura,
-                                 fundo_da_pagina, None)
+                                 fundo_da_pagina, None,
+                                 justificar=justificar)
                     self.nova()
                     return sobra_txt
                 txt = aqui
 
         alt = self.altura_de(txt, corpo, fonte, recuo)
         self._pintar(txt, corpo, fonte, cor, recuo, y, largura,
-                     fundo_da_pagina, fundo, alt)
+                     fundo_da_pagina, fundo, alt, justificar=justificar)
         self.y = y + alt + espaco_depois
         return ""
 
@@ -164,12 +167,14 @@ class Folha:
         return aqui, sobra
 
     def _pintar(self, txt, corpo, fonte, cor, recuo, y, largura,
-                fundo_da_pagina, fundo, alt=None):
+                fundo_da_pagina, fundo, alt=None, justificar=True):
         caixa = fitz.Rect(MARGEM + recuo, y,
                           MARGEM + recuo + largura, fundo_da_pagina)
         self.pagina.insert_textbox(
             caixa, txt, fontsize=corpo, fontname=fonte, color=cor,
-            lineheight=ENTRELINHA, align=fitz.TEXT_ALIGN_LEFT)
+            lineheight=ENTRELINHA,
+            align=(fitz.TEXT_ALIGN_JUSTIFY if justificar
+                   else fitz.TEXT_ALIGN_LEFT))
         if fundo is not None:
             # overlay=False poe o retangulo ABAIXO do texto ja escrito.
             self.pagina.draw_rect(
@@ -186,9 +191,12 @@ class Folha:
         caixa = fitz.Rect(MARGEM + recuo, topo,
                           MARGEM + recuo + LARGURA_UTIL - recuo,
                           ALTURA - MARGEM - 18)
+        # O MESMO ALINHAMENTO DA ESCRITA: justificado e alinhado a esquerda
+        # quebram nos mesmos pontos, mas medir com um e escrever com outro
+        # e o tipo de descuido que so aparece quando a conta erra.
         sobra = pg.insert_textbox(caixa, txt, fontsize=corpo, fontname=fonte,
                                   lineheight=ENTRELINHA,
-                                  align=fitz.TEXT_ALIGN_LEFT)
+                                  align=fitz.TEXT_ALIGN_JUSTIFY)
         if sobra < 0:
             rascunho.close()
             return caixa.height          # nao coube: quem chama decide
@@ -221,7 +229,7 @@ def numerar_paginas(doc):
                       str(i), fontsize=9, fontname="tiro", color=COR_FRACA)
 
 
-def tabela(f, cabecalho, linhas, larguras, corpo=9):
+def tabela(f, cabecalho, linhas, larguras, corpo=10):
     """Uma tabela, com o cabecalho repetido quando a folha vira.
 
     As larguras vem em fracoes da largura util. Celula que nao cabe QUEBRA
@@ -261,6 +269,60 @@ def tabela(f, cabecalho, linhas, larguras, corpo=9):
     for i, linha in enumerate(linhas):
         escrever(linha, "helv", (0.975, 0.972, 0.965) if i % 2 else None)
     f.y += 6
+
+
+
+def escapar_html(s):
+    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+class _MetodosHtml:
+    """Os dois metodos que a Folha ganha para escrever com negrito no meio."""
+
+
+def _html_altura(self, html, recuo=0):
+    """A tinta que o bloco html vai ocupar, medida numa pagina
+    descartavel de mesma largura."""
+    rascunho = fitz.open()
+    pg = rascunho.new_page(width=LARGURA, height=ALTURA)
+    caixa = fitz.Rect(MARGEM + recuo, MARGEM,
+                      MARGEM + LARGURA_UTIL, ALTURA - MARGEM - 18)
+    pg.insert_htmlbox(caixa, html)
+    blocos = [b for b in pg.get_text("blocks") if b[6] == 0]
+    alt = (max(b[3] for b in blocos) - MARGEM) if blocos else 0.0
+    rascunho.close()
+    return alt
+
+
+def _html(self, partes, corpo=None, recuo=0, espaco_antes=0, espaco_depois=6):
+    """Escreve um paragrafo com trechos em negrito.
+
+    partes e uma lista de (texto, negrito). O bloco nao se parte entre
+    paginas: as entradas que usam isto sao curtas, e partir uma entrada de
+    ementa ao meio custa mais que a linha em branco que a quebra evita.
+    """
+    corpo = corpo or CORPO
+    pedacos = []
+    for texto, forte in partes:
+        s = escapar_html(texto)
+        pedacos.append("<b>%s</b>" % s if forte else s)
+    html = ('<div style="font-family:Times;font-size:%gpx;line-height:%g;'
+            'text-align:justify">%s</div>'
+            % (corpo, ENTRELINHA, "".join(pedacos)))
+
+    alt = self.altura_html(html, recuo)
+    if not self.cabe(espaco_antes + alt + espaco_depois):
+        self.nova()
+        espaco_antes = 0
+    y = self.y + espaco_antes
+    self.pagina.insert_htmlbox(
+        fitz.Rect(MARGEM + recuo, y, MARGEM + LARGURA_UTIL,
+                  ALTURA - MARGEM - 18), html)
+    self.y = y + alt + espaco_depois
+
+
+Folha.altura_html = _html_altura
+Folha.html = _html
 
 
 def conferir_sobreposicao(doc, folga=0.5):

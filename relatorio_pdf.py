@@ -160,20 +160,20 @@ def montar(pecas, paragrafos, nome_projeto, saida):
 
     tem_titulo = any(p[0] == "titulo" for p in pecas)
     if not tem_titulo:
-        f.texto("Relatório sobre " + nome_projeto, corpo=17, fonte="tibo",
-                espaco_depois=4)
+        f.texto("Relatório sobre " + nome_projeto, corpo=18, fonte="tibo",
+                espaco_depois=4, justificar=False)
         f.texto("Os trechos citados foram copiados do próprio projeto por "
                 "programa. O número entre colchetes é o do parágrafo na "
                 "numeração que acompanha este relatório.",
-                corpo=9, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+                corpo=10, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
 
     for i, (tipo, dado) in enumerate(pecas):
         if tipo == "titulo":
-            f.texto(dado, corpo=17, fonte="tibo", espaco_depois=4)
+            f.texto(dado, corpo=18, fonte="tibo", espaco_depois=4, justificar=False)
             f.texto("Os trechos citados foram copiados do próprio projeto "
                     "por programa. O número entre colchetes é o do parágrafo "
                     "na numeração que acompanha este relatório.",
-                    corpo=9, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+                    corpo=10, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
         elif tipo == "secao":
             # A RESERVA TEM DE CABER O PRIMEIRO ITEM, e nao um punhado de
             # pontos: o item abre com a etiqueta e com o trecho citado, e o
@@ -182,8 +182,8 @@ def montar(pecas, paragrafos, nome_projeto, saida):
             f.juntar([14, f.altura_de(dado, 12.5, "tibo"), 6, 7,
                       altura_do_primeiro_item(f, pecas, i, paragrafos)])
             f.regua()
-            f.texto(dado, corpo=12.5, fonte="tibo", espaco_antes=6,
-                    espaco_depois=7)
+            f.texto(dado, corpo=13.5, fonte="tibo", espaco_antes=6,
+                    espaco_depois=7, justificar=False)
         elif tipo == "prosa":
             f.texto(dado, espaco_depois=8)
         else:
@@ -197,9 +197,9 @@ def montar(pecas, paragrafos, nome_projeto, saida):
                       f.altura_de(trecho, 9.5, "tiit", recuo=14), 5,
                       sum(f.altura_de(c, CORPO, "tiro", recuo=14) + 4
                           for c in comentarios)])
-            f.texto(etiqueta, corpo=8.5, fonte="tibo", cor=COR_MARCA,
-                    espaco_antes=8, espaco_depois=3)
-            f.texto(trecho, corpo=9.5, fonte="tiit", cor=COR_FRACA, recuo=14,
+            f.texto(etiqueta, corpo=9.5, fonte="tibo", cor=COR_MARCA,
+                    espaco_antes=8, espaco_depois=3, justificar=False)
+            f.texto(trecho, corpo=10.5, fonte="tiit", cor=COR_FRACA, recuo=14,
                     espaco_depois=5, fundo=COR_FUNDO)
             for k, c in enumerate(comentarios):
                 if len(comentarios) > 1:

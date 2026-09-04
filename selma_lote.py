@@ -353,6 +353,32 @@ def partir_preambulo(blocos):
     return blocos[1:], []
 
 
+RE_ENTRADA = re.compile(r"^\s*(\d\.\s*[^.]{3,60}\.)\s*(.*)$", re.S)
+RE_NOTA = re.compile(r"(.*?)(\s*(?:Nota\s+\d{1,2}|N[íi]vel:\s*[A-Za-zÀ-ÿ -]+)\.?)\s*$",
+                     re.S)
+
+
+def partes_da_entrada(texto):
+    """Parte uma entrada da ementa em (rotulo, meio, nota).
+
+    O ROTULO e o "1. Problema e justificativa." do comeco, e A NOTA e o
+    "Nota 8." ou "Nivel: leves." do fim. Sao as duas coisas que o olho
+    procura numa ementa, e as duas ficam em negrito.
+
+    Quando a entrada nao tiver essa forma, devolve (None, texto, None) e
+    quem chama a escreve como paragrafo comum: inventar rotulo onde nao
+    ha poria em negrito o comeco de uma frase qualquer.
+    """
+    m = RE_ENTRADA.match(texto.strip())
+    if not m:
+        return None, texto, None
+    rotulo, resto = m.group(1), m.group(2)
+    mn = RE_NOTA.match(resto)
+    if mn:
+        return rotulo, mn.group(1), mn.group(2).strip()
+    return rotulo, resto, None
+
+
 def sem_acento(s):
     import unicodedata
     return "".join(c for c in unicodedata.normalize("NFD", s)
@@ -409,17 +435,19 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
     """A leitura inteira de um projeto, na folha que vier."""
     from folha_pdf import COR_MARCA, CORPO as CORPO_TEXTO
     if cabecalho:
-        f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
+        f.texto(nome, corpo=15, fonte="tibo", espaco_depois=3, justificar=False)
     if com_tarja:
         f.texto("notas %s  |  indícios de IA: %s  |  %d condi%s"
                 % ("  ".join("%d:%d" % (i, d["notas"][i]) for i in (1, 2, 3, 4)),
                    d["nivel"], len(d["condicoes"]),
                    "ção" if len(d["condicoes"]) == 1 else "ções"),
-                corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
+                corpo=10, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
     if blocos is None:
         blocos = blocos_do_relatorio(d["texto"])
+    na_ementa = False
     for i, (tipo, texto_bloco) in enumerate(blocos):
         if tipo == "titulo":
+            na_ementa = "EMENTA" in sem_acento(texto_bloco)
             nivel = nivel_do_titulo(texto_bloco)
             corpo = 12.5 if nivel == 1 else 11
             antes = 18 if nivel == 1 else 13
@@ -429,9 +457,19 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
             f.juntar([antes, f.altura_de(texto_bloco, corpo, "tibo"), 6,
                       2 * CORPO_TEXTO * 1.42])
             f.texto(texto_bloco, corpo=corpo, fonte="tibo",
-                    espaco_antes=antes, espaco_depois=6)
+                    espaco_antes=antes, espaco_depois=6, justificar=False)
         else:
-            f.texto(texto_bloco, espaco_depois=7)
+            # DENTRO DA EMENTA, o rotulo e a nota vao em negrito: sao as
+            # duas coisas que o olho procura numa ementa.
+            rotulo, meio, nota = (partes_da_entrada(texto_bloco)
+                                  if na_ementa else (None, texto_bloco, None))
+            if rotulo:
+                partes = [(rotulo + " ", True), (meio.strip(), False)]
+                if nota:
+                    partes.append((" " + nota, True))
+                f.html(partes, espaco_depois=7)
+            else:
+                f.texto(texto_bloco, espaco_depois=7)
 
 
 def escrever_um(nome, d, caminho, titulo=None):
@@ -451,31 +489,31 @@ def escrever_um(nome, d, caminho, titulo=None):
 
     doc = fitz.open()
     f = Folha(doc)
-    f.texto("Leitura de projeto de pesquisa", corpo=17, fonte="tibo",
-            espaco_depois=4)
+    f.texto("Leitura de projeto de pesquisa", corpo=18, fonte="tibo",
+            espaco_depois=4, justificar=False)
     if titulo:
-        f.texto(titulo, corpo=11.5, fonte="tibo", espaco_depois=3)
+        f.texto(titulo, corpo=12.5, fonte="tibo", espaco_depois=3, justificar=False)
         f.texto("Título copiado do próprio projeto por programa, do "
                 "parágrafo P%03d." % d["titulo"],
-                corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+                corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
     else:
-        f.texto(nome, corpo=11.5, fonte="tibo", espaco_depois=3)
+        f.texto(nome, corpo=12.5, fonte="tibo", espaco_depois=3, justificar=False)
         f.texto("Este é o nome do arquivo, e não o título do projeto: o "
                 "projeto não foi informado, e título não se digita.",
-                corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+                corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
 
     # AS OBSERVACOES DA LEITURA VEM ANTES DE QUALQUER NUMERO: elas dizem o
     # que a peca e, e quem le um numero antes disso ja o le como veredito.
     blocos = blocos_do_relatorio(d["texto"])
     preambulo, capa, corpo_da_leitura = partir_peca(blocos)
     for tipo, texto_bloco in preambulo:
-        f.texto(texto_bloco, corpo=9.5, fonte="tiit", cor=COR_FRACA,
+        f.texto(texto_bloco, corpo=10.5, fonte="tiit", cor=COR_FRACA,
                 espaco_depois=6)
     if preambulo:
         f.y += 8
 
-    f.texto("Avaliação proposta", corpo=12.5, fonte="tibo", espaco_antes=6,
-            espaco_depois=7)
+    f.texto("Avaliação proposta", corpo=13.5, fonte="tibo", espaco_antes=6,
+            espaco_depois=7, justificar=False)
     n = d["notas"]
     # SEM A PALAVRA "dimensao": a numeracao ja diz o que ela diria, e o
     # nome e vocabulario de quem construiu a regua, nao de quem le a peca.
@@ -485,16 +523,16 @@ def escrever_um(nome, d, caminho, titulo=None):
            [70, 30])
 
     f.texto("Condições para que o projeto seja apresentável a uma banca de "
-            "qualificação", corpo=12.5, fonte="tibo", espaco_antes=10,
+            "qualificação", corpo=13.5, fonte="tibo", espaco_antes=10,
             espaco_depois=7)
     if not d["condicoes"]:
         f.texto("Nenhuma. Nenhum impeditivo e nenhum bloqueio de partida em "
                 "dimensão nenhuma.", espaco_depois=8)
     else:
         for k, (dim, texto_c) in enumerate(d["condicoes"], 1):
-            f.texto("%d. %s" % (k, texto_c), corpo=10.5, espaco_depois=2)
+            f.texto("%d. %s" % (k, texto_c), corpo=11.5, espaco_depois=2)
             f.texto("%d. %s" % (dim, NOMES_LEGIVEIS[dim - 1]),
-                    corpo=9, fonte="tiit", cor=COR_FRACA, recuo=14,
+                    corpo=10, fonte="tiit", cor=COR_FRACA, recuo=14,
                     espaco_depois=7)
 
     f.texto("Esta lista não é recomendação de admitir ou não admitir. Ela diz "
@@ -503,7 +541,7 @@ def escrever_um(nome, d, caminho, titulo=None):
             "pesquisa, a trajetória de cada um. E o nível dos indícios de IA "
             "não vira condição e não entra em nota nenhuma: ele viaja ao lado, "
             "e quem decide o que fazer com ele é a banca.",
-            corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_antes=4,
+            corpo=10.5, fonte="tiit", cor=COR_FRACA, espaco_antes=4,
             espaco_depois=10)
 
     # A CAPA FECHA A PRIMEIRA PARTE: descricao geral e ementa, logo depois
@@ -511,10 +549,11 @@ def escrever_um(nome, d, caminho, titulo=None):
     escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
                      blocos=capa)
 
-    # SEM VIRAR A PAGINA: a capa acabava no meio da folha e a avaliacao
-    # analitica abria a seguinte, o que gastava meia pagina em branco. O
-    # titulo dela ja separa as duas faces, e ele nao fica orfao porque a
-    # reserva pede duas linhas do que vem depois.
+    # A AVALIACAO ANALITICA ABRE PAGINA NOVA. Eu tinha tirado a quebra para
+    # nao gastar meia folha em branco, e o professor a repos: as duas faces
+    # do relatorio sao duas pecas, e quem le so a capa nao deve encontrar o
+    # comeco da outra no pe da mesma folha.
+    f.nova()
     # SEM CABECALHO E SEM PREAMBULO: a pagina anterior ja traz o titulo
     # copiado e as observacoes, e repetir o nome do arquivo ali foi o que
     # pos "deferencia2" no alto da peca.
@@ -606,13 +645,13 @@ def escrever_pdf(lidos, caminho):
 
     doc = fitz.open()
     f = Folha(doc)
-    f.texto("Leituras de projetos de pesquisa", corpo=17, fonte="tibo",
-            espaco_depois=4)
+    f.texto("Leituras de projetos de pesquisa", corpo=18, fonte="tibo",
+            espaco_depois=4, justificar=False)
     f.texto("%d projetos. As notas vão de 0 a 10 em quatro dimensões; os "
             "indícios de IA não têm nota e viajam ao lado. A última coluna traz "
             "quantas condições o projeto precisa cumprir para ser apresentável "
             "a uma banca de qualificação. A ordem é alfabética." % len(lidos),
-            corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=16)
+            corpo=10.5, fonte="tiit", cor=COR_FRACA, espaco_depois=16)
 
     # AS TRES LINHAS DO VEREDITO VAO NA TABELA, e nao so as duas: a
     # aptidao e a que diz se o trabalho se conserta, e e a que muda o que
@@ -634,8 +673,8 @@ def escrever_pdf(lidos, caminho):
 
     total = len(lidos)
     sem_condicao = sum(1 for d in lidos.values() if not d["condicoes"])
-    f.texto("A coorte, e aqui só se conta", corpo=12.5, fonte="tibo",
-            espaco_antes=10, espaco_depois=6)
+    f.texto("A coorte, e aqui só se conta", corpo=13.5, fonte="tibo",
+            espaco_antes=10, espaco_depois=6, justificar=False)
     conta = ["projetos lidos: %d" % total,
              "sem nenhuma condição a cumprir: %d" % sem_condicao,
              "condições ao todo: %d"
@@ -653,7 +692,7 @@ def escrever_pdf(lidos, caminho):
         f.texto("- " + c, espaco_depois=3)
     f.texto("Contar é transcrever. Dizer que a turma tem dificuldade com "
             "metodologia seria afirmação nova sobre uma população, e não "
-            "sai daqui.", corpo=9.5, fonte="tiit", cor=COR_FRACA,
+            "sai daqui.", corpo=10.5, fonte="tiit", cor=COR_FRACA,
             espaco_antes=8, espaco_depois=10)
 
     for nome in sorted(lidos):
