@@ -307,6 +307,107 @@ def escrever_pdf(lidos, caminho):
     doc.close()
 
 
+# Palavras que julgam, e que por isso nao cabem no paragrafo descritivo.
+# EM FORMA DE PADRAO, E NAO DE PALAVRA SOLTA: a primeira versao listou
+# "vago" e o caso de teste dizia "vaga", e o controle acusou o silencio.
+# Flexao de genero e numero e a regra do portugues, nao a excecao.
+# A lista e curta de proposito: quanto maior, mais acusacao errada, e
+# acusacao errada custa mais que silencio aqui.
+PADROES_QUE_JULGAM = [
+    r"vag[oa]s?", r"fr[aá]gil|fr[aá]geis", r"insuficiente s?".replace(" ", ""),
+    r"gen[eé]ric[oa]s?", r"superficia(?:l|is)", r"s[oó]lid[oa]s?",
+    r"consistente s?".replace(" ", ""), r"promissor(?:a|es|as)?",
+    r"bem construíd[oa]s?", r"bem construid[oa]s?",
+    r"(?:in)?adequad[oa]s?", r"imprecis[oa]s?", r"confus[oa]s?",
+    r"excelente s?".replace(" ", ""), r"frac[oa]s?", r"robust[oa]s?",
+]
+RE_JULGAM = [(p, re.compile(r"\b(?:%s)\b" % p, re.I)) for p in PADROES_QUE_JULGAM]
+
+
+def olhar_a_descricao(texto, origem="?"):
+    """Devolve os avisos sobre o primeiro paragrafo de cada dimensao.
+
+    A REGRA QUE ELE OLHA: em cada dimensao, o primeiro paragrafo DESCREVE
+    o que o projeto traz e o segundo AVALIA. Descricao com adjetivo de
+    qualidade ja e avaliacao, e a banca que le so ela recebe juizo
+    achando que recebeu fato.
+
+    O QUE ELE NAO FAZ: recusar. Busca por palavra acusa errado, e "falha"
+    e o nome de fenomeno estudado em mais de um projeto deste acervo.
+    """
+    avisos = []
+    linhas = texto.split(chr(10))
+    dimensao, paragrafo, dentro = None, [], False
+
+    def fechar():
+        # SO O PRIMEIRO paragrafo de cada dimensao, que e o descritivo.
+        if dimensao is None or not paragrafo:
+            return False
+        junto = " ".join(paragrafo)
+        for padrao, rx in RE_JULGAM:
+            m = rx.search(junto)
+            if m:
+                avisos.append("%s, dimensao %s: a descricao usa %r"
+                              % (origem, dimensao, m.group(0)))
+        if chr(34) in junto or chr(8220) in junto:
+            avisos.append("%s, dimensao %s: a descricao tem aspas, e ela e "
+                          "reconstrucao, nao transcricao" % (origem, dimensao))
+        return True
+
+    for linha in linhas:
+        cabeca = re.match(r"^\s*#*\s*([1-5])[.)]\s+([A-ZÀ-Ú][^\n]*)", linha)
+        if cabeca:
+            dimensao, paragrafo, dentro = cabeca.group(1), [], True
+            continue
+        if not dentro:
+            continue
+        if linha.strip():
+            paragrafo.append(linha.strip())
+        elif paragrafo:
+            if fechar():
+                dentro = False
+            paragrafo = []
+    if paragrafo:
+        fechar()
+    return avisos
+
+
+def provar_a_descricao():
+    """Controle positivo. Conferidor que nunca acusou nada nao informa
+    nada quando fica em silencio."""
+    base = ("## 1. Problema e justificativa" + chr(10) +
+            "%s" + chr(10) * 2 +
+            "Avaliacao: a pergunta nao se responde com a fonte escolhida." +
+            chr(10) * 2 + "## 2. Metodologia e teoria" + chr(10) +
+            "O projeto nomeia como fonte os acordaos do topico 4." + chr(10) * 2 +
+            "Avaliacao: falta a operacao." + chr(10))
+    casos = [
+        ("descricao limpa",
+         base % "O projeto enuncia a pergunta no topico 2 e a fonte no 4.", 0),
+        ("adjetivo de qualidade na descricao",
+         base % "O projeto enuncia uma pergunta vaga no topico 2.", 1),
+        ("aspas na descricao",
+         base % ("O projeto enuncia a pergunta como " + chr(34) +
+                 "de que modo o juiz decide" + chr(34) + " no topico 2."), 1),
+        ("o adjetivo no paragrafo AVALIATIVO nao acusa",
+         ("## 1. Problema e justificativa" + chr(10) +
+          "O projeto enuncia a pergunta no topico 2." + chr(10) * 2 +
+          "A pergunta e vaga e generica, e isso e impeditivo." + chr(10)), 0),
+    ]
+    print("Controle positivo do olhar sobre a descricao:")
+    ok = True
+    for nome, texto, esperados in casos:
+        houve = len(olhar_a_descricao(texto, "teste"))
+        certo = houve == esperados
+        ok = ok and certo
+        print("  %-42s %d aviso(s), esperava %d  %s"
+              % (nome, houve, esperados, "ok" if certo else "DIVERGIU"))
+    print()
+    print("O olhar separa os casos." if ok
+          else "O OLHAR NAO SEPARA OS CASOS. Nao confie no silencio dele.")
+    return ok
+
+
 def agregar(pasta, pdf=None):
     lidos, ruins = {}, []
     for f in sorted(Path(pasta).glob("*.md")):
@@ -363,6 +464,18 @@ def agregar(pasta, pdf=None):
         if quantos:
             print("  indicios %-24s %d de %d" % (nivel, quantos, total))
     print()
+    avisos = []
+    for nome in sorted(lidos):
+        avisos.extend(olhar_a_descricao(lidos[nome]["texto"], nome))
+    if avisos:
+        print("O PARAGRAFO DESCRITIVO, em %d ponto(s):" % len(avisos))
+        for a in avisos:
+            print("  -", a)
+        print("  Isto e busca por palavra, e ela acusa errado: 'consistente'")
+        print("  pode estar descrevendo o que o projeto diz de si. Confira")
+        print("  antes de pedir correcao; o programa nao recusou nada.")
+        print()
+
     if pdf:
         escrever_pdf(lidos, pdf)
         print("  %s: relatorio do lote com a tabela comparativa." % pdf)
@@ -442,6 +555,10 @@ def controle():
             print("  %-50s reprovou: %s" % (nome, str(e)[10:70]))
         else:
             sys.exit("CONTROLE FALHOU: %s passou e devia reprovar" % nome)
+    print()
+    print()
+    if not provar_a_descricao():
+        sys.exit(1)
     print()
     print("O conferidor reprova os %d casos. Sem este controle, um bloco"
           % len(casos))

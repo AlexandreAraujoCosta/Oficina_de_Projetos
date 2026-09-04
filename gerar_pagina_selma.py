@@ -207,6 +207,34 @@ a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
   fabricou. Sem busca, diz que não conferiu, e não julga por memória.</p>
 </div>
 
+<h2 id="descricao">Cada dimensão sai em dois parágrafos</h2>
+
+<p>O primeiro <b>descreve o que o projeto traz</b> naquela dimensão, com os
+tópicos onde cada coisa está: a pergunta como o projeto a enuncia, a fonte que
+ele diz que vai usar, o recorte, as categorias que nomeia, os autores que
+mobiliza e para quê, o que promete entregar. O segundo <b>avalia</b>, com o
+achado, o tópico, a contagem por classe e a nota.</p>
+
+<p><b>A descrição vem primeiro, e isso não é arrumação.</b> Escrita depois da
+avaliação, ela se curva para justificar a nota, e quem lê recebe como descrição
+o que já é argumento. Escrita antes, ela é o que a leitura entendeu do
+documento, e é contra ela que a avaliação se confere.</p>
+
+<p>No parágrafo descritivo não entra adjetivo de qualidade, em direção nenhuma:
+nem frágil, insuficiente ou vago; nem sólido, consistente ou promissor. Quando
+não há material, isso também se descreve, e é frase de fato: o projeto não
+enuncia pergunta, não nomeia fonte. <b>E a descrição é reconstrução, não
+transcrição:</b> sai com as palavras de quem lê e nunca entre aspas, porque
+aspas afirmam literalidade. Onde a palavra exata importa, vem o tópico e o
+convite a ler.</p>
+
+<div class="nota">
+  <p><strong>Por que isto entrou.</strong> Sem a descrição, quem lê o relatório
+  não sabe o que está sendo avaliado, e num processo com vinte projetos ninguém
+  abre os vinte documentos para descobrir. O relatório passa a bastar como
+  apresentação do projeto, e não só como parecer sobre ele.</p>
+</div>
+
 <h2 id="lote">Uso em lote, num processo seletivo</h2>
 
 <p>Para ler vinte projetos, ela roda <b>uma vez por projeto</b>, e nunca os
