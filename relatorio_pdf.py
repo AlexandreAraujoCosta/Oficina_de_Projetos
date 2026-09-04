@@ -70,6 +70,9 @@ PALAVRAS_DO_TRECHO = 45          # o trecho citado corta aqui, e so no fim
 
 RE_ITEM = re.compile(r"^\s*\[?\s*P?\s*(\d{1,4})\s*\]?\s*[>:–—-]\s*(.+?)\s*$", re.I)
 
+# Linhas que existem para o programa e nao para quem le a peca.
+RE_MAQUINARIA = re.compile(r"^\s*(?:IMPRESS[AÃ]O\b|`{3,})", re.I)
+
 
 # ---------------------------------------------------------------- leitura
 
@@ -79,6 +82,10 @@ def ler_relatorio(bruto):
     for linha in bruto.splitlines():
         if not linha.strip():
             pecas.append(("branco", None))
+            continue
+        if RE_MAQUINARIA.match(linha):
+            # Maquinaria, e nao conteudo: a impressao digital existe para o
+            # programa conferir a numeracao, e saia impressa como paragrafo.
             continue
         m = RE_ITEM.match(linha)
         if m:
@@ -125,6 +132,27 @@ def cortar(texto, quantas=PALAVRAS_DO_TRECHO):
 
 # ---------------------------------------------------------------- escrita
 
+def altura_do_primeiro_item(f, pecas, i, paragrafos):
+    """Quanto ocupa o comeco do que vem depois do titulo de secao.
+
+    O TRECHO CITADO SE MEDE, e nao se chuta. A primeira versao reservava
+    duas linhas para ele e o trecho tinha quatro: a reserva passava, o
+    titulo era escrito, e o trecho, que tem fundo pintado e por isso nao
+    se parte, saltava para a pagina seguinte deixando o titulo sozinho.
+    """
+    if i + 1 >= len(pecas):
+        return 2 * CORPO * ENTRELINHA
+    tipo, dado = pecas[i + 1]
+    if tipo != "item":
+        return 2 * CORPO * ENTRELINHA        # prosa se parte
+    n, comentarios = dado
+    etiqueta = "[P%03d]  página 0 do projeto" % n
+    trecho, _ = cortar(paragrafos[n - 1]["texto"])
+    return (f.altura_de(etiqueta, 8.5, "tibo") + 3
+            + f.altura_de(trecho, 9.5, "tiit", recuo=14) + 5
+            + 2 * CORPO * ENTRELINHA + 8)
+
+
 def montar(pecas, paragrafos, nome_projeto, saida):
     doc = fitz.open()
     f = Folha(doc)
@@ -132,22 +160,27 @@ def montar(pecas, paragrafos, nome_projeto, saida):
 
     tem_titulo = any(p[0] == "titulo" for p in pecas)
     if not tem_titulo:
-        f.texto("Relatorio sobre " + nome_projeto, corpo=17, fonte="tibo",
+        f.texto("Relatório sobre " + nome_projeto, corpo=17, fonte="tibo",
                 espaco_depois=4)
-        f.texto("Os trechos citados foram copiados do proprio projeto por "
-                "programa. O numero entre colchetes e o do paragrafo na "
-                "numeracao que acompanha este relatorio.",
+        f.texto("Os trechos citados foram copiados do próprio projeto por "
+                "programa. O número entre colchetes é o do parágrafo na "
+                "numeração que acompanha este relatório.",
                 corpo=9, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
 
-    for tipo, dado in pecas:
+    for i, (tipo, dado) in enumerate(pecas):
         if tipo == "titulo":
             f.texto(dado, corpo=17, fonte="tibo", espaco_depois=4)
-            f.texto("Os trechos citados foram copiados do proprio projeto "
-                    "por programa. O numero entre colchetes e o do paragrafo "
-                    "na numeracao que acompanha este relatorio.",
+            f.texto("Os trechos citados foram copiados do próprio projeto "
+                    "por programa. O número entre colchetes é o do parágrafo "
+                    "na numeração que acompanha este relatório.",
                     corpo=9, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
         elif tipo == "secao":
-            f.juntar([14, f.altura_de(dado, 12.5, "tibo"), 6, 7, 46])
+            # A RESERVA TEM DE CABER O PRIMEIRO ITEM, e nao um punhado de
+            # pontos: o item abre com a etiqueta e com o trecho citado, e o
+            # trecho tem fundo pintado, entao ele nao se parte entre
+            # paginas. Reservar 46 pontos deixava o titulo sozinho no pe.
+            f.juntar([14, f.altura_de(dado, 12.5, "tibo"), 6, 7,
+                      altura_do_primeiro_item(f, pecas, i, paragrafos)])
             f.regua()
             f.texto(dado, corpo=12.5, fonte="tibo", espaco_antes=6,
                     espaco_depois=7)
@@ -158,7 +191,7 @@ def montar(pecas, paragrafos, nome_projeto, saida):
             p = paragrafos[n - 1]
             trecho, cortado = cortar(p["texto"])
             citados.append((n, trecho, cortado))
-            etiqueta = "[P%03d]  pagina %d do projeto" % (n, p["pagina"] + 1)
+            etiqueta = "[P%03d]  página %d do projeto" % (n, p["pagina"] + 1)
             f.juntar([8,
                       f.altura_de(etiqueta, 8.5, "tibo"), 3,
                       f.altura_de(trecho, 9.5, "tiit", recuo=14), 5,
@@ -313,13 +346,25 @@ def main():
             print("[P%03d] %s" % (i, p["texto"]))
             print()
         print("%d paragrafos." % len(paragrafos), file=sys.stderr)
+        from comentar_pdf import impressao_digital
+        print()
+        print("IMPRESSAO | %s" % impressao_digital(paragrafos))
         return 0
 
     if not a.relatorio:
         sys.exit("Sem --numerar e sem --relatorio nao ha o que fazer. "
                  "Comece por --numerar.")
 
-    pecas = ler_relatorio(Path(a.relatorio).read_text(encoding="utf-8"))
+    bruto_do_relatorio = Path(a.relatorio).read_text(encoding="utf-8")
+    from comentar_pdf import conferir_impressao
+    nivel, recado = conferir_impressao(bruto_do_relatorio, paragrafos)
+    if nivel == "diverge":
+        sys.exit("PAREI: " + recado)
+    if nivel == "sem":
+        print("AVISO: " + recado)
+        print()
+
+    pecas = ler_relatorio(bruto_do_relatorio)
     itens = [d[0] for t, d in pecas if t == "item"]
     quantos_comentarios = sum(len(d[1]) for t, d in pecas if t == "item")
     if not itens:
@@ -347,11 +392,11 @@ def main():
     doc = fitz.open(str(saida))
     paginas = doc.page_count
     doc.close()
-    print("%s: %d comentarios em %d paragrafos, em %d paginas."
+    print("%s: %d comentários em %d parágrafos, em %d páginas."
           % (saida.name, quantos_comentarios, len(itens), paginas))
     print("Os %d trechos citados foram copiados do projeto e conferidos "
           "palavra a palavra. Use --provar para ver o conferidor reprovar de "
-          "proposito." % len(citados))
+          "propósito." % len(citados))
     return 0
 
 

@@ -257,6 +257,39 @@ def paragrafos_da_pagina(linhas, indice):
     return saida
 
 
+def impressao_digital(paragrafos):
+    """Identifica ESTA numeracao: quantos paragrafos, e um resumo do texto.
+
+    Sem ela, relatorio escrito contra uma numeracao antiga e aceito em
+    silencio e cita o paragrafo errado, com a aparencia inteira de estar
+    certo. Aconteceu: a regra da capa mudou 173 paragrafos para 172, e os
+    trechos sairam deslocados em um.
+    """
+    import hashlib
+    junto = chr(10).join(" ".join(p["texto"].split()) for p in paragrafos)
+    resumo = hashlib.sha256(junto.encode("utf-8")).hexdigest()[:8]
+    return "%dp-%s" % (len(paragrafos), resumo)
+
+
+RE_IMPRESSAO = re.compile(r"IMPRESS[AÃ]O[ |:]+([0-9]+p-[0-9a-f]{8})", re.I)
+
+
+def conferir_impressao(texto_do_relatorio, paragrafos, origem="o relatório"):
+    """Devolve (nivel, recado). nivel e "ok", "sem" ou "diverge"."""
+    m = RE_IMPRESSAO.search(texto_do_relatorio or "")
+    agora = impressao_digital(paragrafos)
+    if not m:
+        return "sem", ("%s não traz a impressão digital da numeração, "
+                       "então ninguém conferiu se ele foi escrito contra "
+                       "esta. A desta numeração é %s." % (origem, agora))
+    if m.group(1) != agora:
+        return "diverge", ("%s foi escrito contra a numeração %s, e a deste "
+                           "projeto agora é %s. Os localizadores apontam "
+                           "outros parágrafos. Numere de novo e refaça as "
+                           "indicações." % (origem, m.group(1), agora))
+    return "ok", ""
+
+
 def ler(caminho):
     """Devolve a lista de paragrafos do documento inteiro, em ordem."""
     doc = fitz.open(caminho)
@@ -449,6 +482,11 @@ def main():
         print("%d paragrafos em %d paginas. Os lugares ficaram em %s."
               % (len(paragrafos), 1 + max(p["pagina"] for p in paragrafos),
                  locais.name), file=sys.stderr)
+        print()
+        print("IMPRESSAO | %s" % impressao_digital(paragrafos))
+        print("Copie a linha acima para dentro do relatorio. E por ela que o")
+        print("programa confere que as indicacoes foram escritas contra ESTA")
+        print("numeracao, e nao contra uma anterior.", file=sys.stderr)
         print("Cole a lista acima na conversa, dizendo que e a numeracao do "
               "seu projeto.", file=sys.stderr)
         return 0
@@ -470,6 +508,15 @@ def main():
                  "assistente que refaca as sugestoes com esses numeros. Eu nao "
                  "escolho o paragrafo mais parecido."
                  % (", ".join("P%03d" % n for n in fora), len(paragrafos)))
+
+    nivel, recado = conferir_impressao(
+        Path(a.sugestoes).read_text(encoding="utf-8"), paragrafos,
+        "As sugestões")
+    if nivel == "diverge":
+        sys.exit("PAREI: " + recado)
+    if nivel == "sem":
+        print("AVISO: " + recado)
+        print()
 
     saida = Path(a.saida) if a.saida else entrada.with_name(
         entrada.stem + "-comentado.pdf")

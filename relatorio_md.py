@@ -245,13 +245,25 @@ def main():
             print("[P%03d] %s" % (i, p["texto"]))
             print()
         print("%d parágrafos." % len(paragrafos), file=sys.stderr)
+        from comentar_pdf import impressao_digital
+        print()
+        print("IMPRESSAO | %s" % impressao_digital(paragrafos))
         return 0
 
     if not a.relatorio:
         sys.exit("Sem --numerar e sem --relatorio não há o que fazer. "
                  "Comece por --numerar.")
 
-    pecas = ler_relatorio(Path(a.relatorio).read_text(encoding="utf-8"))
+    bruto_do_relatorio = Path(a.relatorio).read_text(encoding="utf-8")
+    from comentar_pdf import conferir_impressao
+    nivel, recado = conferir_impressao(bruto_do_relatorio, paragrafos)
+    if nivel == "diverge":
+        sys.exit("PAREI: " + recado)
+    if nivel == "sem":
+        print("AVISO: " + recado)
+        print()
+
+    pecas = ler_relatorio(bruto_do_relatorio)
     itens = [d[0] for t, d in pecas if t == "item"]
     if not itens:
         sys.exit("Nenhum item com localizador em %s. Eles têm a forma "
