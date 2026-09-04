@@ -34,8 +34,7 @@ CORPO = """<title>Selma — leitura de projeto de pesquisa</title>
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Universidade de Brasília · Leitura de projetos ·
-  <a href="%(oficina)s">Oficina de Projetos</a></p>
+  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito</a> · <a href="https://www.unb.br/">UnB</a> · <a href="https://pmpd.unb.br/">PMPD</a> · <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas</a>: <a href="https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd">Projetos</a> · <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">Orientação</a> · Formatação</span><span class="eb-linha eb-baixo"><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> · <span class="eb-atual" aria-current="page">Selma</span></span></p>
   <h1>Selma</h1>
   <p class="lead"><strong>Selma lê um projeto de pesquisa como uma banca o
   leria</strong>, e devolve um relatório curto: o que o projeto traz em cada
