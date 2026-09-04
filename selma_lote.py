@@ -110,7 +110,7 @@ def ler_bloco(texto, origem="?"):
         raise BlocoInvalido("%s: nao achei o bloco DADOS...FIM" % origem)
     linhas = [l.strip() for l in m.group(1).strip().split("\n") if l.strip()]
     notas, media, selecao, qualifica, abaixo = {}, None, None, None, None
-    nivel = None
+    nivel = apto = mudar = None
     for l in linhas:
         campos = [c.strip() for c in l.split("|")]
         if campos[0] == "MEDIA":
@@ -120,6 +120,16 @@ def ler_bloco(texto, origem="?"):
         elif campos[0] == "QUALIFICA":
             qualifica = campos[1]
             abaixo = campos[2] if len(campos) > 2 else "-"
+        elif campos[0] == "APTO":
+            # A TERCEIRA LINHA. Ela entrou no prompt da Selma e nao aqui, e
+            # o agregador passou a RECUSAR TODA LEITURA REAL, dizendo
+            # "linha nao reconhecida". Quem mexe no bloco mexe nos dois
+            # lados, e o controle tem de ter um caso do lado novo.
+            apto = campos[1]
+            if apto not in ("apto", "nao apto"):
+                raise BlocoInvalido("%s: APTO diz %r, esperava apto ou "
+                                    "nao apto" % (origem, apto))
+            mudar = campos[2] if len(campos) > 2 else ""
         elif campos[0].isdigit():
             i = int(campos[0])
             if not 1 <= i <= 5:
@@ -148,6 +158,11 @@ def ler_bloco(texto, origem="?"):
         raise BlocoInvalido("%s: falta o nivel da dimensao 5" % origem)
     if media is None or selecao is None or qualifica is None:
         raise BlocoInvalido("%s: falta MEDIA, SELECAO ou QUALIFICA" % origem)
+    if apto is None:
+        raise BlocoInvalido("%s: falta a linha APTO" % origem)
+    if apto == "apto" and not mudar.strip():
+        raise BlocoInvalido("%s: APTO diz apto e nao diz o que mudaria"
+                            % origem)
 
     # A media declarada tem de bater com as cinco notas. O relatorio e que
     # vale; o bloco so o repete, e bloco que nao bate se recusa.
@@ -165,11 +180,134 @@ def ler_bloco(texto, origem="?"):
     if baixas != declaradas:
         raise BlocoInvalido("%s: QUALIFICA aponta %r e as notas dao %r"
                             % (origem, declaradas, baixas))
+    # O TEXTO DO RELATORIO VAI JUNTO, sem o bloco de dados: e ele que o
+    # PDF do lote reproduz. O bloco sai porque ele existe para o programa
+    # ler, e nao para a banca; deixa-lo faria a peca terminar em tabela
+    # de campos separados por barra.
+    corpo = (texto[:m.start()] + texto[m.end():]).strip()
     return {"notas": notas, "media": media, "selecao": selecao,
-            "qualifica": qualifica, "abaixo": baixas, "nivel": nivel}
+            "qualifica": qualifica, "abaixo": baixas, "nivel": nivel,
+            "apto": apto, "mudar": mudar, "texto": corpo}
 
 
-def agregar(pasta):
+def escrever_pdf(lidos, caminho):
+    """O relatorio do lote: a tabela comparativa e, depois, cada leitura
+    inteira.
+
+    A TABELA VAI EM ORDEM ALFABETICA, e nao por media, e isto nao e
+    detalhe de apresentacao. Tabela ordenada por media e um ranking,
+    chame-se ou nao de ranking, e a media nao foi validada para ordenar:
+    ela foi feita para dizer de que lado da linha o projeto caiu. Quem
+    quiser ordenar ordena, sabendo que foi decisao sua.
+
+    E O NIVEL DOS INDICIOS TEM COLUNA PROPRIA, sem nota e fora da media,
+    para que ele chegue a banca sem ter mexido em nenhuma das duas linhas.
+    """
+    # O PyMuPDF entra AQUI, e nao no alto: o lote em texto tem de rodar
+    # em maquina que nao o tenha, e so a saida em PDF depende dele.
+    try:
+        import fitz
+    except ImportError:
+        sys.exit("A saida em PDF precisa do PyMuPDF: pip install pymupdf")
+    from folha_pdf import Folha, numerar_paginas, tabela, COR_FRACA, COR_MARCA
+
+    doc = fitz.open()
+    f = Folha(doc)
+    f.texto("Leituras de banca de selecao", corpo=17, fonte="tibo",
+            espaco_depois=4)
+    f.texto("%d projetos. As notas vao de 0 a 10 em quatro dimensoes; os "
+            "indicios de IA nao tem nota, nao entram na media e viajam ao "
+            "lado. A ordem e alfabetica, e nao por media." % len(lidos),
+            corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=16)
+
+    # AS TRES LINHAS DO VEREDITO VAO NA TABELA, e nao so as duas: a
+    # aptidao e a que diz se o trabalho se conserta, e e a que muda o que
+    # a banca faz depois. Deixa-la so no corpo do relatorio obrigaria a
+    # abrir cada leitura para saber.
+    cabecalho = ["projeto", "1", "2", "3", "4", "media", "selecao",
+                 "qualifica", "apto", "indicios de IA"]
+    linhas = []
+    for nome in sorted(lidos):
+        d = lidos[nome]
+        n = d["notas"]
+        linhas.append([nome, n[1], n[2], n[3], n[4], "%.1f" % d["media"],
+                       d["selecao"], d["qualifica"], d["apto"], d["nivel"]])
+    # As larguras foram medidas na pagina renderizada, e nao chutadas:
+    # com as anteriores, "media" quebrava em "medi/a" e "nao recomendo"
+    # em duas linhas. As colunas de nota levam um digito e nao precisam
+    # de espaco; as de veredito levam palavra e precisam.
+    tabela(f, cabecalho, linhas, [17, 3.2, 3.2, 3.2, 3.2, 7, 10, 13, 8.5, 14])
+
+    total = len(lidos)
+    passam = sum(1 for d in lidos.values() if d["media"] >= LINHA_SELECAO)
+    qualif = sum(1 for d in lidos.values() if not d["abaixo"])
+    f.texto("A coorte, e aqui so se conta", corpo=12.5, fonte="tibo",
+            espaco_antes=10, espaco_depois=6)
+    conta = ["projetos lidos: %d" % total,
+             "media 7 ou mais, que e a linha da selecao: %d" % passam,
+             "nenhuma dimensao abaixo de 7: %d" % qualif]
+    for i, nome in enumerate(DIMENSOES[:4], 1):
+        baixas = sum(1 for d in lidos.values() if d["notas"][i] < 7)
+        media = sum(d["notas"][i] for d in lidos.values()) / float(total)
+        conta.append("dimensao %d, %s: abaixo de 7 em %d de %d, media %.1f"
+                     % (i, nome, baixas, total, media))
+    for nivel in NIVEIS:
+        quantos = sum(1 for d in lidos.values() if d["nivel"] == nivel)
+        if quantos:
+            conta.append("indicios %s: %d" % (nivel, quantos))
+    for c in conta:
+        f.texto("- " + c, espaco_depois=3)
+    f.texto("Contar e transcrever. Dizer que a turma tem dificuldade com "
+            "metodologia seria afirmacao nova sobre uma populacao, e nao "
+            "sai daqui.", corpo=9.5, fonte="tiit", cor=COR_FRACA,
+            espaco_antes=8, espaco_depois=10)
+
+    for nome in sorted(lidos):
+        f.nova()
+        f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
+        d = lidos[nome]
+        f.texto("media %.1f  |  selecao: %s  |  qualificacao: %s  |  "
+                "%s  |  indicios de IA: %s"
+                % (d["media"], d["selecao"], d["qualifica"], d["apto"],
+                   d["nivel"]),
+                corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
+        # TITULO E BLOCO PROPRIO, ainda que nao venha seguido de linha em
+        # branco. Partindo so por linha em branco, o titulo grudava no
+        # paragrafo seguinte e a PAGINA INTEIRA SAIA EM NEGRITO, porque o
+        # bloco todo herdava a fonte do titulo. E o titulo de primeiro
+        # nivel sai fora: o nome do projeto ja encabeca a secao.
+        blocos, atual = [], []
+        for linha in d["texto"].split(chr(10)):
+            if linha.strip().startswith("#"):
+                if atual:
+                    blocos.append(("prosa", " ".join(" ".join(atual).split())))
+                    atual = []
+                nivel = len(linha) - len(linha.lstrip("#"))
+                if nivel > 1:
+                    blocos.append(("titulo", linha.lstrip("# ").strip()))
+            elif linha.strip():
+                atual.append(linha.strip())
+            elif atual:
+                blocos.append(("prosa", " ".join(" ".join(atual).split())))
+                atual = []
+        if atual:
+            blocos.append(("prosa", " ".join(" ".join(atual).split())))
+
+        for tipo, texto_bloco in blocos:
+            if not texto_bloco:
+                continue
+            if tipo == "titulo":
+                f.texto(texto_bloco, corpo=12, fonte="tibo",
+                        espaco_antes=6, espaco_depois=5)
+            else:
+                f.texto(texto_bloco, espaco_depois=6)
+
+    numerar_paginas(doc)
+    doc.save(caminho)
+    doc.close()
+
+
+def agregar(pasta, pdf=None):
     lidos, ruins = {}, []
     for f in sorted(Path(pasta).glob("*.md")):
         try:
@@ -184,18 +322,23 @@ def agregar(pasta):
     if not lidos:
         sys.exit("Nenhum relatorio valido em %s" % pasta)
 
-    larg = max(len(k) for k in lidos)
-    cab = "%-*s  %4s %4s %4s %4s %4s  %5s  %-10s %s" % (
-        larg, "projeto (ordem alfabetica)", "1", "2", "3", "4", "5",
-        "media", "selecao", "qualifica")
+    # A DIMENSAO 5 NAO TEM COLUNA DE NOTA: ela tem coluna de nivel, e
+    # fica fora da media. Enquanto ela pontuava, esta tabela imprimia
+    # notas[5]; depois que ela saiu da conta, notas[5] deixou de existir e
+    # o agregador quebrava na primeira linha. O controle nao pegou porque
+    # ele exercita ler_bloco, e nao agregar.
+    larg = max([len(k) for k in lidos] + [len("projeto (ordem alfabetica)")])
+    cab = "%-*s  %4s %4s %4s %4s  %5s  %-10s %-13s %s" % (
+        larg, "projeto (ordem alfabetica)", "1", "2", "3", "4",
+        "media", "selecao", "qualifica", "indicios de IA")
     print(cab)
     print("-" * len(cab))
     for nome in sorted(lidos):
         d = lidos[nome]
         n = d["notas"]
-        print("%-*s  %4d %4d %4d %4d %4d  %5.1f  %-10s %s" % (
-            larg, nome, n[1], n[2], n[3], n[4], n[5], d["media"],
-            d["selecao"], d["qualifica"]))
+        print("%-*s  %4d %4d %4d %4d  %5.1f  %-10s %-13s %s" % (
+            larg, nome, n[1], n[2], n[3], n[4], d["media"],
+            d["selecao"], d["qualifica"], d["nivel"]))
     print()
 
     # ------------------------------------------------ a coorte, so contagem
@@ -206,12 +349,24 @@ def agregar(pasta):
     print("  projetos lidos                         : %d" % total)
     print("  media 7 ou mais (linha da selecao)     : %d" % passam)
     print("  nenhuma dimensao abaixo de 7           : %d" % qualif)
-    for i, nome in enumerate(DIMENSOES, 1):
+    # SO AS QUATRO QUE TEM NOTA. Percorrer DIMENSOES inteira aqui buscava
+    # notas[5], que deixou de existir quando os indicios sairam da conta, e
+    # o lote quebrava DEPOIS de imprimir metade do relatorio, que e o pior
+    # momento para quebrar: parece que terminou.
+    for i, nome in enumerate(DIMENSOES[:4], 1):
         baixas = sum(1 for d in lidos.values() if d["notas"][i] < 7)
         media = sum(d["notas"][i] for d in lidos.values()) / float(total)
         print("  dim %d %-24s abaixo de 7 em %d de %d, media %.1f"
               % (i, nome, baixas, total, media))
+    for nivel in NIVEIS:
+        quantos = sum(1 for d in lidos.values() if d["nivel"] == nivel)
+        if quantos:
+            print("  indicios %-24s %d de %d" % (nivel, quantos, total))
     print()
+    if pdf:
+        escrever_pdf(lidos, pdf)
+        print("  %s: relatorio do lote com a tabela comparativa." % pdf)
+        print()
     print("  A ordem da tabela e alfabetica, e nao por media, de proposito:")
     print("  ordenar por media transforma a leitura em ranking, e a media nao")
     print("  foi validada para ordenar. Ela diz de que lado da linha caiu.")
@@ -247,6 +402,7 @@ BOM = """DADOS
 MEDIA | 5.5
 SELECAO | nao passa
 QUALIFICA | nao recomendo | 1,2,3
+APTO | apto | delimitar a lista de casos
 FIM"""
 
 
@@ -255,6 +411,7 @@ def controle():
     ok = ler_bloco(BOM, "controle")
     assert ok["media"] == 5.5 and ok["abaixo"] == [1, 2, 3], ok
     assert ok["nivel"] == "leves", ok
+    assert ok["apto"] == "apto" and ok["mudar"], ok
     print("  o bloco bom passa                                 ok")
 
     casos = [
@@ -265,6 +422,13 @@ def controle():
         ("nota fora de 0-10", BOM.replace("| 0 | 3 | 7", "| 0 | 3 | 17")),
         ("nivel invalido", BOM.replace("| leves", "| razoavel")),
         ("dimensao 5 com nota", BOM.replace("- | leves", "- | 8")),
+        ("sem a linha APTO",
+         BOM.replace("APTO | apto | delimitar a lista de casos" + chr(10), "")),
+        ("APTO com palavra que nao existe",
+         BOM.replace("APTO | apto |", "APTO | talvez |")),
+        ("APTO diz apto e nao diz o que mudaria",
+         BOM.replace("APTO | apto | delimitar a lista de casos",
+                     "APTO | apto | ")),
         ("dimensao com nome trocado",
          BOM.replace("metodologia e teoria", "metodologia")),
         ("falta uma dimensao",
@@ -293,4 +457,8 @@ if __name__ == "__main__":
     else:
         if len(sys.argv) < 3:
             sys.exit("falta a pasta")
-        (preparar if sys.argv[1] == "preparar" else agregar)(sys.argv[2])
+        if sys.argv[1] == "preparar":
+            preparar(sys.argv[2])
+        else:
+            # O terceiro argumento, se vier, e o PDF do lote.
+            agregar(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)

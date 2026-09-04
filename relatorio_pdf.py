@@ -62,16 +62,9 @@ try:
 except ImportError:
     sys.exit("Falta o PyMuPDF. Instale com: pip install pymupdf")
 
-LARGURA, ALTURA = fitz.paper_size("a4")
-MARGEM = 62
-LARGURA_UTIL = LARGURA - 2 * MARGEM
-
-CORPO = 10.5
-ENTRELINHA = 1.42
-COR_TINTA = (0.12, 0.12, 0.13)
-COR_FRACA = (0.42, 0.42, 0.45)
-COR_MARCA = (0.62, 0.42, 0.10)
-COR_FUNDO = (0.975, 0.965, 0.94)
+from folha_pdf import (LARGURA, ALTURA, MARGEM, LARGURA_UTIL, CORPO,
+                       ENTRELINHA, COR_TINTA, COR_FRACA, COR_MARCA,
+                       COR_FUNDO, Folha, numerar_paginas, tabela)
 
 PALAVRAS_DO_TRECHO = 45          # o trecho citado corta aqui, e so no fim
 
@@ -131,102 +124,6 @@ def cortar(texto, quantas=PALAVRAS_DO_TRECHO):
 
 
 # ---------------------------------------------------------------- escrita
-
-class Folha:
-    """Um cursor que desce pela pagina e vira a folha quando acaba."""
-
-    def __init__(self, doc):
-        self.doc = doc
-        self.pagina = None
-        self.y = 0
-        self.nova()
-
-    def nova(self):
-        self.pagina = self.doc.new_page(width=LARGURA, height=ALTURA)
-        self.y = MARGEM
-
-    def cabe(self, altura):
-        return self.y + altura <= ALTURA - MARGEM - 18
-
-    def texto(self, txt, corpo=CORPO, fonte="tiro", cor=COR_TINTA,
-              recuo=0, espaco_antes=0, espaco_depois=6, fundo=None):
-        """Escreve e desce o cursor pela altura QUE O PYMUPDF DIZ TER
-        USADO, e nao por uma altura que eu calcule antes.
-
-        A PRIMEIRA VERSAO MEDIA A ALTURA POR CONTA PROPRIA e passava a
-        caixa justa. insert_textbox precisa de folga (ascendente e
-        descendente da fonte) e devolvia negativo, que e o sinal de nao
-        coube; o meu tratamento de nao coube consumia o resto da pagina,
-        e sete itens sairam em vinte e cinco paginas. Agora a caixa vai
-        ate a margem de baixo e a altura usada e a caixa menos a sobra.
-        """
-        largura = LARGURA_UTIL - recuo
-        fundo_da_pagina = ALTURA - MARGEM - 18
-
-        def tentar(y):
-            caixa = fitz.Rect(MARGEM + recuo, y,
-                              MARGEM + recuo + largura, fundo_da_pagina)
-            sobra = self.pagina.insert_textbox(
-                caixa, txt, fontsize=corpo, fontname=fonte, color=cor,
-                lineheight=ENTRELINHA, align=fitz.TEXT_ALIGN_LEFT)
-            return sobra, caixa
-
-        y = self.y + espaco_antes
-        sobra, caixa = tentar(y)
-        if sobra < 0:                       # nao coube nesta pagina
-            self.nova()
-            y = self.y
-            sobra, caixa = tentar(y)
-            if sobra < 0:
-                sys.exit("ERRO: um bloco nao cabe nem numa pagina inteira. "
-                         "Encurte o comentario.")
-        usada = caixa.height - sobra
-        if fundo is not None:
-            # overlay=False poe o retangulo ABAIXO do texto ja escrito.
-            self.pagina.draw_rect(
-                fitz.Rect(MARGEM + recuo - 8, y - 4,
-                          MARGEM + LARGURA_UTIL, y + usada + 4),
-                color=None, fill=fundo, overlay=False)
-        self.y = y + usada + espaco_depois
-
-    def altura_de(self, txt, corpo, fonte, recuo=0):
-        """Quanto o bloco vai ocupar, medido pelo MESMO motor que escreve,
-        numa pagina descartavel. Medir por conta propria e o que ja errou
-        uma vez aqui."""
-        rascunho = fitz.open()
-        pg = rascunho.new_page(width=LARGURA, height=ALTURA)
-        caixa = fitz.Rect(MARGEM + recuo, MARGEM,
-                          MARGEM + recuo + LARGURA_UTIL - recuo,
-                          ALTURA - MARGEM - 18)
-        sobra = pg.insert_textbox(caixa, txt, fontsize=corpo, fontname=fonte,
-                                  lineheight=ENTRELINHA,
-                                  align=fitz.TEXT_ALIGN_LEFT)
-        rascunho.close()
-        return caixa.height - sobra if sobra >= 0 else caixa.height
-
-    def juntar(self, alturas):
-        """Vira a folha ANTES do bloco quando o conjunto nao cabe. Sem
-        isto, a etiqueta do item ficava no pe de uma pagina e o trecho
-        citado abria a seguinte, que e o item partido justamente onde ele
-        precisa estar inteiro."""
-        if not self.cabe(sum(alturas)):
-            self.nova()
-
-    def regua(self):
-        if not self.cabe(14):
-            self.nova()
-            return
-        self.pagina.draw_line(fitz.Point(MARGEM, self.y),
-                              fitz.Point(MARGEM + LARGURA_UTIL, self.y),
-                              color=(0.86, 0.86, 0.88), width=0.6)
-        self.y += 12
-
-
-def numerar_paginas(doc):
-    for i, p in enumerate(doc, 1):
-        p.insert_text(fitz.Point(LARGURA / 2 - 6, ALTURA - MARGEM + 12),
-                      str(i), fontsize=9, fontname="tiro", color=COR_FRACA)
-
 
 def montar(pecas, paragrafos, nome_projeto, saida):
     doc = fitz.open()

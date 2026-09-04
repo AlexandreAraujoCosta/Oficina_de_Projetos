@@ -221,6 +221,13 @@ fecha. <b>E a tabela sai em ordem alfabética, não por média</b>, porque tabel
 ordenada por média é um ranking, e a média foi feita para dizer de que lado da
 linha o projeto caiu, não para ordenar.</p>
 
+<p><b>A saída do lote é um PDF</b>: a tabela comparativa, as contagens da
+coorte (só contagens: dizer que a turma tem dificuldade com metodologia seria
+afirmação nova sobre uma população) e, depois, cada leitura inteira, uma por
+página. <b>Num projeto só, o relatório também sai em PDF</b>, e a razão é a
+mesma: leitura de banca é peça que o processo recebe pronta. O relatório do
+Miro, que é material de trabalho, sai em <code>.md</code>.</p>
+
 <div class="nota" style="border-left-color: var(--deep); background: var(--deep-soft);">
   <p><strong>E o lote traz de graça o controle que falta.</strong> Duas
   leituras independentes do mesmo projeto, em dois ou três do lote, medem o que
