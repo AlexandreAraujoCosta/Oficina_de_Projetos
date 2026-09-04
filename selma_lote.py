@@ -47,6 +47,13 @@ from pathlib import Path
 DIMENSOES = ["problema e justificativa", "metodologia e teoria", "contribuicoes e impacto",
              "bibliografia", "indicios de ia"]
 # A dimensao 5 nao tem nota e nao entra na media: leva o NIVEL.
+# Os mesmos nomes, acentuados, para o que vai impresso. Os de DIMENSOES
+# ficam sem acento porque e assim que o bloco de dados os traz e e assim
+# que o programa os compara; peca que um examinador le nao sai sem acento.
+NOMES_LEGIVEIS = ["problema e justificativa", "metodologia e teoria",
+                  "contribuições e impacto", "bibliografia",
+                  "indícios de IA"]
+
 NIVEIS = ["fortes-abusivo", "fortes-indeterminado", "leves", "ausentes"]
 
 
@@ -265,10 +272,10 @@ def escrever_leitura(f, nome, d, com_tarja=True):
     from folha_pdf import COR_MARCA
     f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
     if com_tarja:
-        f.texto("notas %s  |  indicios de IA: %s  |  %d condi%s"
+        f.texto("notas %s  |  indícios de IA: %s  |  %d condi%s"
                 % ("  ".join("%d:%d" % (i, d["notas"][i]) for i in (1, 2, 3, 4)),
                    d["nivel"], len(d["condicoes"]),
-                   "cao" if len(d["condicoes"]) == 1 else "coes"),
+                   "ção" if len(d["condicoes"]) == 1 else "ções"),
                 corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
     for tipo, texto_bloco in blocos_do_relatorio(d["texto"]):
         if tipo == "titulo":
@@ -298,40 +305,40 @@ def escrever_um(nome, d, caminho, titulo=None):
             espaco_depois=4)
     if titulo:
         f.texto(titulo, corpo=11.5, fonte="tibo", espaco_depois=3)
-        f.texto("Titulo copiado do proprio projeto por programa, do paragrafo "
-                "P%03d." % d["titulo"],
+        f.texto("Título copiado do próprio projeto por programa, do "
+                "parágrafo P%03d." % d["titulo"],
                 corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
     else:
         f.texto(nome, corpo=11.5, fonte="tibo", espaco_depois=3)
-        f.texto("Este e o nome do arquivo, e nao o titulo do projeto: o "
-                "projeto nao foi informado, e titulo nao se digita.",
+        f.texto("Este é o nome do arquivo, e não o título do projeto: o "
+                "projeto não foi informado, e título não se digita.",
                 corpo=8.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
 
     n = d["notas"]
-    tabela(f, ["dimensao", "nota"],
-           [[DIMENSOES[i - 1], n[i]] for i in (1, 2, 3, 4)]
-           + [[DIMENSOES[4] + " (sem nota)", d["nivel"]]],
+    tabela(f, ["dimensão", "nota"],
+           [[NOMES_LEGIVEIS[i - 1], n[i]] for i in (1, 2, 3, 4)]
+           + [[NOMES_LEGIVEIS[4] + " (sem nota)", d["nivel"]]],
            [70, 30])
 
-    f.texto("Condicoes para que o projeto seja apresentavel a uma banca de "
-            "qualificacao", corpo=12.5, fonte="tibo", espaco_antes=10,
+    f.texto("Condições para que o projeto seja apresentável a uma banca de "
+            "qualificação", corpo=12.5, fonte="tibo", espaco_antes=10,
             espaco_depois=7)
     if not d["condicoes"]:
         f.texto("Nenhuma. Nenhum impeditivo e nenhum bloqueio de partida em "
-                "dimensao nenhuma.", espaco_depois=8)
+                "dimensão nenhuma.", espaco_depois=8)
     else:
         for k, (dim, texto_c) in enumerate(d["condicoes"], 1):
             f.texto("%d. %s" % (k, texto_c), corpo=10.5, espaco_depois=2)
-            f.texto("dimensao %d, %s" % (dim, DIMENSOES[dim - 1]),
+            f.texto("dimensão %d, %s" % (dim, NOMES_LEGIVEIS[dim - 1]),
                     corpo=9, fonte="tiit", cor=COR_FRACA, recuo=14,
                     espaco_depois=7)
 
-    f.texto("Esta lista nao e recomendacao de admitir ou nao admitir. Ela diz "
-            "o que falta ao documento, e a decisao se toma com coisas que a "
-            "leitura nao tem: os outros candidatos, as vagas, a linha de "
-            "pesquisa, a trajetoria de cada um. E o nivel dos indicios de IA "
-            "nao vira condicao e nao entra em nota nenhuma: ele viaja ao lado, "
-            "e quem decide o que fazer com ele e a banca.",
+    f.texto("Esta lista não é recomendação de admitir ou não admitir. Ela diz "
+            "o que falta ao documento, e a decisão se toma com coisas que a "
+            "leitura não tem: os outros candidatos, as vagas, a linha de "
+            "pesquisa, a trajetória de cada um. E o nível dos indícios de IA "
+            "não vira condição e não entra em nota nenhuma: ele viaja ao lado, "
+            "e quem decide o que fazer com ele é a banca.",
             corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_antes=4,
             espaco_depois=10)
 
@@ -408,18 +415,18 @@ def escrever_pdf(lidos, caminho):
     f = Folha(doc)
     f.texto("Leituras de projetos de pesquisa", corpo=17, fonte="tibo",
             espaco_depois=4)
-    f.texto("%d projetos. As notas vao de 0 a 10 em quatro dimensoes; os "
-            "indicios de IA nao tem nota e viajam ao lado. A ultima coluna traz "
-            "quantas condicoes o projeto precisa cumprir para ser apresentavel "
-            "a uma banca de qualificacao. A ordem e alfabetica." % len(lidos),
+    f.texto("%d projetos. As notas vão de 0 a 10 em quatro dimensões; os "
+            "indícios de IA não têm nota e viajam ao lado. A última coluna traz "
+            "quantas condições o projeto precisa cumprir para ser apresentável "
+            "a uma banca de qualificação. A ordem é alfabética." % len(lidos),
             corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=16)
 
     # AS TRES LINHAS DO VEREDITO VAO NA TABELA, e nao so as duas: a
     # aptidao e a que diz se o trabalho se conserta, e e a que muda o que
     # a banca faz depois. Deixa-la so no corpo do relatorio obrigaria a
     # abrir cada leitura para saber.
-    cabecalho = ["projeto", "1", "2", "3", "4", "indicios de IA",
-                 "condicoes"]
+    cabecalho = ["projeto", "1", "2", "3", "4", "indícios de IA",
+                 "condições"]
     linhas = []
     for nome in sorted(lidos):
         d = lidos[nome]
@@ -434,25 +441,25 @@ def escrever_pdf(lidos, caminho):
 
     total = len(lidos)
     sem_condicao = sum(1 for d in lidos.values() if not d["condicoes"])
-    f.texto("A coorte, e aqui so se conta", corpo=12.5, fonte="tibo",
+    f.texto("A coorte, e aqui só se conta", corpo=12.5, fonte="tibo",
             espaco_antes=10, espaco_depois=6)
     conta = ["projetos lidos: %d" % total,
-             "sem nenhuma condicao a cumprir: %d" % sem_condicao,
-             "condicoes ao todo: %d"
+             "sem nenhuma condição a cumprir: %d" % sem_condicao,
+             "condições ao todo: %d"
              % sum(len(d["condicoes"]) for d in lidos.values())]
-    for i, nome in enumerate(DIMENSOES[:4], 1):
+    for i, nome in enumerate(NOMES_LEGIVEIS[:4], 1):
         baixas = sum(1 for d in lidos.values() if d["notas"][i] < 7)
         media = sum(d["notas"][i] for d in lidos.values()) / float(total)
-        conta.append("dimensao %d, %s: abaixo de 7 em %d de %d, media %.1f"
+        conta.append("dimensão %d, %s: abaixo de 7 em %d de %d, média %.1f"
                      % (i, nome, baixas, total, media))
     for nivel in NIVEIS:
         quantos = sum(1 for d in lidos.values() if d["nivel"] == nivel)
         if quantos:
-            conta.append("indicios %s: %d" % (nivel, quantos))
+            conta.append("indícios %s: %d" % (nivel, quantos))
     for c in conta:
         f.texto("- " + c, espaco_depois=3)
-    f.texto("Contar e transcrever. Dizer que a turma tem dificuldade com "
-            "metodologia seria afirmacao nova sobre uma populacao, e nao "
+    f.texto("Contar é transcrever. Dizer que a turma tem dificuldade com "
+            "metodologia seria afirmação nova sobre uma população, e não "
             "sai daqui.", corpo=9.5, fonte="tiit", cor=COR_FRACA,
             espaco_antes=8, espaco_depois=10)
 

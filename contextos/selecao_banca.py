@@ -806,17 +806,19 @@ TITULO | P002
 4 | bibliografia | 0 | 0 | 3 | 7
 5 | indicios de ia | - | - | - | leves
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
-CONDICAO | 2 | fechar a lista de casos antes de comecar
+CONDICAO | 2 | fechar a lista de casos antes de começar
 CONDICAO | 2 | cortar uma das frentes, e dizer qual
 FIM
 
-TRÊS COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque a \
-escala dela é de marcas, e por isso os dois primeiros campos dela levam um \
-traço e o terceiro leva a contagem de marcas. A linha TITULO leva \
+QUATRO COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque \
+a escala dela é de marcas, e por isso os dois primeiros campos dela levam \
+um traço e o terceiro leva a contagem de marcas. A linha TITULO leva \
 localizador, e nunca texto: se eu escrever ali o título em vez do número \
-do parágrafo, o programa recusa o relatório. E os nomes das dimensões vão \
+do parágrafo, o programa recusa o relatório. OS NOMES DAS DIMENSÕES vão \
 sem acento e em minúsculas, porque é assim que um programa os compara sem \
-tropeçar.
+tropeçar. E O TEXTO DAS CONDIÇÕES VAI ACENTUADO, ao contrário deles, \
+porque ninguém o compara: ele sai impresso como prosa na peça que a banca \
+lê, e ali falta de acento é erro de ortografia.
 
 E O BLOCO NÃO SUBSTITUI O RELATÓRIO: ele o repete em forma de dado. Se os \
 dois divergirem, o relatório é que vale, porque foi nele que o julgamento \
