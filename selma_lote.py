@@ -190,6 +190,155 @@ def ler_bloco(texto, origem="?"):
             "apto": apto, "mudar": mudar, "texto": corpo}
 
 
+def blocos_do_relatorio(texto):
+    """Parte o relatorio em titulos e paragrafos.
+
+    TITULO E BLOCO PROPRIO, ainda que nao venha seguido de linha em
+    branco. Partindo so por linha em branco, o titulo grudava no
+    paragrafo seguinte e A PAGINA INTEIRA SAIA EM NEGRITO, porque o bloco
+    todo herdava a fonte do titulo. O titulo de primeiro nivel sai fora:
+    o nome do projeto ja encabeca a peca.
+    """
+    blocos, atual = [], []
+    for linha in texto.split(chr(10)):
+        if linha.strip().startswith("#"):
+            if atual:
+                blocos.append(("prosa", " ".join(" ".join(atual).split())))
+                atual = []
+            nivel = len(linha) - len(linha.lstrip("#"))
+            if nivel > 1:
+                blocos.append(("titulo", linha.lstrip("# ").strip()))
+        elif linha.strip():
+            atual.append(linha.strip())
+        elif atual:
+            blocos.append(("prosa", " ".join(" ".join(atual).split())))
+            atual = []
+    if atual:
+        blocos.append(("prosa", " ".join(" ".join(atual).split())))
+    return [(tipo, txt) for tipo, txt in blocos if txt]
+
+
+def escrever_leitura(f, nome, d, com_tarja=True):
+    """A leitura inteira de um projeto, na folha que vier."""
+    from folha_pdf import COR_MARCA
+    f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
+    if com_tarja:
+        f.texto("media %.1f  |  selecao: %s  |  qualificacao: %s  |  "
+                "%s  |  indicios de IA: %s"
+                % (d["media"], d["selecao"], d["qualifica"], d["apto"],
+                   d["nivel"]),
+                corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
+    for tipo, texto_bloco in blocos_do_relatorio(d["texto"]):
+        if tipo == "titulo":
+            f.texto(texto_bloco, corpo=12, fonte="tibo",
+                    espaco_antes=6, espaco_depois=5)
+        else:
+            f.texto(texto_bloco, espaco_depois=6)
+
+
+def segura_quem(abaixo):
+    """A frase que nomeia as dimensoes abaixo de 7, com concordancia.
+
+    A primeira versao escrevia "Seguram a dimensao 1, 2, 4": verbo no
+    plural, substantivo no singular e virgula onde vai o e. Texto que a
+    banca le nao pode ter isso, e concordancia nao se resolve com format.
+    """
+    if not abaixo:
+        return ""
+    nums = [str(x) for x in abaixo]
+    if len(nums) == 1:
+        return " Segura a dimensao %s." % nums[0]
+    lista = ", ".join(nums[:-1]) + " e " + nums[-1]
+    return " Seguram as dimensoes %s." % lista
+
+
+def escrever_um(nome, d, caminho):
+    """A leitura de UM projeto, em PDF.
+
+    SEM TABELA COMPARATIVA E SEM CONTAGEM DE COORTE: a primeira compara
+    com nada, e a segunda, com um projeto so, e a repeticao das notas com
+    outra redacao. No lugar delas, a ficha das quatro notas e as tres
+    linhas por extenso, cada uma dizendo o que decide.
+    """
+    try:
+        import fitz
+    except ImportError:
+        sys.exit("A saida em PDF precisa do PyMuPDF: pip install pymupdf")
+    from folha_pdf import Folha, numerar_paginas, tabela, COR_FRACA
+
+    doc = fitz.open()
+    f = Folha(doc)
+    f.texto("Leitura de banca de selecao", corpo=17, fonte="tibo",
+            espaco_depois=4)
+    f.texto(nome, corpo=11, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+
+    n = d["notas"]
+    tabela(f, ["dimensao", "nota"],
+           [[DIMENSOES[i - 1], n[i]] for i in (1, 2, 3, 4)]
+           + [["media das quatro", "%.1f" % d["media"]],
+              [DIMENSOES[4] + " (sem nota, fora da media)", d["nivel"]]],
+           [70, 30])
+
+    f.texto("As tres linhas, e elas medem coisas diferentes",
+            corpo=12.5, fonte="tibo", espaco_antes=8, espaco_depois=6)
+    for rotulo, valor, porque in [
+        ("Selecao", d["selecao"],
+         "media %.1f contra a linha de 7. Aqui a banca ordena candidatos, e "
+         "compensar um criterio com outro e o que ela de fato faz."
+         % d["media"]),
+        ("Qualificacao", d["qualifica"],
+         "exige que nenhuma dimensao esteja abaixo de 7, e nao sai da media: "
+         "a pergunta e se o desenho, executado como esta escrito, produz a "
+         "resposta, e para isso nao ha compensacao."
+         + segura_quem(d["abaixo"])),
+        ("Aptidao", d["apto"],
+         "o que teria de mudar: %s" % (d["mudar"].strip() or "nada indicado")),
+    ]:
+        f.texto("%s: %s" % (rotulo, valor), corpo=10.5, fonte="tibo",
+                espaco_depois=2)
+        f.texto(porque, corpo=9.5, fonte="tiro", cor=COR_FRACA, recuo=12,
+                espaco_depois=8)
+
+    f.texto("O nivel dos indicios de IA nao entra na media, nao entra no "
+            "criterio da qualificacao e nao muda a aptidao. Ele viaja ao "
+            "lado, e quem decide o que fazer com ele e a banca.",
+            corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=10)
+
+    f.nova()
+    escrever_leitura(f, nome, d, com_tarja=False)
+    numerar_paginas(doc)
+    doc.save(caminho)
+    doc.close()
+
+
+def um(caminho_md, caminho_pdf=None):
+    """Le UM relatorio da Selma e escreve o PDF dele."""
+    arq = Path(caminho_md)
+    if not arq.is_file():
+        sys.exit("Nao achei %s" % arq)
+    try:
+        d = ler_bloco(arq.read_text(encoding="utf-8"), arq.name)
+    except BlocoInvalido as e:
+        sys.exit("RELATORIO RECUSADO: %s" % e)
+
+    avisos = olhar_a_descricao(d["texto"], arq.stem)
+    if avisos:
+        print("O PARAGRAFO DESCRITIVO, em %d ponto(s):" % len(avisos))
+        for a in avisos:
+            print("  -", a)
+        print("  Isto e busca por palavra, e ela acusa errado. Confira antes")
+        print("  de pedir correcao; o programa nao recusou nada.")
+        print()
+
+    saida = caminho_pdf or str(arq.with_suffix(".pdf"))
+    escrever_um(arq.stem, d, saida)
+    print("%s: media %.1f, %s, %s, %s, indicios %s."
+          % (saida, d["media"], d["selecao"], d["qualifica"], d["apto"],
+             d["nivel"]))
+    print("A ficha foi montada pelo programa a partir do bloco de dados ja")
+    print("conferido, e nao redigitada.")
+
+
 def escrever_pdf(lidos, caminho):
     """O relatorio do lote: a tabela comparativa e, depois, cada leitura
     inteira.
@@ -264,43 +413,7 @@ def escrever_pdf(lidos, caminho):
 
     for nome in sorted(lidos):
         f.nova()
-        f.texto(nome, corpo=14, fonte="tibo", espaco_depois=3)
-        d = lidos[nome]
-        f.texto("media %.1f  |  selecao: %s  |  qualificacao: %s  |  "
-                "%s  |  indicios de IA: %s"
-                % (d["media"], d["selecao"], d["qualifica"], d["apto"],
-                   d["nivel"]),
-                corpo=9, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
-        # TITULO E BLOCO PROPRIO, ainda que nao venha seguido de linha em
-        # branco. Partindo so por linha em branco, o titulo grudava no
-        # paragrafo seguinte e a PAGINA INTEIRA SAIA EM NEGRITO, porque o
-        # bloco todo herdava a fonte do titulo. E o titulo de primeiro
-        # nivel sai fora: o nome do projeto ja encabeca a secao.
-        blocos, atual = [], []
-        for linha in d["texto"].split(chr(10)):
-            if linha.strip().startswith("#"):
-                if atual:
-                    blocos.append(("prosa", " ".join(" ".join(atual).split())))
-                    atual = []
-                nivel = len(linha) - len(linha.lstrip("#"))
-                if nivel > 1:
-                    blocos.append(("titulo", linha.lstrip("# ").strip()))
-            elif linha.strip():
-                atual.append(linha.strip())
-            elif atual:
-                blocos.append(("prosa", " ".join(" ".join(atual).split())))
-                atual = []
-        if atual:
-            blocos.append(("prosa", " ".join(" ".join(atual).split())))
-
-        for tipo, texto_bloco in blocos:
-            if not texto_bloco:
-                continue
-            if tipo == "titulo":
-                f.texto(texto_bloco, corpo=12, fonte="tibo",
-                        espaco_antes=6, espaco_depois=5)
-            else:
-                f.texto(texto_bloco, espaco_depois=6)
+        escrever_leitura(f, nome, lidos[nome])
 
     numerar_paginas(doc)
     doc.save(caminho)
@@ -592,14 +705,17 @@ def controle():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2 or sys.argv[1] not in ("preparar", "agregar", "controle"):
+    if len(sys.argv) < 2 or sys.argv[1] not in ("preparar", "agregar", "um",
+                                               "controle"):
         sys.exit(__doc__)
     if sys.argv[1] == "controle":
         controle()
     else:
         if len(sys.argv) < 3:
             sys.exit("falta a pasta")
-        if sys.argv[1] == "preparar":
+        if sys.argv[1] == "um":
+            um(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+        elif sys.argv[1] == "preparar":
             preparar(sys.argv[2])
         else:
             # O terceiro argumento, se vier, e o PDF do lote.
