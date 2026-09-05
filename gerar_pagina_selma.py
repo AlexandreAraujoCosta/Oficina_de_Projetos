@@ -96,10 +96,10 @@ quantos critérios entraram e quantos ficaram de fora.</p>
 
 <p>Cada achado se classifica em uma de três classes, com o teste feito
 <strong>com o defeito no lugar</strong>, e não depois de imaginá-lo
-consertado. <b>Impeditivo:</b> do jeito que está, a dimensão não entrega o que
-promete, e nenhum prazo resolve. <b>Bloqueio de partida:</b> a dimensão
+consertado. <b>Grave:</b> do jeito que está, a dimensão não entrega o que
+promete, e nenhum prazo resolve. <b>Médio:</b> a dimensão
 entrega, e há coisa a resolver antes de começar, que se resolve fazendo.
-<b>Localizado:</b> resolve-se no caminho. Depois a contagem manda na faixa e
+<b>Leve:</b> resolve-se no caminho. Depois a contagem manda na faixa e
 no dígito, e o relatório mostra a conta.</p>
 
 <p>Duas regras de subida corrigem o que a contagem sozinha não veria, e as
@@ -112,8 +112,8 @@ uma classe só.</p>
 <p>Ela não calcula média e não dá veredito de aprovação. <b>A única coisa
 que ela conclui é a lista de condições para o projeto ser apresentável a uma
 banca de qualificação</b>, e essa lista já está na contagem, sem conta nova,
-porque as três classes são uma escala de custo de conserto. Impeditivo vira
-condição sempre; bloqueio de partida vira condição sempre; localizado não vira,
+porque as três classes são uma escala de custo de conserto. Grave vira
+condição sempre; médio vira condição sempre; leve não vira,
 porque se resolve no caminho, e listá-lo transformaria a peça numa lista de
 reparos.</p>
 
@@ -122,7 +122,7 @@ dimensão de onde vem e o tópico em que o problema está. Fechar a lista de cas
 antes de começar, e não “o corpus é frágil”. Quem lê decide com a primeira
 forma; com a segunda, não decide nada. E quando não há nenhuma, isso se
 escreve, e é a frase mais forte que a leitura pode produzir sobre um projeto:
-nenhum impeditivo e nenhum bloqueio de partida em dimensão nenhuma.</p>
+nenhum achado grave e nenhum médio em dimensão nenhuma.</p>
 
 <p><b>A média saiu junto com o veredito</b>, e a razão é que ela só servia para
 dizer de que lado da linha de 7 o projeto caía. Sem a linha, seria número sem
@@ -149,9 +149,9 @@ saem.</p>
 <h3>A terceira pergunta: dá para aprovar com alterações?</h3>
 <p>É a que mais rende, e a resposta já está na contagem, sem conta nova:
 <strong>as três classes são uma escala de custo de conserto.</strong> Sem
-nenhum impeditivo, o projeto é apto, e um projeto com cinco localizados está
-mais perto de ser aprovado do que um com um impeditivo só, ainda que as notas
-digam o contrário. Com impeditivo, ela diz para cada um o que teria de mudar e
+nenhum grave, o projeto é apto, e um projeto com cinco achados leves está
+mais perto de ser aprovado do que um com um achado grave só, ainda que as notas
+digam o contrário. Com um achado grave, ela diz para cada um o que teria de mudar e
 de que tamanho é a mudança: reescrever uma seção é uma coisa, refazer a
 pergunta é outra, e só essa última é não apto.</p>
 <p>E o relatório fecha com <strong>o que a arguição pode ganhar</strong>: até

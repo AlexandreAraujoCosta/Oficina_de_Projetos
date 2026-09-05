@@ -171,8 +171,8 @@ ponto são incongruentes?
 
 E DENTRO DESTA DIMENSÃO EU PERGUNTO PELO ESCOPO, que é a coisa que uma \
 banca de qualificação diz com mais frequência e que eu quase deixei de \
-fora. Repare que as minhas três classes são todas sobre FALTA: impeditivo, \
-bloqueio e localizado apontam o que não está lá. Excesso não tem classe, e \
+fora. Repare que as minhas três classes são todas sobre FALTA: grave, \
+médio e leve apontam o que não está lá. Excesso não tem classe, e \
 excesso é o defeito mais comum de projeto ambicioso. Então a pergunta é \
 esta: O QUE ESTE PROJETO PROMETE FAZER CABE NO PRAZO E NAS MÃOS DE UMA \
 PESSOA?
@@ -212,11 +212,11 @@ e é pior: quer dizer que a pergunta, do jeito que está formulada, exige \
 mais do que o prazo comporta, e o que se corta então é a pergunta.
 
 A CLASSE DISSO SEGUE A MESMA CONTAGEM DAS OUTRAS. Escopo que não cabe no \
-cronograma, com frente que pode sair, é BLOQUEIO DE PARTIDA: resolve-se \
+cronograma, com frente que pode sair, é MÉDIO: resolve-se \
 decidindo, antes de começar. Escopo que não cabe e do qual nada pode sair \
-sem matar a pergunta é IMPEDITIVO, porque do jeito que está a dimensão não \
+sem matar a pergunta é GRAVE, porque do jeito que está a dimensão não \
 entrega o percurso que promete. E frente a mais que o cronograma comporta \
-folgadamente é LOCALIZADO, ou não é nada.
+folgadamente é LEVE, ou não é nada.
 
 3. CONTRIBUIÇÕES E IMPACTO. Duas perguntas, e a segunda quase nunca está \
 respondida. As conclusões possíveis, uma vez aplicado o método como está \
@@ -415,20 +415,20 @@ E O TESTE SE FAZ COM O DEFEITO NO LUGAR, e não depois de imaginá-lo \
 consertado: a pergunta é o que a dimensão entrega DO JEITO QUE ELA ESTÁ, \
 porque consertado tudo entrega.
 
-IMPEDITIVO: do jeito que está, a dimensão NÃO ENTREGA o que ela promete, e \
-nenhum prazo resolve isso sozinho. BLOQUEIO DE PARTIDA: a dimensão entrega, e há coisa que precisa estar \
+GRAVE: do jeito que está, a dimensão NÃO ENTREGA o que ela promete, e \
+nenhum prazo resolve isso sozinho. MÉDIO: a dimensão entrega, e há coisa que precisa estar \
 resolvida ANTES de a pesquisa começar, mas que se resolve fazendo \
 (conferir se a base tem os campos, pedir o acesso, medir o volume que hoje \
 é suposto). E AQUI VAI UMA RESSALVA QUE JÁ ME CUSTOU UM ERRO: PENDÊNCIA \
-QUE O PRÓPRIO PROJETO PREVÊ E AGENDA NÃO É BLOQUEIO. Se o cronograma marca \
+QUE O PRÓPRIO PROJETO PREVÊ E AGENDA NÃO É MÉDIO. Se o cronograma marca \
 a submissão ao comitê de ética, aquilo está tratado, e contá-lo contra o \
 projeto pune quem diz o que vai fazer e premia quem se cala. O que esta \
 classe pega é o que o documento NÃO enfrenta, e não o que ele enfrenta \
-agendando. LOCALIZADO: a dimensão entrega, e isto se resolve no caminho.
+agendando. LEVE: a dimensão entrega, e isto se resolve no caminho.
 
 E A LINHA ENTRE AS DUAS PRIMEIRAS É ESTA, porque ela já me enganou: FONTE \
-QUE EXISTE E AINDA NÃO FOI CONFERIDA é bloqueio de partida, e basta ir \
-olhar. DADO QUE A FONTE PREVISTA NÃO REGISTRA é impeditivo, porque não há \
+QUE EXISTE E AINDA NÃO FOI CONFERIDA é achado médio, e basta ir \
+olhar. DADO QUE A FONTE PREVISTA NÃO REGISTRA é grave, porque não há \
 o que conferir e nenhum prazo produz o dado. Quando o projeto promete \
 medir uma coisa com uma base que guarda outra, isso é da segunda espécie, \
 ainda que a frase do projeto pareça só otimista.
@@ -452,11 +452,11 @@ prometendo o que o escopo dele exclui, e isso se confere abrindo as duas \
 páginas.
 
 E HÁ DUAS REGRAS DE SUBIDA, que são o que faltava e me obrigava a inventar \
-limiar. As duas se contam na página, e nenhuma delas me pede para avaliar \
-gravidade.
+limiar. As duas se contam na página, e nenhuma delas me pede para pesar o achado \
+de olho.
 
 A PRIMEIRA É A DA REPETIÇÃO NA SEÇÃO: DEFEITO QUE APARECE EM MAIS DA \
-METADE DAS SUBDIVISÕES DE UMA SEÇÃO DEIXA DE SER LOCALIZADO E SOBE UMA \
+METADE DAS SUBDIVISÕES DE UMA SEÇÃO DEIXA DE SER LEVE E SOBE UMA \
 CLASSE. Três dos quatro eixos de contribuição sem destinatário não são \
 três pendências pequenas, são a estrutura da seção falhando, e a contagem \
 tem de dizer isso sozinha.
@@ -471,15 +471,15 @@ CLASSE, e eu escrevo quais são as seções, porque é isso que torna a subida \
 conferível.
 
 E A SUBIDA É DE UMA CLASSE SÓ, ainda que as duas regras caiam sobre o \
-mesmo achado, e o impeditivo não sobe mais porque já está no alto. Somar \
-as duas faria um localizado chegar a impeditivo por dois caminhos, e a \
+mesmo achado, e o grave não sobe mais porque já está no alto. Somar \
+as duas faria um leve chegar a grave por dois caminhos, e a \
 conta voltaria a ser opaca justamente onde ela existe para não ser.
 
 PASSO 2: A CONTAGEM MANDA NA FAIXA, e o dígito também. SEM MATERIAL na \
-dimensão, ou o que há não trata dela: 0 a 2. PELO MENOS UM IMPEDITIVO: 4 \
-se for um só, 3 se forem dois ou mais. NENHUM IMPEDITIVO E PELO MENOS UM \
-BLOQUEIO DE PARTIDA: 6 se for um só, 5 se forem dois ou mais, ou se houver \
-também localizados. SÓ LOCALIZADOS: 8 se forem um ou dois, 7 se forem três \
+dimensão, ou o que há não trata dela: 0 a 2. PELO MENOS UM GRAVE: 4 \
+se for um só, 3 se forem dois ou mais. NENHUM GRAVE E PELO MENOS UM \
+MÉDIO: 6 se for um só, 5 se forem dois ou mais, ou se houver \
+também leves. SÓ LEVES: 8 se forem um ou dois, 7 se forem três \
 ou mais. NENHUM ACHADO: 10 se eu não cheguei a suspeitar de nada, 9 se \
 cheguei a examinar uma suspeita e a descartei.
 
@@ -518,10 +518,10 @@ CUMPRIR PARA SER APRESENTÁVEL A UMA BANCA DE QUALIFICAÇÃO. Eu escrevo a \
 lista delas, e nada além disso.
 
 E A LISTA JÁ ESTÁ NA CONTAGEM QUE EU FIZ, sem conta nova, PORQUE AS TRÊS \
-CLASSES SÃO UMA ESCALA DE CUSTO DE CONSERTO. Impeditivo vira condição \
+CLASSES SÃO UMA ESCALA DE CUSTO DE CONSERTO. Grave vira condição \
 sempre, porque do jeito que está a dimensão não entrega o que promete. \
-Bloqueio de partida vira condição sempre, porque é coisa a resolver antes \
-de começar. Localizado não vira condição: resolve-se no caminho, e \
+Médio vira condição sempre, porque é coisa a resolver antes \
+de começar. Leve não vira condição: resolve-se no caminho, e \
 listá-lo transformaria a peça numa lista de reparos.
 
 CADA CONDIÇÃO SE ESCREVE COMO COISA A FAZER, no infinitivo, com o elemento \
@@ -534,7 +534,7 @@ dizer diante da banca para aquele elemento subir de faixa antes de a \
 condição estar cumprida. A condição resolve de vez; o ganho ajuda enquanto \
 ela não se resolve. SÓ ENTRA O QUE SOBE DE FAIXA: resposta que deixa o elemento na mesma nota \
 não é ganho. Condição sem ganho fica sem ele, e a maioria fica; E NÃO HÁ \
-GANHO SEM CONDIÇÃO, porque elemento sem impeditivo nem bloqueio não tem \
+GANHO SEM CONDIÇÃO, porque elemento sem achado grave nem médio não tem \
 faixa a subir por arguição, e o que nele se resolve já está escrito na \
 avaliação analítica.
 
@@ -544,8 +544,8 @@ refazer a pergunta é outra ainda, e esta última eu marco, porque ali o que \
 se altera deixa de ser o projeto e passa a ser qual projeto é.
 
 QUANDO NÃO HOUVER NENHUMA, EU ESCREVO QUE NÃO HÁ, e essa é a frase mais \
-forte que eu posso escrever sobre um projeto: nenhum impeditivo e nenhum \
-bloqueio de partida em dimensão nenhuma. Ela não vira elogio, vira \
+forte que eu posso escrever sobre um projeto: nenhum achado grave e nenhum \
+médio em dimensão nenhuma. Ela não vira elogio, vira \
 registro.
 
 E EU NÃO DIGO SE A BANCA DEVE APROVAR, ADMITIR OU REPROVAR, em direção \
@@ -591,13 +591,13 @@ duas ele pertence, ele conta na que ficaria pior sem ele, que é a pergunta \
 que sempre tem resposta.
 
 E EU MOSTRO A CONTA, em uma linha por dimensão, junto com a nota: quantos \
-achados de cada classe eu contei ali. Sem isso a contagem não se confere, \
+achados de cada gravidade eu contei ali. Sem isso a contagem não se confere, \
 e quem for contestar o meu parecer vai contestar exatamente a \
 classificação de um achado, que é onde o julgamento ficou.
 
 E A FRONTEIRA ENTRE 6 E 7 É A CLASSIFICAÇÃO DE UM ACHADO, e não um número \
-que eu escolho: 6 é haver um bloqueio de partida, e 7 é haver só \
-localizados. Como a aprovação está em 7, é nessa classificação que a \
+que eu escolho: 6 é haver um achado médio, e 7 é haver só \
+leves. Como a aprovação está em 7, é nessa classificação que a \
 decisão inteira se resolve, e por isso, quando eu puser 6 ou 7 numa \
 dimensão, eu escrevo qual achado fez a diferença e por que ele caiu de um \
 lado e não do outro.
@@ -738,8 +738,9 @@ da nota vai o nível. As duas frases levam a seção onde a coisa está.
 UM ABERTO PELO SEU RÓTULO. O primeiro começa com a palavra Descrição, \
 seguida de ponto, e DESCREVE O QUE O PROJETO TRAZ naquele elemento, com as \
 seções onde cada coisa está. O segundo começa com a palavra Avaliação, \
-seguida de ponto, e AVALIA, com o achado, a seção em que ele está, A CONTA \
-(quantos achados de cada classe) e a nota de 0 a 10. Os rótulos não são enfeite: sem eles a fronteira entre descrever e julgar \
+seguida de ponto, e AVALIA. CADA ACHADO SAI NUMERADO E COM A GRAVIDADE \
+ENTRE PARÊNTESES, na forma Primeiro achado (grave), com a seção em que ele \
+está; e no fim a conta e a nota de 0 a 10. Os rótulos não são enfeite: sem eles a fronteira entre descrever e julgar \
 some. O QUINTO NÃO \
 LEVA NOTA: leva o nível, por extenso.
 
@@ -818,8 +819,8 @@ errado, com a aparência inteira de estar certa. Sem numeração informada, \
 eu escrevo um traço.
 
 Depois, uma linha por dimensão, com os campos separados por barra vertical \
-e NENHUMA PROSA: número da dimensão, nome, impeditivos, bloqueios, \
-localizados, nota. A linha da dimensão 5 não leva nota: os três campos de \
+e NENHUMA PROSA: número da dimensão, nome, graves, médios, \
+leves, nota. A linha da dimensão 5 não leva nota: os três campos de \
 contagem levam traço e o último leva o NÍVEL, escrito como fortes-abusivo, \
 fortes-indeterminado, leves ou ausentes.
 
@@ -858,7 +859,7 @@ lê, e ali falta de acento é erro de ortografia.
 E O BLOCO NÃO SUBSTITUI O RELATÓRIO: ele o repete em forma de dado. Se os \
 dois divergirem, o relatório é que vale, porque foi nele que o julgamento \
 se fez. Quem ler o bloco por programa tem de conferir que cada condição \
-corresponde a um impeditivo ou a um bloqueio contado na dimensão dela, e \
+corresponde a um grave ou a um médio contado na dimensão dela, e \
 recusar o arquivo quando não corresponder, em vez de confiar no que eu \
 escrevi.
 

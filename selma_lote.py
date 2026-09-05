@@ -28,7 +28,7 @@ o projeto caiu. A ordem aqui e alfabetica, e as medias vao na tabela
 inteiras. Quem quiser ordenar ordena, e sabera que foi decisao sua.
 
 O RELATORIO DA COORTE SO CONTA. Quantos passaram cada linha, quantos
-tiveram impeditivo em cada dimensao, qual dimensao foi a mais fraca no
+tiveram grave em cada dimensao, qual dimensao foi a mais fraca no
 conjunto. Contagem e transcricao; "a turma tem dificuldade com
 metodologia" seria afirmacao nova sobre uma populacao, e cinco leituras
 nao a sustentam.
@@ -197,9 +197,9 @@ def ler_bloco(texto, origem="?"):
                             "condicao, o bloco traz uma linha com traco e a "
                             "palavra nenhuma" % origem)
 
-    # A CONTAGEM E A LISTA DE CONDICOES TEM DE SE CORRESPONDER. Impeditivo
-    # e bloqueio de partida viram condicao sempre; localizado nao vira. O
-    # bloco que diz zero impeditivos e zero bloqueios e traz condicao, ou o
+    # A CONTAGEM E A LISTA DE CONDICOES TEM DE SE CORRESPONDER. Grave
+    # e médio viram condicao sempre; leve nao vira. O
+    # bloco que diz zero graves e zero médios e traz condicao, ou o
     # contrario, esta contando uma coisa e concluindo outra.
     baixas = sorted(i for i, n in notas.items() if n < 7)
     caras = sorted(i for i in contagem if contagem[i][0] or contagem[i][1])
@@ -207,13 +207,13 @@ def ler_bloco(texto, origem="?"):
     faltando = [d for d in caras if d not in com_condicao]
     if faltando:
         raise BlocoInvalido(
-            "%s: a dimensao %s tem impeditivo ou bloqueio e nenhuma condicao "
+            "%s: a dimensao %s tem grave ou médio e nenhuma condicao "
             "saiu dela" % (origem, ", ".join(str(x) for x in faltando)))
     sobrando = [d for d in com_condicao if d in contagem
                 and not (contagem[d][0] or contagem[d][1])]
     if sobrando:
         raise BlocoInvalido(
-            "%s: a dimensao %s tem condicao e nenhum impeditivo ou bloqueio"
+            "%s: a dimensao %s tem condicao e nenhum grave ou médio"
             % (origem, ", ".join(str(x) for x in sobrando)))
     # O TEXTO DO RELATORIO VAI JUNTO, sem o bloco de dados: e ele que o
     # PDF do lote reproduz. O bloco sai porque ele existe para o programa
@@ -520,7 +520,7 @@ def escrever_um(nome, d, caminho, titulo=None):
             "qualificação", corpo=13.5, fonte="tibo", espaco_antes=10,
             espaco_depois=7)
     if not d["condicoes"]:
-        f.texto("Nenhuma. Nenhum impeditivo e nenhum bloqueio de partida em "
+        f.texto("Nenhuma. Nenhum grave e nenhum médio em "
                 "dimensão nenhuma.", espaco_depois=8)
     else:
         for k, (dim, texto_c, ganho) in enumerate(d["condicoes"], 1):
@@ -810,11 +810,11 @@ def provar_a_descricao():
         ("o adjetivo na Descricao rotulada",
          ("## 1. Problema e justificativa" + chr(10) +
           "Descricao. O projeto enuncia uma pergunta vaga no topico 2." + chr(10) +
-          "Avaliacao. Isso e bloqueio de partida." + chr(10)), 1),
+          "Avaliacao. Isso e médio." + chr(10)), 1),
         ("o adjetivo no paragrafo AVALIATIVO nao acusa",
          ("## 1. Problema e justificativa" + chr(10) +
           "O projeto enuncia a pergunta no topico 2." + chr(10) * 2 +
-          "A pergunta e vaga e generica, e isso e impeditivo." + chr(10)), 0),
+          "A pergunta e vaga e generica, e isso e grave." + chr(10)), 0),
     ]
     print("Controle positivo do olhar sobre a descricao:")
     ok = True
@@ -977,10 +977,10 @@ def controle():
         ("CONDICAO que nao diz o que fazer",
          BOM.replace("CONDICAO | 1 | dizer quem decidiria diferente "
                      "conforme a resposta", "CONDICAO | 1 |")),
-        ("dimensao com impeditivo e nenhuma condicao saida dela",
+        ("dimensao com grave e nenhuma condicao saida dela",
          BOM.replace("CONDICAO | 2 | fechar a lista de casos antes de "
                      "comecar" + chr(10), "")),
-        ("condicao numa dimensao sem impeditivo nem bloqueio",
+        ("condicao numa dimensao sem grave nem médio",
          BOM.replace("4 | bibliografia | 0 | 0 | 3 | 7",
                      "4 | bibliografia | 0 | 0 | 3 | 7" + chr(10) +
                      "CONDICAO | 4 | trocar a bibliografia inteira")),
