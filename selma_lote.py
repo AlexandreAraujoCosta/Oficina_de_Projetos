@@ -359,29 +359,20 @@ def partir_preambulo(blocos):
 
 
 RE_ENTRADA = re.compile(r"^\s*(\d\.\s*[^.]{3,60}\.)\s*(.*)$", re.S)
-RE_NOTA = re.compile(r"(.*?)(\s*(?:Nota\s+\d{1,2}|N[íi]vel:\s*[A-Za-zÀ-ÿ -]+)\.?)\s*$",
-                     re.S)
-
-
 def partes_da_entrada(texto):
-    """Parte uma entrada da ementa em (rotulo, meio, nota).
+    """Parte uma entrada da ementa em (rotulo, resto).
 
-    O ROTULO e o "1. Problema e justificativa." do comeco, e A NOTA e o
-    "Nota 8." ou "Nivel: leves." do fim. Sao as duas coisas que o olho
-    procura numa ementa, e as duas ficam em negrito.
+    O ROTULO e o "1. Problema e justificativa." do comeco, e e por onde o
+    olho entra na lista: so ele fica em negrito.
 
-    Quando a entrada nao tiver essa forma, devolve (None, texto, None) e
-    quem chama a escreve como paragrafo comum: inventar rotulo onde nao
-    ha poria em negrito o comeco de uma frase qualquer.
+    Quando a entrada nao tiver essa forma, devolve (None, texto) e quem
+    chama a escreve como paragrafo comum: inventar rotulo onde nao ha
+    poria em negrito o comeco de uma frase qualquer.
     """
     m = RE_ENTRADA.match(texto.strip())
     if not m:
-        return None, texto, None
-    rotulo, resto = m.group(1), m.group(2)
-    mn = RE_NOTA.match(resto)
-    if mn:
-        return rotulo, mn.group(1), mn.group(2).strip()
-    return rotulo, resto, None
+        return None, texto
+    return m.group(1), m.group(2)
 
 
 def sem_acento(s):
@@ -464,15 +455,13 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
             f.texto(texto_bloco, corpo=corpo, fonte="tibo",
                     espaco_antes=antes, espaco_depois=6, justificar=False)
         else:
-            # DENTRO DA EMENTA, o rotulo e a nota vao em negrito: sao as
-            # duas coisas que o olho procura numa ementa.
-            rotulo, meio, nota = (partes_da_entrada(texto_bloco)
-                                  if na_ementa else (None, texto_bloco, None))
+            # DENTRO DA EMENTA, o negrito e so do rotulo: e por onde o
+            # olho entra na lista.
+            rotulo, resto = (partes_da_entrada(texto_bloco)
+                             if na_ementa else (None, texto_bloco))
             if rotulo:
-                partes = [(rotulo + " ", True), (meio.strip(), False)]
-                if nota:
-                    partes.append((" " + nota, True))
-                f.html(partes, espaco_depois=7)
+                f.html([(rotulo + " ", True), (resto.strip(), False)],
+                       espaco_depois=7)
             else:
                 f.texto(texto_bloco, espaco_depois=7)
 
@@ -540,9 +529,11 @@ def escrever_um(nome, d, caminho, titulo=None):
                     corpo=10, fonte="tiit", cor=COR_FRACA, recuo=14,
                     espaco_depois=3 if ganho else 7)
             if ganho:
-                f.texto("Na arguição, sobe de faixa se o autor disser: %s"
-                        % ganho, corpo=10, fonte="tiit", cor=COR_FRACA,
-                        recuo=14, espaco_depois=7)
+                # SEM A REGRA: quem le a condicao quer saber o que dizer,
+                # e nao como a regua reage ao que for dito.
+                f.texto("Na arguição: %s" % ganho, corpo=10,
+                        fonte="tiit", cor=COR_FRACA, recuo=14,
+                        espaco_depois=7)
 
     f.texto("Esta lista não é recomendação de admitir ou não admitir. Ela diz "
             "o que falta ao documento, e a decisão se toma com coisas que a "
