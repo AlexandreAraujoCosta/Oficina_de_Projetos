@@ -128,11 +128,6 @@
 
   /* ---- índice, ao lado do texto ---- */
   .indice { font-size: var(--t-2xs); }
-  .indice-caixa {
-    position: sticky; top: 0; z-index: 20;
-    background: var(--ground);
-    border-bottom: 1px solid var(--rule-soft);
-  }
   .indice summary {
     cursor: pointer; list-style: none;
     padding: 0.5rem 1.4rem;
@@ -141,24 +136,11 @@
   }
   .indice summary::-webkit-details-marker { display: none; }
   .indice summary::after { content: " +"; color: var(--accent); }
-  .indice-caixa[open] summary::after { content: " −"; }
   .indice summary:hover { color: var(--accent); }
-  .indice-lista {
-    display: flex; flex-direction: column; gap: 0.42rem;
-    padding: 0.1rem 1.4rem 0.9rem;
-  }
   .indice a {
     color: var(--muted); text-decoration: none; line-height: 1.25;
   }
   .indice a:hover { color: var(--accent); }
-  .indice .num {
-    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
-  }
-  .indice .sub { padding-left: 0.85rem; }
-  .indice .grupo {
-    margin-top: 0.5rem; padding-top: 0.6rem;
-    border-top: 1px solid var(--rule-soft);
-  }
   h2, .instrumento { scroll-margin-top: 3.2rem; }
 
   /* Do lado, quando a tela tem margem para ele. A coluna de texto não se
@@ -170,9 +152,6 @@
       width: 12.5rem; max-height: 100vh; overflow-y: auto;
       padding: 3.9rem 0 2rem; scrollbar-width: thin;
     }
-    .indice-caixa { position: static; background: none; border-bottom: 0; }
-    .indice-caixa[open] summary { display: none; }
-    .indice-lista { padding: 0; gap: 0.5rem; }
     h2, .instrumento { scroll-margin-top: 1.2rem; }
   }
 
@@ -218,7 +197,6 @@
   }
   .autoria strong { color: var(--ink); }
   .autoria p { margin: 0 0 0.35rem; }
-  .autoria .fina { color: var(--muted); font-size: var(--t-xs); }
 
   /* ---- os três registros ---- */
   .registros {
@@ -239,36 +217,7 @@
   @media (max-width: 33rem) {
     .registro { grid-template-columns: 1fr; gap: 0.25rem; }
   }
-
   /* ---- rota, na forma da oficina irma ---- */
-  .deck { color: var(--muted); font-size: var(--t-sm); margin: 0 0 0.4rem; max-width: var(--measure); }
-  .grupo-linha {
-    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
-    text-transform: uppercase; color: var(--accent);
-    margin: 2.2rem 0 0.2rem; padding-top: 0.9rem;
-    border-top: 1px solid var(--rule);
-  }
-  .route { margin: 1.4rem 0 0; border-top: 1px solid var(--rule); }
-  .route-row {
-    display: grid; grid-template-columns: 1fr; gap: 0.25rem;
-    padding: 0.95rem 0; border-bottom: 1px solid var(--rule-soft);
-  }
-  @media (min-width: 38rem) {
-    .route-row { grid-template-columns: 15rem 1fr; gap: 1.5rem; align-items: baseline; }
-  }
-  .route-a { font-family: var(--serif); font-size: var(--t-lg); line-height: 1.14; }
-  .route-a a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .route-a a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .route-n {
-    font-family: var(--sans); font-size: var(--t-2xs); color: var(--faint);
-    margin-right: 0.6rem; vertical-align: 0.18rem;
-  }
-  .route-sub {
-    display: block; font-family: var(--sans); font-size: var(--t-xs);
-    color: var(--muted); margin-top: 0.2rem;
-  }
-  .route-q { color: var(--ink-soft); font-size: var(--t-sm); }
-
   /* ---- blocos numerados ---- */
   .instrumento {
     border-top: 1px solid var(--rule);
@@ -310,10 +259,7 @@
   .confere .sim h3 { color: var(--accent); }
   .confere .nao h3 { color: var(--warn); }
   .confere p { font-size: var(--t-xs); margin: 0; }
-
   /* ---- passos ---- */
-  ol.passos { margin: 0 0 1.2rem; padding-left: 1.3rem; max-width: var(--measure); }
-  ol.passos li { margin-bottom: 0.55rem; font-size: var(--t-sm); }
   ul.simples { margin: 0 0 1.2rem; padding-left: 1.2rem; max-width: var(--measure); }
   ul.simples li { margin-bottom: 0.4rem; font-size: var(--t-sm); }
 
@@ -352,7 +298,6 @@
     border-collapse: collapse; width: 100%; font-size: var(--t-xs);
     margin: 0 0 1.3rem;
   }
-  .rolagem { overflow-x: auto; max-width: 100%; }
   th, td {
     text-align: left; padding: 0.5rem 0.7rem;
     border-bottom: 1px solid var(--rule-soft); vertical-align: top;
@@ -361,30 +306,7 @@
     font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--faint); font-weight: 500;
   }
-  td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
-
   /* ---- prompt ---- */
-  .caixa-prompt {
-    border: 1px solid var(--rule); border-radius: 3px;
-    background: var(--surface); margin: 1.2rem 0 0; overflow: hidden;
-  }
-  .caixa-prompt .barra {
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 1rem; padding: 0.55rem 0.8rem;
-    border-bottom: 1px solid var(--rule-soft); background: var(--sunken);
-  }
-  .caixa-prompt .barra span {
-    font-family: var(--sans); font-size: var(--t-2xs); color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
-  button.copiar {
-    font-family: var(--sans); font-size: var(--t-2xs); font-weight: 600;
-    background: var(--accent); color: var(--ground);
-    border: none; border-radius: 3px; padding: 0.35rem 0.8rem;
-    cursor: pointer;
-  }
-  button.copiar:hover { opacity: 0.88; }
-  button.copiar:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
   textarea#selma {
     display: block; width: 100%; height: 22rem; resize: vertical;
     border: none; background: var(--surface); color: var(--ink-soft);
@@ -411,35 +333,33 @@
      traco no meio do texto se le como pausa, e aqui a divisao e de
      natureza. */
   .eyebrow .eb-linha { display: block; }
-  .eyebrow .eb-atual { opacity: .55; }
   .eyebrow .eb-baixo { margin-top: .3rem; padding-top: .3rem;
                        border-top: 1px solid var(--rule); }
 
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
   }
-
   /* --- escala do sistema: uma so em todas as paginas da oficina --- */
-  h1, .top h1, header h1, .wrap > h1, .page > h1 { font-family: var(--serif); font-weight: 600;
+  h1, header h1, .wrap > h1 { font-family: var(--serif); font-weight: 600;
     font-size: clamp(28px, 5vw, 36px); line-height: 1.2; }
-  .wrap h2, .page h2, .shell h2, .cuidados h2 { font-family: var(--serif); font-size: var(--t-h2);
+  .wrap h2 { font-family: var(--serif); font-size: var(--t-h2);
     font-weight: 600; line-height: 1.2; }
-  .wrap h3, .page h3, .shell h3, .cuidados h3 { font-family: var(--serif); font-size: var(--t-h3);
+  .wrap h3 { font-family: var(--serif); font-size: var(--t-h3);
     font-weight: 600; line-height: 1.2; letter-spacing: normal; text-transform: none; color: var(--ink); }
   /* a medida vale para todo texto corrido, e nao so para o que esta em secao */
-  .wrap p, .wrap li, .wrap dd, .page p, .page li, .page dd { max-width: var(--measure); }
+  .wrap p, .wrap li, .wrap dd { max-width: var(--measure); }
   /* Os dois paragrafos da ficha sao o mesmo comentario, e vao na mesma fonte. */
-  .autoria p, .byline p { font-family: var(--sans); font-size: var(--t-sm);
+  .autoria p { font-family: var(--sans); font-size: var(--t-sm);
     line-height: 1.55; color: var(--ink-soft); margin: 0 0 .5rem; }
-  .autoria p:last-child, .byline p:last-child { margin-bottom: 0; }
-  .autoria b, .autoria strong, .byline b { color: var(--ink); font-weight: 600; }
+  .autoria p:last-child { margin-bottom: 0; }
+  .autoria b, .autoria strong { color: var(--ink); font-weight: 600; }
 </style>
 
 <div class="wrap">
 
 <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito da UnB</a> &middot; <a href="https://pmpd.unb.br/">PMPD</a> &middot; <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas Acadêmicas</a></span><span class="eb-linha eb-baixo">Assistentes: <a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> &middot; <a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a></span></p>
 <h1>Oficina de Projetos: o anexo</h1>
-<p class="lead">O que fica fora da página da oficina: o vocabulário em uso, as duas formas de rodar, o fluxo de trabalho, quem responde pelo relatório, como ele é organizado, o que se entrega, quanto custa e o que está medido.</p>
+<p class="lead">O que fica fora da página da oficina: como cada assistente trabalha por dentro, o vocabulário em uso, as duas formas de rodar, o fluxo, quem responde pelo relatório, como ele é organizado, quanto custa e o que está medido.</p>
 
 <div class="autoria">
   <p>Ferramentas desenvolvidas por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
@@ -452,47 +372,6 @@
   de Orientação</a> lê trabalho executado, com resultados apresentados e
   conclusões escritas. Esta lê o plano. Rodar o instrumento errado não devolve
   menos: devolve uma lista de ausências que o autor já conhece.</p>
-</div>
-
-<h2 id="qual">Ferramentas disponíveis</h2>
-
-<p class="deck">Uma conversa e uma leitura. <b>A conversa trabalha o que
-ainda não está decidido</b>, uma pergunta por vez, e o que fica dela é o
-pré-projeto. <b>A leitura trabalha o que já está escrito</b>, sem diálogo, e o que
-fica dela é um relatório dizendo o que precisa ser desenvolvido.</p>
-
-<p class="deck" style="margin-bottom:1.2rem">A ordem entre elas não é rígida, e a
-volta faz parte: uma leitura que encontra elemento sem sustentação devolve o
-projeto à conversa.</p>
-
-<p class="grupo-linha">São conversa, e rodam em conta gratuita</p>
-<div class="route">
-  <div class="route-row">
-    <div class="route-a">
-      <span class="route-n">01</span><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a>
-      <span class="route-sub">os quatro elementos, e depois o método operável</span>
-    </div>
-    <div class="route-q">Trabalha a lacuna, a pergunta, a abordagem metodológica e
-    o referencial, com a consistência entre eles; e, na quinta parte do prompt, o
-    método operável e o resto do projeto. <b>Fica de fora a revisão de literatura</b>,
-    que pede as bases, e ele manda buscá-la e incluí-la no documento ao fechar.</div>
-  </div>
-</div>
-
-<p class="grupo-linha">Devolve um relatório</p>
-<div class="route">
-  <div class="route-row">
-    <div class="route-a">
-      <span class="route-n">02</span><a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a>
-      <span class="route-sub">a leitura de banca</span>
-    </div>
-    <div class="route-q">Lê o projeto escrito e devolve <b>o que uma banca
-    veria</b>, em cinco dimensões fixas: quatro com nota de 0 a 10 e a dos
-    indícios de IA, que não tem nota e é graduada em quatro níveis. Todo achado
-    traz o tópico em que está. <b>A conclusão é uma só:</b> que condições o
-    projeto precisa cumprir para ser apresentável a uma banca de qualificação.
-    Não recomenda admitir nem não admitir.</div>
-  </div>
 </div>
 
 <!-- ============ 01 MIRO ============ -->
@@ -865,6 +744,13 @@ que ninguém o leu chega como se alguém tivesse lido.</p>
 comentário alguma afirmação sobre o que ele disse ou fez que não corresponda ao que
 aconteceu. É a única pessoa ali que sabe.</p>
 
+<p><strong>O relatório é matéria para julgar, e não veredito.</strong> Os achados
+se conferem abrindo o projeto no tópico indicado, e alguns não se sustentam.
+Conferir antes de repassar é parte do uso, e as condições não recomendam
+admitir nem não admitir: elas dizem o que falta ao documento, e a decisão se
+toma com as vagas, a linha de pesquisa e os outros candidatos, que a leitura não
+tem.</p>
+
 <h2 id="estrutura">Como o relatório da Selma é organizado</h2>
 
 <p>São cinco blocos, sempre os mesmos e sempre nesta ordem, e é dessa fixidez
@@ -899,50 +785,13 @@ que se encontrou e em que tópico, e só então o número, que é a tradução d
 para a ficha. Nota sem achado escrito ao lado não serve a quem decide, porque
 não há o que discutir com ela.</p>
 
-<h2 id="entrega">O que se entrega</h2>
-
-<table class="tabela">
-  <thead><tr><th>assistente</th><th>o que volta</th><th>para quê</th></tr></thead>
-  <tbody>
-    <tr>
-      <td>Miro</td>
-      <td>A conversa, fechada por um comentário e pelo pré-projeto, num bloco de
-      código só</td>
-      <td>Entrega da atividade na disciplina, e material para escrever o
-      projeto</td>
-    </tr>
-    <tr>
-      <td>Selma, pelo chat</td>
-      <td>O relatório na conversa, com as cinco dimensões, as notas e as condições</td>
-      <td>Leitura de banca antes de submeter, ou parecer para quem avalia</td>
-    </tr>
-    <tr>
-      <td>Selma, com agente</td>
-      <td>O mesmo relatório, mais a conferência de existência da bibliografia,
-      que só a via com busca permite</td>
-      <td>O que se manda a quem escreveu, e o que a banca lê ao decidir</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>O relatório é matéria para julgar, e não veredito.</strong> Os achados
-se conferem abrindo o projeto no tópico indicado, e alguns não se sustentam.
-Conferir antes de repassar é parte do uso, e as condições não recomendam
-admitir nem não admitir: elas dizem o que falta ao documento, e a decisão se
-toma com as vagas, a linha de pesquisa e os outros candidatos, que a leitura não
-tem.</p>
-
 <h2 id="custa">Quanto custa</h2>
 
-<p><strong>O Miro não custa nada</strong> e foi escrito para isso: roda em conta
-gratuita de qualquer assistente, sem instalar coisa alguma. É por isso que o
-prompt é grande, porque tudo o que o assistente precisa saber tem de caber nas
-primeiras mensagens.</p>
-
-<p><strong>A Selma pelo chat também não custa</strong>, e é a porta de entrada:
-o prompt cabe numa colagem só. <strong>Com agente, custa o que o modelo cobrar
-pela leitura do projeto</strong>, e o que domina a conta é o projeto que entra,
-não o tamanho do prompt. Não há medição própria: na oficina irmã, uma
+<p><strong>O prompt do Miro é grande por ser gratuito:</strong> tudo o que o
+assistente precisa saber tem de caber nas primeiras mensagens, porque não há
+onde guardar instrução fora da conversa. <strong>Com agente, a Selma custa o que
+o modelo cobrar pela leitura do projeto</strong>, e o que domina a conta é o
+projeto que entra, não o tamanho do prompt. Não há medição própria: na oficina irmã, uma
 dissertação de 37 mil palavras ficou em torno de meio dólar no Opus, e um
 projeto é uma fração disso.</p>
 
