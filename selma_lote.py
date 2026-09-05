@@ -348,7 +348,7 @@ RE_ELEMENTO = re.compile(r"^\s*([1-5])[.)]\s+(.+)$")
 
 
 def subtitulo_de_elemento(texto, numero_do_bloco):
-    """Devolve "3.1 Problema e justificativa", ou None se nao for isso.
+    """Devolve "3.2 Justificativa", ou None se nao for isso.
 
     O TESTE E DUPLO, E O NUMERO SOZINHO NAO SERVE: tem de estar dentro da
     avaliacao analitica, e o nome tem de ser o nome daquele numero. Sem a
@@ -396,7 +396,7 @@ RE_ENTRADA = re.compile(r"^\s*(\d\.\s*[^.]{3,60}\.)\s*(.*)$", re.S)
 def partes_da_entrada(texto):
     """Parte uma entrada da ementa em (rotulo, resto).
 
-    O ROTULO e o "1. Problema e justificativa." do comeco, e e por onde o
+    O ROTULO e o "2. Justificativa." do comeco, e e por onde o
     olho entra na lista: so ele fica em negrito.
 
     Quando a entrada nao tiver essa forma, devolve (None, texto) e quem
