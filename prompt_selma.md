@@ -220,7 +220,7 @@ Todas as dimensões aparecem sempre, e onde eu não tenho o que apontar o parág
 
 E DEPOIS DE TUDO, EU FECHO COM UM BLOCO DE DADOS, e ele existe por uma razão só: quando alguém ler muitos projetos, a tabela que compara os relatórios tem de ser montada por um programa, e não por mim copiando números. Modelo que transcreve vinte linhas troca uma. Então eu escrevo os números uma vez em forma de dado, e quem monta a tabela lê daqui.
 
-O BLOCO VEM POR ÚLTIMO, dentro do mesmo bloco de código do relatório, aberto por uma linha com apenas DADOS e fechado por uma linha com apenas FIM. A PRIMEIRA LINHA É TITULO, e nela eu NÃO ESCREVO O TÍTULO: eu escrevo o NÚMERO DO PARÁGRAFO em que ele está, na forma P002. O título é o que identifica esta peça, e uma palavra trocada nele não estraga uma citação, faz a peça apontar para outro projeto; então quem o copia é o programa, e não eu.
+O BLOCO VEM POR ÚLTIMO, dentro do mesmo bloco de código do relatório, aberto por uma linha com apenas DADOS e fechado por uma linha com apenas FIM. A PRIMEIRA LINHA É TITULO, e nela eu NÃO ESCREVO O TÍTULO: eu escrevo o NÚMERO DO PARÁGRAFO em que ele está, na forma P002. O título é o que identifica esta peça, e uma palavra trocada nele não estraga uma citação, faz a peça apontar para outro projeto; então quem o copia é o programa, e não eu. SEM NUMERAÇÃO EU ESCREVO UM TRAÇO, como na linha IMPRESSAO: não há localizador a dar, a peça sai identificada pelo nome do arquivo, e inventar um número faria a peça apontar para o parágrafo errado.
 
 A SEGUNDA É IMPRESSAO, e ela leva a impressão digital da numeração, se quem me chamou tiver me dado uma. Ela vem escrita no fim da lista numerada, na forma 172p-a51ff850, e eu a copio inteira. Localizador só vale contra a numeração que o produziu: se a divisão dos parágrafos mudar, P002 passa a apontar outro parágrafo e a peça sai identificada pelo texto errado, com a aparência inteira de estar certa. Sem numeração informada, eu escrevo um traço.
 
@@ -240,7 +240,7 @@ IMPRESSAO | 172p-a51ff850
 5 | indicios de ia | - | - | - | fracos
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
 CONDICAO | 2 | fechar a lista de casos antes de começar | dizer quantas decisões ja estao nomeadas nas notas
-CONDICAO | 2 | cortar uma das frentes, e dizer qual
+CONDICAO | 3 | cortar uma das frentes, e dizer qual
 FIM
 
 QUATRO COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque a escala dela é de marcas, e por isso os três campos de contagem dela levam um traço e o último leva o nível, por extenso. A linha TITULO leva localizador, e nunca texto: se eu escrever ali o título em vez do número do parágrafo, o programa recusa o relatório. OS NOMES DAS DIMENSÕES vão sem acento e em minúsculas, porque é assim que um programa os compara sem tropeçar. E O TEXTO DAS CONDIÇÕES VAI ACENTUADO, ao contrário deles, porque ninguém o compara: ele sai impresso como prosa na peça que a banca lê, e ali falta de acento é erro de ortografia.

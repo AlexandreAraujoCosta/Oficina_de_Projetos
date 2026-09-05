@@ -361,42 +361,11 @@
   <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
 </div>
   <p style="margin: 0 0 20px; color: var(--ink-soft);">
-    Neste formato portátil, Miro não é um site nem um aplicativo: é apenas um
-    texto, um prompt que você copia e cola em qualquer assistente de IA gratuito
-    que já tenha, sem instalar nada e sem custo para o curso. Ele foi escrito para
-    não dar respostas prontas: conversa com você até considerar que seu
-    planejamento inicial é sólido, o que permite passar a um desenvolvimento mais
-    detido de cada faceta.
-  </p>
-  <p style="margin: 0 0 20px; color: var(--ink-soft);">
-    A oficina tem também a <a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a>,
-    que lê o projeto já escrito e devolve uma análise minuciosa. O Miro trabalha o
-    projeto por dentro, vendo se
-    lacuna, problema, metodologia e referencial se sustentam uns aos outros, e o
-    que ele não faz ele nomeia como trabalho seu, sem mandar você procurar uma
-    porta que não existe. Vale rodá-lo mais de uma vez: cada volta, com o
-    documento mais desenvolvido, é uma reconferência que acrescenta.
-  </p>
-  <p class="note" style="margin-top: -8px; margin-bottom: 24px;">
-    O Miro é usado em três disciplinas da UnB: Metodologia de Pesquisa,
-    Ciência de Dados Aplicada à Pesquisa Empírica em Direito e Ciência de
-    Dados Aplicada à Regulação e Políticas Públicas. Ele não é exclusivo
-    delas: serve qualquer projeto em fase de desenho.
-  </p>
-  <p class="note" style="margin-top: -8px; margin-bottom: 24px; border-left-color: var(--green);">
-    O prompt não é exclusivo de nenhum assistente, mas nos nossos testes o
-    resultado tem sido melhor no Claude, talvez por ter sido escrito com apoio do
-    Claude Code. Se você tiver acesso à conta gratuita dele, é a opção
-    recomendada. Se você tiver escolha de modelo dentro do Claude (por exemplo,
-    plano pago), prefira o modelo mais capaz que ela oferecer. A medição que
-    temos é em Sonnet e em GPT, e dos demais não há medição nenhuma.
-    <strong>Evite os modos rápidos:</strong> se o seu assistente oferecer
-    escolha entre uma resposta instantânea e uma mais cuidadosa (rápido,
-    instantâneo, mini, flash e afins), escolha a cuidadosa, porque modelos em
-    modo de baixo esforço conversam de forma superficial e chegam a inventar
-    coisas no comentário final. Leia o comentário antes de colar e, se ele
-    atribuir a você algo que você não disse, peça a correção na conversa antes
-    de entregar.
+    Ele não dá respostas prontas: conversa até considerar sólido o que você
+    formulou, e o que ele não faz ele nomeia como trabalho seu, sem mandar você
+    procurar uma porta que não existe. Vale rodá-lo mais de uma vez, porque cada
+    volta, com o documento mais desenvolvido, confere o que a anterior não tinha
+    como ver.
   </p>
 
   <p class="vias-titulo">Escolha a via pela qual você vai usar o Miro, para
@@ -423,7 +392,10 @@
   </div>
 
   <p class="vias-nota">Nas duas, o modelo pesa: escolha o melhor que a sua conta
-  oferecer e evite o modo automático. O Miro foi medido em Sonnet e em GPT.</p>
+  oferecer, e evite o modo automático e os modos rápidos (rápido, instantâneo,
+  mini, flash e afins), porque em baixo esforço o assistente conversa de forma
+  superficial e chega a inventar coisas no comentário final. O Miro foi medido em
+  Sonnet e em GPT.</p>
 
   <div class="via-guia" id="guia-chat" hidden>
   <div class="card">
@@ -452,7 +424,9 @@
       <li>Quando encerrar, ele escreve <strong>dois blocos de código</strong>: o
       comentário de fechamento e o pré-projeto. Copie os dois e entregue-os no
       Canvas, e não a conversa inteira. <strong>O documento da atividade é o
-      pré-projeto</strong>; o comentário é o que ele diz sobre o trabalho.</li>
+      pré-projeto</strong>; o comentário é o que ele diz sobre o trabalho. Leia-o antes de
+      entregar: se ele atribuir a você algo que você não disse, peça a
+      correção na conversa.</li>
       <li><strong>Você decide quando parar.</strong> A qualquer momento, basta
       pedir que o Miro encerre, e ele escreve o comentário do ponto em que vocês
       estiverem.</li>
@@ -1180,7 +1154,9 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
   </div>
 
   <!-- FERRAMENTA:INICIO -->
-  <div class="card ferramenta">
+  <!-- OCULTA POR ENQUANTO, a pedido em 05/09/2026. O bloco continua
+     aqui e continua sendo injetado; so nao aparece. -->
+<div class="card ferramenta" hidden>
     <h2>Ferramenta: pôr as sugestões dentro do seu projeto</h2>
     <p class="note">
       O assistente não reescreve o seu texto, por desenho: quando um modelo
@@ -1583,7 +1559,7 @@ Quando escrever o pré-projeto, grave-o como arquivo na pasta, em vez de mostrá
   </div>
 
     <div class="card">
-    <h2>Um agente em particular: o Copilot, no VS Code</h2>
+    <h2>Um agente que pode ser usado gratuitamente por estudantes e docentes: o Copilot, no VS Code</h2>
     <p style="margin: 0 0 14px; color: var(--ink-soft);">
       Os passos acima valem para qualquer agente, e mudam de nome em cada um. Estes são os do Copilot dentro do VS Code, que é o caso mais provável de quem é estudante, porque vem com a conta do GitHub.
       Instala-se uma coisa só: o <strong>VS Code</strong> e, dentro dele, a
@@ -1623,6 +1599,12 @@ Quando escrever o pré-projeto, grave-o como arquivo na pasta, em vez de mostrá
 
 
 
+<p class="note" style="margin-top: 2.4rem;">
+  O Miro é usado em três disciplinas da UnB: Metodologia de Pesquisa,
+  Ciência de Dados Aplicada à Pesquisa Empírica em Direito e Ciência de
+  Dados Aplicada à Regulação e Políticas Públicas, e serve qualquer projeto
+  em fase de desenho, dentro ou fora delas.
+</p>
 </div>
 
 <script>

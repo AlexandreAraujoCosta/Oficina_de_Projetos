@@ -1,107 +1,76 @@
 # -*- coding: utf-8 -*-
-"""Confere o molde do bloco de dados contra as regras do proprio prompt.
+"""Passa o molde do bloco de dados pelo mesmo leitor que o lote usa.
 
-Regras conferidas, todas enunciadas no prompt_selma.md:
-  (a) o nivel da dimensao 5 e um dos cinco valores admitidos;
-  (b) a dimensao 5 leva tres tracos nos campos de contagem;
-  (c) cada CONDICAO corresponde a um grave ou a um medio contado na
-      dimensao dela, e cada grave ou medio produz uma condicao.
+POR QUE ISTO EXISTE. O prompt traz um molde do bloco DADOS e diz que o
+segue ao caractere, e e esse molde que o modelo copia. Se ele desobedecer
+as regras que o proprio prompt enuncia, o relatorio sai no formato que o
+`selma_lote.py` recusa, e a peca nao entra na tabela do processo. Em
+05/09/2026 o molde tinha um achado grave na dimensao 3 sem nenhuma
+condicao saida dela, e o lote o recusava.
 
-CONTROLE POSITIVO: o conferidor roda antes sobre dois moldes fabricados,
-um correto e um adulterado, e tem de aprovar o primeiro e reprovar o
-segundo. Sem isso o silencio dele nao informa nada.
+O CONFERIDOR NAO E OUTRO: e o `ler_bloco` do proprio `selma_lote.py`.
+Reimplementar a regra aqui criaria duas versoes que divergem na primeira
+correcao, e foi assim que este programa comecou.
+
+CONTROLE POSITIVO: antes de olhar o molde publicado, ele passa pelo leitor
+o molde como esta, que tem de ser aprovado, e uma copia adulterada, que
+tem de ser recusada. Sem isso o silencio dele nao informa nada.
+
+Uso:  python conferir_molde.py
 """
 import io
 import re
+import sys
 
-PROMPT = "D:/Claude/Oficina_de_Projetos/prompt_selma.md"
-NIVEIS = {"fortes-abusivo", "fortes", "medios", "fracos", "ausentes"}
+from selma_lote import ler_bloco, BlocoInvalido
+
+PROMPT = "prompt_selma.md"
 
 
-def bloco(texto):
-    i = texto.find("\nDADOS\n")
-    j = texto.find("\nFIM\n", i)
-    if i < 0 or j < 0:
+def molde(texto):
+    """O bloco DADOS...FIM como ele esta escrito no prompt."""
+    m = re.search(r"^DADOS$.*?^FIM$", texto, re.M | re.S)
+    return m.group(0) if m else None
+
+
+def passa(bloco):
+    """Devolve None quando o leitor aprova, e a queixa quando recusa."""
+    try:
+        ler_bloco(bloco, "molde")
         return None
-    return texto[i + 1:j].split("\n")
+    except BlocoInvalido as e:
+        return str(e)
 
 
-def conferir(linhas):
-    faltas = []
-    contagem = {}
-    condicoes = {}
-    for l in linhas:
-        campos = [c.strip() for c in l.split("|")]
-        if len(campos) == 6 and campos[0].isdigit():
-            n = campos[0]
-            if n == "5":
-                if campos[2:5] != ["-", "-", "-"]:
-                    faltas.append("a dimensao 5 devia levar tres tracos, e leva %r"
-                                  % campos[2:5])
-                if campos[5] not in NIVEIS:
-                    faltas.append("o nivel da dimensao 5 e %r, fora dos cinco admitidos"
-                                  % campos[5])
-            else:
-                try:
-                    contagem[n] = int(campos[2]) + int(campos[3])
-                except ValueError:
-                    faltas.append("a dimensao %s tem contagem ilegivel" % n)
-        elif campos and campos[0] == "CONDICAO":
-            condicoes[campos[1]] = condicoes.get(campos[1], 0) + 1
-    for n, quantos in sorted(contagem.items()):
-        tem = condicoes.get(n, 0)
-        if quantos != tem:
-            faltas.append("a dimensao %s conta %d achado(s) grave ou medio e tem "
-                          "%d condicao(oes)" % (n, quantos, tem))
-    for n in condicoes:
-        if n not in contagem:
-            faltas.append("ha condicao na dimensao %s, que nao tem contagem" % n)
-    return faltas
-
-
-CERTO = """DADOS
-TITULO | P002
-IMPRESSAO | 172p-a51ff850
-1 | um | 0 | 1 | 1 | 5
-2 | dois | 0 | 0 | 2 | 8
-5 | indicios de ia | - | - | - | fracos
-CONDICAO | 1 | fazer alguma coisa
-FIM
-"""
-
-ERRADO = """DADOS
-TITULO | P002
-IMPRESSAO | 172p-a51ff850
-1 | um | 1 | 0 | 0 | 4
-2 | dois | 0 | 1 | 0 | 6
-5 | indicios de ia | - | - | - | leves
-CONDICAO | 2 | fazer alguma coisa
-CONDICAO | 2 | fazer outra
-FIM
-"""
+def controle(bloco):
+    """O leitor tem de recusar o molde adulterado, e dizer por que."""
+    adulterado = bloco.replace("| fracos", "| razoavel", 1)
+    if adulterado == bloco:
+        sys.exit("o controle nao conseguiu adulterar o molde")
+    queixa = passa(adulterado)
+    print("controle positivo:")
+    print("  o molde adulterado ->", queixa or "APROVADO, e nao devia")
+    return queixa is not None
 
 
 def main():
-    ok = conferir(bloco("\n" + CERTO))
-    ruim = conferir(bloco("\n" + ERRADO))
-    print("controle positivo:")
-    print("  molde correto  ->", ok or "aprovado (esperado)")
-    print("  molde adulterado ->", "%d falta(s) (esperado)" % len(ruim) if ruim
-          else "APROVOU, e nao devia")
-    if ok or len(ruim) < 3:
-        raise SystemExit("o conferidor esta quebrado; nao use o resultado")
-
     texto = io.open(PROMPT, encoding="utf-8").read()
-    linhas = bloco(texto)
-    if linhas is None:
-        raise SystemExit("nao achei o bloco DADOS no prompt")
-    faltas = conferir(linhas)
-    print("\no molde publicado, no prompt_selma.md:")
-    if not faltas:
-        print("  conforme")
-    for f in faltas:
-        print("  -", f)
+    bloco = molde(texto)
+    if bloco is None:
+        sys.exit("nao achei o bloco DADOS...FIM em %s" % PROMPT)
+
+    if not controle(bloco):
+        sys.exit("o conferidor nao reprova o que deveria; nao use o resultado")
+
+    queixa = passa(bloco)
+    print()
+    print("o molde publicado, em %s:" % PROMPT)
+    if queixa is None:
+        print("  o leitor do lote o aceita")
+        return 0
+    print("  RECUSADO: %s" % queixa)
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

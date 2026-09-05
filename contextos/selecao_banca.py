@@ -807,7 +807,9 @@ com apenas FIM. A PRIMEIRA LINHA É TITULO, e nela eu NÃO ESCREVO O TÍTULO: eu
 NÚMERO DO PARÁGRAFO em que ele está, na forma P002. O título é o que \
 identifica esta peça, e uma palavra trocada nele não estraga uma citação, \
 faz a peça apontar para outro projeto; então quem o copia é o programa, e \
-não eu.
+não eu. SEM NUMERAÇÃO EU ESCREVO UM TRAÇO, como na linha IMPRESSAO: não \
+há localizador a dar, a peça sai identificada pelo nome do arquivo, e \
+inventar um número faria a peça apontar para o parágrafo errado.
 
 A SEGUNDA É IMPRESSAO, e ela leva a impressão digital da numeração, se \
 quem me chamou tiver me dado uma. Ela vem escrita no fim da lista \
@@ -842,7 +844,7 @@ IMPRESSAO | 172p-a51ff850
 5 | indicios de ia | - | - | - | fracos
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
 CONDICAO | 2 | fechar a lista de casos antes de começar | dizer quantas decisões ja estao nomeadas nas notas
-CONDICAO | 2 | cortar uma das frentes, e dizer qual
+CONDICAO | 3 | cortar uma das frentes, e dizer qual
 FIM
 
 QUATRO COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque \
