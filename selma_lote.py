@@ -57,6 +57,15 @@ NOMES_LEGIVEIS = ["problema, objetivos e hipóteses", "justificativa",
 NIVEIS = ["fortes-abusivo", "fortes", "medios", "fracos", "ausentes"]
 # O NIVEL SAI POR EXTENSO NA PECA: no bloco de dados vai a palavra curta,
 # que e o que o programa compara, e quem le a peca ve a frase.
+# E A FORMA CURTA, para onde a palavra "indicios" ja esta escrita ao
+# lado: na ficha, cuja linha se chama "5. indicios de IA", e no console.
+NIVEIS_CURTOS = {
+    "fortes-abusivo": "fortes (uso abusivo)",
+    "fortes": "fortes",
+    "medios": "médios",
+    "fracos": "fracos",
+    "ausentes": "não há",
+}
 NIVEIS_LEGIVEIS = {
     "fortes-abusivo": "indícios fortes (uso abusivo)",
     "fortes": "indícios fortes",
@@ -571,7 +580,7 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
     if com_tarja:
         f.texto("notas %s  |  indícios de IA: %s  |  %d condi%s"
                 % ("  ".join("%d:%d" % (i, d["notas"][i]) for i in (1, 2, 3, 4)),
-                   NIVEIS_LEGIVEIS[d["nivel"]], len(d["condicoes"]),
+                   NIVEIS_CURTOS[d["nivel"]], len(d["condicoes"]),
                    "ção" if len(d["condicoes"]) == 1 else "ções"),
                 corpo=10, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
     if blocos is None:
@@ -689,7 +698,7 @@ def escrever_um(nome, d, caminho, titulo=None, secoes=()):
     tabela(f, ["", "nota"],
            [["%d. %s" % (i, NOMES_LEGIVEIS[i - 1]), n[i]] for i in (1, 2, 3, 4)]
            + [["5. %s (sem nota)" % NOMES_LEGIVEIS[4],
-               NIVEIS_LEGIVEIS[d["nivel"]]]],
+               NIVEIS_CURTOS[d["nivel"]]]],
            [70, 30])
 
     f.texto("Condições para que o projeto seja apresentável a uma banca de "
@@ -799,7 +808,7 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
               % len(secoes))
     print("%s: notas %s, indicios %s, %d condicao(oes)."
           % (saida, ", ".join(str(d["notas"][i]) for i in (1, 2, 3, 4)),
-             NIVEIS_LEGIVEIS[d["nivel"]], len(d["condicoes"])))
+             NIVEIS_CURTOS[d["nivel"]], len(d["condicoes"])))
     print("A ficha foi montada pelo programa a partir do bloco de dados ja")
     print("conferido, e nao redigitada.")
 
