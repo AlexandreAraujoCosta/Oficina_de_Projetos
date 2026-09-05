@@ -29,21 +29,46 @@ MIRO = "https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb"
 
 CORPO = """<meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<title>Selma — leitura de projeto de pesquisa</title>
+<title>Selma: leitura de projeto de pesquisa</title>
 
 %(estilo)s
+
+<style>
+  /* as duas vias, na forma da pagina do Miro */
+  .vias-grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem;
+                margin: 1.2rem 0 .6rem; }
+  @media (max-width: 44rem) { .vias-grade { grid-template-columns: 1fr; } }
+  .via-bt { display: block; text-align: left; font: inherit; color: inherit;
+            background: var(--surface); border: 1px solid var(--rule);
+            border-radius: 3px; padding: 1rem 1.1rem; cursor: pointer; }
+  .via-bt:hover, .via-bt:focus-visible { border-color: var(--accent); }
+  .via-bt[aria-pressed="true"] { border-color: var(--accent);
+                                 box-shadow: inset 0 0 0 1px var(--accent); }
+  .via-nome { display: block; font-family: var(--serif); font-size: var(--t-h3);
+              line-height: 1.15; margin-bottom: .4rem; color: var(--accent); }
+  .via-txt { display: block; font-size: var(--t-sm); line-height: 1.5;
+             margin-bottom: .4rem; color: var(--ink-soft); }
+  .via-volta { display: block; font-size: var(--t-sm); color: var(--muted);
+               line-height: 1.45; }
+  .vias-titulo { font-family: var(--serif); font-size: var(--t-md);
+                 margin: 2rem 0 .2rem; color: var(--ink); }
+  .via-guia { margin: 1.2rem 0 2.4rem; }
+  .via-guia ol { margin: 0 0 1.2rem; padding-left: 1.3rem; max-width: var(--measure); }
+  .via-guia li { margin-bottom: .55rem; font-size: var(--t-sm); }
+</style>
+
 
 <nav class="indice" aria-label="Índice da página">
   <details class="indice-caixa" id="indice">
     <summary>Índice</summary>
     <div class="indice-lista">
-      <a href="#dimensoes">As cinco dimensões</a>
+      <a href="#usar">Como usar</a>
+      <a href="#dimensoes">Os elementos analisados</a>
       <a href="#nota">A nota sai de uma contagem</a>
       <a href="#ia">Os indícios de IA</a>
-      <a href="#descricao">Dois parágrafos por dimensão</a>
+      <a href="#descricao">Dois parágrafos por elemento</a>
       <a class="grupo" href="#lote">Uso em lote</a>
       <a href="#tempo">O tempo e os arquivos</a>
-      <a href="#prompt">O prompt, para colar</a>
     </div>
   </details>
 </nav>
@@ -66,32 +91,121 @@ CORPO = """<meta charset="utf-8">
 <header>
   <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito da UnB</a> &middot; <a href="https://pmpd.unb.br/">PMPD</a> &middot; <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas Acadêmicas</a></span><span class="eb-linha eb-baixo">Assistentes: <a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> &middot; <span class="eb-atual" aria-current="page">Selma</span></span></p>
   <h1>Selma</h1>
-  <p class="lead"><strong>Selma lê um projeto de pesquisa como uma banca o
-  leria</strong>, e devolve um relatório curto: o que o projeto traz em cada
-  parte, o que cada parte vale, e <strong>que condições ele precisa cumprir
-  para ser apresentável a uma banca de qualificação</strong>. Não há conversa:
-  ela lê, classifica e entrega. O <a href="%(miro)s">Miro</a> trabalha com quem
-  escreve, e não julga ninguém; ela faz a leitura oposta, que é a que
-  decide.</p>
+  <p class="lead"><strong>Selma lê um projeto de pesquisa e escreve o parecer
+  que uma banca escreveria.</strong> O relatório sai em quatro partes: a
+  descrição do que o projeto pergunta e de como pretende responder; a ementa,
+  com uma entrada e uma nota por elemento; a avaliação de cada um dos cinco
+  elementos, com os achados classificados e localizados na seção em que estão;
+  e as perguntas para as quais o autor deve estar preparado. A conclusão é uma
+  só: <strong>as condições que o projeto precisa cumprir para ser apresentável
+  a uma banca de qualificação</strong>. Não há conversa: ela lê, classifica e
+  entrega. O <a href="%(miro)s">Miro</a> trabalha com quem escreve o projeto;
+  a Selma lê o que já está escrito.</p>
 
 <div class="autoria">
-  <p>Ferramentas desenvolvidas por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
-  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
+  <p>Ferramenta desenvolvida por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
+  <p>Trata-se de um protótipo, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-lo. Se você usar a ferramenta, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento do prompt em situações reais.</p>
 </div>
 </header>
 
-<div class="nota">
-  <p><strong>O relatório é escrito para a banca, sempre.</strong> Quem o usa
-  para ver o próprio projeto está vendo o que a banca veria, e é só isso que
-  ele tem a oferecer: relatório que amacia porque o autor está lendo deixa de
-  mostrar o que ele precisa ver.</p>
+<p class="vias-titulo" id="usar">Escolha a via pela qual você vai aplicar a ferramenta, para ter as
+  orientações adequadas sobre o seu uso em cada opção.</p>
+
+<p class="deck">Duas vias. No chat você cola o prompt e o projeto, e o
+relatório sai na resposta. No agente, o assistente busca o prompt sozinho, lê o
+projeto que está na sua pasta e grava o relatório como arquivo.</p>
+
+<div class="vias-grade">
+  <button type="button" class="via-bt" data-via="chat">
+    <span class="via-nome">Modo chat</span>
+    <span class="via-txt">Você tem uma conta de assistente e nada instalado.
+    Cola-se o prompt numa janela nova e, em seguida, o projeto.</span>
+    <span class="via-volta">O relatório sai na resposta, para copiar.</span>
+  </button>
+
+  <button type="button" class="via-bt" data-via="agente">
+    <span class="via-nome">Modo agente</span>
+    <span class="via-txt">Um assistente que roda dentro de um programa e lê a
+    pasta do seu projeto: Claude Code, Copilot em modo agente, e outros.</span>
+    <span class="via-volta">O relatório sai em PDF, e a existência das obras da
+    bibliografia é conferida na busca.</span>
+  </button>
 </div>
 
-<h2 id="dimensoes">As cinco dimensões</h2>
+<div class="via-guia" id="guia-chat" hidden>
+  <ol>
+    <li><strong>Abra uma janela nova.</strong> O que já foi dito numa conversa em
+    andamento entra na leitura sem avisar.</li>
+    <li><strong>Cole o prompt</strong>, da caixa abaixo, e envie.</li>
+    <li><strong>Cole o projeto como texto</strong>, e não como anexo: de anexo ela
+    lê com menos fidelidade justamente onde precisa ser exata, que é o
+    localizador. Se não der, ela trabalha com o que tem e registra que os
+    localizadores podem estar deslocados.</li>
+    <li><strong>Ela pede quatro coisas</strong>, e cada uma muda o que sai: o
+    projeto como foi submetido; o <strong>edital</strong>, se houver, porque com
+    ele o relatório sai na forma da ficha que a banca preenche; a <strong>linha
+    de pesquisa</strong>, sem a qual ela não examina aderência; e a
+    <strong>numeração dos parágrafos</strong>, se você tiver como fornecê-la,
+    porque é dela que sai o localizador do bloco de dados.</li>
+    <li><strong>O relatório sai numa resposta só</strong>, com a descrição, a
+    ementa, a avaliação dos cinco elementos, as condições e as perguntas para a
+    arguição.</li>
+  </ol>
 
-<p class="deck">Sempre as mesmas, sempre na mesma ordem, e todas aparecem no
-relatório mesmo quando não há o que apontar, porque dimensão omitida se lê
-como dimensão aprovada.</p>
+  <div class="caixa-prompt">
+    <div class="barra">
+      <span id="tamanho"></span>
+      <button class="copiar" id="btn-copiar" type="button">Copiar prompt</button>
+    </div>
+    <textarea id="selma" readonly spellcheck="false">{{PROMPT_SELMA}}</textarea>
+  </div>
+
+  <p class="nota" style="margin-top: 1.2rem;"><strong>O que acontece com a
+  colagem depende do serviço.</strong> São %(tamanho)s caracteres. No ChatGPT
+  eles ainda entram como texto; no Claude, acima de cerca de 44 mil a colagem
+  vira um cartão &#8220;PASTED&#8221;, e ali o conteúdo entra na conversa do mesmo
+  jeito. As duas medidas são de 02/09/2026, por colagem real.</p>
+</div>
+
+<div class="via-guia" id="guia-agente" hidden>
+  <p style="color: var(--ink-soft);">Você não copia nada desta página. Abra no
+  agente a pasta onde está o projeto, ponha-o em modo agente, e cole o pedido
+  abaixo.</p>
+
+  <div class="caixa-prompt">
+    <div class="barra">
+      <span>o pedido, para colar no agente</span>
+      <button class="copiar" id="btn-copiar-agente" type="button">Copiar pedido</button>
+    </div>
+    <textarea id="pedido-agente" readonly spellcheck="false">Clone o repositório da oficina nesta pasta:
+
+git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos
+
+Leia por inteiro o arquivo Oficina_de_Projetos/prompt_selma.md e escreva a última frase dele, para eu conferir que a leitura chegou ao fim.
+
+Depois siga as instruções como se fossem suas: leia o projeto que está nesta pasta e escreva o relatório num arquivo .md, em vez de mostrá-lo na tela. Se você tiver busca, confira a existência das obras da bibliografia, como o próprio prompt manda.
+
+Por fim, monte o PDF:
+
+python Oficina_de_Projetos/selma_lote.py um RELATORIO.md relatorio.pdf PROJETO.pdf</textarea>
+  </div>
+
+  <p class="nota"><strong>A última frase é a conferência.</strong> Leitura que
+  para no meio entrega o prompt pela metade sem avisar, e o que se perde é o
+  fim. O arquivo termina em <em>&#8220;… e que o diagnóstico com localizador é o
+  que ele leva.&#8221;</em> Se o que ele repetir não for isso, peça que busque de
+  novo, ou clone o repositório:</p>
+  <p class="mono" style="font-size: var(--t-sm); overflow-wrap: anywhere;">git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</p>
+
+  <p><strong>O que o agente acrescenta</strong> é a busca, que confere se as obras
+  da bibliografia existem, e o arquivo de volta. Os programas do repositório
+  montam o resto: <span class="mono">relatorio_pdf.py</span> transforma o
+  relatório em PDF, e <span class="mono">selma_lote.py</span> monta a tabela
+  comparativa de um processo seletivo a partir do bloco de dados de cada
+  leitura, recusando o relatório cujo bloco não fecha.</p>
+</div>
+
+<h2 id="dimensoes">Os elementos analisados</h2>
 
 <div class="fluxo">
   <ol>
@@ -136,8 +250,8 @@ quantos critérios entraram e quantos ficaram de fora.</p>
 
 <p>Cada achado se classifica em uma de três classes, com o teste feito
 <strong>com o defeito no lugar</strong>, e não depois de imaginá-lo
-consertado. <b>Grave:</b> do jeito que está, a dimensão não entrega o que
-promete, e nenhum prazo resolve. <b>Médio:</b> a dimensão
+consertado. <b>Grave:</b> do jeito que está, o elemento não entrega o que
+promete, e nenhum prazo resolve. <b>Médio:</b> o elemento
 entrega, e há coisa a resolver antes de começar, que se resolve fazendo.
 <b>Leve:</b> resolve-se no caminho. Depois a contagem manda na faixa e
 no dígito, e o relatório mostra a conta.</p>
@@ -145,7 +259,7 @@ no dígito, e o relatório mostra a conta.</p>
 <p>Duas regras de subida corrigem o que a contagem sozinha não veria, e as
 duas se contam na página: defeito que aparece em <b>mais da metade das
 subdivisões</b> de uma seção sobe uma classe, e achado que atinge afirmação
-que o projeto repete em <b>três ou mais tópicos</b> também sobe. A subida é de
+que o projeto repete em <b>três ou mais seções</b> também sobe. A subida é de
 uma classe só.</p>
 
 <h3>Uma conclusão só: as condições</h3>
@@ -157,23 +271,21 @@ condição sempre; médio vira condição sempre; leve não vira,
 porque se resolve no caminho, e listá-lo transformaria a peça numa lista de
 reparos.</p>
 
-<p><b>Cada condição se escreve como coisa a fazer</b>, no infinitivo, com a
-dimensão de onde vem e o tópico em que o problema está. Fechar a lista de casos
+<p><b>Cada condição se escreve como coisa a fazer</b>, no infinitivo, com o
+elemento de onde vem e a seção em que o problema está. Fechar a lista de casos
 antes de começar, e não “o corpus é frágil”. Quem lê decide com a primeira
 forma; com a segunda, não decide nada. E quando não há nenhuma, isso se
 escreve, e é a frase mais forte que a leitura pode produzir sobre um projeto:
-nenhum achado grave e nenhum médio em dimensão nenhuma.</p>
+nenhum achado grave e nenhum médio em elemento nenhum.</p>
 
-<p><b>A média saiu junto com o veredito</b>, e a razão é que ela só servia para
-dizer de que lado da linha de 7 o projeto caía. Sem a linha, seria número sem
-âncora, e número sem âncora numa ficha de banca é convite a ordenar por ele. As
-quatro notas por dimensão ficam: são o diagnóstico, e é delas que as condições
-saem.</p>
+<p><b>Não há média.</b> As quatro notas por elemento são o diagnóstico de onde
+as condições saem, e uma média só serviria para ordenar candidatos, que não é o
+que esta leitura faz.</p>
 
 <div class="confere">
   <section class="sim">
     <h3>Confere</h3>
-    <p>Todo achado traz o <b>tópico</b> em que está, porque quem lê responde
+    <p>Todo achado traz a <b>seção</b> em que está, porque quem lê responde
     pela decisão e tem de poder abrir a página e discordar. A nota vem depois
     do achado, nunca no lugar dele.</p>
   </section>
@@ -186,18 +298,20 @@ saem.</p>
   </section>
 </div>
 
-<h3>A terceira pergunta: dá para aprovar com alterações?</h3>
-<p>É a que mais rende, e a resposta já está na contagem, sem conta nova:
-<strong>as três classes são uma escala de custo de conserto.</strong> Sem
-nenhum grave, o projeto é apto, e um projeto com cinco achados leves está
-mais perto de ser aprovado do que um com um achado grave só, ainda que as notas
-digam o contrário. Com um achado grave, ela diz para cada um o que teria de mudar e
-de que tamanho é a mudança: reescrever uma seção é uma coisa, refazer a
-pergunta é outra, e só essa última é não apto.</p>
-<p>E o relatório fecha com <strong>o que a arguição pode ganhar</strong>: até
-três achados que se resolvem com uma resposta boa na banca, cada um com a
-dimensão que sobe de faixa se ele responder bem. Só entra o que sobe de faixa;
-o resto é pendência e já está no lugar dele.</p>
+<h3>O que a contagem diz sobre o custo de consertar</h3>
+<p>As três classes são uma escala de custo de conserto, e por isso a contagem
+informa mais que a nota. Um projeto com cinco achados leves fica em 7, e um com
+um achado grave fica em 4: quem lê vê, na conta, que o primeiro se conserta no
+caminho e o segundo não. Diante de um achado grave ela diz o que teria de mudar
+e de que tamanho é a mudança, porque reescrever uma seção é uma coisa e
+refazer a pergunta é outra. <strong>O juízo de aprovação não é dela</strong>:
+ela entrega a contagem e as condições, e quem decide tem as vagas, a linha e os
+outros candidatos.</p>
+<p><strong>O ganho de arguição viaja com a condição a que pertence</strong>, no
+terceiro campo da linha de dados, e não num bloco de prosa no fim. É o que o
+autor pode dizer diante da banca para aquele elemento subir de faixa antes de a
+condição estar cumprida; só entra o que sobe de faixa, e a maioria das
+condições fica sem ganho nenhum.</p>
 
 <h3>A pergunta do escopo, e o movimento de subtrair</h3>
 <p>As três classes são todas sobre <b>falta</b>: apontam o que não está lá.
@@ -225,18 +339,18 @@ ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
 <h2 id="ia">Os indícios de IA se graduam, e não se contam</h2>
 
 <div class="nota" style="border-left-color: var(--warn);">
-  <p><strong>Esta dimensão não tem nota</strong>, e a correção veio de um
+  <p><strong>Este elemento não tem nota</strong>, e a correção veio de um
   defeito medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e
-  nenhuma outra dimensão dá 10 por ausência de achado. A falta de defeito
+  nenhum outro elemento dá 10 por ausência de achado. A falta de defeito
   estava sendo premiada como excelência.</p>
-  <p>No lugar da nota, cinco níveis: <b>indícios fortes (uso abusivo)</b>,
-  quando as marcas mostram na página que o texto não foi controlado por quem o
-  assina; <b>indícios fortes</b>, quando são várias e continuam compatíveis com
-  pressa ou revisão mal feita; <b>indícios médios</b>, quando há mais de uma
-  marca e nenhuma sozinha alcança o que o documento afirma; <b>indícios
-  fracos</b>, quando há marca e ela não sustenta mais que isso; e <b>não há
-  indícios</b>. O nível não vira condição e não entra em nota nenhuma: viaja ao
-  lado, e quem decide o que fazer com ele é a banca.</p>
+  <p>No lugar da nota, cinco níveis: <b>indícios fortes (uso abusivo)</b>, quando
+  as marcas mostram na página que o texto não foi controlado por quem o assina;
+  <b>indícios fortes</b>, quando são várias e ainda compatíveis com pressa ou
+  revisão mal feita; <b>indícios médios</b>, quando se somam sem que nenhuma
+  sozinha alcance o que o documento afirma; <b>indícios fracos</b>; e <b>não há
+  indícios</b>. O nível não
+  vira condição e não entra em nota nenhuma: viaja ao lado, e quem decide o
+  que fazer com ele é a banca.</p>
 
   <p><b>E a quarta marca tem âncora de contagem</b>, que era o que faltava a
   ela: o que se conta é <b>a afirmação que o percurso não produz</b>, uma a
@@ -247,18 +361,18 @@ ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
 </div>
 
 <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
-insinua e não pede confissão, e a razão não é delicadeza: <strong>a marca é
+insinua e não pede confissão. A razão é outra: <strong>a marca é
 probabilística, e um candidato reprovado por ela não teria como se defender de
 uma objeção que ninguém enuncia.</strong> O que ela relata está na página e se
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
 entrega o que o título promete, a subdivisão que sai sem que nada mude, e a
 fluência uniforme com afirmação que excede o material previsto.</p>
-<p><b>Duas marcas saíram nos testes de hoje, e o registro fica.</b> A
+<p><b>Duas marcas saíram nos testes de 03/09/2026, e o registro fica.</b> A
 referência arrolada e não citada, que num projeto de lista única é o estado
 normal; e a mesma obra com dados diferentes em dois pontos, que é o erro humano
 mais comum de uma bibliografia. <strong>Marca que dispara em escrita normal é
 pior que marca nenhuma</strong>, porque produz achado onde não há nada e gasta
-a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
+a confiança de quem lê o resto.</p>
 
 <div class="nota">
   <p><strong>Referência não encontrada não é obra inexistente.</strong> Com
@@ -269,15 +383,25 @@ a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
   fabricou. Sem busca, diz que não conferiu, e não julga por memória.</p>
 </div>
 
-<h2 id="descricao">Cada dimensão sai em dois parágrafos</h2>
+<h2 id="descricao">Como o relatório se organiza</h2>
 
-<p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquela dimensão, com os
-tópicos onde cada coisa está: a pergunta como o projeto a enuncia, a fonte que
+<p>São quatro partes, e o bloco de dados no fim. A <b>descrição geral</b>, em até
+dez linhas, reconstrói o que o projeto pergunta e como pretende responder, e ela
+é um teste: leitura que não consegue reconstruir a pergunta já tem o primeiro
+achado, porque a banca também não vai conseguir. A <b>ementa</b> é o que a banca
+lê quando lê uma coisa só: uma entrada por elemento, com duas frases e a nota. A
+<b>avaliação analítica</b> vem em seguida, e é a parte descrita abaixo. E as
+<b>perguntas para as quais o autor deve estar preparado</b> fecham a peça.</p>
+
+<h3>Cada elemento sai em dois parágrafos</h3>
+
+<p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquele elemento, com as
+seções onde cada coisa está: a pergunta como o projeto a enuncia, a fonte que
 ele diz que vai usar, o recorte, as categorias que nomeia, os autores que
 mobiliza e para quê, o que promete entregar. O segundo <b>avalia</b>, com o
-achado, o tópico, a contagem por classe e a nota.</p>
+achado, a seção, a contagem por classe e a nota.</p>
 
-<p><b>A descrição vem primeiro, e isso não é arrumação.</b> Escrita depois da
+<p><b>A descrição vem primeiro por uma razão de leitura.</b> Escrita depois da
 avaliação, ela se curva para justificar a nota, e quem lê recebe como descrição
 o que já é argumento. Escrita antes, ela é o que a leitura entendeu do
 documento, e é contra ela que a avaliação se confere.</p>
@@ -287,7 +411,7 @@ nem frágil, insuficiente ou vago; nem sólido, consistente ou promissor. Quando
 não há material, isso também se descreve, e é frase de fato: o projeto não
 enuncia pergunta, não nomeia fonte. <b>E a descrição é reconstrução, não
 transcrição:</b> sai com as palavras de quem lê e nunca entre aspas, porque
-aspas afirmam literalidade. Onde a palavra exata importa, vem o tópico e o
+aspas afirmam literalidade. Onde a palavra exata importa, vem a seção e o
 convite a ler.</p>
 
 <div class="nota">
@@ -355,30 +479,15 @@ tela, uma vez só.</p>
 faz: pôr as sugestões dentro do arquivo do autor, ler vinte projetos numa
 pasta, e conferir por programa o que foi escrito.</p>
 
-<p><b>E os arquivos que saem são estes, e mais nenhum.</b> Num projeto:
-<code>projeto.txt</code>, que é a numeração dos parágrafos, quando o projeto
-veio em PDF; <code>projeto.md</code>, o relatório; e <code>projeto.pdf</code>,
-a peça. O <code>--numerar</code> grava também um
-<code>projeto.locais.json</code>, que não é do fluxo da Selma: é onde ficam as
+<p><b>E os arquivos que saem são estes, e mais nenhum.</b> Num projeto: a
+numeração dos parágrafos, quando o projeto veio em PDF; o relatório em
+<code>.md</code>; e a peça em PDF. O <code>--numerar</code> grava também um
+<code>.locais.json</code>, que não é do fluxo da Selma: é onde ficam as
 posições que a ferramenta de comentários do Miro usa depois. No lote, um
 <code>.md</code> por projeto e um PDF só, o do lote. <b>Nada de arquivo de
 backup, de cópia numerada, de log ou de script de conferência deixado na
 pasta</b>: quem recebe a pasta de volta tem de saber, sem perguntar, qual é a
 peça e qual é o rascunho.</p>
-
-<h2 id="prompt">O prompt, para colar</h2>
-
-<p>Cabe numa colagem só. Cole o texto, <strong>não o anexe como arquivo</strong>,
-e abra uma janela nova: o que já foi dito numa conversa em andamento entra na
-leitura sem avisar.</p>
-
-<div class="caixa-prompt">
-  <div class="barra">
-    <span id="tamanho"></span>
-    <button class="copiar" id="btn-copiar" type="button">Copiar prompt</button>
-  </div>
-  <textarea id="selma" readonly spellcheck="false">{{PROMPT_SELMA}}</textarea>
-</div>
 
 <footer>
   <p>Assistente de leitura para projetos de pesquisa, feito por Alexandre
@@ -415,6 +524,44 @@ leitura sem avisar.</p>
     }
   })();
 </script>
+
+<script>
+  // a via escolhida mostra so a sua guia, no molde da pagina do Miro
+  (function () {
+    var bts = Array.prototype.slice.call(document.querySelectorAll(".via-bt"));
+    var guias = { chat: "guia-chat", agente: "guia-agente" };
+    function mostrar(via) {
+      bts.forEach(function (o) {
+        o.setAttribute("aria-pressed", String(o.dataset.via === via));
+      });
+      Object.keys(guias).forEach(function (k) {
+        var el = document.getElementById(guias[k]);
+        if (el) el.hidden = k !== via;
+      });
+    }
+    bts.forEach(function (b) {
+      b.addEventListener("click", function () { mostrar(b.dataset.via); });
+    });
+    var daUrl = (location.hash || "").replace("#", "");
+    if (Object.prototype.hasOwnProperty.call(guias, daUrl)) mostrar(daUrl);
+  })();
+
+  // o botao do pedido do agente, ao lado do botao do prompt
+  (function () {
+    var btn = document.getElementById('btn-copiar-agente');
+    var ta = document.getElementById('pedido-agente');
+    if (!btn || !ta) return;
+    btn.addEventListener('click', function () {
+      function feito() { btn.textContent = 'Copiado';
+        setTimeout(function () { btn.textContent = 'Copiar pedido'; }, 1800); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(feito, function () {
+          ta.select(); feito(); });
+      } else { ta.select();
+        try { document.execCommand('copy'); feito(); } catch (e) {} }
+    });
+  })();
+</script>
 """
 
 
@@ -425,8 +572,10 @@ def main():
         sys.exit("ERRO: nao achei o <style> no modelo da oficina.")
     estilo = m.group(0).replace("textarea#selma", "textarea#selma")
 
-    pagina = CORPO % {"estilo": estilo, "oficina": OFICINA, "miro": MIRO}
     prompt = PROMPT.read_text(encoding="utf-8").strip()
+    tamanho = "{:,}".format(len(prompt)).replace(",", ".")
+    pagina = CORPO % {"estilo": estilo, "oficina": OFICINA,
+                      "miro": MIRO, "tamanho": tamanho}
     if "{{PROMPT_SELMA}}" not in pagina:
         sys.exit("ERRO: o marcador do prompt sumiu do corpo.")
     import html

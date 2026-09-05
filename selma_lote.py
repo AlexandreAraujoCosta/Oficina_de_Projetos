@@ -148,12 +148,19 @@ def ler_bloco(texto, origem="?"):
             # palavra trocada nele nao degrada uma citacao: faz a peca
             # apontar para outro projeto. Quem o copia e o programa.
             alvo = campos[1].strip()
-            m2 = re.fullmatch(r"[Pp]?0*(\d{1,4})", alvo)
-            if not m2:
-                raise BlocoInvalido(
-                    "%s: TITULO diz %r, e ali vai o LOCALIZADOR do titulo "
-                    "(P002), nunca o titulo escrito" % (origem, alvo))
-            titulo = int(m2.group(1))
+            # TRACO QUANDO NAO HOUVE NUMERACAO, como na linha IMPRESSAO.
+            # Sem numeracao nao ha localizador a dar, e o zero diz isso:
+            # a peca sai identificada pelo nome do arquivo.
+            if alvo == "-":
+                titulo = 0
+            else:
+                m2 = re.fullmatch(r"[Pp]?0*(\d{1,4})", alvo)
+                if not m2:
+                    raise BlocoInvalido(
+                        "%s: TITULO diz %r, e ali vai o LOCALIZADOR do titulo "
+                        "(P002) ou um traco, quando nao houve numeracao"
+                        % (origem, alvo))
+                titulo = int(m2.group(1))
         elif campos[0] == "IMPRESSAO":
             # A impressao digital da numeracao. Traco quando nao houve
             # numeracao: o localizador do titulo vale, e ninguem o conferiu.
@@ -789,7 +796,11 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
                 "A leitura")
             if nivel == "diverge":
                 sys.exit("PAREI: " + recado)
-        titulo, aviso = copiar_titulo(projeto, d["titulo"])
+        if d["titulo"]:
+            titulo, aviso = copiar_titulo(projeto, d["titulo"])
+        else:
+            titulo, aviso = None, ("a leitura rodou sem numeracao dos "
+                                   "paragrafos, e por isso nao aponta o titulo")
         if titulo and not d["impressao"]:
             print("AVISO: a leitura nao informou a impressao da numeracao, "
                   "entao ninguem conferiu se P%03d ainda e o titulo."
@@ -798,7 +809,10 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
     if aviso:
         print("SEM O TITULO: %s." % aviso)
         print("A peca sai com o nome do arquivo, e dizendo que e o nome do")
-        print("arquivo. O relatorio aponta o titulo em P%03d." % d["titulo"])
+        if d["titulo"]:
+            print("arquivo. O relatorio aponta o titulo em P%03d." % d["titulo"])
+        else:
+            print("arquivo.")
         print()
 
     saida = caminho_pdf or str(arq.with_suffix(".pdf"))
@@ -1148,6 +1162,15 @@ def controle():
     assert ok["condicoes"][0][2], "a primeira condicao tem ganho"
     assert ok["condicoes"][1][2] == "", "a segunda nao tem"
     print("  o bloco bom passa                                 ok")
+
+    # E O TRACO NA LINHA TITULO PASSA, com titulo zero: e a saida de quem
+    # rodou sem numeracao dos paragrafos, que e o caso normal no chat.
+    sem_num = ler_bloco(BOM.replace("TITULO | P002", "TITULO | -")
+                        .replace("IMPRESSAO | 172p-a51ff850", "IMPRESSAO | -"),
+                        "controle")
+    assert sem_num["titulo"] == 0, sem_num
+    assert sem_num["impressao"] is None, sem_num
+    print("  o bloco sem numeracao passa, com titulo zero      ok")
 
     casos = [
         ("nota fora de 0-10", BOM.replace("| 0 | 3 | 7", "| 0 | 3 | 17")),
