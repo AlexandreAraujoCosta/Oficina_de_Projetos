@@ -1,0 +1,1000 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>Oficina de Projetos: o anexo</title>
+
+<style>
+  :root {
+    --ground:      #FBFAF7;
+    --surface:     #F3F1EC;
+    --sunken:      #EAE7E0;
+    --ink:         #191B1F;
+    --ink-soft:    #3D4149;
+    --muted:       #5F636B;
+    --faint:       #6C7079;
+    --rule:        #D9D5CC;
+    --rule-firm:   #BFBAAE;
+    --rule-soft:   #E6E2DA;
+    --accent:      #2A5F45;
+    --accent-soft: #DFEAE1;
+    --warn:        #8A5722;
+    --warn-soft:   #F2E7D8;
+    --good:        #37613F;
+    --good-soft:   #E0EBE1;
+    --danger:      #A3352B;
+    --danger-soft: #F6E6E3;
+    --deep:        #0D3B63;
+    --deep-soft:   #DEE6EE;
+
+    --serif: Literata, "Iowan Old Style", Charter, Georgia, "Times New Roman", serif;
+    --sans: Mulish, "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", "Cascadia Mono", ui-monospace, Consolas, "SF Mono", monospace;
+
+    --measure: 66ch;
+
+    /* os degraus, na medida de arcos.org.br/direito-ciencia */
+    --t-2xs: 12px;   /* faixa de identificacao */
+    --t-xs: 14px;    /* rotulo em versalete */
+    --t-sm: 16px;    /* texto secundario */
+    --t-md: 18px;    /* corpo */
+    --t-lg: 22px;    /* linha de abertura */
+    --t-h3: 19px;
+    --t-h2: 24px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #16171A;
+      --surface:     #1D1F23;
+      --sunken:      #24262B;
+      --ink:         #E9E6E0;
+      --ink-soft:    #C4C2BD;
+      --muted:       #94979E;
+      --faint:       #8A8D94;
+      --rule:        #34373D;
+      --rule-firm:   #454A52;
+      --rule-soft:   #2A2D32;
+      --accent:      #8FC0A0;
+      --accent-soft: #1E2A22;
+      --warn:        #D3A163;
+      --warn-soft:   #33291B;
+      --good:        #83B78D;
+      --good-soft:   #1E2A20;
+      --danger:      #E07A6E;
+      --danger-soft: #2E1E1C;
+      --deep:        #7FB2DE;
+      --deep-soft:   #1B242E;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #16171A;
+    --surface:     #1D1F23;
+    --sunken:      #24262B;
+    --ink:         #E9E6E0;
+    --ink-soft:    #C4C2BD;
+    --muted:       #94979E;
+    --faint:       #8A8D94;
+    --rule:        #34373D;
+    --rule-firm:   #454A52;
+    --rule-soft:   #2A2D32;
+    --accent:      #8FC0A0;
+    --accent-soft: #1E2A22;
+    --warn:        #D3A163;
+    --warn-soft:   #33291B;
+    --good:        #83B78D;
+    --good-soft:   #1E2A20;
+    --danger:      #E07A6E;
+    --danger-soft: #2E1E1C;
+    --deep:        #7FB2DE;
+    --deep-soft:   #1B242E;
+  }
+
+  :root[data-theme="light"] {
+    --ground:      #FBFAF7;
+    --surface:     #F3F1EC;
+    --sunken:      #EAE7E0;
+    --ink:         #191B1F;
+    --ink-soft:    #3D4149;
+    --muted:       #5F636B;
+    --faint:       #6C7079;
+    --rule:        #D9D5CC;
+    --rule-firm:   #BFBAAE;
+    --rule-soft:   #E6E2DA;
+    --accent:      #2A5F45;
+    --accent-soft: #DFEAE1;
+    --warn:        #8A5722;
+    --warn-soft:   #F2E7D8;
+    --good:        #37613F;
+    --good-soft:   #E0EBE1;
+    --danger:      #A3352B;
+    --danger-soft: #F6E6E3;
+    --deep:        #0D3B63;
+    --deep-soft:   #DEE6EE;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--t-md);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 47rem; margin: 0 auto; padding: 0 1.4rem 6rem; }
+
+  /* ---- índice, ao lado do texto ---- */
+  .indice { font-size: var(--t-2xs); }
+  .indice-caixa {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--ground);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .indice summary {
+    cursor: pointer; list-style: none;
+    padding: 0.5rem 1.4rem;
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .indice summary::-webkit-details-marker { display: none; }
+  .indice summary::after { content: " +"; color: var(--accent); }
+  .indice-caixa[open] summary::after { content: " −"; }
+  .indice summary:hover { color: var(--accent); }
+  .indice-lista {
+    display: flex; flex-direction: column; gap: 0.42rem;
+    padding: 0.1rem 1.4rem 0.9rem;
+  }
+  .indice a {
+    color: var(--muted); text-decoration: none; line-height: 1.25;
+  }
+  .indice a:hover { color: var(--accent); }
+  .indice .num {
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
+  }
+  .indice .sub { padding-left: 0.85rem; }
+  .indice .grupo {
+    margin-top: 0.5rem; padding-top: 0.6rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  h2, .instrumento { scroll-margin-top: 3.2rem; }
+
+  /* Do lado, quando a tela tem margem para ele. A coluna de texto não se
+     move: o trilho ocupa a margem esquerda que já estava vazia. */
+  @media (min-width: 78rem) {
+    .indice {
+      position: fixed; top: 0; z-index: 20;
+      left: max(1rem, calc(50% - 23.5rem - 14rem));
+      width: 12.5rem; max-height: 100vh; overflow-y: auto;
+      padding: 3.9rem 0 2rem; scrollbar-width: thin;
+    }
+    .indice-caixa { position: static; background: none; border-bottom: 0; }
+    .indice-caixa[open] summary { display: none; }
+    .indice-lista { padding: 0; gap: 0.5rem; }
+    h2, .instrumento { scroll-margin-top: 1.2rem; }
+  }
+
+  /* ---- cabeçalho ---- */
+  header { padding: 3.4rem 0 0; }
+  h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.1rem, 5.5vw, 2.9rem);
+    line-height: 1.12; margin: 0 0 1rem; letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .lead {
+    font-family: var(--serif); font-size: var(--t-md); line-height: 1.55;
+    color: var(--ink-soft); max-width: var(--measure); margin: 0 0 2rem;
+  }
+
+  h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: var(--t-lg); line-height: 1.25;
+    margin: 3.2rem 0 0.9rem; letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--sans); font-weight: 640; font-size: var(--t-sm);
+    margin: 1.8rem 0 0.5rem; letter-spacing: 0.01em;
+  }
+  p { margin: 0 0 1rem; max-width: var(--measure); }
+  a { color: var(--accent); }
+
+  .eyebrow {
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--faint);
+    margin: 0 0 0.4rem;
+  }
+
+  /* ---- ficha do autor ---- */
+  .autoria {
+    border-left: 2px solid var(--rule);
+    padding: 0.1rem 0 0.1rem 1.1rem;
+    margin: 0 0 2.6rem;
+    font-size: var(--t-xs); color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+  .autoria strong { color: var(--ink); }
+  .autoria p { margin: 0 0 0.35rem; }
+  .autoria .fina { color: var(--muted); font-size: var(--t-xs); }
+
+  /* ---- os três registros ---- */
+  .registros {
+    display: grid; gap: 0; margin: 1.4rem 0 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .registro {
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 0.85rem 0;
+    display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem;
+    align-items: start;
+  }
+  .registro .marca {
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
+    letter-spacing: 0.03em; padding-top: 0.16rem;
+  }
+  .registro p { margin: 0; font-size: var(--t-sm); color: var(--ink-soft); }
+  @media (max-width: 33rem) {
+    .registro { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+
+  /* ---- rota, na forma da oficina irma ---- */
+  .deck { color: var(--muted); font-size: var(--t-sm); margin: 0 0 0.4rem; max-width: var(--measure); }
+  .grupo-linha {
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--accent);
+    margin: 2.2rem 0 0.2rem; padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+  }
+  .route { margin: 1.4rem 0 0; border-top: 1px solid var(--rule); }
+  .route-row {
+    display: grid; grid-template-columns: 1fr; gap: 0.25rem;
+    padding: 0.95rem 0; border-bottom: 1px solid var(--rule-soft);
+  }
+  @media (min-width: 38rem) {
+    .route-row { grid-template-columns: 15rem 1fr; gap: 1.5rem; align-items: baseline; }
+  }
+  .route-a { font-family: var(--serif); font-size: var(--t-lg); line-height: 1.14; }
+  .route-a a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .route-a a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .route-n {
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--faint);
+    margin-right: 0.6rem; vertical-align: 0.18rem;
+  }
+  .route-sub {
+    display: block; font-family: var(--sans); font-size: var(--t-xs);
+    color: var(--muted); margin-top: 0.2rem;
+  }
+  .route-q { color: var(--ink-soft); font-size: var(--t-sm); }
+
+  /* ---- blocos numerados ---- */
+  .instrumento {
+    border-top: 1px solid var(--rule);
+    margin-top: 3.4rem; padding-top: 1.4rem;
+  }
+  .instrumento .cabeca {
+    display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  .instrumento .indice {
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
+  }
+  .instrumento h2 { margin: 0; }
+  .instrumento .resumo {
+    font-family: var(--serif); font-size: var(--t-sm); color: var(--ink-soft);
+    max-width: var(--measure); margin: 0 0 1.1rem;
+  }
+
+  .ficha {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 0.1rem; margin: 0 0 1.4rem;
+    background: var(--rule-soft); border: 1px solid var(--rule-soft);
+    border-radius: 3px; overflow: hidden;
+  }
+  .ficha div { background: var(--surface); padding: 0.6rem 0.75rem; }
+  .ficha dt {
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--faint); margin: 0 0 0.2rem;
+  }
+  .ficha dd {
+    margin: 0; font-size: var(--t-xs); color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .confere { display: grid; gap: 1rem; margin: 0 0 1.2rem; }
+  @media (min-width: 42rem) { .confere { grid-template-columns: 1fr 1fr; } }
+  .confere section { }
+  .confere h3 { margin-top: 0; }
+  .confere .sim h3 { color: var(--accent); }
+  .confere .nao h3 { color: var(--warn); }
+  .confere p { font-size: var(--t-xs); margin: 0; }
+
+  /* ---- passos ---- */
+  ol.passos { margin: 0 0 1.2rem; padding-left: 1.3rem; max-width: var(--measure); }
+  ol.passos li { margin-bottom: 0.55rem; font-size: var(--t-sm); }
+  ul.simples { margin: 0 0 1.2rem; padding-left: 1.2rem; max-width: var(--measure); }
+  ul.simples li { margin-bottom: 0.4rem; font-size: var(--t-sm); }
+
+  code, .mono { font-family: var(--mono); font-size: var(--t-sm); }
+  code {
+    background: var(--sunken); padding: 0.08em 0.32em; border-radius: 2px;
+  }
+  pre {
+    background: var(--sunken); border: 1px solid var(--rule-soft);
+    border-radius: 3px; padding: 0.85rem 1rem; overflow-x: auto;
+    font-family: var(--mono); font-size: var(--t-2xs); line-height: 1.5;
+    margin: 0 0 1.2rem;
+  }
+  pre code { background: none; padding: 0; }
+
+  .nota {
+    background: var(--warn-soft); border-left: 3px solid var(--warn);
+    padding: 0.8rem 1rem; border-radius: 0 3px 3px 0;
+    margin: 1.2rem 0; font-size: var(--t-xs); max-width: var(--measure);
+  }
+  .nota p:last-child { margin-bottom: 0; }
+  .nota strong { color: var(--ink); }
+
+  /* ---- encadeamento ---- */
+  .fluxo {
+    border: 1px solid var(--rule-soft); border-radius: 3px;
+    background: var(--surface); padding: 1.1rem 1.2rem; margin: 1.2rem 0;
+    overflow-x: auto;
+  }
+  .fluxo ol { margin: 0; padding-left: 1.2rem; }
+  .fluxo li { margin-bottom: 0.6rem; font-size: var(--t-sm); }
+  .fluxo li:last-child { margin-bottom: 0; }
+  .fluxo strong { font-family: var(--serif); }
+
+  table {
+    border-collapse: collapse; width: 100%; font-size: var(--t-xs);
+    margin: 0 0 1.3rem;
+  }
+  .rolagem { overflow-x: auto; max-width: 100%; }
+  th, td {
+    text-align: left; padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid var(--rule-soft); vertical-align: top;
+  }
+  th {
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--faint); font-weight: 500;
+  }
+  td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---- prompt ---- */
+  .caixa-prompt {
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--surface); margin: 1.2rem 0 0; overflow: hidden;
+  }
+  .caixa-prompt .barra {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid var(--rule-soft); background: var(--sunken);
+  }
+  .caixa-prompt .barra span {
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  button.copiar {
+    font-family: var(--sans); font-size: var(--t-2xs); font-weight: 600;
+    background: var(--accent); color: var(--ground);
+    border: none; border-radius: 3px; padding: 0.35rem 0.8rem;
+    cursor: pointer;
+  }
+  button.copiar:hover { opacity: 0.88; }
+  button.copiar:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  textarea#selma {
+    display: block; width: 100%; height: 22rem; resize: vertical;
+    border: none; background: var(--surface); color: var(--ink-soft);
+    font-family: var(--mono); font-size: var(--t-2xs); line-height: 1.55;
+    padding: 0.9rem 1rem; white-space: pre-wrap;
+  }
+  textarea#selma:focus { outline: none; }
+
+  footer {
+    margin-top: 4.5rem; padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-size: var(--t-xs); color: var(--muted); max-width: var(--measure);
+  }
+
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* --- faixa de identificacao, no modelo das oficinas academicas --- */
+  .eyebrow a { color: inherit; text-decoration: none;
+               border-bottom: 1px solid currentColor; }
+  .eyebrow a:hover, .eyebrow a:focus-visible { opacity: .7; }
+  .eyebrow { margin: 0 0 2.4rem; }
+  header h1 { margin-bottom: 1.3rem; }
+  /* Os dois grupos se separam por uma linha, e nao por um travessao: o
+     traco no meio do texto se le como pausa, e aqui a divisao e de
+     natureza. */
+  .eyebrow .eb-linha { display: block; }
+  .eyebrow .eb-atual { opacity: .55; }
+  .eyebrow .eb-baixo { margin-top: .3rem; padding-top: .3rem;
+                       border-top: 1px solid var(--rule); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* --- escala do sistema: uma so em todas as paginas da oficina --- */
+  h1, .top h1, header h1, .wrap > h1, .page > h1 { font-family: var(--serif); font-weight: 600;
+    font-size: clamp(28px, 5vw, 36px); line-height: 1.2; }
+  .wrap h2, .page h2, .shell h2, .cuidados h2 { font-family: var(--serif); font-size: var(--t-h2);
+    font-weight: 600; line-height: 1.2; }
+  .wrap h3, .page h3, .shell h3, .cuidados h3 { font-family: var(--serif); font-size: var(--t-h3);
+    font-weight: 600; line-height: 1.2; letter-spacing: normal; text-transform: none; color: var(--ink); }
+  /* a medida vale para todo texto corrido, e nao so para o que esta em secao */
+  .wrap p, .wrap li, .wrap dd, .page p, .page li, .page dd { max-width: var(--measure); }
+  /* Os dois paragrafos da ficha sao o mesmo comentario, e vao na mesma fonte. */
+  .autoria p, .byline p { font-family: var(--sans); font-size: var(--t-sm);
+    line-height: 1.55; color: var(--ink-soft); margin: 0 0 .5rem; }
+  .autoria p:last-child, .byline p:last-child { margin-bottom: 0; }
+  .autoria b, .autoria strong, .byline b { color: var(--ink); font-weight: 600; }
+</style>
+
+<div class="wrap">
+
+<p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito da UnB</a> &middot; <a href="https://pmpd.unb.br/">PMPD</a> &middot; <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas Acadêmicas</a></span><span class="eb-linha eb-baixo">Assistentes: <a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> &middot; <a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a></span></p>
+<h1>Oficina de Projetos: o anexo</h1>
+<p class="lead">O que fica fora da página da oficina: o vocabulário em uso, as duas formas de rodar, o fluxo de trabalho, quem responde pelo relatório, como ele é organizado, o que se entrega, quanto custa e o que está medido.</p>
+
+<div class="autoria">
+  <p>Ferramentas desenvolvidas por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
+  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
+</div>
+
+<div class="nota">
+  <p><strong>Esta oficina é irmã da Oficina de Orientação, e a divisão entre as
+  duas é de objeto.</strong> A <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">Oficina
+  de Orientação</a> lê trabalho executado, com resultados apresentados e
+  conclusões escritas. Esta lê o plano. Rodar o instrumento errado não devolve
+  menos: devolve uma lista de ausências que o autor já conhece.</p>
+</div>
+
+<h2 id="qual">Ferramentas disponíveis</h2>
+
+<p class="deck">Uma conversa e uma leitura. <b>A conversa trabalha o que
+ainda não está decidido</b>, uma pergunta por vez, e o que fica dela é o
+pré-projeto. <b>A leitura trabalha o que já está escrito</b>, sem diálogo, e o que
+fica dela é um relatório dizendo o que precisa ser desenvolvido.</p>
+
+<p class="deck" style="margin-bottom:1.2rem">A ordem entre elas não é rígida, e a
+volta faz parte: uma leitura que encontra elemento sem sustentação devolve o
+projeto à conversa.</p>
+
+<p class="grupo-linha">São conversa, e rodam em conta gratuita</p>
+<div class="route">
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">01</span><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a>
+      <span class="route-sub">consistência entre os quatro elementos</span>
+    </div>
+    <div class="route-q">Trabalha a lacuna, a pergunta, a abordagem metodológica e
+    o referencial, e sobretudo a consistência entre eles. <b>Não pesquisa, não
+    avalia a revisão de literatura, não aprofunda o método e não pole o marco
+    teórico:</b> faz o que vem antes dessas três coisas e sem o que nenhuma delas
+    rende. Ao fechar, manda buscar e incluir a revisão no documento.</div>
+  </div>
+</div>
+
+<p class="grupo-linha">Devolve um relatório</p>
+<div class="route">
+  <div class="route-row">
+    <div class="route-a">
+      <span class="route-n">02</span><a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a>
+      <span class="route-sub">a leitura de banca</span>
+    </div>
+    <div class="route-q">Lê o projeto escrito e devolve <b>o que uma banca
+    veria</b>, em cinco dimensões fixas: quatro com nota de 0 a 10 e a dos
+    indícios de IA, que não tem nota e é graduada em cinco níveis. Todo achado
+    traz o tópico em que está. <b>A conclusão é uma só:</b> que condições o
+    projeto precisa cumprir para ser apresentável a uma banca de qualificação.
+    Não recomenda admitir nem não admitir.</div>
+  </div>
+</div>
+
+<!-- ============ 01 MIRO ============ -->
+<div class="instrumento" id="miro">
+  <div class="cabeca">
+    <span class="indice">[01]</span>
+    <h2>Miro</h2>
+  </div>
+  <p class="resumo">Agente conversacional de consistência. Ele não pesquisa, não
+  verifica se a revisão se sustenta e não desenvolve o método nem o marco teórico:
+  ajuda a formular, com consistência, os quatro elementos que são o seu núcleo.</p>
+
+  <dl class="ficha">
+    <div><dt>tamanho</dt><dd>~123 mil caracteres</dd></div>
+    <div><dt>roda em</dt><dd>qualquer chat, inclusive gratuito</dd></div>
+    <div><dt>entrega</dt><dd>comentário e pré-projeto, em bloco de código</dd></div>
+    <div><dt>uso real</dt><dd>duas turmas, 2026</dd></div>
+  </dl>
+
+  <div class="confere">
+    <section class="sim">
+      <h3>Trabalha</h3>
+      <p>A lacuna, medida por falta e não por presença. A pergunta que a ilumina.
+      A abordagem, testada pela pergunta dos dados: que material permitiria
+      responder isso. O referencial, testado por conter ou não a conclusão que
+      deveria examinar. E, acima de tudo, <b>a consistência entre os quatro</b>,
+      que é o que se quebra quando cada um foi escrito por si.</p>
+    </section>
+    <section class="nao">
+      <h3>Não faz</h3>
+      <p><b>Não avalia a revisão de literatura</b>, nem para dizer se ela sustenta
+      a lacuna. <b>Não aprofunda o método:</b> unidade de análise, protocolo de
+      registro, validação e piloto são de outra etapa. <b>Não pole o marco
+      teórico:</b> não escolhe autores nem melhora a redação da seção. E não faz
+      busca bibliográfica nem nomeia obra nenhuma, mesmo tendo ferramenta de
+      busca.</p>
+    </section>
+  </div>
+
+  <h3>Por que essas três ficam de fora</h3>
+  <p>Não é recusa. As três são trabalho de verdade, e cada uma se faz melhor com o
+  que numa conversa não existe: a revisão pede as bases e o texto na mão, o método
+  pede o material já delimitado, e o marco pede a revisão feita. O que o Miro faz é
+  <b>o que vem antes das três, e sem o que nenhuma delas rende</b>.</p>
+
+  <h3>Quando o projeto chega pronto</h3>
+  <p>Acontece com frequência, e vai acontecer mais: o estudante gera o projeto numa
+  IA e traz. Aí o Miro <b>devolve o projeto ao grau zero do planejamento</b>, e diz
+  que é isso que está fazendo. Grau zero são os quatro elementos e mais nada: o
+  resto do documento fica de fora, e ele nomeia o que fica de fora logo na entrada,
+  para que o estudante não descubra isso a cada recusa mais adiante.</p>
+  <p>O trabalho todo são então <b>quatro perguntas, uma por elemento</b>, e cada uma
+  tem duas metades: a primeira pede o elemento, a segunda é o teste pelo qual aquele
+  elemento se avalia. Qual é a lacuna, e de que modo enfrentá-la justifica o
+  trabalho. Que respostas diferentes a pergunta admite, depois de o Miro apontar o
+  que nela está ambíguo. Que material permitiria responder, onde ele está e quem o
+  produziu. E que distinção os conceitos permitem fazer no material que sem eles não
+  se faria. O critério vai junto de propósito: guardado, quem avalia é o assistente;
+  dito, quem avalia é o estudante.</p>
+  <p><b>Quatro perguntas mais o fechamento dão cinco rodadas, e projeto bem feito
+  termina em cinco.</b> Conversa curta com um projeto bom é o resultado certo, e o
+  Miro é instruído a não inventar a sexta rodada, porque sempre sobra o que dizer
+  sobre um projeto e é por aí que a redução anunciada vira revisão linha a linha.</p>
+  <p>Ele localiza cada elemento no texto ao fazer a pergunta dele, e <b>não formula o
+  que não está lá</b>. Dizer que o parágrafo terceiro trata como lacuna a ausência de
+  estudos quantitativos é localizar; redigir uma boa lacuna a partir do que o texto
+  dá a entender é fazer o trabalho no lugar do estudante, e um projeto gerado por IA
+  costuma ter os quatro elementos frouxos ao mesmo tempo, o que é um convite para
+  preencher os quatro.</p>
+
+  <h3>O problema não é usar IA</h3>
+  <p>É não entender bem o que se escreve, que é caso mais antigo que a IA e igual de
+  comum em quem escreveu tudo à mão. O Miro não repreende, não insinua e não pede
+  confissão: pede que o estudante responda pelo que está escrito. <b>Assistente que
+  dá flagrante ensina o aluno a esconder</b>, e aí se perde a única coisa de que a
+  conversa depende, que é ele dizer com as próprias palavras o que entendeu.</p>
+  <p>Por isso as perguntas servem para ele <b>entender e se posicionar</b>, e não
+  para o assistente diagnosticar o projeto. Quando a resposta vem ruim, o Miro
+  pergunta de novo por outro lado em vez de corrigir o texto. E posicionar-se inclui
+  descartar: nada naquele documento obriga o estudante a coisa alguma, e trocar a
+  pergunta ou jogar fora metade do texto ainda é barato nessa altura.</p>
+
+  <div class="nota">
+    <p><strong>Bibliografia que chega escrita é gatilho.</strong> Dez ou mais nomes
+    com ano, nenhum com título ou veículo, todos convenientes ao argumento: o Miro
+    diz, no turno em que a lista chega, que não reconhece aqueles trabalhos e não
+    tem como conferir se existem. E <b>não usa nenhum deles como argumento</b> até
+    que isso se resolva, nem para mostrar ao aluno que o campo o contradiz: usar
+    como prova o que pode não existir convence o aluno de que existe.</p>
+  </div>
+
+  <h3>Por que a entrega é a conversa inteira, e não só o comentário</h3>
+  <p>Foi mudada duas vezes. Em julho de 2026 passou a ser só o comentário; em
+  agosto voltou a ser a conversa fechada pelo comentário, e a razão veio do
+  primeiro uso com alunos: das 22 entregas da primeira turma, 10 mostravam
+  conversas que nunca chegaram a fechamento nenhum. Isso só foi possível descobrir
+  porque aqueles alunos tinham colado o diálogo todo. Com a entrega reduzida ao
+  comentário, conversa que não fecha não produz entrega, e o que falhou fica
+  invisível.</p>
+
+  <h3>Três proibições vindas de casos observados</h3>
+  <ul class="simples">
+    <li><strong>Nada entre aspas.</strong> Um modelo obrigado a citar literalmente
+    inventou uma frase e a atribuiu ao estudante na avaliação final. O que
+    substitui as aspas é nomear a coisa concreta: qual elemento mudou, e que
+    pergunta provocou a mudança.</li>
+    <li><strong>Nenhuma afirmação geral sobre o formato da conversa.</strong> Um
+    modelo negou, na própria nota, um episódio que tinha acontecido ali.</li>
+    <li><strong>Nota, nunca.</strong> Houve caso real de assistente atribuindo nota
+    9 numa atividade que não tem nota. O aluno cola isso como entrega e
+    acredita.</li>
+  </ul>
+
+  <p><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Página
+  do Miro, com o prompt para colar</a></p>
+</div>
+
+<!-- ============ 02 SELMA ============ -->
+<div class="instrumento" id="selma">
+  <div class="cabeca">
+    <span class="indice">[02]</span>
+    <h2>Selma</h2>
+  </div>
+  <p class="resumo">Lê o projeto como uma banca o leria, e devolve um
+  relatório curto, com nota por dimensão e a lista de condições. Não há conversa: ela lê, classifica
+  e entrega. O relatório é escrito <b>para a banca</b>, e quem o usa para ver o
+  próprio projeto está vendo o que a banca veria.</p>
+
+  <dl class="ficha">
+    <div><dt>tamanho</dt><dd>~26 mil caracteres</dd></div>
+    <div><dt>relatório</dt><dd>uma página, cinco blocos fixos</dd></div>
+    <div><dt>nota</dt><dd>0 a 10 em quatro dimensões</dd></div>
+    <div><dt>conclusão</dt><dd>a lista de condições, e nada além dela</dd></div>
+    <div><dt>indícios de IA</dt><dd>sem nota, em cinco níveis</dd></div>
+    <div><dt>localizador</dt><dd>o tópico do projeto, em todo achado</dd></div>
+  </dl>
+
+  <div class="confere">
+    <section class="sim">
+      <h3>Confere</h3>
+      <p>Cinco elementos, sempre os mesmos e sempre na mesma ordem.
+      <b>Problema, objetivos e hipóteses:</b> há pergunta ou só tema, o
+      objetivo geral responde a ela, cada objetivo específico tem etapa, e a
+      hipótese é sujeita a teste? <b>Justificativa:</b> a lacuna nomeada, o
+      que muda por esta pergunta ser respondida, os impactos acadêmico e
+      social com destinatário que se possa nomear, e o produto técnico.
+      <b>Metodologia e teoria:</b> a fonte, as categorias, a operação e a
+      forma do resultado, e se cada ideia tem operação que a aplique.
+      <b>Bibliografia:</b> lista contra texto, composição da lista, e a
+      existência das obras quando há busca. <b>Indícios de uso de IA:</b> as
+      marcas que se conferem na página, sem nota.</p>
+    </section>
+    <section class="nao">
+      <h3>Não confere</h3>
+      <p>Não diz se a lacuna existe de fato no campo, nem se as obras dizem o
+      que o projeto lhes atribui: as duas coisas pedem as bases percorridas e as
+      obras lidas. Não julga originalidade. Não lê o candidato, só o projeto.
+      Não compara projetos entre si, porque vê um de cada vez. E não recomenda
+      admitir ou não admitir, porque a decisão se toma com as vagas, a linha e
+      os outros candidatos, que ela não tem.</p>
+    </section>
+  </div>
+
+  <h3>Cada dimensão sai em dois parágrafos</h3>
+  <p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquela dimensão, com os
+  tópicos onde cada coisa está; o segundo <b>avalia</b>, com o achado, a
+  contagem por classe e a nota. Sem a descrição, quem lê o relatório não sabe o
+  que está sendo avaliado, e num processo com vinte projetos ninguém abre os
+  vinte documentos para descobrir.</p>
+  <p><b>A descrição vem primeiro, e isso não é arrumação:</b> escrita depois da
+  avaliação, ela se curva para justificar a nota. Nela não entra adjetivo de
+  qualidade, em direção nenhuma, e ela é reconstrução, não transcrição: sai com
+  as palavras de quem lê e nunca entre aspas.</p>
+
+  <h3>A nota sai de uma contagem, e não de uma impressão</h3>
+  <p>Cada achado se classifica em uma de três classes, com o teste feito
+  <strong>com o defeito no lugar</strong>, e não depois de imaginá-lo
+  consertado. <b>Grave:</b> do jeito que está, a dimensão não entrega o que
+  promete, e nenhum prazo resolve. <b>Médio:</b> a dimensão
+  entrega, e há coisa a resolver antes de começar, que se resolve fazendo.
+  <b>Leve:</b> resolve-se no caminho. Depois a contagem manda na faixa e
+  no dígito, e o relatório mostra a conta.</p>
+
+  <h3>Uma conclusão só: as condições</h3>
+  <p>Não há média e não há veredito de aprovação. <b>A única coisa que a
+  leitura conclui é a lista de condições para o projeto ser apresentável a uma
+  banca de qualificação</b>, e ela já está na contagem, sem conta nova:
+  grave e médio viram condição; leve não vira, porque
+  se resolve no caminho.</p>
+  <p>Cada condição se escreve como coisa a fazer, no infinitivo, com a dimensão
+  de onde vem e o tópico em que o problema está. <b>A média saiu junto com o
+  veredito</b>, porque ela só servia para dizer de que lado da linha de 7 o
+  projeto caía; sem a linha, seria número sem âncora, e número sem âncora numa
+  ficha de banca é convite a ordenar por ele.</p>
+  <p>Duas regras de subida corrigem o que a contagem sozinha não veria, e as
+  duas se contam na página: defeito que aparece em mais da metade das
+  subdivisões de uma seção sobe uma classe, e achado que atinge afirmação que o
+  próprio projeto repete em três ou mais tópicos também sobe. A subida é de uma
+  classe só, ainda que as duas caiam sobre o mesmo achado.</p>
+
+  <h3>Os indícios de IA se graduam, e não se contam</h3>
+  <p><b>Esta dimensão não tem nota</b>, e a correção veio de um defeito
+  medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e nenhuma outra
+  dimensão dá 10 por ausência de achado. A falta de defeito estava sendo
+  premiada como excelência. No lugar da nota, cinco níveis: <b>indícios fortes
+  (uso abusivo)</b>, quando as marcas mostram na página que o texto não foi
+  controlado por quem o assina; <b>indícios fortes</b>, quando são várias e
+  continuam compatíveis com pressa ou revisão mal feita; <b>indícios
+  médios</b>, quando há mais de uma marca e nenhuma sozinha alcança o que o
+  documento afirma; <b>indícios fracos</b>, quando há marca e ela não sustenta
+  mais que isso; e <b>não há indícios</b>. O nível viaja ao lado das notas, e não toca nenhuma das duas
+  linhas.</p>
+  <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
+  insinua e não pede confissão, e a razão não é delicadeza: a marca é
+  probabilística, e um candidato reprovado por ela não teria como se defender de
+  uma objeção que ninguém enuncia. O que ela relata está na página e se conta: a
+  simetria repetida entre seções sem relação entre si, a seção que não entrega o
+  que o título promete, a subdivisão que sai sem que nada mude, e a mesma obra
+  com dados diferentes em dois pontos do documento. E ela diz o que essas marcas custam, que
+  é o que a banca precisa saber.</p>
+
+  <h3>Uso em lote, num processo seletivo</h3>
+  <p>Para ler vinte projetos, a Selma roda uma vez por projeto, e nunca os
+  vinte no mesmo contexto. <b>Isso não é limitação a superar:</b> se um modelo
+  lê vinte seguidos, o sétimo é lido contra a lembrança dos seis anteriores, e
+  o mesmo defeito recebe nota diferente conforme o que veio antes. A
+  comparabilidade vem da independência somada às dimensões fixas.</p>
+  <p>Cada relatório fecha com um <b>bloco de dados</b> — uma linha por
+  dimensão, com a contagem por classe e a nota — e é dele que a tabela do lote
+  é montada, <b>por um programa e não por um modelo</b>: quem copia vinte
+  linhas de números troca uma, e numa ficha de seleção um número trocado é o
+  pior defeito possível. O programa recusa o relatório cujo bloco não fecha:
+  dimensão faltando, título escrito em vez do localizador dele, condição que
+  não corresponde a nenhum achado grave nem médio.</p>
+  <p><b>A tabela sai em ordem alfabética.</b> Não há média para ordenar, e a
+  contagem de condições também não ordena: duas condições pequenas não valem
+  menos que uma grande, e o que pesa está escrito nelas. Quem quiser ordenar
+  ordena, sabendo que foi decisão sua.</p>
+  <p>O relatório da coorte <b>só conta</b>: quantos não têm condição nenhuma
+  a cumprir, quantas condições ao todo, quantos tiveram nota abaixo de 7 em
+  cada dimensão, qual foi a mais fraca no conjunto. Contagem é transcrição; dizer que a turma tem dificuldade com
+  metodologia seria afirmação nova sobre uma população.</p>
+  <p><b>A saída do lote é um PDF</b>, com a tabela comparativa, as contagens da
+  coorte e, depois, cada leitura inteira, uma por página. <b>Num projeto só o PDF
+  é outro:</b> sai a comparação, que compararia com nada, e entram a ficha das
+  quatro notas e as três linhas por extenso, cada uma dizendo o que decide. A
+  leitura de banca é peça que o processo recebe pronta, e por isso ela sai
+  fechada; o relatório do Miro, que é material de trabalho, sai em
+  <code>.md</code>.</p>
+  <div class="nota" style="border-left-color: var(--deep); background: var(--deep-soft);">
+    <p><strong>E o lote traz de graça o controle que falta.</strong> Rodando
+    duas leituras independentes do mesmo projeto, em dois ou três do lote, mede-se
+    o que nenhuma leitura isolada mede: se duas leituras chegam à mesma nota. Sem
+    isso, a tabela é um conjunto de números cuja estabilidade ninguém verificou, e
+    o programa avisa quando o lote não traz esse par.</p>
+  </div>
+
+  <div class="nota">
+    <p><strong>Referência não encontrada não é obra inexistente.</strong> Quando
+    tem busca, a Selma confere se as obras existem, porque projeto escrito com
+    IA e sem revisão traz referência inventada em ABNT impecável. Mas busca que
+    falha é busca que falha, e há obra real fora das bases. Ela escreve que não
+    encontrou, com os termos que usou, e manda conferir; nunca que o candidato
+    fabricou. Sem busca, diz que não conferiu, e não julga por memória.</p>
+  </div>
+
+  <p><a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Página da Selma, com o prompt para colar</a></p>
+</div>
+
+<h2 id="termos">Esclarecimentos terminológicos</h2>
+
+<p>Quatro palavras aparecem o tempo todo aqui e significam coisas diferentes em
+lugares diferentes. Estes são os sentidos em uso nesta oficina.</p>
+
+<div class="registros">
+  <div class="registro">
+    <div class="marca">pré-projeto</div>
+    <p>O documento que o Miro produz. Fala <em>ao autor</em> sobre o
+    que ele ainda tem de fazer, e por isso traz pendências marcadas: <span
+    class="mono">A FAZER</span> onde a seção ainda não tem o que a define, com a
+    razão de não se escrever antes de outra coisa, e <span class="mono">A
+    VERIFICAR</span> onde existe formulação que repousa sobre um fato que ninguém
+    conferiu. O resto vai em prosa, sem marca. Não é um projeto em versão curta: é
+    material de trabalho, e não se entrega a ninguém que não seja quem o está
+    construindo.</p>
+  </div>
+  <div class="registro">
+    <div class="marca">projeto</div>
+    <p>O documento com os elementos levados à qualificação, conforme as normas do
+    programa. Fala <em>a um leitor</em> sobre a pesquisa, em prosa contínua. É o único objeto que a Selma lê.</p>
+  </div>
+  <div class="registro">
+    <div class="marca">lacuna</div>
+    <p>Mede-se por <strong>falta</strong>, e não por presença. Não é o número de
+    trabalhos que existem sobre o assunto: é o que ninguém respondeu, e ela pode ser
+    de tema, de recorte, de método ou de variável. Afirmar lacuna sem ter procurado é aposta, e o Miro a aceita assim, provisoriamente, registrando o que ficou por conferir.</p>
+  </div>
+  <div class="registro">
+    <div class="marca">qualificação</div>
+    <p>Etapa acadêmica em que uma banca avalia se um projeto está maduro para ser
+    executado. <strong>Só faz sentido levar à qualificação projeto maduro e
+    desenvolvido</strong>, e é justamente isso que a Selma responde: que condições
+    faltam para o documento chegar apresentável a essa banca.</p>
+  </div>
+</div>
+
+<!-- ============ FORMAS DE USO ============ -->
+<h2 id="formas">Duas formas de uso</h2>
+
+<p><strong>Pelo chat</strong> rodam os dois: o Miro, que é conversa, e a Selma, que é leitura. Cola-se o prompt numa janela nova e trabalha-se ali. Não volta arquivo, e o localizador da Selma é o tópico do projeto, que num documento curto basta.</p>
+
+<p><strong>Com agente</strong>, no Claude Code ou no VS Code com chave de API própria, rodam os dois sobre a pasta onde está o projeto. Aqui volta arquivo: o projeto anotado, com as sugestões dentro dele. E a Selma ganha a busca, que é o que lhe permite conferir se as obras da bibliografia existem.</p>
+
+<p><strong>E o modo agente demora mais</strong>, o que se mede: a mesma leitura
+da Selma, do mesmo projeto, levou dois minutos e doze segundos no chat e onze
+minutos e vinte e quatro no modo agente (uma vez de cada, em 5/9/2026, com o
+prompt e o projeto lidos dentro da contagem). <b>O que custa não é converter</b>:
+numerar os parágrafos do projeto leva 0,4 segundo, o PDF do relatório leva 1,4 e
+a conversão de um projeto em <code>.docx</code> leva 0,4. O que custa é o texto
+ir e voltar pelas ferramentas, porque cada ida remanda o contexto inteiro ao
+modelo. <b>O modo agente se escolhe pelo que só ele faz</b>, e não por tempo.</p>
+
+<p><strong>E os arquivos que saem são estes, e mais nenhum.</strong> Num
+projeto: a numeração dos parágrafos, quando o projeto veio em PDF; o relatório
+em <code>.md</code>; e a peça em PDF. No lote, um <code>.md</code> por projeto e
+um PDF só. Nada de backup, de cópia numerada, de log ou de script de conferência
+deixado na pasta: quem recebe a pasta de volta tem de saber, sem perguntar, qual
+é a peça e qual é o rascunho.</p>
+
+<p><strong>A diferença não é só de formato.</strong> Na oficina irmã, onde há
+medição, a etapa de cotejo por um leitor que não escreveu os apontamentos derruba
+de 10% a 31% dos achados, e essa etapa não existe no chat. Não há medição
+equivalente para a Selma, e não há razão para supor que ela se comporte melhor.</p>
+
+<!-- ============ FLUXO ============ -->
+<h2 id="fluxo">Fluxo de trabalho</h2>
+
+<div class="fluxo">
+  <ol>
+    <li><strong>Miro.</strong> Trabalha as bases e fecha com o pré-projeto, que traz
+    as linhas de <span class="mono">A FAZER</span> e <span class="mono">A
+    VERIFICAR</span>.</li>
+    <li><strong>A revisão de literatura.</strong> Etapa sem assistente, e o Miro diz isso ao fechar: quem busca é o estudante, e quem responde por ela é ele com o orientador. <em>Se o que voltar deslocar a lacuna</em>, o projeto volta ao Miro, porque pergunta e lacuna se refazem juntas.</li>
+    <li><strong>O autor escreve o projeto.</strong> Esta etapa não tem assistente,
+    e é deliberado: o pré-projeto é material de trabalho, e transformá-lo em projeto é
+    escrever.</li>
+    
+    <li><strong>Selma.</strong> Lê o projeto escrito e devolve o relatório de banca, com as cinco dimensões (quatro com nota, e os indícios de IA graduados) e a lista de condições para ele ser apresentável a uma banca de qualificação. <em>Se faltar peça</em>, ela diz qual falta e põe a nota que a faixa mandar, porque dimensão sem material também é informação para quem decide.</li>
+  </ol>
+</div>
+
+<p>Há um caso que não é encaminhamento e que se confunde com ele: o material está
+levantado e a seção não está redigida. O trabalho foi feito, e o que falta é
+escrever. Mandar de volta a quem já entregou o material fecha um laço e não
+produz nada.</p>
+
+<h2 id="responde">Quem responde</h2>
+
+<p>O relatório é automático, e é automático sempre. Ler e encaminhar não muda o que
+o produziu: muda quem responde por ele.</p>
+
+<p><strong>Quem orienta e encaminha passa a responder pelos apontamentos</strong>, e
+é o nome dele que vai na abertura, porque encaminhar é endossar. Mandar crítica
+automática não lida e sem nome é o pior arranjo possível, com toda a contundência e
+nenhuma responsabilidade. Se o próprio autor roda no seu projeto, não há orientador
+no circuito, e pôr nome de terceiro seria atribuição falsa.</p>
+
+<p>O que não muda em nenhum dos dois casos é a origem do texto. <strong>O estado sem
+revisão tem de ser visível</strong>, e não o silêncio padrão: relatório que não diz
+que ninguém o leu chega como se alguém tivesse lido.</p>
+
+<p>Nas conversas o arranjo é outro, e vale dizê-lo. O comentário do Miro é escrito para o estudante entregar na disciplina, e quem responde por ele é o estudante: por isso o assistente pede, antes de fechar, que ele confira se há no
+comentário alguma afirmação sobre o que ele disse ou fez que não corresponda ao que
+aconteceu. É a única pessoa ali que sabe.</p>
+
+<h2 id="estrutura">Como o relatório da Selma é organizado</h2>
+
+<p>São cinco blocos, sempre os mesmos e sempre nesta ordem, e é dessa fixidez
+que vem a comparabilidade: quem lê vinte projetos lê os mesmos cinco lugares em
+todos, e compara lendo. O relatório cabe numa página, porque relatório de três
+páginas não é lido.</p>
+
+<div class="fluxo">
+  <ol>
+    <li><strong>O que este projeto propõe</strong>, em até três linhas,
+    reconstruído pela leitura. O bloco é ele mesmo um teste: se a leitura não
+    consegue reconstruir, isso é o primeiro achado, porque a banca também não
+    vai conseguir.</li>
+    <li><strong>As cinco dimensões</strong>, cada uma em dois parágrafos: o
+    primeiro descreve o que o projeto traz ali, e o segundo avalia, com o
+    achado, o tópico, a conta por classe e a nota de 0 a 10. Todas aparecem
+    sempre, mesmo vazias, porque dimensão omitida se lê como dimensão
+    aprovada.</li>
+    <li><strong>As condições</strong> para o projeto ser apresentável a uma
+    banca de qualificação, cada uma como coisa a fazer, com a dimensão de onde
+    vem. É a única conclusão da peça.</li>
+    <li><strong>O que a banca vai perguntar</strong>: duas ou três perguntas que
+    o projeto não sobrevive sem responder, escritas como perguntas e não como
+    críticas.</li>
+    <li><strong>O alcance desta leitura</strong>, numa linha, com o que não foi
+    avaliado. Medição sem alcance declarado se lê como cobertura total.</li>
+  </ol>
+</div>
+
+<p><strong>A nota vem depois do achado, nunca no lugar dele.</strong> Primeiro o
+que se encontrou e em que tópico, e só então o número, que é a tradução daquilo
+para a ficha. Nota sem achado escrito ao lado não serve a quem decide, porque
+não há o que discutir com ela.</p>
+
+<h2 id="entrega">O que se entrega</h2>
+
+<table class="tabela">
+  <thead><tr><th>assistente</th><th>o que volta</th><th>para quê</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Miro</td>
+      <td>A conversa, fechada por um comentário e pelo pré-projeto, num bloco de
+      código só</td>
+      <td>Entrega da atividade na disciplina, e material para escrever o
+      projeto</td>
+    </tr>
+    <tr>
+      <td>Selma, pelo chat</td>
+      <td>O relatório na conversa, com as cinco dimensões, as notas e as condições</td>
+      <td>Leitura de banca antes de submeter, ou parecer para quem avalia</td>
+    </tr>
+    <tr>
+      <td>Selma, com agente</td>
+      <td>O mesmo relatório, mais a conferência de existência da bibliografia,
+      que só a via com busca permite</td>
+      <td>O que se manda a quem escreveu, e o que a banca lê ao decidir</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>O relatório é matéria para julgar, e não veredito.</strong> Os achados
+se conferem abrindo o projeto no tópico indicado, e alguns não se sustentam.
+Conferir antes de repassar é parte do uso, e as condições não recomendam
+admitir nem não admitir: elas dizem o que falta ao documento, e a decisão se
+toma com as vagas, a linha de pesquisa e os outros candidatos, que a leitura não
+tem.</p>
+
+<h2 id="custa">Quanto custa</h2>
+
+<p><strong>O Miro não custa nada</strong> e foi escrito para isso: roda em conta
+gratuita de qualquer assistente, sem instalar coisa alguma. É por isso que o
+prompt é grande, porque tudo o que o assistente precisa saber tem de caber nas
+primeiras mensagens.</p>
+
+<p><strong>A Selma pelo chat também não custa</strong>, e é a porta de entrada:
+o prompt cabe numa colagem só. <strong>Com agente, custa o que o modelo cobrar
+pela leitura do projeto</strong>, e o que domina a conta é o projeto que entra,
+não o tamanho do prompt. Não há medição própria: na oficina irmã, uma
+dissertação de 37 mil palavras ficou em torno de meio dólar no Opus, e um
+projeto é uma fração disso.</p>
+
+<p><strong>Modelo pequeno não serve</strong>, e isso foi medido na oficina irmã,
+sobre a mesma dissertação: um substituiu o método por leitura seletiva sem
+avisar e entregou uma citação inventada; outro leu tudo e devolveu atestado de
+saúde, com zero apontamentos. Escolha o melhor modelo que a sua conta oferecer,
+e evite o modo automático: modelo escolhido pelo serviço é modelo desconhecido,
+e relatório de modelo desconhecido não se compara com nenhum outro.</p>
+
+<h2 id="medido">Os testes feitos e o que eles sugerem</h2>
+
+<p><strong>O Miro tem uso real e a Selma não.</strong> Ele rodou com duas turmas
+em 2026, e foi desse uso que saíram as mudanças de entrega e as três proibições
+descritas acima. Cada uma delas corrige um caso observado, e não uma preferência
+de redação.</p>
+
+<p><strong>A Selma foi rodada cinco vezes sobre um projeto real</strong>,
+submetido a um processo seletivo, e cada rodada corrigiu o instrumento. A
+primeira produziu um achado falso, porque a regra da bibliografia não excluía
+diploma legal, e num projeto de direito quase toda afirmação central se apoia em
+lei. A terceira mostrou que as faixas de nota não decidiam sozinhas: em três das
+cinco dimensões a leitura teve de inventar o limiar, e naquela versão isso
+decidia admissão, porque havia uma linha de aprovação em 7. Daí vieram a
+contagem por classes e as duas regras de subida; a linha de aprovação saiu
+depois, e no lugar dela ficou a lista de condições. A quinta conferiu a existência das dezessete obras da bibliografia, e as
+dezessete existem.</p>
+
+<p><strong>O que falta medir</strong> é se duas leituras independentes do mesmo
+projeto chegam à mesma nota, que é a única prova de que a contagem funciona; e
+se a trava da bibliografia segura, porque até aqui nenhuma busca falhou, e uma
+trava que nunca foi acionada não foi testada.</p>
+
+<h2 id="prompt">O prompt da Selma</h2>
+
+<p>Ele vive na <a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">página da Selma</a>, com o botão de
+copiar e a descrição do que ela faz. Cabe numa colagem só. Cole o texto,
+<strong>não o anexe como arquivo</strong>, e abra uma janela nova: o que
+já foi dito numa conversa em andamento entra na leitura sem avisar.</p>
+
+<footer>
+  <p>Assistentes de leitura para projetos de pesquisa, feitos por Alexandre
+  Araújo Costa, Faculdade de Direito da UnB. A maquinaria dos dois está aberta em <code>github.com/AlexandreAraujoCosta/miro</code>: os
+  prompts saem de código, e não se editam à mão.</p>
+  <p>Feedback para <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>,
+  e relatos de uso fora das disciplinas por
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este
+  formulário</a>.</p>
+  <p>Última atualização: 4 de setembro de 2026.</p>
+</footer>
+</div>

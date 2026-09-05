@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <title>Selma — leitura de projeto de pesquisa</title>
 
 <style>
@@ -7,22 +9,36 @@
     --sunken:      #EAE7E0;
     --ink:         #191B1F;
     --ink-soft:    #3D4149;
-    --muted:       #6C7079;
-    --faint:       #93969D;
+    --muted:       #5F636B;
+    --faint:       #6C7079;
     --rule:        #D9D5CC;
+    --rule-firm:   #BFBAAE;
     --rule-soft:   #E6E2DA;
     --accent:      #2A5F45;
     --accent-soft: #DFEAE1;
     --warn:        #8A5722;
     --warn-soft:   #F2E7D8;
+    --good:        #37613F;
+    --good-soft:   #E0EBE1;
+    --danger:      #A3352B;
+    --danger-soft: #F6E6E3;
     --deep:        #0D3B63;
     --deep-soft:   #DEE6EE;
 
-    --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Source Serif Pro", Cambria, Georgia, serif;
-    --sans: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
-    --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Consolas, "SF Mono", monospace;
+    --serif: Literata, "Iowan Old Style", Charter, Georgia, "Times New Roman", serif;
+    --sans: Mulish, "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", "Cascadia Mono", ui-monospace, Consolas, "SF Mono", monospace;
 
     --measure: 66ch;
+
+    /* os degraus, na medida de arcos.org.br/direito-ciencia */
+    --t-2xs: 12px;   /* faixa de identificacao */
+    --t-xs: 14px;    /* rotulo em versalete */
+    --t-sm: 16px;    /* texto secundario */
+    --t-md: 18px;    /* corpo */
+    --t-lg: 22px;    /* linha de abertura */
+    --t-h3: 19px;
+    --t-h2: 24px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -33,13 +49,18 @@
       --ink:         #E9E6E0;
       --ink-soft:    #C4C2BD;
       --muted:       #94979E;
-      --faint:       #6E7178;
+      --faint:       #8A8D94;
       --rule:        #34373D;
+      --rule-firm:   #454A52;
       --rule-soft:   #2A2D32;
       --accent:      #8FC0A0;
       --accent-soft: #1E2A22;
       --warn:        #D3A163;
       --warn-soft:   #33291B;
+      --good:        #83B78D;
+      --good-soft:   #1E2A20;
+      --danger:      #E07A6E;
+      --danger-soft: #2E1E1C;
       --deep:        #7FB2DE;
       --deep-soft:   #1B242E;
     }
@@ -52,13 +73,18 @@
     --ink:         #E9E6E0;
     --ink-soft:    #C4C2BD;
     --muted:       #94979E;
-    --faint:       #6E7178;
+    --faint:       #8A8D94;
     --rule:        #34373D;
+    --rule-firm:   #454A52;
     --rule-soft:   #2A2D32;
     --accent:      #8FC0A0;
     --accent-soft: #1E2A22;
     --warn:        #D3A163;
     --warn-soft:   #33291B;
+    --good:        #83B78D;
+    --good-soft:   #1E2A20;
+    --danger:      #E07A6E;
+    --danger-soft: #2E1E1C;
     --deep:        #7FB2DE;
     --deep-soft:   #1B242E;
   }
@@ -69,14 +95,19 @@
     --sunken:      #EAE7E0;
     --ink:         #191B1F;
     --ink-soft:    #3D4149;
-    --muted:       #6C7079;
-    --faint:       #93969D;
+    --muted:       #5F636B;
+    --faint:       #6C7079;
     --rule:        #D9D5CC;
+    --rule-firm:   #BFBAAE;
     --rule-soft:   #E6E2DA;
     --accent:      #2A5F45;
     --accent-soft: #DFEAE1;
     --warn:        #8A5722;
     --warn-soft:   #F2E7D8;
+    --good:        #37613F;
+    --good-soft:   #E0EBE1;
+    --danger:      #A3352B;
+    --danger-soft: #F6E6E3;
     --deep:        #0D3B63;
     --deep-soft:   #DEE6EE;
   }
@@ -88,7 +119,7 @@
     background: var(--ground);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 16.5px;
+    font-size: var(--t-md);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
@@ -96,7 +127,7 @@
   .wrap { max-width: 47rem; margin: 0 auto; padding: 0 1.4rem 6rem; }
 
   /* ---- índice, ao lado do texto ---- */
-  .indice { font-size: 0.8rem; }
+  .indice { font-size: var(--t-2xs); }
   .indice-caixa {
     position: sticky; top: 0; z-index: 20;
     background: var(--ground);
@@ -105,7 +136,7 @@
   .indice summary {
     cursor: pointer; list-style: none;
     padding: 0.5rem 1.4rem;
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.09em;
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
     text-transform: uppercase; color: var(--muted);
   }
   .indice summary::-webkit-details-marker { display: none; }
@@ -121,7 +152,7 @@
   }
   .indice a:hover { color: var(--accent); }
   .indice .num {
-    font-family: var(--mono); font-size: 0.72rem; color: var(--accent);
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
   }
   .indice .sub { padding-left: 0.85rem; }
   .indice .grupo {
@@ -154,25 +185,25 @@
     text-wrap: balance;
   }
   .lead {
-    font-family: var(--serif); font-size: 1.14rem; line-height: 1.55;
+    font-family: var(--serif); font-size: var(--t-md); line-height: 1.55;
     color: var(--ink-soft); max-width: var(--measure); margin: 0 0 2rem;
   }
 
   h2 {
     font-family: var(--serif); font-weight: 600;
-    font-size: 1.42rem; line-height: 1.25;
+    font-size: var(--t-lg); line-height: 1.25;
     margin: 3.2rem 0 0.9rem; letter-spacing: -0.005em;
     text-wrap: balance;
   }
   h3 {
-    font-family: var(--sans); font-weight: 640; font-size: 0.94rem;
+    font-family: var(--sans); font-weight: 640; font-size: var(--t-sm);
     margin: 1.8rem 0 0.5rem; letter-spacing: 0.01em;
   }
   p { margin: 0 0 1rem; max-width: var(--measure); }
   a { color: var(--accent); }
 
   .eyebrow {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.09em;
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
     text-transform: uppercase; color: var(--faint);
     margin: 0 0 0.4rem;
   }
@@ -182,12 +213,12 @@
     border-left: 2px solid var(--rule);
     padding: 0.1rem 0 0.1rem 1.1rem;
     margin: 0 0 2.6rem;
-    font-size: 0.9rem; color: var(--ink-soft);
+    font-size: var(--t-xs); color: var(--ink-soft);
     max-width: var(--measure);
   }
   .autoria strong { color: var(--ink); }
   .autoria p { margin: 0 0 0.35rem; }
-  .autoria .fina { color: var(--muted); font-size: 0.85rem; }
+  .autoria .fina { color: var(--muted); font-size: var(--t-xs); }
 
   /* ---- os três registros ---- */
   .registros {
@@ -201,18 +232,18 @@
     align-items: start;
   }
   .registro .marca {
-    font-family: var(--mono); font-size: 0.76rem; color: var(--accent);
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
     letter-spacing: 0.03em; padding-top: 0.16rem;
   }
-  .registro p { margin: 0; font-size: 0.94rem; color: var(--ink-soft); }
+  .registro p { margin: 0; font-size: var(--t-sm); color: var(--ink-soft); }
   @media (max-width: 33rem) {
     .registro { grid-template-columns: 1fr; gap: 0.25rem; }
   }
 
   /* ---- rota, na forma da oficina irma ---- */
-  .deck { color: var(--muted); font-size: 1rem; margin: 0 0 0.4rem; max-width: var(--measure); }
+  .deck { color: var(--muted); font-size: var(--t-sm); margin: 0 0 0.4rem; max-width: var(--measure); }
   .grupo-linha {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.09em;
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.09em;
     text-transform: uppercase; color: var(--accent);
     margin: 2.2rem 0 0.2rem; padding-top: 0.9rem;
     border-top: 1px solid var(--rule);
@@ -225,18 +256,18 @@
   @media (min-width: 38rem) {
     .route-row { grid-template-columns: 15rem 1fr; gap: 1.5rem; align-items: baseline; }
   }
-  .route-a { font-family: var(--serif); font-size: 1.28rem; line-height: 1.14; }
+  .route-a { font-family: var(--serif); font-size: var(--t-lg); line-height: 1.14; }
   .route-a a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
   .route-a a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .route-n {
-    font-family: var(--mono); font-size: 0.72rem; color: var(--faint);
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--faint);
     margin-right: 0.6rem; vertical-align: 0.18rem;
   }
   .route-sub {
-    display: block; font-family: var(--sans); font-size: 0.82rem;
+    display: block; font-family: var(--sans); font-size: var(--t-xs);
     color: var(--muted); margin-top: 0.2rem;
   }
-  .route-q { color: var(--ink-soft); font-size: 0.95rem; }
+  .route-q { color: var(--ink-soft); font-size: var(--t-sm); }
 
   /* ---- blocos numerados ---- */
   .instrumento {
@@ -248,11 +279,11 @@
     margin-bottom: 0.5rem;
   }
   .instrumento .indice {
-    font-family: var(--mono); font-size: 0.8rem; color: var(--accent);
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--accent);
   }
   .instrumento h2 { margin: 0; }
   .instrumento .resumo {
-    font-family: var(--serif); font-size: 1.04rem; color: var(--ink-soft);
+    font-family: var(--serif); font-size: var(--t-sm); color: var(--ink-soft);
     max-width: var(--measure); margin: 0 0 1.1rem;
   }
 
@@ -264,11 +295,11 @@
   }
   .ficha div { background: var(--surface); padding: 0.6rem 0.75rem; }
   .ficha dt {
-    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.07em;
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--faint); margin: 0 0 0.2rem;
   }
   .ficha dd {
-    margin: 0; font-size: 0.9rem; color: var(--ink);
+    margin: 0; font-size: var(--t-xs); color: var(--ink);
     font-variant-numeric: tabular-nums;
   }
 
@@ -278,22 +309,22 @@
   .confere h3 { margin-top: 0; }
   .confere .sim h3 { color: var(--accent); }
   .confere .nao h3 { color: var(--warn); }
-  .confere p { font-size: 0.92rem; margin: 0; }
+  .confere p { font-size: var(--t-xs); margin: 0; }
 
   /* ---- passos ---- */
   ol.passos { margin: 0 0 1.2rem; padding-left: 1.3rem; max-width: var(--measure); }
-  ol.passos li { margin-bottom: 0.55rem; font-size: 0.95rem; }
+  ol.passos li { margin-bottom: 0.55rem; font-size: var(--t-sm); }
   ul.simples { margin: 0 0 1.2rem; padding-left: 1.2rem; max-width: var(--measure); }
-  ul.simples li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+  ul.simples li { margin-bottom: 0.4rem; font-size: var(--t-sm); }
 
-  code, .mono { font-family: var(--mono); font-size: 0.86em; }
+  code, .mono { font-family: var(--mono); font-size: var(--t-sm); }
   code {
     background: var(--sunken); padding: 0.08em 0.32em; border-radius: 2px;
   }
   pre {
     background: var(--sunken); border: 1px solid var(--rule-soft);
     border-radius: 3px; padding: 0.85rem 1rem; overflow-x: auto;
-    font-family: var(--mono); font-size: 0.8rem; line-height: 1.5;
+    font-family: var(--mono); font-size: var(--t-2xs); line-height: 1.5;
     margin: 0 0 1.2rem;
   }
   pre code { background: none; padding: 0; }
@@ -301,7 +332,7 @@
   .nota {
     background: var(--warn-soft); border-left: 3px solid var(--warn);
     padding: 0.8rem 1rem; border-radius: 0 3px 3px 0;
-    margin: 1.2rem 0; font-size: 0.92rem; max-width: var(--measure);
+    margin: 1.2rem 0; font-size: var(--t-xs); max-width: var(--measure);
   }
   .nota p:last-child { margin-bottom: 0; }
   .nota strong { color: var(--ink); }
@@ -313,12 +344,12 @@
     overflow-x: auto;
   }
   .fluxo ol { margin: 0; padding-left: 1.2rem; }
-  .fluxo li { margin-bottom: 0.6rem; font-size: 0.94rem; }
+  .fluxo li { margin-bottom: 0.6rem; font-size: var(--t-sm); }
   .fluxo li:last-child { margin-bottom: 0; }
   .fluxo strong { font-family: var(--serif); }
 
   table {
-    border-collapse: collapse; width: 100%; font-size: 0.9rem;
+    border-collapse: collapse; width: 100%; font-size: var(--t-xs);
     margin: 0 0 1.3rem;
   }
   .rolagem { overflow-x: auto; max-width: 100%; }
@@ -327,7 +358,7 @@
     border-bottom: 1px solid var(--rule-soft); vertical-align: top;
   }
   th {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
+    font-family: var(--sans); font-size: var(--t-2xs); letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--faint); font-weight: 500;
   }
   td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -343,11 +374,11 @@
     border-bottom: 1px solid var(--rule-soft); background: var(--sunken);
   }
   .caixa-prompt .barra span {
-    font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+    font-family: var(--sans); font-size: var(--t-2xs); color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
   button.copiar {
-    font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
+    font-family: var(--sans); font-size: var(--t-2xs); font-weight: 600;
     background: var(--accent); color: var(--ground);
     border: none; border-radius: 3px; padding: 0.35rem 0.8rem;
     cursor: pointer;
@@ -357,7 +388,7 @@
   textarea#selma {
     display: block; width: 100%; height: 22rem; resize: vertical;
     border: none; background: var(--surface); color: var(--ink-soft);
-    font-family: var(--mono); font-size: 0.74rem; line-height: 1.55;
+    font-family: var(--mono); font-size: var(--t-2xs); line-height: 1.55;
     padding: 0.9rem 1rem; white-space: pre-wrap;
   }
   textarea#selma:focus { outline: none; }
@@ -365,7 +396,7 @@
   footer {
     margin-top: 4.5rem; padding-top: 1.4rem;
     border-top: 1px solid var(--rule);
-    font-size: 0.85rem; color: var(--muted); max-width: var(--measure);
+    font-size: var(--t-xs); color: var(--muted); max-width: var(--measure);
   }
 
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -387,6 +418,55 @@
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
   }
+
+  /* --- escala do sistema: uma so em todas as paginas da oficina --- */
+  h1, .top h1, header h1, .wrap > h1, .page > h1 { font-family: var(--serif); font-weight: 600;
+    font-size: clamp(28px, 5vw, 36px); line-height: 1.2; }
+  .wrap h2, .page h2, .shell h2, .cuidados h2 { font-family: var(--serif); font-size: var(--t-h2);
+    font-weight: 600; line-height: 1.2; }
+  .wrap h3, .page h3, .shell h3, .cuidados h3 { font-family: var(--serif); font-size: var(--t-h3);
+    font-weight: 600; line-height: 1.2; letter-spacing: normal; text-transform: none; color: var(--ink); }
+  /* a medida vale para todo texto corrido, e nao so para o que esta em secao */
+  .wrap p, .wrap li, .wrap dd, .page p, .page li, .page dd { max-width: var(--measure); }
+  /* Os dois paragrafos da ficha sao o mesmo comentario, e vao na mesma fonte. */
+  .autoria p, .byline p { font-family: var(--sans); font-size: var(--t-sm);
+    line-height: 1.55; color: var(--ink-soft); margin: 0 0 .5rem; }
+  .autoria p:last-child, .byline p:last-child { margin-bottom: 0; }
+  .autoria b, .autoria strong, .byline b { color: var(--ink); font-weight: 600; }
+
+  /* ---- os cartoes, na forma da pagina das Oficinas Academicas ---- */
+  .cartao {
+    border: 1px solid var(--rule-firm);
+    border-left: 3px solid var(--cor);
+    background: var(--surface);
+    border-radius: 0 3px 3px 0;
+    padding: 1.3rem 1.4rem 1.2rem;
+    margin: 0 0 1.1rem;
+    max-width: var(--measure);
+  }
+  .cartao.miro  { --cor: var(--accent); }
+  .cartao.selma { --cor: var(--deep); }
+  .cartao-cab { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap;
+                margin-bottom: .1rem; }
+  .cartao h2 { font-family: var(--serif); font-weight: 600; font-size: var(--t-h2);
+               line-height: 1.2; letter-spacing: -.005em; margin: 0; color: var(--cor); }
+  .cartao h2 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+  .cartao h2 a:hover, .cartao h2 a:focus-visible { border-bottom-color: currentColor; }
+  .selo { font-family: var(--sans); font-size: var(--t-xs); letter-spacing: .08em;
+          text-transform: uppercase; color: var(--cor); border: 1px solid currentColor;
+          padding: .1rem .4rem; white-space: nowrap; }
+  .le { font-size: var(--t-sm); color: var(--muted); margin: .15rem 0 .7rem; }
+  .cartao p { margin: 0 0 .7rem; font-size: var(--t-sm); color: var(--ink-soft); max-width: none; }
+  .cartao p:last-child { margin-bottom: 0; }
+  .dentro { display: grid; gap: .1rem; margin: .9rem 0 0;
+            border-top: 1px solid var(--rule-soft); padding-top: .8rem; }
+  .dentro div { display: grid; grid-template-columns: 9.5rem 1fr; gap: .8rem;
+                align-items: baseline; padding: .28rem 0; }
+  .dentro .nome { font-family: var(--serif); font-size: var(--t-sm); color: var(--ink); }
+  .dentro .oque { font-size: var(--t-sm); color: var(--muted); }
+  @media (max-width: 33rem) { .dentro div { grid-template-columns: 1fr; gap: .1rem; } }
+  .nota-anexo { max-width: var(--measure); font-size: var(--t-sm); color: var(--ink-soft);
+                border-left: 2px solid var(--rule); padding-left: 1.1rem; margin: 2rem 0 0; }
 </style>
 
 <nav class="indice" aria-label="Índice da página">
@@ -420,7 +500,7 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito</a> · <a href="https://www.unb.br/">UnB</a> · <a href="https://pmpd.unb.br/">PMPD</a> · <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas</a>: <a href="https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd">Projetos</a> · <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">Orientação</a> · Formatação</span><span class="eb-linha eb-baixo"><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> · <span class="eb-atual" aria-current="page">Selma</span></span></p>
+  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito da UnB</a> &middot; <a href="https://pmpd.unb.br/">PMPD</a> &middot; <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas Acadêmicas</a></span><span class="eb-linha eb-baixo">Assistentes: <a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> &middot; <span class="eb-atual" aria-current="page">Selma</span></span></p>
   <h1>Selma</h1>
   <p class="lead"><strong>Selma lê um projeto de pesquisa como uma banca o
   leria</strong>, e devolve um relatório curto: o que o projeto traz em cada
@@ -429,6 +509,11 @@
   ela lê, classifica e entrega. O <a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> trabalha com quem
   escreve, e não julga ninguém; ela faz a leitura oposta, que é a que
   decide.</p>
+
+<div class="autoria">
+  <p>Ferramentas desenvolvidas por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
+  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
+</div>
 </header>
 
 <div class="nota">
@@ -472,7 +557,7 @@ como dimensão aprovada.</p>
     lista, e a existência das obras quando há busca.</li>
     <li><strong>Indícios de uso de IA.</strong> As marcas que se conferem na
     página, e o que elas custam. <b>Esta não tem nota:</b> é graduada em
-    quatro níveis, e viaja ao lado das outras.</li>
+    cinco níveis, e viaja ao lado das outras.</li>
   </ol>
 </div>
 
@@ -580,12 +665,21 @@ ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
   defeito medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e
   nenhuma outra dimensão dá 10 por ausência de achado. A falta de defeito
   estava sendo premiada como excelência.</p>
-  <p>No lugar da nota, quatro níveis: <b>fortes (uso abusivo)</b>, quando as
-  marcas mostram na página que o texto não foi controlado por quem o assina;
-  <b>fortes (uso indeterminado)</b>, quando são fortes e ainda compatíveis com
-  pressa ou revisão mal feita; <b>leves</b>; e <b>ausentes</b>. O nível não
-  vira condição e não entra em nota nenhuma: viaja ao lado, e quem decide o
-  que fazer com ele é a banca.</p>
+  <p>No lugar da nota, cinco níveis: <b>indícios fortes (uso abusivo)</b>,
+  quando as marcas mostram na página que o texto não foi controlado por quem o
+  assina; <b>indícios fortes</b>, quando são várias e continuam compatíveis com
+  pressa ou revisão mal feita; <b>indícios médios</b>, quando há mais de uma
+  marca e nenhuma sozinha alcança o que o documento afirma; <b>indícios
+  fracos</b>, quando há marca e ela não sustenta mais que isso; e <b>não há
+  indícios</b>. O nível não vira condição e não entra em nota nenhuma: viaja ao
+  lado, e quem decide o que fazer com ele é a banca.</p>
+
+  <p><b>E a quarta marca tem âncora de contagem</b>, que era o que faltava a
+  ela: o que se conta é <b>a afirmação que o percurso não produz</b>, uma a
+  uma, com a seção em que está e a etapa que faltaria. A fluência virou
+  contra-teste, e ele também se conta, na mesma seção: erro de digitação,
+  concordância quebrada ou palavra emendada ali dentro. Seção que traz esses
+  erros não é uniforme, e nela a marca não conta.</p>
 </div>
 
 <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
