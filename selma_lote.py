@@ -301,6 +301,24 @@ def copiar_titulo(projeto, localizador):
     return " ".join(paras[localizador - 1].split()), None
 
 
+RE_NEGRITO = re.compile(re.escape("**") + "(.+?)" + re.escape("**"))
+
+
+def limpar_titulo(linha):
+    """O titulo sem a marcacao de markdown que o envolve.
+
+    UM SO LUGAR PARA ISSO, porque o programa tinha dois caminhos de
+    titulo e so um deles limpava: o de "#" tirava a cerquilha, e o de
+    caixa alta guardava a linha crua. O resultado foi o titulo do
+    elemento impresso na peca como "**1. PROBLEMA...**", com os
+    asteriscos, doze vezes num PDF de sete paginas.
+    """
+    s = linha.strip().lstrip("#").strip()
+    while s.startswith("**") and s.endswith("**") and len(s) > 4:
+        s = s[2:-2].strip()
+    return s.strip("*").strip().rstrip(":")
+
+
 def e_titulo(linha):
     """Linha curta e toda em maiusculas e titulo.
 
@@ -311,8 +329,15 @@ def e_titulo(linha):
 
     O TESTE E ESTRITO de proposito: todas as letras maiusculas. Paragrafo
     de prosa tem minuscula na primeira palavra, sempre.
+
+    E A MARCACAO DE MARKDOWN SAI ANTES DO TESTE. Uma leitura de 5/9/2026
+    escreveu os titulos como "## 1. EMENTA" e "**1. PROBLEMA...**", e o
+    programa nao os reconheceu: os cinco elementos foram para o corpo do
+    texto, a peca perdeu a divisao, e os asteriscos foram impressos no
+    PDF, doze vezes. O relatorio vem de um modelo, e a marcacao dele
+    varia; o titulo, nao.
     """
-    s = linha.strip().rstrip(":")
+    s = limpar_titulo(linha)
     if not s or len(s) > 70:
         return False
     # E TITULO TAMBEM A LINHA CURTA QUE ABRE POR "Elemento 2.", que e a
@@ -321,6 +346,26 @@ def e_titulo(linha):
         return True
     letras = [c for c in s if c.isalpha()]
     return len(letras) >= 3 and all(c.isupper() for c in letras)
+
+
+def desmarcar_negrito(texto):
+    """Tira os asteriscos do negrito de markdown, MANTENDO o texto.
+
+    A primeira versao disto apagou o trecho inteiro: a substituicao foi
+    escrita por heredoc e o grupo capturado virou um byte de controle.
+    Contar asteriscos nao pega esse defeito, porque zero asteriscos e o
+    que se ve nos dois casos. O controle, entao, e de tamanho, e roda em
+    toda chamada: o texto so pode encolher o tanto dos asteriscos que
+    sairam.
+    """
+    marcas = texto.count("*")
+    limpo = RE_NEGRITO.sub(lambda m: m.group(1), texto)
+    perdidos = len(texto) - len(limpo)
+    if perdidos > marcas:
+        raise AssertionError(
+            "o desmarcador comeu %d caracteres alem dos %d asteriscos"
+            % (perdidos - marcas, marcas))
+    return limpo
 
 
 def blocos_do_relatorio(texto):
@@ -336,7 +381,13 @@ def blocos_do_relatorio(texto):
 
     def fechar():
         if atual:
-            blocos.append(("prosa", " ".join(" ".join(atual).split())))
+            # O NEGRITO DE MARKDOWN E MARCA DO TRANSPORTE, como a cerca de
+            # codigo: a enfase da peca vem da hierarquia dela, e nao do
+            # que a leitura datilografou. Sem isto os asteriscos saem
+            # impressos no PDF.
+            texto = " ".join(" ".join(atual).split())
+            texto = desmarcar_negrito(texto)
+            blocos.append(("prosa", texto))
             del atual[:]
 
     for linha in texto.split(chr(10)):
@@ -351,10 +402,10 @@ def blocos_do_relatorio(texto):
             fechar()
             nivel = len(linha) - len(linha.lstrip("#"))
             if nivel > 1:
-                blocos.append(("titulo", crua.lstrip("# ").strip()))
+                blocos.append(("titulo", limpar_titulo(crua)))
         elif e_titulo(crua):
             fechar()
-            blocos.append(("titulo", crua.rstrip(":")))
+            blocos.append(("titulo", limpar_titulo(crua)))
         elif crua:
             atual.append(crua)
         else:
