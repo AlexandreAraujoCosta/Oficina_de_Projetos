@@ -290,6 +290,10 @@ def e_titulo(linha):
     s = linha.strip().rstrip(":")
     if not s or len(s) > 70:
         return False
+    # E TITULO TAMBEM A LINHA CURTA QUE ABRE POR "Elemento 2.", que e a
+    # outra forma em que a leitura escreve o titulo do elemento.
+    if RE_ELEMENTO_ROTULADO.match(s):
+        return True
     letras = [c for c in s if c.isalpha()]
     return len(letras) >= 3 and all(c.isupper() for c in letras)
 
@@ -344,7 +348,9 @@ def nivel_do_titulo(txt):
     return 1 if re.match(r"^\d+\.", txt.strip()) else 2
 
 
-RE_ELEMENTO = re.compile(r"^\s*([1-5])[.)]\s+(.+)$")
+RE_ELEMENTO = re.compile(r"^\s*(?:Elemento\s+)?([1-5])[.)]\s+(.+)$",
+                         re.I)
+RE_ELEMENTO_ROTULADO = re.compile(r"^Elemento\s+[1-5][.)]\s+\S", re.I)
 
 
 def subtitulo_de_elemento(texto, numero_do_bloco):
@@ -527,7 +533,7 @@ def escrever_um(nome, d, caminho, titulo=None):
 
     doc = fitz.open()
     f = Folha(doc)
-    f.texto("Leitura de projeto de pesquisa", corpo=18, fonte="tibo",
+    f.texto("Análise de Projeto de Pesquisa", corpo=18, fonte="tibo",
             espaco_depois=4, justificar=False)
     if titulo:
         f.texto(titulo, corpo=12.5, fonte="tibo", espaco_depois=3, justificar=False)
@@ -1065,6 +1071,7 @@ def controle():
         ("3", "1. PROBLEMA, OBJETIVOS E HIPÓTESES",
          "3.1 Problema, objetivos e hipóteses"),
         ("3", "2. JUSTIFICATIVA", "3.2 Justificativa"),
+        ("3", "Elemento 2. Justificativa", "3.2 Justificativa"),
         ("3", "4. BIBLIOGRAFIA", "3.4 Bibliografia"),
         ("3", "5. INDICIOS DE USO DE IA", "3.5 Indícios de IA"),
         ("3", "4. PERGUNTAS PARA AS QUAIS O AUTOR DEVE ESTAR PREPARADO", None),
@@ -1077,6 +1084,19 @@ def controle():
         print("  %-56s %-30s %s"
               % (titulo[:56], esperado or "nao e elemento", marca))
         assert saiu == esperado, (titulo, saiu, esperado)
+    print()
+    print()
+    print("Controle positivo de e_titulo:")
+    for linha, esperado in [
+            ("Elemento 2. Justificativa", True),
+            ("2. EMENTA", True),
+            ("Elemento nenhum ficou sem parágrafo, e a leitura diz isso.",
+             False),
+            ("Descrição. A pergunta aparece na Delimitação do tema.", False)]:
+        saiu = e_titulo(linha)
+        print("  %-58s %-5s %s"
+              % (linha[:58], saiu, "ok" if saiu == esperado else "ERRADO"))
+        assert saiu == esperado, linha
     print()
     print("Sem os tres que devolvem None, o numero sozinho bastaria, e o")
     print("bloco 4 viraria o elemento 4.")
