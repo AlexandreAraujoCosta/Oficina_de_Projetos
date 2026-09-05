@@ -387,15 +387,18 @@ def partir_preambulo(blocos):
     observacoes (a quem a peca serve, de onde vem o localizador, o que
     ficou fora) vem logo abaixo dele, ate o titulo seguinte.
 
-    O TITULO DE ABERTURA NAO VOLTA: ele repete o que o cabecalho da
-    pagina ja diz.
+    O TITULO DE ABERTURA NAO VOLTA, quando houver: ele repete o que o
+    cabecalho da pagina ja diz. E ELE PODE NAO HAVER, porque o relatorio
+    passou a abrir direto pelo paragrafo das circunstancias; nesse caso o
+    preambulo e a prosa que vem antes do primeiro titulo.
     """
-    if not blocos or blocos[0][0] != "titulo":
+    if not blocos:
         return [], blocos
-    for i in range(1, len(blocos)):
+    comeco = 1 if blocos[0][0] == "titulo" else 0
+    for i in range(comeco, len(blocos)):
         if blocos[i][0] == "titulo":
-            return blocos[1:i], blocos[i:]
-    return blocos[1:], []
+            return blocos[comeco:i], blocos[i:]
+    return blocos[comeco:], []
 
 
 RE_ENTRADA = re.compile(r"^\s*(\d\.\s*[^.]{3,60}\.)\s*(.*)$", re.S)
@@ -466,6 +469,31 @@ def sem_condicoes(blocos):
     return saida
 
 
+def sem_ganhos(blocos):
+    """Tira o bloco dos ganhos de arguicao, e o que vem sob ele.
+
+    O GANHO MORA NA CONDICAO, e a peca ja o imprime la. Reunido num bloco
+    proprio, o mesmo material sai duas vezes, e a segunda vem dizendo que
+    o elemento sobe de faixa, que e a mecanica da regua.
+
+    E A REMOCAO SAI DITA NO CONSOLE: peca que perde um bloco em silencio
+    esconde que a leitura escreveu fora da forma.
+    """
+    saida, pulando = [], False
+    for tipo, texto in blocos:
+        if tipo == "titulo":
+            pulando = "ARGUIC" in sem_acento(texto)
+            if pulando:
+                print("AVISO: a leitura escreveu o bloco %r. A forma tem "
+                      "quatro blocos," % " ".join(texto.split())[:52])
+                print("  e o ganho vai dentro da condicao. Ele nao entrou "
+                      "na peca.")
+                continue
+        if not pulando:
+            saida.append((tipo, texto))
+    return saida
+
+
 def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
                      blocos=None):
     """A leitura inteira de um projeto, na folha que vier."""
@@ -516,6 +544,31 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
                 f.texto(texto_bloco, espaco_depois=7)
 
 
+OFICINA_NOME = "Oficina de Projetos do PMPD"
+OFICINA_URL = "https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd"
+CREDITO = ("Relatório escrito pela assistente Selma, da %s." % OFICINA_NOME)
+
+
+def ancorar(f, texto, url):
+    """Poe um link sobre TEXTO na pagina em que ele acabou de ser escrito.
+
+    POR BUSCA, E NAO POR COORDENADA: quem escreveu o paragrafo foi o
+    insert_textbox, e onde cada palavra caiu depende da quebra de linha.
+    Achado o retangulo, o link vai nele.
+
+    E SE NAO HOUVER EXATAMENTE UM ACHADO, nao ancora e avisa: link em
+    lugar errado e pior que link nenhum, e o silencio aqui esconderia
+    que a frase do credito mudou e ninguem viu.
+    """
+    caixas = f.pagina.search_for(texto)
+    if len(caixas) != 1:
+        print("AVISO: %r aparece %d vez(es) na pagina; o link nao foi posto."
+              % (texto, len(caixas)))
+        return False
+    f.pagina.insert_link({"kind": 2, "from": caixas[0], "uri": url})
+    return True
+
+
 def escrever_um(nome, d, caminho, titulo=None):
     """A leitura de UM projeto, em PDF.
 
@@ -536,10 +589,8 @@ def escrever_um(nome, d, caminho, titulo=None):
     f.texto("Análise de Projeto de Pesquisa", corpo=18, fonte="tibo",
             espaco_depois=4, justificar=False)
     if titulo:
-        f.texto(titulo, corpo=12.5, fonte="tibo", espaco_depois=3, justificar=False)
-        f.texto("Título copiado do próprio projeto por programa, do "
-                "parágrafo P%03d." % d["titulo"],
-                corpo=9.5, fonte="tiit", cor=COR_FRACA, espaco_depois=14)
+        f.texto(titulo, corpo=12.5, fonte="tibo", espaco_depois=14,
+                justificar=False)
     else:
         f.texto(nome, corpo=12.5, fonte="tibo", espaco_depois=3, justificar=False)
         f.texto("Este é o nome do arquivo, e não o título do projeto: o "
@@ -550,11 +601,13 @@ def escrever_um(nome, d, caminho, titulo=None):
     # que a peca e, e quem le um numero antes disso ja o le como veredito.
     blocos = blocos_do_relatorio(d["texto"])
     preambulo, capa, corpo_da_leitura = partir_peca(blocos)
-    for tipo, texto_bloco in preambulo:
-        f.texto(texto_bloco, corpo=10.5, fonte="tiit", cor=COR_FRACA,
-                espaco_depois=6)
-    if preambulo:
-        f.y += 8
+    # O CREDITO E DO PROGRAMA, e nao da leitura: assinatura que o modelo
+    # digita é assinatura que pode sair diferente a cada execucao.
+    abertura = " ".join([CREDITO] + [x for _, x in preambulo])
+    f.texto(abertura, corpo=10.5, fonte="tiit", cor=COR_FRACA,
+            espaco_depois=6)
+    ancorar(f, OFICINA_NOME, OFICINA_URL)
+    f.y += 8
 
     f.texto("Avaliação proposta", corpo=13.5, fonte="tibo", espaco_antes=6,
             espaco_depois=7, justificar=False)
@@ -599,16 +652,15 @@ def escrever_um(nome, d, caminho, titulo=None):
     escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
                      blocos=capa)
 
-    # A AVALIACAO ANALITICA ABRE PAGINA NOVA. Eu tinha tirado a quebra para
-    # nao gastar meia folha em branco, e o professor a repos: as duas faces
-    # do relatorio sao duas pecas, e quem le so a capa nao deve encontrar o
-    # comeco da outra no pe da mesma folha.
-    f.nova()
+    # A AVALIACAO ANALITICA SEGUE NA MESMA PAGINA. A quebra ja esteve aqui
+    # duas vezes e saiu duas vezes, e a razao de sair e a mesma: ela gasta
+    # meia folha em branco no meio de uma peca de oito.
+    #
     # SEM CABECALHO E SEM PREAMBULO: a pagina anterior ja traz o titulo
     # copiado e as observacoes, e repetir o nome do arquivo ali foi o que
     # pos "deferencia2" no alto da peca.
     escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
-                     blocos=corpo_da_leitura)
+                     blocos=sem_ganhos(corpo_da_leitura))
     numerar_paginas(doc)
     gravar(doc, caminho)
     doc.close()
@@ -1086,6 +1138,39 @@ def controle():
         assert saiu == esperado, (titulo, saiu, esperado)
     print()
     print()
+    print("Controle positivo do preambulo:")
+    T, P = "titulo", "prosa"
+    casos = [
+        ("com titulo em cima",
+         [(T, "RELATORIO"), (P, "a"), (P, "b"), (T, "1. DESCRICAO"), (P, "c")],
+         2, "1. DESCRICAO"),
+        ("sem titulo em cima",
+         [(P, "a"), (P, "b"), (T, "1. DESCRICAO"), (P, "c")],
+         2, "1. DESCRICAO"),
+        ("dois titulos seguidos",
+         [(T, "RELATORIO"), (T, "1. DESCRICAO"), (P, "c")],
+         0, "1. DESCRICAO"),
+    ]
+    for nome, entra, quantos, primeiro in casos:
+        pre, resto = partir_preambulo(entra)
+        certo = len(pre) == quantos and resto[0][1] == primeiro
+        print("  %-24s preambulo de %d, corpo abre em %r  %s"
+              % (nome, len(pre), resto[0][1], "ok" if certo else "ERRADO"))
+        assert certo, (nome, pre, resto)
+    print()
+
+    print("Controle positivo do bloco fora da forma:")
+    entra = [("titulo", "4. PERGUNTAS PARA AS QUAIS O AUTOR DEVE ESTAR "
+              "PREPARADO"), ("prosa", "Que resultado contrariaria a "
+              "hipotese?"), ("titulo", "O QUE A ARGUICAO PODE GANHAR"),
+             ("prosa", "Dizer que resultado observavel contrariaria.")]
+    sai = sem_ganhos(entra)
+    print("  entraram %d blocos, sairam %d" % (len(entra), len(sai)))
+    assert len(sai) == 2, sai
+    assert sai[0][1].startswith("4. PERGUNTAS"), sai
+    print("  o bloco das perguntas fica, o dos ganhos sai              ok")
+    print()
+
     print("Controle positivo de e_titulo:")
     for linha, esperado in [
             ("Elemento 2. Justificativa", True),

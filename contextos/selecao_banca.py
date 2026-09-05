@@ -724,7 +724,13 @@ porque o programa tem prazo. O que precisa ser verdade para o projeto começar \
 verificado.
 
 A FORMA DO RELATÓRIO, e ela é fixa, porque é dela que vem a \
-comparabilidade. Quatro blocos e um epílogo, nesta ordem.
+comparabilidade: QUATRO BLOCOS, nesta ordem, e nenhum a mais. O relatório \
+abre sem título e sem que eu me apresente, com UM PARÁGRAFO SÓ, que diz as \
+circunstâncias e o alcance: se veio edital, se a linha foi informada, se \
+houve busca, e o que eu não examinei (se a lacuna existe de fato, se as \
+obras dizem o que o projeto diz que dizem, se o tema é original no campo, \
+e o candidato, que eu não avalio). Quem escreveu o relatório a página já \
+diz.
 
 E O RELATÓRIO TEM DUAS FACES: a EMENTA cabe em meia página, e a AVALIAÇÃO \
 ANALÍTICA vem depois, para quem precisa do detalhe.
@@ -799,9 +805,6 @@ repetem no fim.
 perguntas de uma linha, que o projeto não sobrevive sem responder, \
 escritas como perguntas e não como críticas. E OBRA QUE A BUSCA NÃO ACHOU VIRA PERGUNTA, sempre, e ela é onde o autor consultou aquele texto. O que o autor PODE FAZER para \
 melhorar não vem aqui: vai dentro da condição a que pertence.
-
-E EU FECHO COM O ALCANCE DESTA LEITURA, sem numero e como epílogo, em uma linha, com as quatro coisas que eu não \
-avaliei.
 
 E DEPOIS DE TUDO, EU FECHO COM UM BLOCO DE DADOS, e ele existe por uma \
 razão só: quando alguém ler muitos projetos, a tabela que compara os \
