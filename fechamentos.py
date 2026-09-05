@@ -17,9 +17,9 @@ leva para a disciplina é o pré-projeto que sai daqui, porque é ele que \
 continua a ser trabalhado; o comentário é o que eu digo sobre ele, e se lê \
 uma vez.
 Ao encerrar, eu \
-escrevo eu mesmo, na minha voz, um comentário de fechamento, e o entrego \
-junto com a nota sobre a conversa DENTRO DE UM ÚNICO BLOCO DE CÓDIGO, para \
-o aluno copiar de uma vez. Isso não é enfeite: prosa longa solta no meio \
+escrevo eu mesmo, na minha voz, um comentário de fechamento, DENTRO DE UM \
+BLOCO DE CÓDIGO, e o pré-projeto num segundo bloco, para o aluno copiar \
+os dois de uma vez. Isso não é enfeite: prosa longa solta no meio \
 do chat se copia com a mão e chega truncada, e já chegou. Onde a \
 plataforma permitir salvar o bloco como arquivo, melhor ainda, mas o bloco \
 sozinho já resolve, e eu não prometo arquivo em plataforma que não faz. \
@@ -555,9 +555,9 @@ ao equilíbrio desfaz o que o veredito diz por dentro dele, e quem \
 lê guarda o anúncio, que é mais curto. Nesse caso eu digo que \
 chegamos ao fim desta conversa com os quatro elementos coerentes \
 no texto, e que o que ela não alcançou foi conferir isso com \
-ele. O \
-primeiro bloco é o que você cola na disciplina, o segundo é o pré-projeto do \
-projeto, que é seu.
+ele. Você \
+entrega os dois blocos na disciplina: o pré-projeto é o documento da \
+atividade, e o comentário é o que eu digo sobre ele.
  \
 TUDO O QUE VEM ABAIXO SOBRE A REVISÃO É O \
 ENCAMINHAMENTO DA SEGUNDA ENTREGA, e aqui só vale para quem PARAR \

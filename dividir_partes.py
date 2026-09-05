@@ -158,6 +158,30 @@ def dividir(texto, n=4, teto=TETO):
     return partes
 
 
+FOLGA_MINIMA = 2000
+
+
+def folga(partes, teto=TETO):
+    """Devolve o aviso quando a maior parte se aproxima do teto, e None
+    quando ha espaco. O teto so reprova quando ja estourou, e ai o
+    conserto e mudar o numero de partes com o prompt na mao; este aviso
+    da a chance de decidir antes."""
+    maior = max(len(p) for p in partes)
+    if teto - maior >= FOLGA_MINIMA:
+        return None
+    return ("a maior parte tem %d caracteres e o teto e %d: sobram %d. "
+            "Acrescentar ao prompt exige passar de %d para %d partes."
+            % (maior, teto, teto - maior, len(partes), len(partes) + 1))
+
+
+def provar_a_folga():
+    """Controle positivo: o aviso tem de aparecer no caso que ele existe
+    para pegar, e calar no caso folgado."""
+    apertado = ["x" * (TETO - 10)]
+    folgado = ["x" * (TETO - FOLGA_MINIMA - 10)]
+    return folga(apertado) is not None and folga(folgado) is None
+
+
 def conferir(texto, partes):
     """Controle: as partes, sem envelope e com a abertura devolvida ao
     lugar de origem, reproduzem o texto original."""
@@ -185,5 +209,10 @@ if __name__ == "__main__":
         print("parte %d  %7d caracteres   folga %6d" % (k, len(p), TETO - len(p)))
     ok = conferir(t, ps)
     print("controle (as partes reproduzem o original):", "OK" if ok else "FALHOU")
-    if not ok:
+    print("controle (o aviso de folga reprova o caso apertado):",
+          "OK" if provar_a_folga() else "FALHOU")
+    aviso = folga(ps)
+    if aviso:
+        print("AVISO: " + aviso)
+    if not ok or not provar_a_folga():
         sys.exit(1)

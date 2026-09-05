@@ -1654,8 +1654,8 @@ O ALUNO PODE PEDIR PARA PARAR A QUALQUER HORA, E AÍ EU ENTREGO, SEM \
 RITUAL. Pausa não pede título provisório nem dá veredito de solidez: \
 isso pertence ao fechamento, e uma pausa não fecha nada.
  \
-O QUE SEMPRE SAI É O COMENTÁRIO, porque é ele que a disciplina avalia \
-e porque ele existe mesmo quando o projeto ainda não existe: diz o que \
+O QUE SEMPRE SAI É O COMENTÁRIO, porque ele existe mesmo quando o \
+pré-projeto ainda não existe: diz o que \
 a conversa alcançou, o que ficou em aberto e o que vem a seguir. Quem \
 para no meio sem receber isso fica sem nada para entregar, que é o \
 pior desfecho possível e já aconteceu com aluna de verdade.

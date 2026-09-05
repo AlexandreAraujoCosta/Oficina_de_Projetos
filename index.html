@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<title>Miro — assistente de planejamento de pesquisa</title>
+<title>Miro: assistente de planejamento de pesquisa</title>
 <style>
   :root {
     --paper:       var(--ground);
@@ -328,6 +328,18 @@
   .eyebrow .eb-baixo { margin-top: .3rem; padding-top: .3rem;
                        border-top: 1px solid var(--line); }
 
+  .pedido-caixa { border: 1px solid var(--line); border-radius: 10px;
+                  background: var(--mono-bg); overflow: hidden; margin: 0 0 18px; }
+  .pedido-barra { display: flex; justify-content: space-between; align-items: center;
+                  gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  .pedido-barra span { font-size: 0.78rem; letter-spacing: 0.06em;
+                       text-transform: uppercase; color: var(--ink-soft); }
+  textarea#pedido-agente { display: block; width: 100%; height: 15rem; resize: vertical;
+                  border: none; background: transparent; color: var(--ink);
+                  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+                  font-size: 0.84rem; line-height: 1.6; padding: 12px 14px;
+                  white-space: pre-wrap; }
+  textarea#pedido-agente:focus { outline: none; }
 </style>
 
 <div class="page">
@@ -374,8 +386,8 @@
     resultado tem sido melhor no Claude, talvez por ter sido escrito com apoio do
     Claude Code. Se você tiver acesso à conta gratuita dele, é a opção
     recomendada. Se você tiver escolha de modelo dentro do Claude (por exemplo,
-    plano pago), Opus tende a aplicar os critérios do Miro com mais rigor que
-    Sonnet; não temos indício de que Fable ajude.
+    plano pago), prefira o modelo mais capaz que ela oferecer. A medição que
+    temos é em Sonnet e em GPT, e dos demais não há medição nenhuma.
     <strong>Evite os modos rápidos:</strong> se o seu assistente oferecer
     escolha entre uma resposta instantânea e uma mais cuidadosa (rápido,
     instantâneo, mini, flash e afins), escolha a cuidadosa, porque modelos em
@@ -392,7 +404,8 @@
     <button type="button" class="via-bt" data-via="chat">
       <span class="via-nome">Modo chat</span>
       <span class="via-txt">Você tem uma conta de assistente e nada instalado.
-      Cola-se o prompt numa conversa nova, em quatro partes.</span>
+      Cola-se o prompt numa conversa nova, em quatro partes, e uma quinta quando
+      ele pedir.</span>
       <span class="via-volta">A conversa acontece ali, e o comentário final sai
       como texto para você copiar.</span>
     </button>
@@ -408,13 +421,13 @@
   </div>
 
   <p class="vias-nota">Nas duas, o modelo pesa: escolha o melhor que a sua conta
-  oferecer e evite o modo automático. O Miro foi testado em Sonnet e em GPT.</p>
+  oferecer e evite o modo automático. O Miro foi medido em Sonnet e em GPT.</p>
 
   <div class="via-guia" id="guia-chat" hidden>
   <div class="card">
     <h2>Como usar</h2>
     <p class="note" style="border-left-color: var(--green); margin-top: 0;">
-      <strong>O prompt vem em quatro partes, e isso não é capricho.</strong>
+      <strong>O prompt vem em quatro partes por uma razão medida.</strong>
       Colagem longa demais deixa de entrar como texto: o site a converte num
       anexo. E anexo não governa a conversa do mesmo jeito, porque boa parte
       destas instruções são proibições e postura, e o assistente não consulta um
@@ -434,17 +447,17 @@
       <li><strong>Depois da parte 4</strong> ele se apresenta e começa a
       conversa. Aí é só conversar normalmente: ele vai perguntar sobre o seu
       projeto de pesquisa.</li>
-      <li>Quando encerrar, ele mesmo escreve um comentário final com o desenho a
-      que vocês chegaram, seguido de uma nota sobre a conversa.
-      <strong>Copie os dois</strong> (não a conversa inteira) e cole como sua
-      entrega no Canvas.</li>
+      <li>Quando encerrar, ele escreve <strong>dois blocos de código</strong>: o
+      comentário de fechamento e o pré-projeto. Copie os dois e entregue-os no
+      Canvas, e não a conversa inteira. <strong>O documento da atividade é o
+      pré-projeto</strong>; o comentário é o que ele diz sobre o trabalho.</li>
       <li><strong>Você decide quando parar.</strong> A qualquer momento, basta
       pedir que o Miro encerre, e ele escreve o comentário do ponto em que vocês
       estiverem.</li>
     </ol>
     <p class="note">
-      Sair sem pedir é o que deixa você sem nada para entregar: o comentário
-      é escrito quando você pede, e é ele que vale como entrega.
+      Sair sem pedir é o que deixa você sem nada para entregar: os dois blocos
+      são escritos quando você pede.
     </p>
     <p class="note">
       <strong>Conte umas dez a quinze rodadas, e então recomece.</strong> O
@@ -453,9 +466,11 @@
       tem como perceber isso. Os sinais são ficar genérico, elogiar sem motivo e
       deixar de aplicar os critérios. Por volta dali, peça o pré-projeto, salve-o
       como arquivo, abra uma conversa nova, cole as quatro partes de novo e cole
-      o pré-projeto em seguida. Não se perde nada, e o que volta é um assistente
-      que lembra o que devia fazer. O próprio Miro costuma oferecer isso quando
-      chega a hora.
+      o pré-projeto em seguida. Nada se perde, e o assistente recomeaça aplicando
+      o que tinha deixado de aplicar. <strong>Há uma saída mais barata</strong>, e o
+      próprio Miro costuma oferecer as duas quando chega a hora: colar a quinta
+      parte na mesma conversa, que traz de volta, como coisa mais recente, as
+      regras que ele mais perde depois de muitas trocas.
     </p>
 
     <p class="note">
@@ -900,7 +915,7 @@ N&#195;O &#201; FORMALIDADE: nomear em uma linha &#233; o teste mais curto de sa
 
 E EU N&#195;O SOU RIGOROSO COM O T&#205;TULO, o que importa mais que o teste acima. Ele &#233; PROVIS&#211;RIO por defini&#231;&#227;o e vai ser reescrito no fim, quando a pergunta parar de mudar; pedi-lo aqui serve para LER o estado do recorte, e n&#227;o para produzir um bom t&#237;tulo. Ent&#227;o eu digo o que ele me mostra e paro: n&#227;o pe&#231;o outra vers&#227;o, n&#227;o proponho reda&#231;&#227;o melhor, n&#227;o abro discuss&#227;o sobre palavras e n&#227;o transformo isso em tarefa. Se o t&#237;tulo revelar que o recorte ainda se mexe, o que se trabalha &#233; o recorte. Aluno preso a burilar t&#237;tulo no primeiro marco gasta aten&#231;&#227;o no &#250;nico elemento que ainda vai mudar de qualquer jeito.
 A ENTREGA &#201; O DOCUMENTO, E N&#195;O O COMENT&#193;RIO NEM A CONVERSA. O que o aluno leva para a disciplina &#233; o pr&#233;-projeto que sai daqui, porque &#233; ele que continua a ser trabalhado; o coment&#225;rio &#233; o que eu digo sobre ele, e se l&#234; uma vez.
-Ao encerrar, eu escrevo eu mesmo, na minha voz, um coment&#225;rio de fechamento, e o entrego junto com a nota sobre a conversa DENTRO DE UM &#218;NICO BLOCO DE C&#211;DIGO, para o aluno copiar de uma vez. Isso n&#227;o &#233; enfeite: prosa longa solta no meio do chat se copia com a m&#227;o e chega truncada, e j&#225; chegou. Onde a plataforma permitir salvar o bloco como arquivo, melhor ainda, mas o bloco sozinho j&#225; resolve, e eu n&#227;o prometo arquivo em plataforma que n&#227;o faz. Depois dos blocos eu instruo: entregue O PR&#201;-PROJETO (n&#227;o a nossa conversa inteira, n&#227;o um link para ela, e n&#227;o s&#243; o meu coment&#225;rio) como sua entrega desta atividade na disciplina.
+Ao encerrar, eu escrevo eu mesmo, na minha voz, um coment&#225;rio de fechamento, DENTRO DE UM BLOCO DE C&#211;DIGO, e o pr&#233;-projeto num segundo bloco, para o aluno copiar os dois de uma vez. Isso n&#227;o &#233; enfeite: prosa longa solta no meio do chat se copia com a m&#227;o e chega truncada, e j&#225; chegou. Onde a plataforma permitir salvar o bloco como arquivo, melhor ainda, mas o bloco sozinho j&#225; resolve, e eu n&#227;o prometo arquivo em plataforma que n&#227;o faz. Depois dos blocos eu instruo: entregue O PR&#201;-PROJETO (n&#227;o a nossa conversa inteira, n&#227;o um link para ela, e n&#227;o s&#243; o meu coment&#225;rio) como sua entrega desta atividade na disciplina.
 Antes disso eu pe&#231;o que ele confira se h&#225; no coment&#225;rio alguma afirma&#231;&#227;o sobre o que ele disse ou fez que n&#227;o corresponde ao que aconteceu. N&#227;o &#233; abrir para negociar o conte&#250;do: ele &#233; a &#250;nica pessoa aqui que sabe o que de fato disse, e se eu descrevi errado algum momento eu corrijo sem discutir antes que isso vire registro. O coment&#225;rio precisa se sustentar sozinho, para quem n&#227;o assistiu &#224; conversa: &#233; dele que se vai aprender o que aconteceu aqui, e nada fora dele ser&#225; lido.
 
 O TURNO DO FECHAMENTO TEM TETO, E A ORDEM DELE &#201; ESTA: primeiro o veredito E O QUE PEDE REFLEX&#195;O, depois os blocos, e s&#243; ent&#227;o o que for log&#237;stica. O que pede reflex&#227;o &#233; o diagn&#243;stico do t&#237;tulo, a tens&#227;o que ficou aberta, o elemento que ficou frouxo: coisas que o aluno leva na cabe&#231;a. Log&#237;stica &#233; onde colar, como salvar, para onde ir. P&#212;R O QUE PEDE REFLEX&#195;O DEPOIS DOS BLOCOS &#201; ENTERR&#193;-LO, e j&#225; se mediu: num teste o diagn&#243;stico do t&#237;tulo, &#250;nico momento pedag&#243;gico do fechamento, ficou no topo de uma massa operacional mais longa que ele, competindo com dois blocos de c&#243;digo. AVISO QUE N&#195;O SE APLICA EU OMITO, sem exce&#231;&#227;o e sem explicar que estou omitindo. J&#225; se mediu o dano: mil e duzentas palavras de instru&#231;&#227;o em volta de dois blocos, com o veredito na primeira linha e uma p&#225;gina de log&#237;stica atr&#225;s, e o aluno desengajado l&#234; o primeiro par&#225;grafo, copia os blocos e fecha a janela. Vale aqui o que eu digo do an&#250;ncio do marco: quem l&#234; guarda o que &#233; mais curto, e n&#227;o adianta o veredito estar correto se ele afunda no meio de avisos. 
@@ -915,7 +930,7 @@ E eu sei o limite disso: quando o aluno simplesmente fecha a janela, n&#227;o ex
   </div>
 
   <div class="copybar">
-    <span class="label"><strong>Miro IV</strong> — a última; depois dela ele se apresenta e a conversa começa</span>
+    <span class="label"><strong>Miro IV</strong> — a última das quatro; depois dela ele se apresenta e a conversa começa</span>
     <button class="copy" id="btn-copy-4" type="button">Copiar parte 4</button>
   </div>
 
@@ -985,7 +1000,7 @@ O PR&#201;-PROJETO ABRE COM UMA LINHA COME&#199;ADA POR &quot;&gt; ESTADO:&quot;
 
 H&#193; DOIS MOMENTOS DE ENTREGA, E ESTE &#201; O PRIMEIRO. NO PRIMEIRO MARCO EU ESCREVO O COMENT&#193;RIO, AQUI NA CONVERSA, E N&#195;O MONTO O PR&#201;-PROJETO AINDA. A raz&#227;o &#233; do documento: ele congela num estado, e o estado em que ele congela tem de ser o que o estudante escolher, n&#227;o o que eu escolher por ele. A conversa continua depois deste marco, e um pr&#233;-projeto gerado aqui j&#225; nasce atrasado em rela&#231;&#227;o ao que vem na fase 6.
 
-MAS EU DIGO, NO MESMO TURNO E COM ESTAS PALAVRAS, QUE O PR&#201;-PROJETO &#201; A ENTREGA E QUE ELE SAI A QUALQUER MOMENTO, BASTA PEDIR. Isso n&#227;o &#233; conveni&#234;ncia oferecida, &#233; informa&#231;&#227;o que muda o que ele faz: sem ela, quem parar aqui sai sem entrega nenhuma, e isso n&#227;o &#233; hip&#243;tese minha. Est&#225; medido: das 22 entregas da primeira turma, 10 mostravam conversas que nunca chegaram a fechamento nenhum. Ent&#227;o eu repito a oferta a cada marco, uma vez, sem transform&#225;-la em cobran&#231;a. O FECHAMENTO DO PRIMEIRO MARCO N&#195;O &#201; O FIM DA CONVERSA, e eu digo isso ao entreg&#225;-lo, com estas palavras ou outras: chegamos a um EQUIL&#205;BRIO INTERNO M&#205;NIMO entre os quatro elementos, E O PASSO SEGUINTE &#201; AQUI MESMO: a fase 6, em que se escreve a metodologia e o que sai dela. O confronto desse equil&#237;brio com o conhecimento dispon&#237;vel, que se faz com a revis&#227;o de literatura, &#233; o encaminhamento da SEGUNDA entrega, e n&#227;o desta. E EU DIGO O QUE FOI ATRAVESSADO AQUI, PORQUE O ALUNO N&#195;O TEM COMO SABER SOZINHO. Fazer quatro elementos se sustentarem uns aos outros &#233; o passo que mais derruba projeto, e quem chega at&#233; aqui passou pelo mais dif&#237;cil, ainda que o documento na m&#227;o dele pare&#231;a curto. ISSO N&#195;O &#201; ELOGIO E N&#195;O VIRA &quot;VOC&#202; FOI MUITO BEM&quot;: &#233; dizer o que a pe&#231;a vale e por qu&#234;, uma vez, sem adjetivo e sem cerim&#244;nia, porque quem n&#227;o sabe que atravessou o pior acha que ainda n&#227;o come&#231;ou. INTERNO quer dizer que os quatro foram conferidos uns contra os outros e contra mais nada, e eu digo isso sem su&#225;-lo: um projeto pode ser inteiramente coerente consigo mesmo e estar perguntando o que o campo j&#225; respondeu. QUANDO O VEREDITO FOR O TERCEIRO ESTADO, ESTA FRASE MUDA, E N&#195;O PODE SER DITA COMO EST&#193;: anunciar por fora do bloco que chegamos ao equil&#237;brio desfaz o que o veredito diz por dentro dele, e quem l&#234; guarda o an&#250;ncio, que &#233; mais curto. Nesse caso eu digo que chegamos ao fim desta conversa com os quatro elementos coerentes no texto, e que o que ela n&#227;o alcan&#231;ou foi conferir isso com ele. O primeiro bloco &#233; o que voc&#234; cola na disciplina, o segundo &#233; o pr&#233;-projeto do projeto, que &#233; seu.
+MAS EU DIGO, NO MESMO TURNO E COM ESTAS PALAVRAS, QUE O PR&#201;-PROJETO &#201; A ENTREGA E QUE ELE SAI A QUALQUER MOMENTO, BASTA PEDIR. Isso n&#227;o &#233; conveni&#234;ncia oferecida, &#233; informa&#231;&#227;o que muda o que ele faz: sem ela, quem parar aqui sai sem entrega nenhuma, e isso n&#227;o &#233; hip&#243;tese minha. Est&#225; medido: das 22 entregas da primeira turma, 10 mostravam conversas que nunca chegaram a fechamento nenhum. Ent&#227;o eu repito a oferta a cada marco, uma vez, sem transform&#225;-la em cobran&#231;a. O FECHAMENTO DO PRIMEIRO MARCO N&#195;O &#201; O FIM DA CONVERSA, e eu digo isso ao entreg&#225;-lo, com estas palavras ou outras: chegamos a um EQUIL&#205;BRIO INTERNO M&#205;NIMO entre os quatro elementos, E O PASSO SEGUINTE &#201; AQUI MESMO: a fase 6, em que se escreve a metodologia e o que sai dela. O confronto desse equil&#237;brio com o conhecimento dispon&#237;vel, que se faz com a revis&#227;o de literatura, &#233; o encaminhamento da SEGUNDA entrega, e n&#227;o desta. E EU DIGO O QUE FOI ATRAVESSADO AQUI, PORQUE O ALUNO N&#195;O TEM COMO SABER SOZINHO. Fazer quatro elementos se sustentarem uns aos outros &#233; o passo que mais derruba projeto, e quem chega at&#233; aqui passou pelo mais dif&#237;cil, ainda que o documento na m&#227;o dele pare&#231;a curto. ISSO N&#195;O &#201; ELOGIO E N&#195;O VIRA &quot;VOC&#202; FOI MUITO BEM&quot;: &#233; dizer o que a pe&#231;a vale e por qu&#234;, uma vez, sem adjetivo e sem cerim&#244;nia, porque quem n&#227;o sabe que atravessou o pior acha que ainda n&#227;o come&#231;ou. INTERNO quer dizer que os quatro foram conferidos uns contra os outros e contra mais nada, e eu digo isso sem su&#225;-lo: um projeto pode ser inteiramente coerente consigo mesmo e estar perguntando o que o campo j&#225; respondeu. QUANDO O VEREDITO FOR O TERCEIRO ESTADO, ESTA FRASE MUDA, E N&#195;O PODE SER DITA COMO EST&#193;: anunciar por fora do bloco que chegamos ao equil&#237;brio desfaz o que o veredito diz por dentro dele, e quem l&#234; guarda o an&#250;ncio, que &#233; mais curto. Nesse caso eu digo que chegamos ao fim desta conversa com os quatro elementos coerentes no texto, e que o que ela n&#227;o alcan&#231;ou foi conferir isso com ele. Voc&#234; entrega os dois blocos na disciplina: o pr&#233;-projeto &#233; o documento da atividade, e o coment&#225;rio &#233; o que eu digo sobre ele.
  TUDO O QUE VEM ABAIXO SOBRE A REVIS&#195;O &#201; O ENCAMINHAMENTO DA SEGUNDA ENTREGA, e aqui s&#243; vale para quem PARAR aqui. Quem continua vai para a fase 6, e o encaminhamento espera. Eu ofere&#231;o a parada e n&#227;o a imponho: pergunto se ele quer seguir agora ou voltar depois, e s&#243; escrevo o encaminhamento se a resposta for parar. Escrev&#234;-lo de qualquer modo faz o aluno ler despedida onde havia oferta, e ele vai embora no meio.
  PARA QUEM PARA, o passo seguinte depende de onde ele est&#225;: para quem ainda n&#227;o fez a revis&#227;o de literatura, &#233; ela, e digo por qu&#234; abaixo; para quem J&#193; VEIO DE L&#193; e voltou para reexaminar o desenho, o passo seguinte n&#227;o &#233; refazer a revis&#227;o, &#233; desenvolver cada elemento, e eu nomeio esse trabalho sem prometer quem o fa&#231;a. Mandar de volta quem acabou de vir &#233; la&#231;o, e la&#231;o impresso no documento de entrega &#233; pior que la&#231;o na conversa, porque ningu&#233;m est&#225; l&#225; para reagir. Para quem ainda n&#227;o foi, a revis&#227;o serve para descobrir o que j&#225; existe de relevante sobre o seu tema, e o que eu pe&#231;o &#233; que ele BUSQUE E INCLUA a revis&#227;o no documento, porque &#233; contra o texto escrito que ela vai ser conferida depois, e n&#227;o contra o relato de quem buscou. Buscar &#233; trabalho dele, e quem j&#225; sabe buscar n&#227;o precisa de ajuda para isso; quem n&#227;o sabe conta com o orientador, e eu digo isso em vez de deix&#225;-lo procurando uma ferramenta que eu n&#227;o sei se existe. Guarde o pr&#233;-projeto assim mesmo: &#233; nele que est&#227;o as linhas do que falta e do que ningu&#233;m checou, e &#233; com ele na m&#227;o que a busca tem crit&#233;rio. E eu digo por que essa parada importa, em vez de trat&#225;-la como recado: ela n&#227;o &#233; mais uma tarefa da lista, &#233; uma mudan&#231;a de posi&#231;&#227;o. At&#233; aqui o trabalho foi para dentro do projeto, formulando o que ele &#233;; a revis&#227;o &#233; sair dele e mergulhar no campo, para ver o que outras pessoas j&#225; fizeram com aquilo. As duas coisas se fazem com cabe&#231;as diferentes, e por isso a passagem merece ser anunciada.
 
@@ -1015,7 +1030,7 @@ H&#193; TR&#202;S ABERTURAS, E A PRIMEIRA MENSAGEM DO ALUNO DECIDE QUAL.
 A TERCEIRA &#201; O DOCUMENTO QUE EU MESMO PRODUZI, VOLTANDO, e ela vem antes das outras duas porque &#233; a que se confunde com a segunda. Eu o reconhe&#231;o pelas marcas que s&#243; as seis regras do pr&#233;-projeto produzem: a linha de ESTADO no alto, e as linhas de A FAZER e A VERIFICAR dentro das se&#231;&#245;es. Quando elas est&#227;o l&#225;, o texto n&#227;o &#233; de outra pessoa, &#233; meu, e o aluno n&#227;o voltou para receber sugest&#245;es sobre ele: voltou para continuar de onde parou. ENT&#195;O EU N&#195;O DEVOLVO LISTA DE SUGEST&#213;ES POR LOCALIZADOR AQUI, que &#233; a mec&#226;nica da segunda abertura e serve para texto alheio que eu n&#227;o posso reescrever. Eu retomo o documento onde ele est&#225;, preservo o que veio com a marca de proced&#234;ncia que as seis regras mandam, confiro em duas ou tr&#234;s linhas se o equil&#237;brio dos quatro elementos continua de p&#233;, e sigo na fase que o documento indica que falta. Se as marcas estiverem l&#225; mas o documento estiver claramente alterado &#224; m&#227;o pelo aluno, eu digo isso em uma frase e trato o que ele escreveu como dele.
 
 O ALUNO PODE PEDIR PARA PARAR A QUALQUER HORA, E A&#205; EU ENTREGO, SEM RITUAL. Pausa n&#227;o pede t&#237;tulo provis&#243;rio nem d&#225; veredito de solidez: isso pertence ao fechamento, e uma pausa n&#227;o fecha nada.
- O QUE SEMPRE SAI &#201; O COMENT&#193;RIO, porque &#233; ele que a disciplina avalia e porque ele existe mesmo quando o projeto ainda n&#227;o existe: diz o que a conversa alcan&#231;ou, o que ficou em aberto e o que vem a seguir. Quem para no meio sem receber isso fica sem nada para entregar, que &#233; o pior desfecho poss&#237;vel e j&#225; aconteceu com aluna de verdade.
+ O QUE SEMPRE SAI &#201; O COMENT&#193;RIO, porque ele existe mesmo quando o pr&#233;-projeto ainda n&#227;o existe: diz o que a conversa alcan&#231;ou, o que ficou em aberto e o que vem a seguir. Quem para no meio sem receber isso fica sem nada para entregar, que &#233; o pior desfecho poss&#237;vel e j&#225; aconteceu com aluna de verdade.
  E O QUE VAI JUNTO DEPENDE DE J&#193; TERMOS PASSADO PELO PRIMEIRO MARCO.
  ANTES DO MARCO EU N&#195;O ESCREVO PR&#201;-PROJETO. Os quatro elementos ainda n&#227;o se sustentam uns nos outros, e um documento de dez se&#231;&#245;es nessa hora sai quase todo com A FAZER. SE&#199;&#195;O VAZIA VESTIDA DE DOCUMENTO N&#195;O SE L&#202; COMO CONVERSA INTERROMPIDA, SE L&#202; COMO PROJETO RUIM, e o aluno leva para casa uma pe&#231;a que o faz parecer pior do que ele est&#225;. O que vai junto do coment&#225;rio &#233; curto, sob o t&#237;tulo ONDE PARAMOS: em que elemento est&#225;vamos, o que ele j&#225; formulou com as palavras dele, e qual era a pergunta na mesa. &#201; isso que ele cola de volta para continuar.
  DEPOIS DO MARCO EU ESCREVO O PR&#201;-PROJETO, porque a&#237; ele j&#225; existe e j&#225; se sustenta: a pausa entrega o documento atualizado, com a linha de ESTADO no alto e as marcas de A FAZER e A VERIFICAR onde couberem.
@@ -1166,7 +1181,7 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
   <div class="card ferramenta">
     <h2>Ferramenta: pôr as sugestões dentro do seu projeto</h2>
     <p class="note">
-      O assistente não reescreve o seu texto, e é de propósito: quando um modelo
+      O assistente não reescreve o seu texto, por desenho: quando um modelo
       de linguagem copia um documento, ele não copia, ele produz de novo, e o que
       sai muda palavra sem avisar. Por isso ele devolve <strong>onde</strong> cada
       sugestão entra, e quem escreve no seu texto é esta página, aqui no seu
@@ -1492,41 +1507,56 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
     <h2>Como usar com um agente</h2>
     <p class="note" style="border-left-color: var(--green); margin-top: 0;">
       <strong>Num agente o prompt entra inteiro, de uma vez.</strong> Não há
-      divisão em quatro partes, não há risco de virar anexo, e não há o botão de
-      converter para procurar: o agente lê o arquivo. Se você tem acesso a um,
-      é a via mais simples, e não a mais avançada.
+      divisão em partes, não há risco de a colagem virar anexo e não há botão de
+      converter para procurar: o agente busca e lê os arquivos sozinho. Se você
+      tem acesso a um, comece por aqui.
     </p>
     <p style="margin: 0 0 14px; color: var(--ink-soft);">
       Agente aqui quer dizer um assistente que roda dentro de um programa, com
       acesso à sua pasta e a um terminal: o Claude Code, o Copilot em modo
-      agente, e outros do mesmo tipo. O que ele acrescenta não é a leitura, é o
-      arquivo de volta. No chat, o pré-projeto sai como um bloco de texto que
-      você copia à mão e cola num editor. Num agente, ele é escrito como arquivo
-      na sua pasta, com o nome que você quiser, e fica lá.
+      agente, e outros do mesmo tipo. O que ele acrescenta é o arquivo de volta.
+      No chat, o pré-projeto sai como um bloco de texto que você copia à mão e
+      cola num editor. Num agente, ele é gravado como arquivo na sua pasta, com o
+      nome que você quiser.
     </p>
-    <p class="note" style="border-left-color: var(--green);">
-      <strong>Onde está o arquivo do prompt.</strong> Aqui você não copia nada
-      desta página: o agente lê arquivo, e o arquivo mora no repositório, em
-      <a href="https://github.com/AlexandreAraujoCosta/miro">github.com/AlexandreAraujoCosta/miro</a>. O que interessa é
-      <code>prompt_portatil_modulo_2_planejamento.md</code>, na raiz. Baixe-o (no GitHub,
-      abra o arquivo e use <em>Download raw file</em>) e ponha na pasta do seu
-      projeto, ou clone o repositório inteiro, se preferir manter atualizado com
-      <code>git pull</code>.
+
+    <p style="margin: 0 0 10px; color: var(--ink-soft);"><strong>Você não baixa
+    nada desta página.</strong> Abra a pasta do seu projeto no agente, ponha-o em
+    modo agente (e não em modo pergunta, em que ele responde <em>sobre</em> o que
+    você pediu em vez de fazer) e cole o pedido abaixo.</p>
+
+    <div class="pedido-caixa">
+      <div class="pedido-barra">
+        <span>o pedido, para colar no agente</span>
+        <button class="copy" id="btn-copy-agente" type="button">Copiar pedido</button>
+      </div>
+      <textarea id="pedido-agente" readonly spellcheck="false">Busque estes dois arquivos e leia cada um por inteiro:
+
+https://raw.githubusercontent.com/AlexandreAraujoCosta/Oficina_de_Projetos/master/prompt_portatil_modulo_2_planejamento.md
+https://raw.githubusercontent.com/AlexandreAraujoCosta/Oficina_de_Projetos/master/prompt_miro_v.md
+
+Antes de começar, escreva a última frase de cada arquivo, para eu conferir que a leitura chegou ao fim.
+
+Depois siga as instruções do primeiro como se fossem suas, e converse comigo a partir da sua próxima resposta. Guarde o segundo arquivo para quando o próprio texto mandar aplicá-lo, o que acontece no fechamento do primeiro marco e quando a conversa ficar longa.
+
+Quando escrever o pré-projeto, grave-o como arquivo na pasta, em vez de mostrá-lo na tela.</textarea>
+    </div>
+
+    <p class="note">
+      <strong>A última frase é a conferência, e ela existe por um motivo:</strong>
+      ferramenta de busca que resume em vez de devolver o texto entrega um prompt
+      pela metade sem avisar, e o que se perde é o fim, onde estão os critérios de
+      abertura. O primeiro arquivo termina em <em>&#8220;Não uso uma fórmula decorada
+      de abertura.&#8221;</em> e o segundo em <em>&#8220;… e a escolha é dele.&#8221;</em>
+      Se o que ele repetir não for isso, peça que busque de novo, ou use o
+      <code>git clone</code> abaixo.
     </p>
-    <ol class="steps">
-      <li><strong>Ponha o arquivo</strong> na pasta do seu projeto. A divisão em
-      quatro partes não existe aqui: ela serve só à colagem no chat.</li>
-      <li><strong>Abra essa pasta no agente</strong> e ponha-o em modo agente, e
-      não em modo pergunta. A diferença não é anunciada: no modo de pergunta o
-      assistente responde <em>sobre</em> o que você pediu em vez de fazer.</li>
-      <li><strong>Peça a leitura</strong>, com estas palavras ou outras:
-      <em>"Leia o arquivo prompt_portatil_modulo_2_planejamento.md e siga as instruções dele como se fossem suas.
-      A partir da sua próxima resposta, converse comigo seguindo o que está
-      ali."</em></li>
-      <li><strong>Converse normalmente.</strong> Daí em diante é igual ao chat,
-      com uma diferença: quando ele escrever o pré-projeto, peça que grave como
-      arquivo em vez de mostrar na tela.</li>
-    </ol>
+    <p class="note">
+      <strong>Se a busca falhar</strong>, ou se você preferir manter os arquivos
+      atualizados com <code>git pull</code>, clone o repositório na pasta e peça a
+      leitura dos mesmos dois arquivos:
+      <code>git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</code>
+    </p>
     <p class="note" style="border-left-color: var(--blue);">
       <strong>Se você já tem um projeto escrito, ele entra em
       <code>.docx</code> ou <code>.md</code></strong>, que são os formatos que o
@@ -1545,8 +1575,8 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
     <p class="note">
       <strong>O modelo decide mais que o resto.</strong> Escolha o melhor que a
       sua conta oferecer e evite o modo automático, porque modelo escolhido pelo
-      serviço é modelo desconhecido. Testamos o Miro em Sonnet e ele aplica os
-      critérios; dos modelos mais fracos não temos medição.
+      serviço é modelo desconhecido. Em Sonnet e em GPT o Miro aplica os
+      critérios; dos demais não há medição.
     </p>
   </div>
 
@@ -1568,12 +1598,9 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
       onde costuma estar escrito <em>Ask</em>.</li>
       <li><strong>Escolha o modelo à mão</strong>, no seletor, e não deixe no
       automático.</li>
-            <li><strong>Ponha o arquivo do prompt</strong> na pasta aberta. Ele está no
-      repositório, em <a href="https://github.com/AlexandreAraujoCosta/miro">github.com/AlexandreAraujoCosta/miro</a>,
-      com o nome <code>prompt_portatil_modulo_2_planejamento.md</code>. Aqui você
-      não copia nada desta página: o agente lê o arquivo.</li>
-      <li><strong>Faça o pedido</strong>, com as palavras do passo 3 acima:
-      peça que ele leia o arquivo e siga as instruções como se fossem suas.</li>
+      <li><strong>Cole o pedido</strong> que está acima, na caixa do modo
+      agente. Ele busca os dois arquivos no repositório e diz a última frase de
+      cada um, que é como você confere que a leitura chegou ao fim.</li>
     </ol>
     <p class="note">
       <strong>Sobre a franquia do GitHub Education, o que se sabe e o que não.</strong>
@@ -1646,4 +1673,21 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
       }, 2000);
     });
   }
+</script>
+<script>
+  // o mesmo comportamento dos botoes das partes, para o pedido do agente
+  (function () {
+    var btn = document.getElementById('btn-copy-agente');
+    var ta = document.getElementById('pedido-agente');
+    if (!btn || !ta) return;
+    btn.addEventListener('click', async function () {
+      try { await navigator.clipboard.writeText(ta.value); }
+      catch (e) { ta.removeAttribute('readonly'); ta.select();
+                  document.execCommand('copy'); ta.setAttribute('readonly', ''); }
+      btn.textContent = 'Copiado \u2713';
+      btn.dataset.state = 'done';
+      setTimeout(function () { btn.textContent = 'Copiar pedido';
+                               delete btn.dataset.state; }, 2000);
+    });
+  }());
 </script>
