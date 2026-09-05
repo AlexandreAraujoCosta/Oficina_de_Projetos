@@ -366,7 +366,7 @@ probabilística, e um candidato reprovado por ela não teria como se defender de
 uma objeção que ninguém enuncia.</strong> O que ela relata está na página e se
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
 entrega o que o título promete, a subdivisão que sai sem que nada mude, e a
-fluência uniforme com afirmação que excede o material previsto.</p>
+afirmação que o percurso descrito não poderia produzir.</p>
 <p><b>Duas marcas saíram nos testes de 03/09/2026, e o registro fica.</b> A
 referência arrolada e não citada, que num projeto de lista única é o estado
 normal; e a mesma obra com dados diferentes em dois pontos, que é o erro humano
