@@ -54,7 +54,16 @@ NOMES_LEGIVEIS = ["problema, objetivos e hipóteses", "justificativa",
                   "metodologia e teoria", "bibliografia",
                   "indícios de IA"]
 
-NIVEIS = ["fortes-abusivo", "fortes-indeterminado", "leves", "ausentes"]
+NIVEIS = ["fortes-abusivo", "fortes", "medios", "fracos", "ausentes"]
+# O NIVEL SAI POR EXTENSO NA PECA: no bloco de dados vai a palavra curta,
+# que e o que o programa compara, e quem le a peca ve a frase.
+NIVEIS_LEGIVEIS = {
+    "fortes-abusivo": "indícios fortes (uso abusivo)",
+    "fortes": "indícios fortes",
+    "medios": "indícios médios",
+    "fracos": "indícios fracos",
+    "ausentes": "não há indícios",
+}
 
 # COMO A LEITURA CHAMA CADA ELEMENTO no titulo, quando o nome dela nao e o
 # da tabela. So o quinto diverge: o prompt o chama de indicios de USO de
@@ -494,8 +503,67 @@ def sem_ganhos(blocos):
     return saida
 
 
+RE_TITULO_DE_SECAO = re.compile(
+    r"^\s*\d{1,2}(?:\.\d{1,2})*[.)]?\s+"
+    r"([A-ZÀ-Ú][^\d,;:.]{3,68})\.?\s*$")
+
+
+def secoes_do_projeto(paragrafos):
+    """Os nomes das secoes, tirados dos titulos do proprio projeto.
+
+    TITULO E UMA LINHA CURTA que abre por numero (com subdivisao, se
+    houver) e traz um nome comecado por maiuscula, sem virgula, sem
+    digito e sem ponto no meio. A CAIXA ALTA NAO SERVE DE TESTE: um
+    projeto escreve "1 DELIMITACAO DO TEMA E JUSTIFICATIVA" e outro
+    escreve "3.1. Objetivos.".
+
+    E A NOTA DE RODAPE FICA FORA, que era o que a caixa alta protegia:
+    "9 ADI 5.501/DF, Rel. Min. Marco Aurelio" tem virgula, digito e
+    pontos no meio.
+    """
+    nomes = []
+    for p in paragrafos:
+        texto = " ".join(p["texto"].split())
+        m = RE_TITULO_DE_SECAO.match(texto)
+        if not m:
+            continue
+        nome = " ".join(m.group(1).split())
+        if nome and nome not in nomes:
+            nomes.append(nome)
+    return nomes
+
+
+def partes_com_secoes(texto, nomes):
+    """Parte a prosa em (trecho, estilo), com "i" nos nomes de secao.
+
+    E O NOME DE UMA PALAVRA SO ENTRA COM MAIUSCULA, porque ele costuma
+    ser substantivo comum: grifar toda "metodologia" grifaria a palavra,
+    e nao a remissao a secao.
+    """
+    if not nomes or not texto:
+        return [(texto, None)]
+    ordem = sorted(nomes, key=len, reverse=True)
+    alt = []
+    for nome in ordem:
+        if len(nome.split()) == 1:
+            n = nome.capitalize()
+            alt.append("(?-i:%s)" % re.escape(n[0].upper() + n[1:].lower()))
+        else:
+            alt.append(re.escape(nome))
+    padrao = re.compile("(?i:%s)" % "|".join(alt))
+    partes, fim = [], 0
+    for m in padrao.finditer(texto):
+        if m.start() > fim:
+            partes.append((texto[fim:m.start()], None))
+        partes.append((m.group(0), "i"))
+        fim = m.end()
+    if fim < len(texto):
+        partes.append((texto[fim:], None))
+    return partes or [(texto, None)]
+
+
 def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
-                     blocos=None):
+                     blocos=None, secoes=()):
     """A leitura inteira de um projeto, na folha que vier."""
     from folha_pdf import COR_MARCA, CORPO as CORPO_TEXTO
     if cabecalho:
@@ -503,7 +571,7 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
     if com_tarja:
         f.texto("notas %s  |  indícios de IA: %s  |  %d condi%s"
                 % ("  ".join("%d:%d" % (i, d["notas"][i]) for i in (1, 2, 3, 4)),
-                   d["nivel"], len(d["condicoes"]),
+                   NIVEIS_LEGIVEIS[d["nivel"]], len(d["condicoes"]),
                    "ção" if len(d["condicoes"]) == 1 else "ções"),
                 corpo=10, fonte="tibo", cor=COR_MARCA, espaco_depois=10)
     if blocos is None:
@@ -538,7 +606,11 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
             rotulo, resto = (partes_da_entrada(texto_bloco)
                              if na_ementa else (None, texto_bloco))
             if rotulo:
-                f.html([(rotulo + " ", True), (resto.strip(), False)],
+                f.html([(rotulo + " ", "b")]
+                       + partes_com_secoes(resto.strip(), secoes),
+                       espaco_depois=7)
+            elif secoes:
+                f.html(partes_com_secoes(texto_bloco, secoes),
                        espaco_depois=7)
             else:
                 f.texto(texto_bloco, espaco_depois=7)
@@ -569,7 +641,7 @@ def ancorar(f, texto, url):
     return True
 
 
-def escrever_um(nome, d, caminho, titulo=None):
+def escrever_um(nome, d, caminho, titulo=None, secoes=()):
     """A leitura de UM projeto, em PDF.
 
     SEM TABELA COMPARATIVA E SEM CONTAGEM DE COORTE: a primeira compara
@@ -616,7 +688,8 @@ def escrever_um(nome, d, caminho, titulo=None):
     # nome e vocabulario de quem construiu a regua, nao de quem le a peca.
     tabela(f, ["", "nota"],
            [["%d. %s" % (i, NOMES_LEGIVEIS[i - 1]), n[i]] for i in (1, 2, 3, 4)]
-           + [["5. %s (sem nota)" % NOMES_LEGIVEIS[4], d["nivel"]]],
+           + [["5. %s (sem nota)" % NOMES_LEGIVEIS[4],
+               NIVEIS_LEGIVEIS[d["nivel"]]]],
            [70, 30])
 
     f.texto("Condições para que o projeto seja apresentável a uma banca de "
@@ -650,7 +723,7 @@ def escrever_um(nome, d, caminho, titulo=None):
     # A CAPA FECHA A PRIMEIRA PARTE: descricao geral e ementa, logo depois
     # das condicoes, para quem le uma coisa so ler tudo o que precisa.
     escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
-                     blocos=capa)
+                     blocos=capa, secoes=secoes)
 
     # A AVALIACAO ANALITICA SEGUE NA MESMA PAGINA. A quebra ja esteve aqui
     # duas vezes e saiu duas vezes, e a razao de sair e a mesma: ela gasta
@@ -660,7 +733,7 @@ def escrever_um(nome, d, caminho, titulo=None):
     # copiado e as observacoes, e repetir o nome do arquivo ali foi o que
     # pos "deferencia2" no alto da peca.
     escrever_leitura(f, nome, d, com_tarja=False, cabecalho=False,
-                     blocos=sem_ganhos(corpo_da_leitura))
+                     blocos=sem_ganhos(corpo_da_leitura), secoes=secoes)
     numerar_paginas(doc)
     gravar(doc, caminho)
     doc.close()
@@ -690,7 +763,12 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
     # arquivo: peca que exibe titulo que ninguem copiou parece identificada
     # e nao esta.
     titulo, aviso = (None, "o projeto nao foi informado (use --projeto)")
+    secoes = []
     if projeto:
+        # OS NOMES DAS SECOES SAEM DO PROJETO, para o italico da peca ter
+        # de onde vir. Sem projeto nao ha italico: nao ha autoridade.
+        secoes = secoes_do_projeto(
+            paragrafos_do_projeto_para_conferir(projeto))
         # A NUMERACAO PRIMEIRO. O localizador do titulo so vale contra a
         # numeracao que o produziu, e copiar contra outra poe na peca o
         # texto de outro paragrafo, com a aparencia inteira de estar certo.
@@ -715,10 +793,13 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
         print()
 
     saida = caminho_pdf or str(arq.with_suffix(".pdf"))
-    escrever_um(arq.stem, d, saida, titulo)
+    escrever_um(arq.stem, d, saida, titulo, secoes)
+    if secoes:
+        print("Secoes do projeto reconhecidas, e grifadas na peca: %d."
+              % len(secoes))
     print("%s: notas %s, indicios %s, %d condicao(oes)."
           % (saida, ", ".join(str(d["notas"][i]) for i in (1, 2, 3, 4)),
-             d["nivel"], len(d["condicoes"])))
+             NIVEIS_LEGIVEIS[d["nivel"]], len(d["condicoes"])))
     print("A ficha foi montada pelo programa a partir do bloco de dados ja")
     print("conferido, e nao redigitada.")
 
@@ -1039,7 +1120,7 @@ IMPRESSAO | 172p-a51ff850
 2 | justificativa | 0 | 1 | 0 | 6
 3 | metodologia e teoria | 1 | 0 | 2 | 4
 4 | bibliografia | 0 | 0 | 3 | 7
-5 | indicios de ia | - | - | - | leves
+5 | indicios de ia | - | - | - | fracos
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta | dizer que decisao mudaria
 CONDICAO | 2 | fechar a lista de casos antes de comecar
 CONDICAO | 3 | dizer que decisao passa a ser tomada de outro modo
@@ -1050,7 +1131,7 @@ def controle():
     """Positivo: cada defeito que o conferidor deveria pegar tem de reprovar."""
     ok = ler_bloco(BOM, "controle")
     assert ok["abaixo"] == [1, 2, 3], ok
-    assert ok["nivel"] == "leves", ok
+    assert ok["nivel"] == "fracos", ok
     assert ok["titulo"] == 2, ok
     assert ok["impressao"] == "172p-a51ff850", ok
     assert len(ok["condicoes"]) == 3, ok
@@ -1061,8 +1142,8 @@ def controle():
 
     casos = [
         ("nota fora de 0-10", BOM.replace("| 0 | 3 | 7", "| 0 | 3 | 17")),
-        ("nivel invalido", BOM.replace("| leves", "| razoavel")),
-        ("dimensao 5 com nota", BOM.replace("- | leves", "- | 8")),
+        ("nivel invalido", BOM.replace("| fracos", "| razoavel")),
+        ("dimensao 5 com nota", BOM.replace("- | fracos", "- | 8")),
         ("sem a linha TITULO",
          BOM.replace("TITULO | P002" + chr(10), "")),
         ("TITULO com o titulo escrito, e nao o localizador",
@@ -1138,6 +1219,27 @@ def controle():
         assert saiu == esperado, (titulo, saiu, esperado)
     print()
     print()
+    print("Controle positivo do titulo de secao:")
+    linhas = [
+        ("1 DELIMITAÇÃO DO TEMA E JUSTIFICATIVA", "Delimitação"),
+        ("3.1. Objetivos.", "Objetivos"),
+        ("5. Metodologia de Investigação.", "Metodologia"),
+        ("9 ADI 5.501/DF, Rel. Min. Marco Aurélio (fosfoetanolamina).", None),
+        ("10 MENEGAT, Fernando; PEREZ, Marcos Augusto. Idem.", None),
+        ("O projeto pergunta como e quando decisões judiciais proferidas "
+         "em litígios podem provocar a atuação regulatória.", None),
+    ]
+    for linha, esperado in linhas:
+        saiu = secoes_do_projeto([{"texto": linha}])
+        certo = (not esperado and not saiu) or (
+            esperado and saiu
+            and sem_acento(saiu[0]).startswith(sem_acento(esperado)))
+        print("  %-58s %-14s %s"
+              % (linha[:58], (saiu[0][:14] if saiu else "nao e secao"),
+                 "ok" if certo else "ERRADO"))
+        assert certo, (linha, saiu)
+    print()
+
     print("Controle positivo do preambulo:")
     T, P = "titulo", "prosa"
     casos = [

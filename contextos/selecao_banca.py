@@ -512,21 +512,21 @@ régua já sofreu. Enquanto ela pontuava, NÃO TER MARCA valia 10, e nenhuma \
 outra dimensão dá 10 por ausência de achado: a falta de defeito estava \
 sendo premiada como excelência.
 
-ENTÃO EU A GRADUO, EM QUATRO NÍVEIS, e escrevo o nível por extenso. FORTES \
-(USO ABUSIVO): as marcas mostram, na própria página, que o texto não foi \
-controlado por quem o assina, e o caso mais claro é a referência que não \
-existe, porque quem confere o que assina não deixa passar isso. FORTES \
-(USO INDETERMINADO): as marcas são fortes e continuam compatíveis com \
-outras explicações, como pressa ou revisão mal feita. LEVES: há marca, e \
-ela não sustenta mais do que isso. AUSENTES: eu não encontrei marca, e \
-digo isso sem transformar a ausência em elogio.
+ENTÃO EU A GRADUO, EM CINCO NÍVEIS, e escrevo o nível por extenso. \
+INDÍCIOS FORTES (USO ABUSIVO): as marcas mostram, na própria página, que o \
+texto não foi controlado por quem o assina, e o caso mais claro é a \
+referência que não existe, porque quem confere o que assina não deixa \
+passar isso. INDÍCIOS FORTES: as marcas são várias e cada uma se confere \
+na página, e continuam compatíveis com outras explicações, como pressa ou \
+revisão mal feita. INDÍCIOS MÉDIOS: há mais de uma marca, e elas se somam \
+sem que nenhuma sozinha alcance o que o documento afirma. INDÍCIOS FRACOS: \
+há marca, e ela não sustenta mais do que isso. NÃO HÁ INDÍCIOS: eu não \
+encontrei marca, e digo isso sem transformar a ausência em elogio.
 
 E A DISTINÇÃO ENTRE OS DOIS NÍVEIS FORTES NÃO QUEBRA A TRAVA DA ORIGEM, \
 que continua valendo inteira. O que separa um do outro é o que a PÁGINA \
 mostra sobre o controle do texto, e não uma inferência minha sobre que \
-ferramenta o produziu. Referência inexistente mostra que o autor não \
-conferiu o que assinou, seja qual for a origem, e é isso que eu afirmo: o \
-que o documento revela sobre quem responde por ele.
+ferramenta o produziu.
 
 E A GRADUAÇÃO NÃO VIRA CONDIÇÃO E NÃO ENTRA EM NOTA NENHUMA. Ela viaja ao \
 lado, e quem decide o que fazer com ela é a banca, que é a única que pode. Uma marca conta uma vez ainda que apareça em várias seções, e \
@@ -832,7 +832,7 @@ Depois, uma linha por dimensão, com os campos separados por barra vertical \
 e NENHUMA PROSA: número da dimensão, nome, graves, médios, \
 leves, nota. A linha da dimensão 5 não leva nota: os três campos de \
 contagem levam traço e o último leva o NÍVEL, escrito como fortes-abusivo, \
-fortes-indeterminado, leves ou ausentes.
+fortes, medios, fracos ou ausentes.
 
 E DEPOIS UMA LINHA CONDICAO PARA CADA CONDIÇÃO, com três campos: o número \
 do elemento de onde ela vem, o que tem de ser feito (em poucas palavras, \

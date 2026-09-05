@@ -19,6 +19,7 @@ Reticencias se escrevem com tres pontos, ou o leitor ve um ponto de
 interrogacao no fim de toda citacao cortada.
 """
 
+import re
 import sys
 
 try:
@@ -294,31 +295,120 @@ def _html_altura(self, html, recuo=0):
     return alt
 
 
-def _html(self, partes, corpo=None, recuo=0, espaco_antes=0, espaco_depois=6):
-    """Escreve um paragrafo com trechos em negrito.
+def _marcar(texto, estilo):
+    """O pedaco com a etiqueta que ele pede: nada, negrito ou italico."""
+    s = escapar_html(texto)
+    if estilo in (True, "b"):
+        return "<b>%s</b>" % s
+    if estilo == "i":
+        return "<i>%s</i>" % s
+    return s
 
-    partes e uma lista de (texto, negrito). O bloco nao se parte entre
-    paginas: as entradas que usam isto sao curtas, e partir uma entrada de
-    ementa ao meio custa mais que a linha em branco que a quebra evita.
+
+def _montar_html(partes, corpo):
+    return ('<div style="font-family:Times;font-size:%gpx;line-height:%g;'
+            'text-align:justify">%s</div>'
+            % (corpo, ENTRELINHA,
+               "".join(_marcar(txt, est) for txt, est in partes)))
+
+
+def _em_palavras(partes):
+    """Desmancha as partes em (pedaco, estilo).
+
+    O ESPACO QUE SEGUE CADA PALAVRA VIAJA PRESO A ELA. Colar os pedacos
+    de volta com espaco unico inventa espaco onde nao havia: "A " mais
+    "Metodologia" em italico mais " e a " voltava como "A Metodologiae
+    a", e ". " voltaria como " . ".
+    """
+    fora = []
+    for texto, estilo in partes:
+        for m in re.finditer(r"\S+\s*|\s+", texto):
+            fora.append((m.group(0), estilo))
+    return fora
+
+
+def _juntar_palavras(palavras):
+    """Refaz as partes, colando pedacos vizinhos de mesmo estilo."""
+    partes = []
+    for pedaco, estilo in palavras:
+        if partes and partes[-1][1] == estilo:
+            partes[-1][0] += pedaco
+        else:
+            partes.append([pedaco, estilo])
+    return [(a, b) for a, b in partes]
+
+
+def _html(self, partes, corpo=None, recuo=0, espaco_antes=0, espaco_depois=6,
+          partir=True):
+    """Escreve um paragrafo com trechos em negrito ou italico.
+
+    partes e uma lista de (texto, estilo), com estilo em None, "b" ou
+    "i" (True e False continuam valendo, do tempo em que so havia
+    negrito).
+
+    E ELE PARTE ENTRE PAGINAS quando nao couber, deixando pelo menos duas
+    linhas de cada lado: paragrafo inteiro empurrado para a pagina
+    seguinte deixa meia folha em branco no meio da peca.
     """
     corpo = corpo or CORPO
-    pedacos = []
-    for texto, forte in partes:
-        s = escapar_html(texto)
-        pedacos.append("<b>%s</b>" % s if forte else s)
-    html = ('<div style="font-family:Times;font-size:%gpx;line-height:%g;'
-            'text-align:justify">%s</div>'
-            % (corpo, ENTRELINHA, "".join(pedacos)))
-
-    alt = self.altura_html(html, recuo)
-    if not self.cabe(espaco_antes + alt + espaco_depois):
+    while True:
+        html = _montar_html(partes, corpo)
+        alt = self.altura_html(html, recuo)
+        if self.cabe(espaco_antes + alt + espaco_depois):
+            break
+        if not partir:
+            self.nova()
+            espaco_antes = 0
+            break
+        palavras = _em_palavras(partes)
+        disponivel = (ALTURA - MARGEM - 18) - (self.y + espaco_antes)
+        minimo = MINIMO_DE_LINHAS * corpo * ENTRELINHA
+        cabe_aqui = 0
+        if disponivel >= minimo and len(palavras) > 2 * MINIMO_DE_LINHAS:
+            baixo, cima = 1, len(palavras) - 1
+            while baixo <= cima:
+                meio = (baixo + cima) // 2
+                a = self.altura_html(
+                    _montar_html(_juntar_palavras(palavras[:meio]), corpo),
+                    recuo)
+                if a <= disponivel:
+                    cabe_aqui = meio
+                    baixo = meio + 1
+                else:
+                    cima = meio - 1
+        if not cabe_aqui:
+            self.nova()
+            espaco_antes = 0
+            continue
+        # O RESTO TEM DE FICAR COM DUAS LINHAS, e nao com uma orfa: se
+        # ficar curto demais, o corte recua ate sobrar o bastante.
+        while cabe_aqui > 1:
+            resto = _juntar_palavras(palavras[cabe_aqui:])
+            if self.altura_html(_montar_html(resto, corpo), recuo) >= minimo:
+                break
+            cabe_aqui -= 1
+        if cabe_aqui <= 1:
+            self.nova()
+            espaco_antes = 0
+            continue
+        aqui = _juntar_palavras(palavras[:cabe_aqui])
+        html_aqui = _montar_html(aqui, corpo)
+        alt_aqui = self.altura_html(html_aqui, recuo)
+        y = self.y + espaco_antes
+        self.pagina.insert_htmlbox(
+            fitz.Rect(MARGEM + recuo, y, MARGEM + LARGURA_UTIL,
+                      ALTURA - MARGEM - 18), html_aqui)
+        self.y = y + alt_aqui
         self.nova()
+        partes = _juntar_palavras(palavras[cabe_aqui:])
         espaco_antes = 0
+
     y = self.y + espaco_antes
     self.pagina.insert_htmlbox(
         fitz.Rect(MARGEM + recuo, y, MARGEM + LARGURA_UTIL,
-                  ALTURA - MARGEM - 18), html)
-    self.y = y + alt + espaco_depois
+                  ALTURA - MARGEM - 18), _montar_html(partes, corpo))
+    self.y = y + self.altura_html(_montar_html(partes, corpo), recuo) \
+        + espaco_depois
 
 
 Folha.altura_html = _html_altura
