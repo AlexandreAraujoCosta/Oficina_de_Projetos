@@ -499,12 +499,12 @@
   <details class="indice-caixa" id="indice">
     <summary>Índice</summary>
     <div class="indice-lista">
+      <a href="#usar">Como usar</a>
       <a href="#dimensoes">As dimensões analisadas</a>
       <a href="#nota">A nota sai de uma contagem</a>
       <a href="#ia">Os indícios de IA</a>
       <a href="#descricao">Dois parágrafos por dimensão</a>
       <a class="grupo" href="#lote">Uso em lote</a>
-      <a href="#usar">Como usar</a>
     </div>
   </details>
 </nav>
@@ -853,8 +853,8 @@ E ELAS SÃO SOBRE O DOCUMENTO, que é o que eu tenho na mão. É por isso que eu
 SE QUEM ME LÊ FOR O PRÓPRIO AUTOR, o relatório é o mesmo, e eu digo isso numa linha ao entregar: isto é o que uma banca veria. Não abro exceção, não suavizo e não acrescento encorajamento. Se ele me pedir que eu conserte alguma coisa, eu digo que essa leitura não conserta, e que o diagnóstico com localizador é o que ele leva.</textarea>
   </div>
 
-  <p class="nota" style="margin-top: 1.2rem;"><strong>A colagem é grande, e o que
-  acontece com ela depende do serviço.</strong> São 49 mil caracteres. No ChatGPT
+  <p class="nota" style="margin-top: 1.2rem;"><strong>O que acontece com a
+  colagem depende do serviço.</strong> São 49.664 caracteres. No ChatGPT
   eles ainda entram como texto; no Claude, acima de cerca de 44 mil a colagem
   vira um cartão &#8220;PASTED&#8221;, e ali o conteúdo entra na conversa do mesmo
   jeito. As duas medidas são de 02/09/2026, por colagem real.</p>
@@ -870,18 +870,22 @@ SE QUEM ME LÊ FOR O PRÓPRIO AUTOR, o relatório é o mesmo, e eu digo isso num
       <span>o pedido, para colar no agente</span>
       <button class="copiar" id="btn-copiar-agente" type="button">Copiar pedido</button>
     </div>
-    <textarea id="pedido-agente" readonly spellcheck="false">Busque este arquivo e leia-o por inteiro:
+    <textarea id="pedido-agente" readonly spellcheck="false">Clone o repositório da oficina nesta pasta:
 
-https://raw.githubusercontent.com/AlexandreAraujoCosta/Oficina_de_Projetos/master/prompt_selma.md
+git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos
 
-Antes de começar, escreva a última frase dele, para eu conferir que a leitura chegou ao fim.
+Leia por inteiro o arquivo Oficina_de_Projetos/prompt_selma.md e escreva a última frase dele, para eu conferir que a leitura chegou ao fim.
 
-Depois siga as instruções como se fossem suas: leia o projeto que está nesta pasta e escreva o relatório. Grave-o como arquivo, em vez de mostrá-lo na tela.</textarea>
+Depois siga as instruções como se fossem suas: leia o projeto que está nesta pasta e escreva o relatório num arquivo .md, em vez de mostrá-lo na tela. Se você tiver busca, confira a existência das obras da bibliografia, como o próprio prompt manda.
+
+Por fim, monte o PDF:
+
+python Oficina_de_Projetos/selma_lote.py um RELATORIO.md relatorio.pdf PROJETO.pdf</textarea>
   </div>
 
-  <p class="nota"><strong>A última frase é a conferência.</strong> Ferramenta de
-  busca que resume em vez de devolver o texto entrega o prompt pela metade sem
-  avisar. O arquivo termina em <em>&#8220;… e que o diagnóstico com localizador é o
+  <p class="nota"><strong>A última frase é a conferência.</strong> Leitura que
+  para no meio entrega o prompt pela metade sem avisar, e o que se perde é o
+  fim. O arquivo termina em <em>&#8220;… e que o diagnóstico com localizador é o
   que ele leva.&#8221;</em> Se o que ele repetir não for isso, peça que busque de
   novo, ou clone o repositório:</p>
   <p class="mono" style="font-size: var(--t-sm); overflow-wrap: anywhere;">git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</p>
@@ -948,7 +952,7 @@ no dígito, e o relatório mostra a conta.</p>
 <p>Duas regras de subida corrigem o que a contagem sozinha não veria, e as
 duas se contam na página: defeito que aparece em <b>mais da metade das
 subdivisões</b> de uma seção sobe uma classe, e achado que atinge afirmação
-que o projeto repete em <b>três ou mais tópicos</b> também sobe. A subida é de
+que o projeto repete em <b>três ou mais seções</b> também sobe. A subida é de
 uma classe só.</p>
 
 <h3>Uma conclusão só: as condições</h3>
@@ -960,23 +964,21 @@ condição sempre; médio vira condição sempre; leve não vira,
 porque se resolve no caminho, e listá-lo transformaria a peça numa lista de
 reparos.</p>
 
-<p><b>Cada condição se escreve como coisa a fazer</b>, no infinitivo, com a
-dimensão de onde vem e o tópico em que o problema está. Fechar a lista de casos
+<p><b>Cada condição se escreve como coisa a fazer</b>, no infinitivo, com o
+elemento de onde vem e a seção em que o problema está. Fechar a lista de casos
 antes de começar, e não “o corpus é frágil”. Quem lê decide com a primeira
 forma; com a segunda, não decide nada. E quando não há nenhuma, isso se
 escreve, e é a frase mais forte que a leitura pode produzir sobre um projeto:
 nenhum achado grave e nenhum médio em dimensão nenhuma.</p>
 
-<p><b>A média saiu junto com o veredito</b>, e a razão é que ela só servia para
-dizer de que lado da linha de 7 o projeto caía. Sem a linha, seria número sem
-âncora, e número sem âncora numa ficha de banca é convite a ordenar por ele. As
-quatro notas por dimensão ficam: são o diagnóstico, e é delas que as condições
-saem.</p>
+<p><b>Não há média.</b> As quatro notas por dimensão são o diagnóstico de onde
+as condições saem, e uma média só serviria para ordenar candidatos, que não é o
+que esta leitura faz.</p>
 
 <div class="confere">
   <section class="sim">
     <h3>Confere</h3>
-    <p>Todo achado traz o <b>tópico</b> em que está, porque quem lê responde
+    <p>Todo achado traz a <b>seção</b> em que está, porque quem lê responde
     pela decisão e tem de poder abrir a página e discordar. A nota vem depois
     do achado, nunca no lugar dele.</p>
   </section>
@@ -1045,7 +1047,7 @@ ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
 </div>
 
 <p>Ela não diz que o projeto foi gerado por inteligência artificial, não
-insinua e não pede confissão, e a razão não é delicadeza: <strong>a marca é
+insinua e não pede confissão. A razão é outra: <strong>a marca é
 probabilística, e um candidato reprovado por ela não teria como se defender de
 uma objeção que ninguém enuncia.</strong> O que ela relata está na página e se
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
@@ -1056,7 +1058,7 @@ referência arrolada e não citada, que num projeto de lista única é o estado
 normal; e a mesma obra com dados diferentes em dois pontos, que é o erro humano
 mais comum de uma bibliografia. <strong>Marca que dispara em escrita normal é
 pior que marca nenhuma</strong>, porque produz achado onde não há nada e gasta
-a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
+a confiança de quem lê o resto.</p>
 
 <div class="nota">
   <p><strong>Referência não encontrada não é obra inexistente.</strong> Com
@@ -1067,15 +1069,25 @@ a confiança de quem lê o resto. São quatro marcas, e não cinco.</p>
   fabricou. Sem busca, diz que não conferiu, e não julga por memória.</p>
 </div>
 
-<h2 id="descricao">Cada dimensão sai em dois parágrafos</h2>
+<h2 id="descricao">Como o relatório se organiza</h2>
 
-<p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquela dimensão, com os
-tópicos onde cada coisa está: a pergunta como o projeto a enuncia, a fonte que
+<p>São quatro partes, e o bloco de dados no fim. A <b>descrição geral</b>, em até
+dez linhas, reconstrói o que o projeto pergunta e como pretende responder, e ela
+é um teste: leitura que não consegue reconstruir a pergunta já tem o primeiro
+achado, porque a banca também não vai conseguir. A <b>ementa</b> é o que a banca
+lê quando lê uma coisa só: uma entrada por elemento, com duas frases e a nota. A
+<b>avaliação analítica</b> vem em seguida, e é a parte descrita abaixo. E as
+<b>perguntas para as quais o autor deve estar preparado</b> fecham a peça.</p>
+
+<h3>Cada dimensão sai em dois parágrafos</h3>
+
+<p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquela dimensão, com as
+seções onde cada coisa está: a pergunta como o projeto a enuncia, a fonte que
 ele diz que vai usar, o recorte, as categorias que nomeia, os autores que
 mobiliza e para quê, o que promete entregar. O segundo <b>avalia</b>, com o
-achado, o tópico, a contagem por classe e a nota.</p>
+achado, a seção, a contagem por classe e a nota.</p>
 
-<p><b>A descrição vem primeiro, e isso não é arrumação.</b> Escrita depois da
+<p><b>A descrição vem primeiro por uma razão de leitura.</b> Escrita depois da
 avaliação, ela se curva para justificar a nota, e quem lê recebe como descrição
 o que já é argumento. Escrita antes, ela é o que a leitura entendeu do
 documento, e é contra ela que a avaliação se confere.</p>
@@ -1085,7 +1097,7 @@ nem frágil, insuficiente ou vago; nem sólido, consistente ou promissor. Quando
 não há material, isso também se descreve, e é frase de fato: o projeto não
 enuncia pergunta, não nomeia fonte. <b>E a descrição é reconstrução, não
 transcrição:</b> sai com as palavras de quem lê e nunca entre aspas, porque
-aspas afirmam literalidade. Onde a palavra exata importa, vem o tópico e o
+aspas afirmam literalidade. Onde a palavra exata importa, vem a seção e o
 convite a ler.</p>
 
 <div class="nota">
