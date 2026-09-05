@@ -460,7 +460,7 @@
   .cartao p:last-child { margin-bottom: 0; }
   .dentro { display: grid; gap: .1rem; margin: .9rem 0 0;
             border-top: 1px solid var(--rule-soft); padding-top: .8rem; }
-  .dentro div { display: grid; grid-template-columns: 7rem 1fr; gap: .8rem;
+  .dentro div { display: grid; grid-template-columns: 9.5rem 1fr; gap: .8rem;
                 align-items: baseline; padding: .28rem 0; }
   .dentro .nome { font-family: var(--serif); font-size: var(--t-sm); color: var(--ink); }
   .dentro .oque { font-size: var(--t-sm); color: var(--muted); }
@@ -491,20 +491,27 @@
     <span class="selo">conversa</span>
   </div>
   <p class="le">A consistência entre os quatro elementos</p>
-  <p>Trabalha a lacuna, a pergunta, a abordagem metodológica e o referencial, e
-  sobretudo a consistência entre eles. Não pesquisa, não avalia a revisão de
-  literatura, não aprofunda o método e não pole o marco teórico: faz o que vem antes
-  dessas três coisas e sem o que nenhuma delas rende.</p>
   <div class="dentro">
     <div>
-      <span class="nome">Volta</span>
-      <span class="oque">A conversa, fechada por um comentário e pelo pré-projeto, num
-      bloco de código só. Pelo agente, o pré-projeto sai gravado na pasta.</span>
+      <span class="nome">O que faz?</span>
+      <span class="oque">Trabalha a lacuna, a pergunta, a abordagem metodológica e o
+      referencial, e sobretudo a consistência entre eles. Não pesquisa, não avalia a
+      revisão de literatura, não aprofunda o método e não pole o marco teórico: faz o
+      que vem antes dessas três coisas e sem o que nenhuma delas rende.</span>
     </div>
     <div>
-      <span class="nome">Custo</span>
-      <span class="oque">Nenhum: roda em conta gratuita de qualquer assistente, sem
-      instalar nada. É por isso que o prompt é grande.</span>
+      <span class="nome">O que retorna?</span>
+      <span class="oque">A conversa, fechada por um comentário e pelo pré-projeto, num
+      bloco de código só. Pelo agente, o pré-projeto sai gravado na pasta, e o projeto
+      já escrito volta comentado por dentro, em <code>.docx</code> ou em PDF, sem uma
+      palavra alterada.</span>
+    </div>
+    <div>
+      <span class="nome">Custos</span>
+      <span class="oque">No chat não custa tokens, porque roda em conta gratuita, sem
+      instalar nada. Em troca dá mais trabalho: o prompt é grande e entra em quatro
+      colagens, e o resultado vem na resposta do modelo, para copiar à mão. No agente
+      custa tokens e mais tempo, e devolve arquivo.</span>
     </div>
   </div>
 </div>
@@ -515,21 +522,26 @@
     <span class="selo">leitura</span>
   </div>
   <p class="le">A leitura de banca</p>
-  <p>Lê o projeto escrito e devolve uma análise minuciosa, avaliando os vários
-  elementos do trabalho e fazendo sugestões para seu aprimoramento. São cinco
-  dimensões fixas: quatro com nota de 0 a 10 e a dos indícios de IA, que não tem nota
-  e é graduada em quatro níveis.</p>
   <div class="dentro">
     <div>
-      <span class="nome">Volta</span>
-      <span class="oque">O relatório numa página, com a descrição e a avaliação de cada
-      dimensão, as notas e a lista de condições. Pelo agente, mais a conferência de
-      existência das obras da bibliografia.</span>
+      <span class="nome">O que faz?</span>
+      <span class="oque">Lê o projeto escrito e devolve uma análise minuciosa, avaliando
+      os vários elementos do trabalho e fazendo sugestões para seu aprimoramento. São
+      cinco dimensões fixas: quatro com nota de 0 a 10 e a dos indícios de IA, que não
+      tem nota e é graduada em quatro níveis.</span>
     </div>
     <div>
-      <span class="nome">Custo</span>
-      <span class="oque">Pelo chat, nenhum. Pelo agente, o que o modelo cobrar pela
-      leitura do projeto, que é fração do que custa ler uma dissertação.</span>
+      <span class="nome">O que retorna?</span>
+      <span class="oque">O relatório numa página, com a descrição e a avaliação de cada
+      dimensão, as notas e a lista de condições. Pelo agente, o mesmo relatório em PDF,
+      mais a conferência de existência das obras da bibliografia.</span>
+    </div>
+    <div>
+      <span class="nome">Custos</span>
+      <span class="oque">No chat não custa tokens, porque roda em conta gratuita, e o
+      prompt cabe numa colagem só; o resultado vem na resposta do modelo. No agente
+      custa tokens e mais tempo, e o que sai de lá é arquivo: o relatório
+      em PDF, e não texto na tela para copiar.</span>
     </div>
   </div>
 </div>
