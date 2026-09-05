@@ -33,6 +33,29 @@ CORPO = """<meta charset="utf-8">
 
 %(estilo)s
 
+<style>
+  /* as duas vias, na forma da pagina do Miro */
+  .vias-grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem;
+                margin: 1.2rem 0 .6rem; }
+  @media (max-width: 44rem) { .vias-grade { grid-template-columns: 1fr; } }
+  .via-bt { display: block; text-align: left; font: inherit; color: inherit;
+            background: var(--surface); border: 1px solid var(--rule);
+            border-radius: 3px; padding: 1rem 1.1rem; cursor: pointer; }
+  .via-bt:hover, .via-bt:focus-visible { border-color: var(--accent); }
+  .via-bt[aria-pressed="true"] { border-color: var(--accent);
+                                 box-shadow: inset 0 0 0 1px var(--accent); }
+  .via-nome { display: block; font-family: var(--serif); font-size: var(--t-h3);
+              line-height: 1.15; margin-bottom: .4rem; color: var(--accent); }
+  .via-txt { display: block; font-size: var(--t-sm); line-height: 1.5;
+             margin-bottom: .4rem; color: var(--ink-soft); }
+  .via-volta { display: block; font-size: var(--t-sm); color: var(--muted);
+               line-height: 1.45; }
+  .via-guia { margin: 1.2rem 0 2.4rem; }
+  .via-guia ol { margin: 0 0 1.2rem; padding-left: 1.3rem; max-width: var(--measure); }
+  .via-guia li { margin-bottom: .55rem; font-size: var(--t-sm); }
+</style>
+
+
 <nav class="indice" aria-label="Índice da página">
   <details class="indice-caixa" id="indice">
     <summary>Índice</summary>
@@ -42,7 +65,7 @@ CORPO = """<meta charset="utf-8">
       <a href="#ia">Os indícios de IA</a>
       <a href="#descricao">Dois parágrafos por dimensão</a>
       <a class="grupo" href="#lote">Uso em lote</a>
-      <a href="#prompt">O prompt, para colar</a>
+      <a href="#usar">Como usar: chat e agente</a>
     </div>
   </details>
 </nav>
@@ -82,6 +105,98 @@ CORPO = """<meta charset="utf-8">
 </div>
 </header>
 
+<h2 id="usar">Como usar</h2>
+
+<p class="deck">Duas vias. No chat você cola o prompt e o projeto, e o
+relatório sai na resposta. No agente, o assistente busca o prompt sozinho, lê o
+projeto que está na sua pasta e grava o relatório como arquivo.</p>
+
+<div class="vias-grade">
+  <button type="button" class="via-bt" data-via="chat">
+    <span class="via-nome">Modo chat</span>
+    <span class="via-txt">Você tem uma conta de assistente e nada instalado.
+    Cola-se o prompt numa janela nova e, em seguida, o projeto.</span>
+    <span class="via-volta">O relatório sai na resposta, para copiar.</span>
+  </button>
+
+  <button type="button" class="via-bt" data-via="agente">
+    <span class="via-nome">Modo agente</span>
+    <span class="via-txt">Um assistente que roda dentro de um programa e lê a
+    pasta do seu projeto: Claude Code, Copilot em modo agente, e outros.</span>
+    <span class="via-volta">O relatório sai em PDF, e a existência das obras da
+    bibliografia é conferida na busca.</span>
+  </button>
+</div>
+
+<div class="via-guia" id="guia-chat" hidden>
+  <ol>
+    <li><strong>Abra uma janela nova.</strong> O que já foi dito numa conversa em
+    andamento entra na leitura sem avisar.</li>
+    <li><strong>Cole o prompt</strong>, da caixa abaixo, e envie.</li>
+    <li><strong>Cole o projeto como texto</strong>, e não como anexo: de anexo ela
+    lê com menos fidelidade justamente onde precisa ser exata, que é o
+    localizador. Se não der, ela trabalha com o que tem e registra que os
+    localizadores podem estar deslocados.</li>
+    <li><strong>Ela pede quatro coisas</strong>, e cada uma muda o que sai: o
+    projeto como foi submetido; o <strong>edital</strong>, se houver, porque com
+    ele o relatório sai na forma da ficha que a banca preenche; a <strong>linha
+    de pesquisa</strong>, sem a qual ela não examina aderência; e a
+    <strong>numeração dos parágrafos</strong>, se você tiver como fornecê-la,
+    porque é dela que sai o localizador do bloco de dados.</li>
+    <li><strong>O relatório sai numa resposta só</strong>, com a descrição, a
+    ementa, a avaliação dos cinco elementos, as condições e as perguntas para a
+    arguição.</li>
+  </ol>
+
+  <div class="caixa-prompt">
+    <div class="barra">
+      <span id="tamanho"></span>
+      <button class="copiar" id="btn-copiar" type="button">Copiar prompt</button>
+    </div>
+    <textarea id="selma" readonly spellcheck="false">{{PROMPT_SELMA}}</textarea>
+  </div>
+
+  <p class="nota" style="margin-top: 1.2rem;"><strong>A colagem é grande, e o que
+  acontece com ela depende do serviço.</strong> São 49 mil caracteres. No ChatGPT
+  eles ainda entram como texto; no Claude, acima de cerca de 44 mil a colagem
+  vira um cartão &#8220;PASTED&#8221;, e ali o conteúdo entra na conversa do mesmo
+  jeito. As duas medidas são de 02/09/2026, por colagem real.</p>
+</div>
+
+<div class="via-guia" id="guia-agente" hidden>
+  <p style="color: var(--ink-soft);">Você não copia nada desta página. Abra no
+  agente a pasta onde está o projeto, ponha-o em modo agente, e cole o pedido
+  abaixo.</p>
+
+  <div class="caixa-prompt">
+    <div class="barra">
+      <span>o pedido, para colar no agente</span>
+      <button class="copiar" id="btn-copiar-agente" type="button">Copiar pedido</button>
+    </div>
+    <textarea id="pedido-agente" readonly spellcheck="false">Busque este arquivo e leia-o por inteiro:
+
+https://raw.githubusercontent.com/AlexandreAraujoCosta/Oficina_de_Projetos/master/prompt_selma.md
+
+Antes de começar, escreva a última frase dele, para eu conferir que a leitura chegou ao fim.
+
+Depois siga as instruções como se fossem suas: leia o projeto que está nesta pasta e escreva o relatório. Grave-o como arquivo, em vez de mostrá-lo na tela.</textarea>
+  </div>
+
+  <p class="nota"><strong>A última frase é a conferência.</strong> Ferramenta de
+  busca que resume em vez de devolver o texto entrega o prompt pela metade sem
+  avisar. O arquivo termina em <em>&#8220;… e que o diagnóstico com localizador é o
+  que ele leva.&#8221;</em> Se o que ele repetir não for isso, peça que busque de
+  novo, ou clone o repositório:
+  <code>git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</code></p>
+
+  <p><strong>O que o agente acrescenta</strong> é a busca, que confere se as obras
+  da bibliografia existem, e o arquivo de volta. Os programas do repositório
+  montam o resto: <span class="mono">relatorio_pdf.py</span> transforma o
+  relatório em PDF, e <span class="mono">selma_lote.py</span> monta a tabela
+  comparativa de um processo seletivo a partir do bloco de dados de cada
+  leitura, recusando o relatório cujo bloco não fecha.</p>
+</div>
+
 <h2 id="dimensoes">As dimensões analisadas</h2>
 
 <div class="fluxo">
@@ -112,7 +227,7 @@ CORPO = """<meta charset="utf-8">
     lista, e a existência das obras quando há busca.</li>
     <li><strong>Indícios de uso de IA.</strong> As marcas que se conferem na
     página, e o que elas custam. <b>Esta não tem nota:</b> é graduada em
-    quatro níveis, e viaja ao lado das outras.</li>
+    cinco níveis, e viaja ao lado das outras.</li>
   </ol>
 </div>
 
@@ -177,18 +292,20 @@ saem.</p>
   </section>
 </div>
 
-<h3>A terceira pergunta: dá para aprovar com alterações?</h3>
-<p>É a que mais rende, e a resposta já está na contagem, sem conta nova:
-<strong>as três classes são uma escala de custo de conserto.</strong> Sem
-nenhum grave, o projeto é apto, e um projeto com cinco achados leves está
-mais perto de ser aprovado do que um com um achado grave só, ainda que as notas
-digam o contrário. Com um achado grave, ela diz para cada um o que teria de mudar e
-de que tamanho é a mudança: reescrever uma seção é uma coisa, refazer a
-pergunta é outra, e só essa última é não apto.</p>
-<p>E o relatório fecha com <strong>o que a arguição pode ganhar</strong>: até
-três achados que se resolvem com uma resposta boa na banca, cada um com a
-dimensão que sobe de faixa se ele responder bem. Só entra o que sobe de faixa;
-o resto é pendência e já está no lugar dele.</p>
+<h3>O que a contagem diz sobre o custo de consertar</h3>
+<p>As três classes são uma escala de custo de conserto, e por isso a contagem
+informa mais que a nota. Um projeto com cinco achados leves fica em 7, e um com
+um achado grave fica em 4: quem lê vê, na conta, que o primeiro se conserta no
+caminho e o segundo não. Diante de um achado grave ela diz o que teria de mudar
+e de que tamanho é a mudança, porque reescrever uma seção é uma coisa e
+refazer a pergunta é outra. <strong>O juízo de aprovação não é dela</strong>:
+ela entrega a contagem e as condições, e quem decide tem as vagas, a linha e os
+outros candidatos.</p>
+<p><strong>O ganho de arguição viaja com a condição a que pertence</strong>, no
+terceiro campo da linha de dados, e não num bloco de prosa no fim. É o que o
+autor pode dizer diante da banca para aquele elemento subir de faixa antes de a
+condição estar cumprida; só entra o que sobe de faixa, e a maioria das
+condições fica sem ganho nenhum.</p>
 
 <h3>A pergunta do escopo, e o movimento de subtrair</h3>
 <p>As três classes são todas sobre <b>falta</b>: apontam o que não está lá.
@@ -220,10 +337,12 @@ ausente da lista, e o autor nomeado uma vez e nunca retomado.</p>
   defeito medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e
   nenhuma outra dimensão dá 10 por ausência de achado. A falta de defeito
   estava sendo premiada como excelência.</p>
-  <p>No lugar da nota, quatro níveis: <b>fortes (uso abusivo)</b>, quando as
-  marcas mostram na página que o texto não foi controlado por quem o assina;
-  <b>fortes (uso indeterminado)</b>, quando são fortes e ainda compatíveis com
-  pressa ou revisão mal feita; <b>leves</b>; e <b>ausentes</b>. O nível não
+  <p>No lugar da nota, cinco níveis: <b>indícios fortes (uso abusivo)</b>, quando
+  as marcas mostram na página que o texto não foi controlado por quem o assina;
+  <b>indícios fortes</b>, quando são várias e ainda compatíveis com pressa ou
+  revisão mal feita; <b>indícios médios</b>, quando se somam sem que nenhuma
+  sozinha alcance o que o documento afirma; <b>indícios fracos</b>; e <b>não há
+  indícios</b>. O nível não
   vira condição e não entra em nota nenhuma: viaja ao lado, e quem decide o
   que fazer com ele é a banca.</p>
 </div>
@@ -235,7 +354,7 @@ uma objeção que ninguém enuncia.</strong> O que ela relata está na página e
 conta: a simetria repetida entre seções sem relação entre si, a seção que não
 entrega o que o título promete, a subdivisão que sai sem que nada mude, e a
 fluência uniforme com afirmação que excede o material previsto.</p>
-<p><b>Duas marcas saíram nos testes de hoje, e o registro fica.</b> A
+<p><b>Duas marcas saíram nos testes de 03/09/2026, e o registro fica.</b> A
 referência arrolada e não citada, que num projeto de lista única é o estado
 normal; e a mesma obra com dados diferentes em dois pontos, que é o erro humano
 mais comum de uma bibliografia. <strong>Marca que dispara em escrita normal é
@@ -318,20 +437,6 @@ melhor assim.</p>
   a tabela é um conjunto de números cuja estabilidade ninguém verificou.</p>
 </div>
 
-<h2 id="prompt">O prompt, para colar</h2>
-
-<p>Cabe numa colagem só. Cole o texto, <strong>não o anexe como arquivo</strong>,
-e abra uma janela nova: o que já foi dito numa conversa em andamento entra na
-leitura sem avisar.</p>
-
-<div class="caixa-prompt">
-  <div class="barra">
-    <span id="tamanho"></span>
-    <button class="copiar" id="btn-copiar" type="button">Copiar prompt</button>
-  </div>
-  <textarea id="selma" readonly spellcheck="false">{{PROMPT_SELMA}}</textarea>
-</div>
-
 <footer>
   <p>Assistente de leitura para projetos de pesquisa, feito por Alexandre
   Araújo Costa, Faculdade de Direito da UnB. Protótipo em fase de testes.</p>
@@ -365,6 +470,45 @@ leitura sem avisar.</p>
         }
       });
     }
+  })();
+</script>
+
+<script>
+  // a via escolhida mostra so a sua guia, no molde da pagina do Miro
+  (function () {
+    var bts = Array.prototype.slice.call(document.querySelectorAll(".via-bt"));
+    var guias = { chat: "guia-chat", agente: "guia-agente" };
+    function mostrar(via) {
+      bts.forEach(function (o) {
+        o.setAttribute("aria-pressed", String(o.dataset.via === via));
+      });
+      Object.keys(guias).forEach(function (k) {
+        var el = document.getElementById(guias[k]);
+        if (el) el.hidden = k !== via;
+      });
+    }
+    bts.forEach(function (b) {
+      b.addEventListener("click", function () { mostrar(b.dataset.via); });
+    });
+    var daUrl = (location.hash || "").replace("#", "");
+    // sem escolha na URL, abre o chat: e a via que roda sem instalar nada
+    mostrar(Object.prototype.hasOwnProperty.call(guias, daUrl) ? daUrl : "chat");
+  })();
+
+  // o botao do pedido do agente, ao lado do botao do prompt
+  (function () {
+    var btn = document.getElementById('btn-copiar-agente');
+    var ta = document.getElementById('pedido-agente');
+    if (!btn || !ta) return;
+    btn.addEventListener('click', function () {
+      function feito() { btn.textContent = 'Copiado';
+        setTimeout(function () { btn.textContent = 'Copiar pedido'; }, 1800); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(feito, function () {
+          ta.select(); feito(); });
+      } else { ta.select();
+        try { document.execCommand('copy'); feito(); } catch (e) {} }
+    });
   })();
 </script>
 """
