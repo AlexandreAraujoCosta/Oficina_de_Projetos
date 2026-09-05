@@ -50,6 +50,8 @@ CORPO = """<meta charset="utf-8">
              margin-bottom: .4rem; color: var(--ink-soft); }
   .via-volta { display: block; font-size: var(--t-sm); color: var(--muted);
                line-height: 1.45; }
+  .vias-titulo { font-family: var(--serif); font-size: var(--t-md);
+                 margin: 2rem 0 .2rem; color: var(--ink); }
   .via-guia { margin: 1.2rem 0 2.4rem; }
   .via-guia ol { margin: 0 0 1.2rem; padding-left: 1.3rem; max-width: var(--measure); }
   .via-guia li { margin-bottom: .55rem; font-size: var(--t-sm); }
@@ -65,7 +67,7 @@ CORPO = """<meta charset="utf-8">
       <a href="#ia">Os indícios de IA</a>
       <a href="#descricao">Dois parágrafos por dimensão</a>
       <a class="grupo" href="#lote">Uso em lote</a>
-      <a href="#usar">Como usar: chat e agente</a>
+      <a href="#usar">Como usar</a>
     </div>
   </details>
 </nav>
@@ -101,11 +103,12 @@ CORPO = """<meta charset="utf-8">
 
 <div class="autoria">
   <p>Ferramenta desenvolvida por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
-  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
+  <p>Trata-se de um protótipo, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-lo. Se você usar a ferramenta, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento do prompt em situações reais.</p>
 </div>
 </header>
 
-<h2 id="usar">Como usar</h2>
+<p class="vias-titulo" id="usar">Escolha a via pela qual você vai aplicar a ferramenta, para ter as
+  orientações adequadas sobre o seu uso em cada opção.</p>
 
 <p class="deck">Duas vias. No chat você cola o prompt e o projeto, e o
 relatório sai na resposta. No agente, o assistente busca o prompt sozinho, lê o
@@ -491,8 +494,7 @@ melhor assim.</p>
       b.addEventListener("click", function () { mostrar(b.dataset.via); });
     });
     var daUrl = (location.hash || "").replace("#", "");
-    // sem escolha na URL, abre o chat: e a via que roda sem instalar nada
-    mostrar(Object.prototype.hasOwnProperty.call(guias, daUrl) ? daUrl : "chat");
+    if (Object.prototype.hasOwnProperty.call(guias, daUrl)) mostrar(daUrl);
   })();
 
   // o botao do pedido do agente, ao lado do botao do prompt
