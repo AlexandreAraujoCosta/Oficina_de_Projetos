@@ -512,14 +512,14 @@
     <h2>Selma</h2>
   </div>
   <p class="resumo">Lê o projeto como uma banca o leria, e devolve um
-  relatório curto, com nota por dimensão e a lista de condições. Não há conversa: ela lê, classifica
+  relatório curto, com nota por elemento e a lista de condições. Não há conversa: ela lê, classifica
   e entrega. O relatório é escrito <b>para a banca</b>, e quem o usa para ver o
   próprio projeto está vendo o que a banca veria.</p>
 
   <dl class="ficha">
     <div><dt>tamanho</dt><dd>~26 mil caracteres</dd></div>
     <div><dt>relatório</dt><dd>uma página, cinco blocos fixos</dd></div>
-    <div><dt>nota</dt><dd>0 a 10 em quatro dimensões</dd></div>
+    <div><dt>nota</dt><dd>0 a 10 em quatro elementos</dd></div>
     <div><dt>conclusão</dt><dd>a lista de condições, e nada além dela</dd></div>
     <div><dt>indícios de IA</dt><dd>sem nota, em quatro níveis</dd></div>
     <div><dt>localizador</dt><dd>o tópico do projeto, em todo achado</dd></div>
@@ -551,8 +551,8 @@
     </section>
   </div>
 
-  <h3>Cada dimensão sai em dois parágrafos</h3>
-  <p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquela dimensão, com os
+  <h3>Cada elemento sai em dois parágrafos</h3>
+  <p>Cada um abre pelo seu rótulo. O primeiro, <b>Descrição</b>, descreve o que o projeto traz naquele elemento, com os
   tópicos onde cada coisa está; o segundo <b>avalia</b>, com o achado, a
   contagem por classe e a nota. Sem a descrição, quem lê o relatório não sabe o
   que está sendo avaliado, e num processo com vinte projetos ninguém abre os
@@ -565,8 +565,8 @@
   <h3>A nota sai de uma contagem, e não de uma impressão</h3>
   <p>Cada achado se classifica em uma de três classes, com o teste feito
   <strong>com o defeito no lugar</strong>, e não depois de imaginá-lo
-  consertado. <b>Grave:</b> do jeito que está, a dimensão não entrega o que
-  promete, e nenhum prazo resolve. <b>Médio:</b> a dimensão
+  consertado. <b>Grave:</b> do jeito que está, oelementonão entrega o que
+  promete, e nenhum prazo resolve. <b>Médio:</b> o elemento
   entrega, e há coisa a resolver antes de começar, que se resolve fazendo.
   <b>Leve:</b> resolve-se no caminho. Depois a contagem manda na faixa e
   no dígito, e o relatório mostra a conta.</p>
@@ -577,8 +577,7 @@
   banca de qualificação</b>, e ela já está na contagem, sem conta nova:
   grave e médio viram condição; leve não vira, porque
   se resolve no caminho.</p>
-  <p>Cada condição se escreve como coisa a fazer, no infinitivo, com a dimensão
-  de onde vem e o tópico em que o problema está. <b>A média saiu junto com o
+  <p>Cada condição se escreve como coisa a fazer, no infinitivo, comoelementode onde vem e o tópico em que o problema está. <b>A média saiu junto com o
   veredito</b>, porque ela só servia para dizer de que lado da linha de 7 o
   projeto caía; sem a linha, seria número sem âncora, e número sem âncora numa
   ficha de banca é convite a ordenar por ele.</p>
@@ -589,9 +588,9 @@
   classe só, ainda que as duas caiam sobre o mesmo achado.</p>
 
   <h3>Os indícios de IA se graduam, e não se contam</h3>
-  <p><b>Esta dimensão não tem nota</b>, e a correção veio de um defeito
-  medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e nenhuma outra
-  dimensão dá 10 por ausência de achado. A falta de defeito estava sendo
+  <p><b>Este elemento não tem nota</b>, e a correção veio de um defeito
+  medido: enquanto ela pontuava, <b>não ter marca valia 10</b>, e nenhum outro
+  elemento dá 10 por ausência de achado. A falta de defeito estava sendo
   premiada como excelência. No lugar da nota, quatro níveis: <b>fortes (uso
   abusivo)</b>, quando as marcas mostram na página que o texto não foi
   controlado por quem o assina; <b>fortes (uso indeterminado)</b>, quando são
@@ -612,13 +611,12 @@
   vinte no mesmo contexto. <b>Isso não é limitação a superar:</b> se um modelo
   lê vinte seguidos, o sétimo é lido contra a lembrança dos seis anteriores, e
   o mesmo defeito recebe nota diferente conforme o que veio antes. A
-  comparabilidade vem da independência somada às dimensões fixas.</p>
-  <p>Cada relatório fecha com um <b>bloco de dados</b> — uma linha por
-  dimensão, com a contagem por classe e a nota — e é dele que a tabela do lote
+  comparabilidade vem da independência somada aos elementos fixos.</p>
+  <p>Cada relatório fecha com um <b>bloco de dados</b> — uma linha porelemento, com a contagem por classe e a nota — e é dele que a tabela do lote
   é montada, <b>por um programa e não por um modelo</b>: quem copia vinte
   linhas de números troca uma, e numa ficha de seleção um número trocado é o
   pior defeito possível. O programa recusa o relatório cujo bloco não fecha:
-  dimensão faltando, título escrito em vez do localizador dele, condição que
+  elemento faltando, título escrito em vez do localizador dele, condição que
   não corresponde a nenhum achado grave nem médio.</p>
   <p><b>A tabela sai em ordem alfabética.</b> Não há média para ordenar, e a
   contagem de condições também não ordena: duas condições pequenas não valem
@@ -626,7 +624,7 @@
   ordena, sabendo que foi decisão sua.</p>
   <p>O relatório da coorte <b>só conta</b>: quantos não têm condição nenhuma
   a cumprir, quantas condições ao todo, quantos tiveram nota abaixo de 7 em
-  cada dimensão, qual foi a mais fraca no conjunto. Contagem é transcrição; dizer que a turma tem dificuldade com
+  cada elemento, qual foi a mais fraca no conjunto. Contagem é transcrição; dizer que a turma tem dificuldade com
   metodologia seria afirmação nova sobre uma população.</p>
   <p><b>A saída do lote é um PDF</b>, com a tabela comparativa, as contagens da
   coorte e, depois, cada leitura inteira, uma por página. <b>Num projeto só o PDF
@@ -717,7 +715,7 @@ equivalente para a Selma, e não há razão para supor que ela se comporte melho
     e é deliberado: o pré-projeto é material de trabalho, e transformá-lo em projeto é
     escrever.</li>
     
-    <li><strong>Selma.</strong> Lê o projeto escrito e devolve o relatório de banca, com as cinco dimensões (quatro com nota, e os indícios de IA graduados) e a lista de condições para ele ser apresentável a uma banca de qualificação. <em>Se faltar peça</em>, ela diz qual falta e põe a nota que a faixa mandar, porque dimensão sem material também é informação para quem decide.</li>
+    <li><strong>Selma.</strong> Lê o projeto escrito e devolve o relatório de banca, com os cinco elementos (quatro com nota, e os indícios de IA graduados) e a lista de condições para ele ser apresentável a uma banca de qualificação. <em>Se faltar peça</em>, ela diz qual falta e põe a nota que a faixa mandar, porque elemento sem material também é informação para quem decide.</li>
   </ol>
 </div>
 
@@ -765,13 +763,13 @@ páginas não é lido.</p>
     reconstruído pela leitura. O bloco é ele mesmo um teste: se a leitura não
     consegue reconstruir, isso é o primeiro achado, porque a banca também não
     vai conseguir.</li>
-    <li><strong>As cinco dimensões</strong>, cada uma em dois parágrafos: o
+    <li><strong>Os cinco elementos</strong>, cada uma em dois parágrafos: o
     primeiro descreve o que o projeto traz ali, e o segundo avalia, com o
     achado, o tópico, a conta por classe e a nota de 0 a 10. Todas aparecem
-    sempre, mesmo vazias, porque dimensão omitida se lê como dimensão
-    aprovada.</li>
+    sempre, mesmo vazias, porque elemento omitido se lê como elemento
+    aprovado.</li>
     <li><strong>As condições</strong> para o projeto ser apresentável a uma
-    banca de qualificação, cada uma como coisa a fazer, com a dimensão de onde
+    banca de qualificação, cada uma como coisa a fazer, com o elemento de onde
     vem. É a única conclusão da peça.</li>
     <li><strong>O que a banca vai perguntar</strong>: duas ou três perguntas que
     o projeto não sobrevive sem responder, escritas como perguntas e não como
@@ -825,8 +823,8 @@ de redação.</p>
 submetido a um processo seletivo, e cada rodada corrigiu o instrumento. A
 primeira produziu um achado falso, porque a regra da bibliografia não excluía
 diploma legal, e num projeto de direito quase toda afirmação central se apoia em
-lei. A terceira mostrou que as faixas de nota não decidiam sozinhas: em três das
-cinco dimensões a leitura teve de inventar o limiar, e naquela versão isso
+lei. A terceira mostrou que as faixas de nota não decidiam sozinhas: em três dos
+cinco elementos a leitura teve de inventar o limiar, e naquela versão isso
 decidia admissão, porque havia uma linha de aprovação em 7. Daí vieram a
 contagem por classes e as duas regras de subida; a linha de aprovação saiu
 depois, e no lugar dela ficou a lista de condições. A quinta conferiu a existência das dezessete obras da bibliografia, e as
