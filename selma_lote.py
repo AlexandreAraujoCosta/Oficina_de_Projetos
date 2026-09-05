@@ -56,6 +56,11 @@ NOMES_LEGIVEIS = ["problema e justificativa", "metodologia e teoria",
 
 NIVEIS = ["fortes-abusivo", "fortes-indeterminado", "leves", "ausentes"]
 
+# COMO A LEITURA CHAMA CADA ELEMENTO no titulo, quando o nome dela nao e o
+# da tabela. So o quinto diverge: o prompt o chama de indicios de USO de
+# IA, e a tabela o chama de indicios de IA.
+OUTROS_NOMES = {5: ["indicios de uso de ia"]}
+
 
 # --------------------------------------------------------------- preparar
 def extrair(caminho):
@@ -339,6 +344,35 @@ def nivel_do_titulo(txt):
     return 1 if re.match(r"^\d+\.", txt.strip()) else 2
 
 
+RE_ELEMENTO = re.compile(r"^\s*([1-5])[.)]\s+(.+)$")
+
+
+def subtitulo_de_elemento(texto, numero_do_bloco):
+    """Devolve "3.1 Problema e justificativa", ou None se nao for isso.
+
+    O TESTE E DUPLO, E O NUMERO SOZINHO NAO SERVE: tem de estar dentro da
+    avaliacao analitica, e o nome tem de ser o nome daquele numero. Sem a
+    segunda metade, "4. PERGUNTAS PARA AS QUAIS O AUTOR DEVE ESTAR
+    PREPARADO" viraria o elemento 4.
+
+    E O NOME SAI DA TABELA, e nao do que a leitura digitou: assim o
+    titulo do elemento, a linha da ficha e a entrada da ementa dizem a
+    mesma palavra.
+    """
+    if numero_do_bloco is None:
+        return None
+    m = RE_ELEMENTO.match(texto.strip())
+    if not m:
+        return None
+    n = int(m.group(1))
+    nome = NOMES_LEGIVEIS[n - 1]
+    aceitos = [sem_acento(nome)] + [sem_acento(x)
+                                    for x in OUTROS_NOMES.get(n, [])]
+    if sem_acento(m.group(2)).strip(" .:") not in aceitos:
+        return None
+    return "%s.%d %s%s" % (numero_do_bloco, n, nome[0].upper(), nome[1:])
+
+
 def partir_preambulo(blocos):
     """Separa as observacoes de abertura do corpo do relatorio.
 
@@ -441,12 +475,22 @@ def escrever_leitura(f, nome, d, com_tarja=True, cabecalho=True,
     if blocos is None:
         blocos = blocos_do_relatorio(d["texto"])
     na_ementa = False
+    # O NUMERO DO BLOCO DA ANALISE, quando estamos dentro dele: e ele que
+    # prefixa os elementos, e fora dele nao ha subtitulo nenhum.
+    analise = None
     for i, (tipo, texto_bloco) in enumerate(blocos):
         if tipo == "titulo":
-            na_ementa = "EMENTA" in sem_acento(texto_bloco)
-            nivel = nivel_do_titulo(texto_bloco)
-            corpo = 12.5 if nivel == 1 else 11
-            antes = 18 if nivel == 1 else 13
+            sub = subtitulo_de_elemento(texto_bloco, analise)
+            if sub is None:
+                na_ementa = "EMENTA" in sem_acento(texto_bloco)
+                nivel = nivel_do_titulo(texto_bloco)
+                m_bloco = re.match(r"^\s*(\d+)[.)]", texto_bloco.strip())
+                analise = (m_bloco.group(1) if m_bloco
+                           and "ANALITICA" in sem_acento(texto_bloco) else None)
+            else:
+                na_ementa, nivel, texto_bloco = False, 3, sub
+            corpo = {1: 13.5, 2: 12.5, 3: 11}[nivel]
+            antes = {1: 18, 2: 16, 3: 14}[nivel]
             # O TITULO NAO FICA SOZINHO NO PE DA PAGINA. Duas linhas do
             # que vem depois bastam, porque o paragrafo agora se parte: o
             # que nao couber continua na pagina seguinte.
@@ -520,7 +564,7 @@ def escrever_um(nome, d, caminho, titulo=None):
             "qualificação", corpo=13.5, fonte="tibo", espaco_antes=10,
             espaco_depois=7)
     if not d["condicoes"]:
-        f.texto("Nenhuma. Nenhum grave e nenhum médio em "
+        f.texto("Nenhuma. Nenhum achado grave e nenhum médio em "
                 "dimensão nenhuma.", espaco_depois=8)
     else:
         for k, (dim, texto_c, ganho) in enumerate(d["condicoes"], 1):
@@ -1014,6 +1058,26 @@ def controle():
           % len(casos))
     print("aceito nao informaria nada: silencio de conferidor quebrado tem a")
     print("mesma aparencia de silencio de dado correto.")
+    print()
+
+    print("Controle positivo do subtitulo do elemento:")
+    casos_sub = [
+        ("3", "1. PROBLEMA E JUSTIFICATIVA", "3.1 Problema e justificativa"),
+        ("3", "4. BIBLIOGRAFIA", "3.4 Bibliografia"),
+        ("3", "5. INDICIOS DE USO DE IA", "3.5 Indícios de IA"),
+        ("3", "4. PERGUNTAS PARA AS QUAIS O AUTOR DEVE ESTAR PREPARADO", None),
+        ("3", "2. EMENTA", None),
+        (None, "1. PROBLEMA E JUSTIFICATIVA", None),
+    ]
+    for bloco, titulo, esperado in casos_sub:
+        saiu = subtitulo_de_elemento(titulo, bloco)
+        marca = "ok" if saiu == esperado else "ERRADO (saiu %r)" % saiu
+        print("  %-56s %-30s %s"
+              % (titulo[:56], esperado or "nao e elemento", marca))
+        assert saiu == esperado, (titulo, saiu, esperado)
+    print()
+    print("Sem os tres que devolvem None, o numero sozinho bastaria, e o")
+    print("bloco 4 viraria o elemento 4.")
 
 
 if __name__ == "__main__":
