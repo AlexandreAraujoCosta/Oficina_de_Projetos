@@ -31,6 +31,33 @@ CORPO = """<title>Selma — leitura de projeto de pesquisa</title>
 
 %(estilo)s
 
+<nav class="indice" aria-label="Índice da página">
+  <details class="indice-caixa" id="indice">
+    <summary>Índice</summary>
+    <div class="indice-lista">
+      <a href="#dimensoes">As cinco dimensões</a>
+      <a href="#nota">A nota sai de uma contagem</a>
+      <a href="#ia">Os indícios de IA</a>
+      <a href="#descricao">Dois parágrafos por dimensão</a>
+      <a class="grupo" href="#lote">Uso em lote</a>
+      <a href="#prompt">O prompt, para colar</a>
+    </div>
+  </details>
+</nav>
+
+<script>
+  /* Na tela larga o índice fica aberto, porque ali ele é trilho e não
+     controle. details fechado não se abre por CSS, e por isso esta linha
+     existe; sem ela, o que sobra é a linha clicável. */
+  (function () {
+    var larga = window.matchMedia("(min-width: 78rem)");
+    var caixa = document.getElementById("indice");
+    function ajustar() { if (larga.matches) { caixa.open = true; } }
+    ajustar();
+    larga.addEventListener("change", ajustar);
+  })();
+</script>
+
 <div class="wrap">
 
 <header>

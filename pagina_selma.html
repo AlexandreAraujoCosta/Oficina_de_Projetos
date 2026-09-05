@@ -95,26 +95,54 @@
 
   .wrap { max-width: 47rem; margin: 0 auto; padding: 0 1.4rem 6rem; }
 
-  /* ---- navegação ---- */
-  nav {
+  /* ---- índice, ao lado do texto ---- */
+  .indice { font-size: 0.8rem; }
+  .indice-caixa {
     position: sticky; top: 0; z-index: 20;
     background: var(--ground);
     border-bottom: 1px solid var(--rule-soft);
-    font-size: 0.78rem;
   }
-  nav .inner {
-    max-width: 47rem; margin: 0 auto; padding: 0.55rem 1.4rem;
-    display: flex; gap: 0.55rem; align-items: center;
-    overflow-x: auto; scrollbar-width: thin;
+  .indice summary {
+    cursor: pointer; list-style: none;
+    padding: 0.5rem 1.4rem;
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
   }
-  nav a {
-    color: var(--muted); text-decoration: none; white-space: nowrap;
-    padding: 0.15rem 0.1rem;
+  .indice summary::-webkit-details-marker { display: none; }
+  .indice summary::after { content: " +"; color: var(--accent); }
+  .indice-caixa[open] summary::after { content: " −"; }
+  .indice summary:hover { color: var(--accent); }
+  .indice-lista {
+    display: flex; flex-direction: column; gap: 0.42rem;
+    padding: 0.1rem 1.4rem 0.9rem;
   }
-  nav a:hover { color: var(--accent); }
-  nav .sep { color: var(--faint); opacity: 0.5; }
-  nav .num {
+  .indice a {
+    color: var(--muted); text-decoration: none; line-height: 1.25;
+  }
+  .indice a:hover { color: var(--accent); }
+  .indice .num {
     font-family: var(--mono); font-size: 0.72rem; color: var(--accent);
+  }
+  .indice .sub { padding-left: 0.85rem; }
+  .indice .grupo {
+    margin-top: 0.5rem; padding-top: 0.6rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  h2, .instrumento { scroll-margin-top: 3.2rem; }
+
+  /* Do lado, quando a tela tem margem para ele. A coluna de texto não se
+     move: o trilho ocupa a margem esquerda que já estava vazia. */
+  @media (min-width: 78rem) {
+    .indice {
+      position: fixed; top: 0; z-index: 20;
+      left: max(1rem, calc(50% - 23.5rem - 14rem));
+      width: 12.5rem; max-height: 100vh; overflow-y: auto;
+      padding: 3.9rem 0 2rem; scrollbar-width: thin;
+    }
+    .indice-caixa { position: static; background: none; border-bottom: 0; }
+    .indice-caixa[open] summary { display: none; }
+    .indice-lista { padding: 0; gap: 0.5rem; }
+    h2, .instrumento { scroll-margin-top: 1.2rem; }
   }
 
   /* ---- cabeçalho ---- */
@@ -360,6 +388,33 @@
     * { animation: none !important; transition: none !important; }
   }
 </style>
+
+<nav class="indice" aria-label="Índice da página">
+  <details class="indice-caixa" id="indice">
+    <summary>Índice</summary>
+    <div class="indice-lista">
+      <a href="#dimensoes">As cinco dimensões</a>
+      <a href="#nota">A nota sai de uma contagem</a>
+      <a href="#ia">Os indícios de IA</a>
+      <a href="#descricao">Dois parágrafos por dimensão</a>
+      <a class="grupo" href="#lote">Uso em lote</a>
+      <a href="#prompt">O prompt, para colar</a>
+    </div>
+  </details>
+</nav>
+
+<script>
+  /* Na tela larga o índice fica aberto, porque ali ele é trilho e não
+     controle. details fechado não se abre por CSS, e por isso esta linha
+     existe; sem ela, o que sobra é a linha clicável. */
+  (function () {
+    var larga = window.matchMedia("(min-width: 78rem)");
+    var caixa = document.getElementById("indice");
+    function ajustar() { if (larga.matches) { caixa.open = true; } }
+    ajustar();
+    larga.addEventListener("change", ajustar);
+  })();
+</script>
 
 <div class="wrap">
 
