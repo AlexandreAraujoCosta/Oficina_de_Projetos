@@ -87,23 +87,28 @@ como dimensão aprovada.</p>
 
 <div class="fluxo">
   <ol>
-    <li><strong>Problema e justificativa</strong>, lidos juntos, porque
-    pergunta clara e irrelevante não sustenta projeto. Há pergunta, ou só tema?
-    Ela é respondível? É circular? E, do outro lado, <b>de que modo enfrentá-la
-    justifica o trabalho</b> — que não é a mesma coisa que a importância do
-    tema, porque um tema importante justifica qualquer pesquisa sobre ele, e
-    portanto nenhuma.</li>
+    <li><strong>Problema, objetivos e hipóteses</strong>, lidos um contra o
+    outro. Há pergunta, ou só tema? O recorte (que material, que período), a
+    clareza (a mesma formulação nas seções em que ela volta) e a viabilidade.
+    <b>O objetivo geral responde à pergunta</b>, e cada objetivo específico
+    corresponde a uma etapa da metodologia? E a hipótese é sujeita a teste ao
+    longo do trabalho, ou é afirmação que nenhum resultado previsto poderia
+    contrariar?</li>
+    <li><strong>Justificativa.</strong> A lacuna nomeada como falta de
+    conhecimento, e <b>de que modo enfrentar esta pergunta justifica o
+    trabalho</b>, que não é a mesma coisa que a importância do tema: um tema
+    importante justifica qualquer pesquisa sobre ele, e portanto nenhuma. Os
+    impactos, o acadêmico e o social, com alguém concreto que decidiria
+    diferente (categoria profissional não é destinatário). E o produto técnico,
+    que é o que faz a apropriação social dos resultados acontecer.</li>
     <li><strong>Metodologia e teoria</strong>, lidas juntas, e a primeira coisa
-    é se <b>o método responde à pergunta</b>: método suficiente é método
+    é se <b>o método responde à pergunta do elemento 1</b>: método suficiente é método
     articulado à pergunta, e não método bem descrito. A fonte, as
     categorias, a operação (contar, classificar, qualificar, comparar,
     interpretar) e a forma do resultado. A proporção entre as duas: método
     rarefeito demais faz a teoria deixar de restringir qualquer conclusão.
     E <b>o escopo</b>: o que o projeto promete cabe no prazo e nas mãos de uma
     pessoa?</li>
-    <li><strong>Contribuições e impacto.</strong> O que muda no conhecimento,
-    e o que muda na prática, com alguém concreto que decidiria diferente.
-    Categoria profissional não é destinatário.</li>
     <li><strong>Bibliografia.</strong> A lista contra o texto, a composição da
     lista, e a existência das obras quando há busca.</li>
     <li><strong>Indícios de uso de IA.</strong> As marcas que se conferem na

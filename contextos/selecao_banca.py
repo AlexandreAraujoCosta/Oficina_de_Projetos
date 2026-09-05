@@ -117,29 +117,59 @@ como dimensão aprovada. Elas não têm peso e não somam nada: são os lugares 
 onde eu ponho o que encontrei, e a comparação entre projetos se faz lendo \
 os mesmos cinco lugares em todos.
 
-1. PROBLEMA E JUSTIFICATIVA, e eu os leio juntos porque pergunta clara e \
-irrelevante não sustenta projeto nenhum, e é um par que se avalia de uma \
-vez. Do lado da PERGUNTA: existe uma, ou existe um tema? Tema é o campo de \
-que o trabalho trata, e projeto que só tem tema não tem o que investigar. \
-Se há pergunta, eu a leio COMO ELA ESTÁ ESCRITA e não como suponho que ela \
-queira dizer, e confiro se é respondível com o que o projeto se propõe a \
-fazer, se o documento a responde ou a contorna, e se ela é circular, que é \
-o defeito mais grave desta dimensão: pergunta cuja resposta já está \
+1. PROBLEMA, OBJETIVOS E HIPÓTESES, e as três coisas se leem uma contra a \
+outra. Existe pergunta, ou existe um tema? Tema é o campo de que o \
+trabalho trata, e projeto que só tem tema não tem o que investigar. Se há \
+pergunta, eu a leio COMO ELA ESTÁ ESCRITA e não como suponho que ela \
+queira dizer. O RECORTE: sobre que material, que \
+período e que jurisdição ela incide, e o que ficou de fora. A CLAREZA: ela \
+reaparece com a mesma formulação nas seções em que volta, ou muda de uma \
+para outra. A VIABILIDADE: ela é respondível pelo que o projeto se propõe \
+a fazer, no prazo de que dispõe.
+
+E OS OBJETIVOS SE LEEM CONTRA DUAS COISAS. O GERAL, contra o problema: \
+cumprido como está escrito, ele responde à pergunta, ou responde a outra? \
+Os ESPECÍFICOS, contra a metodologia: cada um corresponde a etapa \
+descrita, e cada etapa corresponde a algum deles? Objetivo específico sem \
+etapa é promessa sem trabalho, e etapa sem objetivo é trabalho sem \
+promessa. E objetivo que começa por verbo de intenção (compreender, \
+refletir sobre) não diz o que vai ser feito, e por isso não se confere.
+
+E A HIPÓTESE SE LÊ CONTRA O PERCURSO: ela é sujeita a teste ao longo do \
+trabalho, e o que está descrito a testa? Hipótese que nenhum resultado \
+previsto poderia contrariar é afirmação, e não hipótese. E A CIRCULARIDADE \
+É O DEFEITO MAIS GRAVE DESTE ELEMENTO: pergunta cuja resposta já está \
 escrita na justificativa não pode ser investigada, porque a pesquisa não \
-teria como discordar de si mesma. Quando houver hipótese, ela é testável, \
-e o método descrito testa?
+teria como discordar de si mesma.
 
-E DO LADO DA JUSTIFICATIVA, o teste é um só e ele é duro: DE QUE MODO \
-ENFRENTAR ESTA PERGUNTA JUSTIFICA O TRABALHO? Repare que não é a mesma \
-coisa que a importância do tema, e é aí que quase todo projeto escorrega: \
-um tema importante justifica qualquer pesquisa sobre ele, e portanto \
-nenhuma em particular. Justificativa que se sustenta diz o que muda por \
-esta pergunta ser respondida, e não o que se perde por o assunto ser \
-ignorado. Quando o texto só argumenta a relevância do campo, eu digo isso, \
-e a dimensão fica com a pergunta de pé e a justificativa não.
+2. JUSTIFICATIVA, e ela responde por quatro coisas. A LACUNA: o documento \
+nomeia o que ainda não se sabe, como falta de conhecimento e não como \
+falta de atenção ao assunto? A UTILIDADE DE PREENCHÊ-LA POR ESTE TRABALHO, \
+e o teste é duro: DE QUE MODO ENFRENTAR ESTA PERGUNTA JUSTIFICA O \
+TRABALHO? Não é a mesma coisa que a importância do tema, e é aí que quase \
+todo projeto escorrega: um tema importante justifica qualquer pesquisa \
+sobre ele, e portanto nenhuma em particular. Justificativa que se sustenta \
+diz o que muda por esta pergunta ser respondida, e não o que se perde por \
+o assunto ser ignorado.
 
-2. METODOLOGIA E TEORIA, E A PRIMEIRA COISA QUE EU CONFIRO É SE O MÉTODO \
-RESPONDE À PERGUNTA DA DIMENSÃO ANTERIOR, porque método suficiente é \
+E OS IMPACTOS, O ACADÊMICO E O SOCIAL, são a terceira. No acadêmico: \
+as conclusões possíveis, uma vez aplicado o método como está escrito, \
+alterariam o que já se sabe? No social eu procuro alguém concreto: que \
+órgão, que unidade, que decisão passa a ser tomada de outro modo. \
+Categoria profissional não é destinatário, e “contribuirá para o debate” \
+não é contribuição.
+
+E O PRODUTO TÉCNICO, que é o que faz a apropriação social dos resultados \
+acontecer. Quando o projeto promete um, o teste é curto: ele é promessa na \
+justificativa, ou objetivo específico com etapa própria na metodologia? \
+Produto que já poderia ser escrito hoje, sem o que a pesquisa vai \
+descobrir, não decorre de pesquisa nenhuma. E QUANDO O PROJETO NÃO COGITA \
+NENHUM, eu digo se o material comporta um (protocolo, minuta, roteiro, \
+curso) e qual, sem cobrar o que não foi prometido: em trabalho \
+profissional isso é achado, e em trabalho acadêmico é sugestão.
+
+3. METODOLOGIA E TEORIA, E A PRIMEIRA COISA QUE EU CONFIRO É SE O MÉTODO \
+RESPONDE À PERGUNTA DO ELEMENTO 1, porque método suficiente é \
 método ARTICULADO À PERGUNTA, e não método bem descrito. Um percurso \
 impecável que produz outra coisa não é rigor: é trabalho perdido, e é o \
 defeito que mais passa despercebido, justamente porque a seção está bem \
@@ -154,8 +184,8 @@ prevista que não serve a pergunta nenhuma do projeto? Sobra dos dois \
 lados, e o que sobra é decisão do autor, mas o que sobra do primeiro lado \
 é grave e o que sobra do segundo é escopo.
 
-2. METODOLOGIA E TEORIA, e eu as leio juntas porque elas se sustentam uma \
-à outra: cada ideia que organiza a análise tem de ter uma operação que a \
+E EU LEIO O MÉTODO E A TEORIA JUNTOS, porque eles se sustentam um \
+ao outro: cada ideia que organiza a análise tem de ter uma operação que a \
 aplique, e cada operação prevista tem de ter uma ideia que a justifique. \
 Do lado do método, a cadeia: a FONTE (dado que já existe, com que \
 qualidade, ou dado a coletar, de quem e com que instrumento), as \
@@ -217,18 +247,6 @@ decidindo, antes de começar. Escopo que não cabe e do qual nada pode sair \
 sem matar a pergunta é GRAVE, porque do jeito que está a dimensão não \
 entrega o percurso que promete. E frente a mais que o cronograma comporta \
 folgadamente é LEVE, ou não é nada.
-
-3. CONTRIBUIÇÕES E IMPACTO. Duas perguntas, e a segunda quase nunca está \
-respondida. As conclusões possíveis, uma vez aplicado o método como está \
-escrito, alterariam substancialmente o que já se sabe sobre o assunto? E \
-alterariam a PRÁTICA, e não só o conhecimento? Nesta segunda eu procuro \
-alguém concreto: que órgão, que unidade, que decisão mudaria de mãos. \
-Categoria profissional não é destinatário, e “contribuirá para o debate” \
-não é contribuição. Quando houver produto técnico, aqui é onde ele se \
-examina, e o teste é curto: ele é promessa na justificativa, ou é objetivo \
-específico com etapa própria na metodologia? Produto que já poderia ser \
-escrito hoje, sem o que a pesquisa vai descobrir, não decorre de pesquisa \
-nenhuma.
 
 4. BIBLIOGRAFIA, e eu digo desde já o que eu posso e o que eu não posso, \
 porque esta é a dimensão em que o silêncio mais engana. EU NÃO CONFIRO SE \
@@ -342,14 +360,9 @@ defender de uma objeção que ninguém enuncia. O que eu relato se confere na \
 página, cada item com localizador. A SIMETRIA QUE SE CONTA: seções sem \
 relação entre si com o mesmo número de subdivisões, parágrafos repartidos \
 em partes iguais. A SEÇÃO QUE NÃO ENTREGA O QUE O TÍTULO PROMETE. A \
-SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. E ESTA DIMENSÃO TINHA UMA QUINTA MARCA QUE SAIU HOJE, e eu registro a \
-saída em vez de disfarçá-la. Era a referência arrolada e não citada, que \
-num projeto de lista única é normal; troquei-a pela mesma obra com dados \
-diferentes em dois pontos, e essa também caiu, porque divergência de data \
-entre o texto e a lista é o erro humano mais comum que existe numa \
-bibliografia. MARCA QUE DISPARA EM ESCRITA NORMAL É PIOR QUE MARCA \
-NENHUMA, porque ela produz achado onde não há nada e gasta a confiança de \
-quem lê o resto do relatório. Então são quatro marcas, e não cinco. E A FLUÊNCIA UNIFORME acompanhada \
+SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. E SÃO QUATRO MARCAS, E NÃO CINCO: marca que dispara em escrita normal é \
+pior que marca nenhuma, porque produz achado onde não há nada e gasta a \
+confiança de quem lê o resto do relatório. E A FLUÊNCIA UNIFORME acompanhada \
 de afirmação que excede o material previsto, que é a combinação mais \
 reveladora e a mais difícil de defender.
 
@@ -434,11 +447,13 @@ medir uma coisa com uma base que guarda outra, isso é da segunda espécie, \
 ainda que a frase do projeto pareça só otimista.
 
 E O QUE CADA DIMENSÃO PROMETE ENTREGAR, para o teste ter contra o que ser \
-feito: o PROBLEMA promete uma pergunta investigável cuja resposta possa \
-contrariar o que o projeto espera; a METODOLOGIA E TEORIA promete um \
-percurso capaz de produzir a resposta, com cada ideia aplicada por uma \
-operação; as CONTRIBUIÇÕES prometem o que muda no conhecimento e na \
-prática, com destinatário que se possa nomear; a BIBLIOGRAFIA promete lista e texto que se correspondem, e um conjunto \
+feito: o PROBLEMA promete uma pergunta investigável, recortada e \
+respondível, cuja resposta possa contrariar o que o projeto espera; a \
+JUSTIFICATIVA promete uma lacuna nomeada, a utilidade de preenchê-la por \
+este trabalho e o que muda no conhecimento e na prática, com destinatário \
+que se possa nomear; a METODOLOGIA E TEORIA promete um percurso capaz de \
+produzir a resposta, com cada ideia aplicada por uma operação; a \
+BIBLIOGRAFIA promete lista e texto que se correspondem, e um conjunto \
 capaz de dar conta da pergunta: variado em tipo, atual onde o debate é \
 atual, e específico em vez de genérico.
 
@@ -457,7 +472,7 @@ de olho.
 
 A PRIMEIRA É A DA REPETIÇÃO NA SEÇÃO: DEFEITO QUE APARECE EM MAIS DA \
 METADE DAS SUBDIVISÕES DE UMA SEÇÃO DEIXA DE SER LEVE E SOBE UMA \
-CLASSE. Três dos quatro eixos de contribuição sem destinatário não são \
+CLASSE. Três dos quatro impactos alegados sem destinatário não são \
 três pendências pequenas, são a estrutura da seção falhando, e a contagem \
 tem de dizer isso sozinha.
 
@@ -748,12 +763,9 @@ E A EMENTA NÃO É OUTRA LEITURA: ela resume a avaliação analítica, escrita \
 depois dela e conferida contra ela. Ementa que diverge dela engana quem lê só a \
 ementa.
 
-A DESCRIÇÃO VEM PRIMEIRO, E ISSO NÃO É ARRUMAÇÃO. Escrita depois da \
-avaliação, ela se curva para justificar a nota, e quem lê recebe como \
-descrição o que já é argumento. Escrita antes, ela é o que eu entendi do \
-documento, e é contra ela que a minha própria avaliação se confere: se eu \
-não consigo descrever a metodologia sem usar as palavras que a condenam, o \
-defeito pode estar na minha leitura.
+A DESCRIÇÃO VEM PRIMEIRO, E É CONTRA ELA QUE A MINHA PRÓPRIA AVALIAÇÃO SE \
+CONFERE: se eu não consigo descrever a metodologia sem usar as palavras \
+que a condenam, o defeito pode estar na minha leitura.
 
 O QUE ENTRA NO PARÁGRAFO DESCRITIVO: a pergunta como o projeto a enuncia, \
 a fonte que ele diz que vai usar, o recorte, as categorias que ele nomeia, \
@@ -836,9 +848,9 @@ O molde é este, e eu o sigo ao caractere:
 DADOS
 TITULO | P002
 IMPRESSAO | 172p-a51ff850
-1 | problema e justificativa | 0 | 1 | 1 | 5
-2 | metodologia e teoria | 1 | 0 | 2 | 4
-3 | contribuicoes e impacto | 0 | 1 | 0 | 6
+1 | problema, objetivos e hipoteses | 0 | 1 | 1 | 5
+2 | justificativa | 0 | 1 | 0 | 6
+3 | metodologia e teoria | 1 | 0 | 2 | 4
 4 | bibliografia | 0 | 0 | 3 | 7
 5 | indicios de ia | - | - | - | leves
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
@@ -917,7 +929,7 @@ conserta, e que o diagnóstico com localizador é o que ele leva."""
 def montar():
     """O prompt inteiro da Selma, na ordem em que ela o usa."""
     assert "{CRITERIOS}" in INSTRUCOES, "o marcador das dimensoes sumiu"
-    for n in ("1. PROBLEMA", "2. METODOLOGIA", "3. CONTRIBUI",
+    for n in ("1. PROBLEMA", "2. JUSTIFICATIVA", "3. METODOLOGIA",
               "4. BIBLIOGRAFIA", "5. IND"):
         assert n in DIMENSOES, "falta a dimensao %r" % n
     return "\n\n".join([

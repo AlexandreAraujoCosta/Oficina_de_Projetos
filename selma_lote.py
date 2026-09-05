@@ -44,14 +44,14 @@ import re
 import sys
 from pathlib import Path
 
-DIMENSOES = ["problema e justificativa", "metodologia e teoria", "contribuicoes e impacto",
-             "bibliografia", "indicios de ia"]
+DIMENSOES = ["problema, objetivos e hipoteses", "justificativa",
+             "metodologia e teoria", "bibliografia", "indicios de ia"]
 # A dimensao 5 nao tem nota e nao entra na media: leva o NIVEL.
 # Os mesmos nomes, acentuados, para o que vai impresso. Os de DIMENSOES
 # ficam sem acento porque e assim que o bloco de dados os traz e e assim
 # que o programa os compara; peca que um examinador le nao sai sem acento.
-NOMES_LEGIVEIS = ["problema e justificativa", "metodologia e teoria",
-                  "contribuições e impacto", "bibliografia",
+NOMES_LEGIVEIS = ["problema, objetivos e hipóteses", "justificativa",
+                  "metodologia e teoria", "bibliografia",
                   "indícios de IA"]
 
 NIVEIS = ["fortes-abusivo", "fortes-indeterminado", "leves", "ausentes"]
@@ -226,7 +226,7 @@ def ler_bloco(texto, origem="?"):
     # de campos separados por barra.
     corpo = (texto[:m.start()] + texto[m.end():]).strip()
     return {"notas": notas, "abaixo": baixas, "nivel": nivel,
-            "titulo": titulo, "impressao": impressao,
+            "titulo": titulo, "impressao": impressao, "contagens": contagem,
             "condicoes": condicoes, "texto": corpo}
 
 
@@ -977,9 +977,9 @@ def agregar(pasta, pdf=None):
 BOM = """DADOS
 TITULO | P002
 IMPRESSAO | 172p-a51ff850
-1 | problema e justificativa | 0 | 1 | 1 | 5
-2 | metodologia e teoria | 1 | 0 | 2 | 4
-3 | contribuicoes e impacto | 0 | 1 | 0 | 6
+1 | problema, objetivos e hipoteses | 0 | 1 | 1 | 5
+2 | justificativa | 0 | 1 | 0 | 6
+3 | metodologia e teoria | 1 | 0 | 2 | 4
 4 | bibliografia | 0 | 0 | 3 | 7
 5 | indicios de ia | - | - | - | leves
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta | dizer que decisao mudaria
@@ -1028,8 +1028,8 @@ def controle():
          BOM.replace("4 | bibliografia | 0 | 0 | 3 | 7",
                      "4 | bibliografia | 0 | 0 | 3 | 7" + chr(10) +
                      "CONDICAO | 4 | trocar a bibliografia inteira")),
-        ("dimensao com nome trocado",
-         BOM.replace("metodologia e teoria", "metodologia")),
+        ("dimensao com o nome velho da dimensao",
+         BOM.replace("| justificativa |", "| contribuicoes e impacto |")),
         ("falta uma dimensao",
          "\n".join(l for l in BOM.split("\n") if not l.startswith("4 |"))),
         ("sem o bloco", BOM.replace("DADOS", "DADO")),
@@ -1062,12 +1062,14 @@ def controle():
 
     print("Controle positivo do subtitulo do elemento:")
     casos_sub = [
-        ("3", "1. PROBLEMA E JUSTIFICATIVA", "3.1 Problema e justificativa"),
+        ("3", "1. PROBLEMA, OBJETIVOS E HIPÓTESES",
+         "3.1 Problema, objetivos e hipóteses"),
+        ("3", "2. JUSTIFICATIVA", "3.2 Justificativa"),
         ("3", "4. BIBLIOGRAFIA", "3.4 Bibliografia"),
         ("3", "5. INDICIOS DE USO DE IA", "3.5 Indícios de IA"),
         ("3", "4. PERGUNTAS PARA AS QUAIS O AUTOR DEVE ESTAR PREPARADO", None),
         ("3", "2. EMENTA", None),
-        (None, "1. PROBLEMA E JUSTIFICATIVA", None),
+        (None, "1. PROBLEMA, OBJETIVOS E HIPÓTESES", None),
     ]
     for bloco, titulo, esperado in casos_sub:
         saiu = subtitulo_de_elemento(titulo, bloco)
