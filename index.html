@@ -415,7 +415,10 @@
       <li><strong>Se ela virar um cartão</strong> em vez de texto ("Texto
       colado", "PASTED"): no ChatGPT, clique em <strong>"Mostrar no campo de
       texto"</strong>, que devolve o conteúdo para o campo. No Claude, o cartão
-      já entra na conversa e pode seguir assim.</li>
+      já entra na conversa e pode seguir assim. <strong>O que não serve é anexar o
+      arquivo no lugar de colar:</strong> a instrução que só é lida quando o
+      assistente resolve consultá-la não o impede de fazer o que ela proíbe. Colar
+      as quatro partes leva um minuto a mais e muda o resultado.</li>
     </ol>
 
     <div class="copybar">
@@ -423,6 +426,70 @@
     <button class="copy" id="btn-copy-1" type="button">Copiar parte 1</button>
   </div>
 
+<ol class="steps" start="3">
+      <li><strong>Envie.</strong> O assistente vai responder pedindo a parte
+      seguinte. Repita com as partes 2, 3 e 4, na ordem.</li>
+    </ol>
+
+    <div class="copybar">
+    <span class="label"><strong>Miro II</strong> — cole depois que ele pedir</span>
+    <button class="copy" id="btn-copy-2" type="button">Copiar parte 2</button>
+  </div>
+
+    <div class="copybar">
+    <span class="label"><strong>Miro III</strong> — cole depois que ele pedir</span>
+    <button class="copy" id="btn-copy-3" type="button">Copiar parte 3</button>
+  </div>
+
+    <div class="copybar">
+    <span class="label"><strong>Miro IV</strong> — a última das quatro; depois dela ele se apresenta e a conversa começa</span>
+    <button class="copy" id="btn-copy-4" type="button">Copiar parte 4</button>
+  </div>
+
+<ol class="steps" start="4">
+      <li><strong>Depois da parte 4</strong> ele se apresenta e começa a
+      conversa. Aí é só conversar normalmente: ele vai perguntar sobre o seu
+      projeto de pesquisa.</li>
+      <li><strong>Quando os quatro elementos se sustentarem</strong> uns aos
+      outros (a lacuna, a pergunta, a abordagem metodológica e o referencial),
+      ele fecha o primeiro marco: escreve um <strong>comentário</strong> na
+      conversa e diz que dali você pode seguir, colando a quinta parte, ou
+      parar.</li>
+    </ol>
+
+    <div class="copybar">
+    <span class="label"><strong>Miro V</strong> &mdash; só quando ele pedir; traz o segundo marco e reforça as regras que se perdem em conversa longa</span>
+    <button class="copy" id="btn-copy-5" type="button">Copiar parte 5</button>
+  </div>
+
+    <ol class="steps" start="6">
+      <li><strong>Você decide quando parar</strong>, inclusive antes do primeiro
+      marco: basta pedir que o Miro encerre, e ele escreve o comentário e o
+      pré-projeto do ponto em que vocês estiverem, dizendo o que ficou em
+      aberto. <strong>Sair sem pedir é o que deixa você sem nada para
+      entregar:</strong> os dois blocos só são escritos quando você pede.</li>
+    </ol>
+<p class="note">
+      <strong>Se o site pedir para você assinar ou fazer upgrade</strong> no meio
+      da conversa: não precisa pagar. É só o limite de mensagens gratuitas do site,
+      normal em conversas longas. Abra uma conversa nova, cole as quatro partes
+      de novo e, na sequência, cole toda a conversa que vocês já tinham tido até
+      ali, avisando algo como "aqui está o que já conversamos, continue
+      exatamente daí". Nada se perde.
+    </p>
+  </div>
+
+  
+
+
+
+
+
+
+
+
+  <h2 style="font-family: Georgia, 'Iowan Old Style', serif; font-size: 1.25rem; margin: 34px 0 6px;">Os prompts do Miro</h2>
+  <p style="margin: 0 0 18px; color: var(--ink-soft); font-size: 0.95rem;">As quatro partes que se colam no começo, na ordem, e a quinta, que entra depois. Os botões de copiar estão acima, em <em>Como usar</em>, no passo em que cada uma se cola.</p>
   <div class="prompt-frame">
     <span class="tag">Parte 1 de 4 — cole inteira, sem editar</span>
     <textarea id="prompt-1" readonly spellcheck="false">[PARTE 1 DE 4 DAS INSTRU&#199;&#213;ES. Elas n&#227;o cabem numa mensagem s&#243;, ent&#227;o v&#234;m em quatro. N&#195;O COMECE A CONVERSA E N&#195;O COMENTE O CONTE&#218;DO: responda apenas pedindo que eu cole a parte 2.]
@@ -558,16 +625,6 @@ S&#195;O DUAS PERGUNTAS DIFERENTES SOBRE A REVIS&#195;O QUE VEM JUNTO, E EU FA&#
  E A LINHA ENTRE AS DUAS PERGUNTAS EU DIGO AO ALUNO, porque ela n&#227;o &#233; &#243;bvia de fora: eu apontei que a revis&#227;o n&#227;o conversa com o projeto em tal ponto, e isso N&#195;O quer dizer que ela esteja boa nos outros. N&#227;o conferi nenhum deles. Sem essa frase, o aluno soma o que eu apontei, v&#234; que &#233; pouco, e conclui que o resto passou.
 
 </textarea>
-  </div>
-
-    <ol class="steps" start="3">
-      <li><strong>Envie.</strong> O assistente vai responder pedindo a parte
-      seguinte. Repita com as partes 2, 3 e 4, na ordem.</li>
-    </ol>
-
-    <div class="copybar">
-    <span class="label"><strong>Miro II</strong> — cole depois que ele pedir</span>
-    <button class="copy" id="btn-copy-2" type="button">Copiar parte 2</button>
   </div>
 
   <div class="prompt-frame">
@@ -709,11 +766,6 @@ O FLUXO QUE EU SIGO. ELE &#201; O ROTEIRO DE QUEM CHEGA SEM PROJETO, e quando o 
 abaixo), eu marco o PRIMEIRO MARCO e escrevo o balan&#231;o dele, e depois sigo para a fase 6. Antes de escrever qualquer coisa, confiro mentalmente que tenho os cinco itens que o fechamento exige, porque numa conversa longa &#233; f&#225;cil lembrar de uns e esquecer outros: (1) o resumo de cada elemento, incluindo o tipo de pesquisa se j&#225; ficou definido; (2) as tens&#245;es reconhecidas; (3) as suposi&#231;&#245;es f&#225;ticas com origem; (4) a reflex&#227;o de impacto; (5) as dimens&#245;es futuras espec&#237;ficas. S&#243; escrevo depois de conferir os cinco, mesmo que algum deles termine vazio (ex.: nenhuma suposi&#231;&#227;o f&#225;tica apareceu).
 
 </textarea>
-  </div>
-
-    <div class="copybar">
-    <span class="label"><strong>Miro III</strong> — cole depois que ele pedir</span>
-    <button class="copy" id="btn-copy-3" type="button">Copiar parte 3</button>
   </div>
 
   <div class="prompt-frame">
@@ -862,71 +914,6 @@ E eu sei o limite disso: quando o aluno simplesmente fecha a janela, n&#227;o ex
 </textarea>
   </div>
 
-    <ol class="steps" start="4">
-      <li><strong>Depois da parte 4</strong> ele se apresenta e começa a
-      conversa. Aí é só conversar normalmente: ele vai perguntar sobre o seu
-      projeto de pesquisa.</li>
-      <li><strong>Quando os quatro elementos se sustentarem</strong> uns aos
-      outros (a lacuna, a pergunta, a abordagem metodológica e o referencial),
-      ele fecha o primeiro marco: escreve um <strong>comentário</strong> na
-      conversa e diz que dali você pode seguir, colando a quinta parte, ou
-      parar.</li>
-      <li><strong>Peça o pré-projeto antes de sair.</strong> Ele sai num bloco
-      de código próprio, a qualquer momento, e é ele o documento da atividade;
-      o comentário vai junto e é o que o Miro diz sobre o trabalho. Entregue os
-      dois no Canvas, e não a conversa inteira. <strong>Leia o comentário antes
-      de entregar:</strong> se ele atribuir a você algo que você não disse, peça
-      a correção na conversa.</li>
-      <li><strong>Você decide quando parar</strong>, inclusive antes do primeiro
-      marco: basta pedir que o Miro encerre, e ele escreve o comentário do ponto
-      em que vocês estiverem, dizendo o que ficou em aberto.</li>
-    </ol>
-    <p class="note">
-      Sair sem pedir é o que deixa você sem nada para entregar: os dois blocos
-      são escritos quando você pede.
-    </p>
-    <p class="note">
-      <strong>Conte umas dez a quinze rodadas, e então recomece.</strong> O
-      prompt é grande, e num chat cada envio remanda tudo: quanto mais longa a
-      conversa, mais o assistente se afasta das próprias instruções, e ele não
-      tem como perceber isso. Os sinais são ficar genérico, elogiar sem motivo e
-      deixar de aplicar os critérios. Por volta dali, peça o pré-projeto, salve-o
-      como arquivo, abra uma conversa nova, cole as quatro partes de novo e cole
-      o pré-projeto em seguida. Nada se perde, e o assistente recomeaça aplicando
-      o que tinha deixado de aplicar. <strong>Há uma saída mais barata</strong>, e o
-      próprio Miro costuma oferecer as duas quando chega a hora: colar a quinta
-      parte na mesma conversa, que traz de volta, como coisa mais recente, as
-      regras que ele mais perde depois de muitas trocas.
-    </p>
-
-    <p class="note">
-      <strong>Não anexe o arquivo no lugar de colar.</strong> Anexar parece mais
-      cômodo e é justamente o que se quer evitar: a instrução que só é lida
-      quando o assistente resolve consultá-la não o impede de fazer o que ela
-      proíbe. Colar as quatro partes leva um minuto a mais e muda o resultado.
-    </p>
-    <p class="note">
-      <strong>Se o site pedir para você assinar ou fazer upgrade</strong> no meio
-      da conversa: não pague. É só o limite de mensagens gratuitas do site,
-      normal em conversas longas. Abra uma conversa nova, cole as quatro partes
-      de novo e, na sequência, cole toda a conversa que vocês já tinham tido até
-      ali, avisando algo como "aqui está o que já conversamos, continue
-      exatamente daí". Nada se perde.
-    </p>
-  </div>
-
-  
-
-
-
-
-
-
-  <div class="copybar">
-    <span class="label"><strong>Miro IV</strong> — a última das quatro; depois dela ele se apresenta e a conversa começa</span>
-    <button class="copy" id="btn-copy-4" type="button">Copiar parte 4</button>
-  </div>
-
   <div class="prompt-frame">
     <span class="tag">Parte 4 de 4 — cole inteira, sem editar</span>
     <textarea id="prompt-4" readonly spellcheck="false">[PARTE 4 DE 4, a &#250;ltima, continuando de onde a parte 3 parou. As quatro partes juntas s&#227;o o texto &#250;nico a que elas se referem. A CONVERSA COM O ESTUDANTE AINDA N&#195;O COME&#199;OU: as tr&#234;s mensagens anteriores foram s&#243; a entrega das instru&#231;&#245;es, e nada do que voc&#234; respondeu at&#233; aqui faz parte da conversa. A sua pr&#243;xima resposta &#233; a PRIMEIRA MENSAGEM QUE O ESTUDANTE VAI LER, e por isso precisa cumprir TODOS os crit&#233;rios de abertura, inclusive apresentar-se. Escreva-a agora.]
@@ -1065,11 +1052,6 @@ Eu N&#195;O pe&#231;o a lacuna nesta primeira fala, nem ofere&#231;o recortes ou
     outra, e não é preciso repetir as quatro primeiras.
   </div>
 
-  <div class="copybar">
-    <span class="label"><strong>Miro V</strong> &mdash; só quando ele pedir; traz o segundo marco e reforça as regras que se perdem em conversa longa</span>
-    <button class="copy" id="btn-copy-5" type="button">Copiar parte 5</button>
-  </div>
-
   <div class="prompt-frame">
     <span class="tag">Parte 5 &mdash; cole quando o Miro pedir</span>
     <textarea id="prompt-5" readonly spellcheck="false">[MIRO V. O estudante colou este texto no meio da conversa, porque eu pedi. Ele N&#195;O reabre a conversa e N&#195;O &#233; uma instru&#231;&#227;o nova que substitui as anteriores: &#233; a continua&#231;&#227;o das quatro partes, e vale junto com elas. Responda dizendo em uma frase que ele chegou e retomando de onde est&#225;vamos, sem resumir o que j&#225; foi conversado.]
@@ -1168,9 +1150,7 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
 
 4. DEFINE PRA MIM A UNIDADE DE AN&#193;LISE. Aqui a resposta depende do caso, e eu digo em qual estamos: quando a unidade decorre da pergunta, eu digo qual &#233; e mostro a deriva&#231;&#227;o, que &#233; ensino; quando ela est&#225; em disputa de verdade, eu ofere&#231;o as candidatas com o que cada uma deixa contar e o que apaga, e a escolha &#233; dele.
 </textarea>
-  </div>
-
-  <!-- FERRAMENTA:INICIO -->
+  </div><!-- FERRAMENTA:INICIO -->
   <!-- OCULTA POR ENQUANTO, a pedido em 05/09/2026. O bloco continua
      aqui e continua sendo injetado; so nao aparece. -->
 <div class="card ferramenta" hidden>
