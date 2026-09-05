@@ -637,6 +637,23 @@ OFICINA_URL = "https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cf
 CREDITO = ("Relatório escrito pela assistente Selma, da %s." % OFICINA_NOME)
 
 
+def credito(gasto=None):
+    """O credito, com a medida do gasto quando ela existir.
+
+    GASTO E (minutos, tokens) MEDIDOS, ou None. Ele nao vem da leitura:
+    modelo nao le o proprio relogio nem o proprio contador, e a frase
+    pedida a ele traria numero inventado. Quem mede e medir_gasto.py,
+    sobre o registro da sessao que rodou a leitura.
+
+    O NUMERO COBRE A EXECUCAO INTEIRA: ler o prompt, ler o projeto, as
+    buscas e escrever o relatorio.
+    """
+    if not gasto:
+        return CREDITO
+    from medir_gasto import por_extenso
+    return "%s, %s." % (CREDITO[:-1], por_extenso(gasto[0], gasto[1]))
+
+
 def ancorar(f, texto, url):
     """Poe um link sobre TEXTO na pagina em que ele acabou de ser escrito.
 
@@ -657,7 +674,7 @@ def ancorar(f, texto, url):
     return True
 
 
-def escrever_um(nome, d, caminho, titulo=None, secoes=()):
+def escrever_um(nome, d, caminho, titulo=None, secoes=(), gasto=None):
     """A leitura de UM projeto, em PDF.
 
     SEM TABELA COMPARATIVA E SEM CONTAGEM DE COORTE: a primeira compara
@@ -691,7 +708,7 @@ def escrever_um(nome, d, caminho, titulo=None, secoes=()):
     preambulo, capa, corpo_da_leitura = partir_peca(blocos)
     # O CREDITO E DO PROGRAMA, e nao da leitura: assinatura que o modelo
     # digita é assinatura que pode sair diferente a cada execucao.
-    abertura = " ".join([CREDITO] + [x for _, x in preambulo])
+    abertura = " ".join([credito(gasto)] + [x for _, x in preambulo])
     f.texto(abertura, corpo=10.5, fonte="tiit", cor=COR_FRACA,
             espaco_depois=6)
     ancorar(f, OFICINA_NOME, OFICINA_URL)
@@ -755,7 +772,7 @@ def escrever_um(nome, d, caminho, titulo=None, secoes=()):
     doc.close()
 
 
-def um(caminho_md, caminho_pdf=None, projeto=None):
+def um(caminho_md, caminho_pdf=None, projeto=None, gasto=None):
     """Le UM relatorio da Selma e escreve o PDF dele."""
     arq = Path(caminho_md)
     if not arq.is_file():
@@ -816,7 +833,7 @@ def um(caminho_md, caminho_pdf=None, projeto=None):
         print()
 
     saida = caminho_pdf or str(arq.with_suffix(".pdf"))
-    escrever_um(arq.stem, d, saida, titulo, secoes)
+    escrever_um(arq.stem, d, saida, titulo, secoes, gasto)
     if secoes:
         print("Secoes do projeto reconhecidas, e grifadas na peca: %d."
               % len(secoes))
@@ -1325,6 +1342,48 @@ if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in ("preparar", "agregar", "um",
                                                "controle"):
         sys.exit(__doc__)
+    # OS NUMEROS DO GASTO SAO OPCIONAIS e saem antes dos posicionais, para
+    # nao mexer na ordem que ja existe. Quem os tem e medir_gasto.py; quem
+    # roda no chat nao os tem, e a peca sai sem a frase.
+    gasto = None
+    argv = list(sys.argv)
+    minutos = tokens = None
+    for chave in ("--minutos", "--tokens"):
+        if chave in argv:
+            i = argv.index(chave)
+            if i + 1 >= len(argv):
+                sys.exit("falta o numero depois de " + chave)
+            valor = int(argv[i + 1])
+            if chave == "--minutos":
+                minutos = valor
+            else:
+                tokens = valor
+            del argv[i:i + 2]
+    if (minutos is None) != (tokens is None):
+        sys.exit("--minutos e --tokens vao juntos: meia medida nao entra na peca.")
+    if minutos is not None:
+        gasto = (minutos, tokens)
+    # --gasto <id-da-tarefa> mede em vez de receber digitado, que e a regra
+    # geral aqui: numero que entra na peca e copiado por programa. SEM
+    # REGISTRO A PECA SAI SEM A FRASE, e o programa diz isso e segue: peca
+    # sem a medida e peca honesta, e parar a montagem por causa dela seria
+    # dar a uma linha de circunstancia o poder de bloquear a leitura.
+    if "--gasto" in argv:
+        i = argv.index("--gasto")
+        if i + 1 >= len(argv):
+            sys.exit("falta o identificador da tarefa depois de --gasto")
+        tarefa = argv[i + 1]
+        del argv[i:i + 2]
+        from medir_gasto import medir
+        medido = medir(tarefa)
+        if medido is None:
+            print("SEM MEDIDA: a tarefa %s nao esta registrada nas sessoes." % tarefa)
+            print("A peca sai sem a frase do gasto.")
+        else:
+            gasto = (int(round(medido[0])), medido[1])
+            print("Gasto medido: %d minutos e %d tokens." % gasto)
+    sys.argv = argv
+
     if sys.argv[1] == "controle":
         controle()
     else:
@@ -1334,7 +1393,8 @@ if __name__ == "__main__":
             # selma_lote.py um relatorio.md [saida.pdf] [projeto.pdf]
             um(sys.argv[2],
                sys.argv[3] if len(sys.argv) > 3 else None,
-               sys.argv[4] if len(sys.argv) > 4 else None)
+               sys.argv[4] if len(sys.argv) > 4 else None,
+               gasto)
         elif sys.argv[1] == "preparar":
             preparar(sys.argv[2])
         else:

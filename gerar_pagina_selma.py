@@ -29,7 +29,7 @@ MIRO = "https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb"
 
 CORPO = """<meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<title>Selma: leitura de projeto de pesquisa</title>
+<title>Selma: análise de projeto de pesquisa</title>
 
 %(estilo)s
 
