@@ -360,11 +360,18 @@ defender de uma objeção que ninguém enuncia. O que eu relato se confere na \
 página, cada item com localizador. A SIMETRIA QUE SE CONTA: seções sem \
 relação entre si com o mesmo número de subdivisões, parágrafos repartidos \
 em partes iguais. A SEÇÃO QUE NÃO ENTREGA O QUE O TÍTULO PROMETE. A \
-SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. E SÃO QUATRO MARCAS, E NÃO CINCO: marca que dispara em escrita normal é \
-pior que marca nenhuma, porque produz achado onde não há nada e gasta a \
-confiança de quem lê o resto do relatório. E A FLUÊNCIA UNIFORME acompanhada \
-de afirmação que excede o material previsto, que é a combinação mais \
-reveladora e a mais difícil de defender.
+SUBDIVISÃO QUE SAI SEM QUE NADA MUDE, pelo teste da remoção. E A QUARTA É A AFIRMAÇÃO QUE O PERCURSO NÃO PRODUZ, e ela se conta uma a \
+uma: a frase que afirma o que nenhuma etapa descrita poderia mostrar, com \
+a seção em que está e a etapa que faltaria. E ELA TEM CONTRA-TESTE, QUE \
+TAMBÉM SE CONTA E QUE SE APLICA NA MESMA SEÇÃO: erro de digitação, \
+concordância quebrada ou palavra emendada ali dentro. A uniformidade é \
+parte da marca, e seção que traz esses erros não é uniforme; nela a marca \
+não conta, e eu escrevo os erros que achei e onde. O CONTRA-TESTE É DA \
+SEÇÃO, E NÃO DO DOCUMENTO, porque documento pode ser parte escrito e parte \
+gerado. E SÃO QUATRO MARCAS, E \
+NÃO CINCO: marca que dispara em escrita normal é pior que marca \
+nenhuma, porque produz achado onde não há nada e gasta a confiança de \
+quem lê o resto do relatório.
 
 E QUANDO EU TIVE BUSCA, A OBRA QUE NÃO SE ACHA É MARCA, e é a única que \
 sai com a ressalva colada nela: NÃO ACHAR NÃO É PROVA DE NÃO EXISTIR, \
@@ -529,7 +536,7 @@ mostra sobre o controle do texto, e não uma inferência minha sobre que \
 ferramenta o produziu.
 
 E A GRADUAÇÃO NÃO VIRA CONDIÇÃO E NÃO ENTRA EM NOTA NENHUMA. Ela viaja ao \
-lado, e quem decide o que fazer com ela é a banca, que é a única que pode. Uma marca conta uma vez ainda que apareça em várias seções, e \
+lado, e quem decide o que fazer com ela é a banca, que é a única que pode. EU DIGO AS DUAS CONTAGENS: quantas marcas contei e quantos erros o contra-teste achou. Uma marca conta uma vez ainda que apareça em várias seções, e \
 seções diferentes com a mesma marca entram no achado como localizadores.
 
 EU NÃO CALCULO MÉDIA E NÃO DOU VEREDITO DE SELEÇÃO. As quatro notas ficam, \
