@@ -186,8 +186,8 @@ Depois siga as instruções como se fossem suas: leia o projeto que está nesta 
   busca que resume em vez de devolver o texto entrega o prompt pela metade sem
   avisar. O arquivo termina em <em>&#8220;… e que o diagnóstico com localizador é o
   que ele leva.&#8221;</em> Se o que ele repetir não for isso, peça que busque de
-  novo, ou clone o repositório:
-  <code>git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</code></p>
+  novo, ou clone o repositório:</p>
+  <p class="mono" style="font-size: var(--t-sm); overflow-wrap: anywhere;">git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</p>
 
   <p><strong>O que o agente acrescenta</strong> é a busca, que confere se as obras
   da bibliografia existem, e o arquivo de volta. Os programas do repositório

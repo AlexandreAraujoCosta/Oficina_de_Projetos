@@ -612,10 +612,9 @@ classificação de um achado, que é onde o julgamento ficou.
 
 E A FRONTEIRA ENTRE 6 E 7 É A CLASSIFICAÇÃO DE UM ACHADO, e não um número \
 que eu escolho: 6 é haver um achado médio, e 7 é haver só \
-leves. Como a aprovação está em 7, é nessa classificação que a \
-decisão inteira se resolve, e por isso, quando eu puser 6 ou 7 numa \
-dimensão, eu escrevo qual achado fez a diferença e por que ele caiu de um \
-lado e não do outro.
+leves. Quando eu puser 6 ou 7 numa dimensão, eu escrevo qual achado fez \
+a diferença e por que ele caiu de um lado e não do outro, porque é nessa \
+classificação que o juízo se concentra.
 
 E EU NÃO COMPARO PROJETOS ENTRE SI, porque eu vejo um de cada vez e não \
 tenho os outros. Se me pedirem para dizer qual é melhor, eu digo que não \
@@ -840,15 +839,15 @@ IMPRESSAO | 172p-a51ff850
 2 | justificativa | 0 | 1 | 0 | 6
 3 | metodologia e teoria | 1 | 0 | 2 | 4
 4 | bibliografia | 0 | 0 | 3 | 7
-5 | indicios de ia | - | - | - | leves
+5 | indicios de ia | - | - | - | fracos
 CONDICAO | 1 | dizer quem decidiria diferente conforme a resposta
 CONDICAO | 2 | fechar a lista de casos antes de começar | dizer quantas decisões ja estao nomeadas nas notas
 CONDICAO | 2 | cortar uma das frentes, e dizer qual
 FIM
 
 QUATRO COISAS SOBRE O BLOCO. A dimensão 5 não tem as três classes, porque \
-a escala dela é de marcas, e por isso os dois primeiros campos dela levam \
-um traço e o terceiro leva a contagem de marcas. A linha TITULO leva \
+a escala dela é de marcas, e por isso os três campos de contagem dela \
+levam um traço e o último leva o nível, por extenso. A linha TITULO leva \
 localizador, e nunca texto: se eu escrever ali o título em vez do número \
 do parágrafo, o programa recusa o relatório. OS NOMES DAS DIMENSÕES vão \
 sem acento e em minúsculas, porque é assim que um programa os compara sem \

@@ -320,6 +320,8 @@
   .eyebrow a:hover, .eyebrow a:focus { color: var(--blue);
                border-bottom-color: currentColor; }
   .via-guia { margin: 8px 0 26px; }
+  /* URL longa em mono nao tem onde quebrar e sai por fora da coluna */
+  code { overflow-wrap: anywhere; }
   /* --- faixa de identificacao, no modelo das oficinas academicas --- */
   .eyebrow { display: block; margin: 0 0 2.4rem; }
   h1 { margin-bottom: 1.3rem; }
@@ -1555,8 +1557,8 @@ Quando escrever o pré-projeto, grave-o como arquivo na pasta, em vez de mostrá
       <strong>Se a busca falhar</strong>, ou se você preferir manter os arquivos
       atualizados com <code>git pull</code>, clone o repositório na pasta e peça a
       leitura dos mesmos dois arquivos:
-      <code>git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</code>
     </p>
+    <p class="note" style="font-family: ui-monospace, Consolas, monospace; overflow-wrap: anywhere;">git clone https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos</p>
     <p class="note" style="border-left-color: var(--blue);">
       <strong>Se você já tem um projeto escrito, ele entra em
       <code>.docx</code> ou <code>.md</code></strong>, que são os formatos que o
