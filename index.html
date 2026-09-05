@@ -400,25 +400,9 @@
   <div class="via-guia" id="guia-chat" hidden>
   <div class="card">
     <h2>Como usar</h2>
-    <p class="note" style="border-left-color: var(--green); margin-top: 0;">
-      <strong>O prompt vem em quatro partes por uma razão medida.</strong>
-      Colagem longa demais deixa de entrar como texto: o site a converte num
-      anexo. E anexo não governa a conversa do mesmo jeito, porque boa parte
-      destas instruções são proibições e postura, e o assistente não consulta um
-      anexo antes de elogiar nem antes de inventar uma referência. Medimos: acima
-      de cerca de cinquenta mil caracteres a conversão acontece sozinha, sem
-      avisar. Em quatro partes, cada uma entra como texto de verdade.
-    </p>
     <ol class="steps">
       <li><strong>Copie a parte 1</strong> e cole como primeira mensagem no
       assistente (Claude, ChatGPT etc.).</li>
-      <li><strong>Se ela virar um cartão</strong> em vez de texto ("Texto
-      colado", "PASTED"): no ChatGPT, clique em <strong>"Mostrar no campo de
-      texto"</strong>, que devolve o conteúdo para o campo. No Claude, o cartão
-      já entra na conversa e pode seguir assim. <strong>O que não serve é anexar o
-      arquivo no lugar de colar:</strong> a instrução que só é lida quando o
-      assistente resolve consultá-la não o impede de fazer o que ela proíbe. Colar
-      as quatro partes leva um minuto a mais e muda o resultado.</li>
     </ol>
 
     <div class="copybar">
@@ -426,7 +410,13 @@
     <button class="copy" id="btn-copy-1" type="button">Copiar parte 1</button>
   </div>
 
-<ol class="steps" start="3">
+    <ol class="steps" start="2">
+      <li><strong>Cole o texto, e não anexe o arquivo:</strong> a instrução que
+      só é lida quando o assistente resolve consultá-la não o impede de fazer o
+      que ela proíbe. <strong>Se a colagem virar um cartão</strong> ("Texto
+      colado", "PASTED"), no ChatGPT clique em "Mostrar no campo de texto", que
+      devolve o conteúdo para o campo; no Claude o cartão já entra na conversa e
+      pode seguir assim.</li>
       <li><strong>Envie.</strong> O assistente vai responder pedindo a parte
       seguinte. Repita com as partes 2, 3 e 4, na ordem.</li>
     </ol>
@@ -442,40 +432,56 @@
   </div>
 
     <div class="copybar">
-    <span class="label"><strong>Miro IV</strong> — a última das quatro; depois dela ele se apresenta e a conversa começa</span>
+    <span class="label"><strong>Miro IV</strong> — a última das quatro</span>
     <button class="copy" id="btn-copy-4" type="button">Copiar parte 4</button>
   </div>
 
-<ol class="steps" start="4">
-      <li><strong>Depois da parte 4</strong> ele se apresenta e começa a
-      conversa. Aí é só conversar normalmente: ele vai perguntar sobre o seu
-      projeto de pesquisa.</li>
+    <ol class="steps" start="4">
+      <li><strong>Depois da parte 4 ele se apresenta:</strong> expõe os quatro
+      elementos do planejamento e pergunta em que ponto você está e por qual
+      deles prefere começar. <strong>Se você já tem um projeto escrito, cole-o
+      em seguida:</strong> ele volta o projeto ao grau zero do planejamento e
+      trabalha os quatro elementos contra o que está escrito.</li>
       <li><strong>Quando os quatro elementos se sustentarem</strong> uns aos
       outros (a lacuna, a pergunta, a abordagem metodológica e o referencial),
-      ele fecha o primeiro marco: escreve um <strong>comentário</strong> na
-      conversa e diz que dali você pode seguir, colando a quinta parte, ou
-      parar.</li>
+      ele fecha o <strong>primeiro marco</strong>, que é o ponto em que o desenho
+      para de se contradizer: escreve um comentário na conversa e diz que dali
+      você pode seguir para o método, colando a quinta parte, ou parar.</li>
     </ol>
 
     <div class="copybar">
-    <span class="label"><strong>Miro V</strong> &mdash; só quando ele pedir; traz o segundo marco e reforça as regras que se perdem em conversa longa</span>
+    <span class="label"><strong>Miro V</strong> &mdash; só quando ele pedir; leva a conversa ao método operável e reforça as regras que se perdem em conversa longa</span>
     <button class="copy" id="btn-copy-5" type="button">Copiar parte 5</button>
   </div>
 
     <ol class="steps" start="6">
       <li><strong>Você decide quando parar</strong>, inclusive antes do primeiro
-      marco: basta pedir que o Miro encerre, e ele escreve o comentário e o
-      pré-projeto do ponto em que vocês estiverem, dizendo o que ficou em
-      aberto. <strong>Sair sem pedir é o que deixa você sem nada para
-      entregar:</strong> os dois blocos só são escritos quando você pede.</li>
+      marco: basta pedir que o Miro encerre. <strong>Depois do marco</strong> saem
+      dois blocos de código, o comentário e o pré-projeto, que é o documento da
+      atividade. <strong>Antes dele</strong> o pré-projeto ainda não existe, e o
+      que sai é o comentário e um bloco curto de onde vocês pararam, que serve
+      para retomar noutra conversa. <strong>Sair sem pedir é o que deixa você sem
+      nada para entregar.</strong></li>
     </ol>
-<p class="note">
+
+    <p class="note">
+      <strong>O prompt vem em quatro partes por uma razão medida.</strong> Colagem
+      longa demais deixa de entrar como texto: o site a converte num anexo, e
+      anexo não governa a conversa do mesmo jeito, porque boa parte destas
+      instruções são proibições e postura, e o assistente não consulta um anexo
+      antes de elogiar nem antes de inventar uma referência. Medimos em
+      02/09/2026: no ChatGPT a conversão começa por volta de cinquenta mil
+      caracteres; no Claude, por volta de quarenta e quatro mil, e ali o
+      conteúdo colado entra na conversa de qualquer modo. Em quatro partes, cada
+      uma entra como texto de verdade nos dois.
+    </p>
+    <p class="note">
       <strong>Se o site pedir para você assinar ou fazer upgrade</strong> no meio
-      da conversa: não precisa pagar. É só o limite de mensagens gratuitas do site,
-      normal em conversas longas. Abra uma conversa nova, cole as quatro partes
-      de novo e, na sequência, cole toda a conversa que vocês já tinham tido até
-      ali, avisando algo como "aqui está o que já conversamos, continue
-      exatamente daí". Nada se perde.
+      da conversa: não precisa pagar. É só o limite de mensagens gratuitas do
+      site, normal em conversas longas. Peça o fechamento, guarde o que ele
+      devolver, abra uma conversa nova, cole as quatro partes de novo (e a
+      quinta, se você já a tinha colado) e cole em seguida o documento que você
+      guardou. Nada se perde, e o documento diz de onde continuar.
     </p>
   </div>
 
@@ -1489,10 +1495,8 @@ E ANTES DE SEGUIR, QUATRO REGRAS QUE EU J&#193; QUEBREI DEPOIS DESTE PONTO DA CO
     <p style="margin: 0 0 14px; color: var(--ink-soft);">
       Agente aqui quer dizer um assistente que roda dentro de um programa, com
       acesso à sua pasta e a um terminal: o Claude Code, o Copilot em modo
-      agente, e outros do mesmo tipo. O que ele acrescenta é o arquivo de volta.
-      No chat, o pré-projeto sai como um bloco de texto que você copia à mão e
-      cola num editor. Num agente, ele é gravado como arquivo na sua pasta, com o
-      nome que você quiser.
+      agente, e outros do mesmo tipo. O que ele acrescenta é o arquivo de volta:
+      o pré-projeto é gravado direto na sua pasta, com o nome que você quiser.
     </p>
 
     <p style="margin: 0 0 10px; color: var(--ink-soft);"><strong>Você não baixa
@@ -1535,15 +1539,21 @@ Quando escrever o pré-projeto, grave-o como arquivo na pasta, em vez de mostrá
     <p class="note" style="border-left-color: var(--blue);">
       <strong>Se você já tem um projeto escrito, ele entra em
       <code>.docx</code> ou <code>.md</code></strong>, que são os formatos que o
-      <code>comentar_projeto.py</code> anota por dentro, pondo as sugestões no
-      seu arquivo sem tocar numa palavra. <strong>Projeto em PDF não entra por
+      <code>comentar_projeto.py</code> anota por dentro. Em <code>.docx</code>, o que
+      volta é um documento do Word com as sugestões em comentários na margem, cada
+      uma no parágrafo a que se refere, e <strong>sem uma palavra do texto
+      alterada</strong>: o programa confere isso depois de escrever, e apaga a saída
+      se o texto tiver mudado. Reorganizar os elementos dentro dos tópicos do
+      modelo é outro programa, o <code>reorganizar_projeto.py</code>, e aí sim as
+      mudanças saem como <strong>alterações controladas</strong>, que você aceita ou
+      recusa uma a uma no Word. <strong>Projeto em PDF não entra por
       aí</strong>, e converter para <code>.docx</code> não é o caminho: a
       conversão reconstrói o documento, e num projeto real isso jogou o texto
-      das notas de rodapé no meio do corpo. Para PDF há dois programas próprios
-      no repositório: <code>comentar_pdf.py</code>, que põe os comentários no
-      próprio PDF sem reconstruí-lo, e <code>relatorio_md.py</code>, que monta
-      um relatório à parte, em <code>.md</code>, com os trechos copiados do
-      projeto pelo programa. O relatório do Miro sai em <code>.md</code> de
+      das notas de rodapé no meio do corpo. Para PDF há o
+      <code>comentar_pdf.py</code>, que põe os comentários no próprio PDF sem
+      reconstruí-lo. E há o <code>relatorio_md.py</code>, que monta um relatório à
+      parte, em <code>.md</code>, com os trechos copiados do projeto pelo programa;
+      ele lê os três formatos, e o PDF entra nele só como fonte de leitura. O relatório do Miro sai em <code>.md</code> de
       propósito: ele é material de trabalho, que você copia, cola na conversa e
       edita, e PDF fecha justamente o que ali precisa ficar aberto.
     </p>
