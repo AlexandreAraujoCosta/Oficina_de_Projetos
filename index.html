@@ -1,27 +1,115 @@
 <meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <title>Miro — assistente de planejamento de pesquisa</title>
 <style>
   :root {
-    --paper: #f3f1ec;
-    --ink: #1b2130;
-    --ink-soft: #454e60;
-    --blue: #0d3b63;
-    --blue-soft: #3f6a91;
-    --green: #1f7a4f;
-    --line: rgba(13, 59, 99, 0.16);
-    --card: #ffffff;
-    --mono-bg: #fbfaf7;
+    --paper:       var(--ground);
+    --ground:      #FBFAF7;
+    --surface:     #F3F1EC;
+    --sunken:      #EAE7E0;
+    --ink:         #191B1F;
+    --ink-soft:    #3D4149;
+    --muted:       #5F636B;
+    --faint:       #6C7079;
+    --rule:        #D9D5CC;
+    --rule-firm:   #BFBAAE;
+    --rule-soft:   #E6E2DA;
+    --accent:      #2A5F45;
+    --accent-soft: #DFEAE1;
+    --warn:        #8A5722;
+    --warn-soft:   #F2E7D8;
+    --good:        #37613F;
+    --good-soft:   #E0EBE1;
+    --danger:      #A3352B;
+    --danger-soft: #F6E6E3;
+    --deep:        #0D3B63;
+    --deep-soft:   #DEE6EE;
+
+    --serif: Literata, "Iowan Old Style", Charter, Georgia, "Times New Roman", serif;
+    --sans: Mulish, "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", "Cascadia Mono", ui-monospace, Consolas, "SF Mono", monospace;
+
+    --measure: 66ch;
+
+    /* os degraus, na medida de arcos.org.br/direito-ciencia */
+    --t-2xs: 12px;   /* faixa de identificacao */
+    --t-xs: 14px;    /* rotulo em versalete */
+    --t-sm: 16px;    /* texto secundario */
+    --t-md: 18px;    /* corpo */
+    --t-lg: 22px;    /* linha de abertura */
+    --t-h3: 19px;
+    --t-h2: 24px;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #16171A;
+      --surface:     #1D1F23;
+      --sunken:      #24262B;
+      --ink:         #E9E6E0;
+      --ink-soft:    #C4C2BD;
+      --muted:       #94979E;
+      --faint:       #8A8D94;
+      --rule:        #34373D;
+      --rule-firm:   #454A52;
+      --rule-soft:   #2A2D32;
+      --accent:      #8FC0A0;
+      --accent-soft: #1E2A22;
+      --warn:        #D3A163;
+      --warn-soft:   #33291B;
+      --good:        #83B78D;
+      --good-soft:   #1E2A20;
+      --danger:      #E07A6E;
+      --danger-soft: #2E1E1C;
+      --deep:        #7FB2DE;
+      --deep-soft:   #1B242E;
+    }
+  }
+
   :root[data-theme="dark"] {
-    --paper: #14171d;
-    --ink: #e8e9ee;
-    --ink-soft: #a9b0c2;
-    --blue: #7fb2de;
-    --blue-soft: #5f92bd;
-    --green: #5ccb92;
-    --line: rgba(127, 178, 222, 0.22);
-    --card: #1b1f27;
-    --mono-bg: #10131a;
+    --ground:      #16171A;
+    --surface:     #1D1F23;
+    --sunken:      #24262B;
+    --ink:         #E9E6E0;
+    --ink-soft:    #C4C2BD;
+    --muted:       #94979E;
+    --faint:       #8A8D94;
+    --rule:        #34373D;
+    --rule-firm:   #454A52;
+    --rule-soft:   #2A2D32;
+    --accent:      #8FC0A0;
+    --accent-soft: #1E2A22;
+    --warn:        #D3A163;
+    --warn-soft:   #33291B;
+    --good:        #83B78D;
+    --good-soft:   #1E2A20;
+    --danger:      #E07A6E;
+    --danger-soft: #2E1E1C;
+    --deep:        #7FB2DE;
+    --deep-soft:   #1B242E;
+  }
+
+  :root[data-theme="light"] {
+    --ground:      #FBFAF7;
+    --surface:     #F3F1EC;
+    --sunken:      #EAE7E0;
+    --ink:         #191B1F;
+    --ink-soft:    #3D4149;
+    --muted:       #5F636B;
+    --faint:       #6C7079;
+    --rule:        #D9D5CC;
+    --rule-firm:   #BFBAAE;
+    --rule-soft:   #E6E2DA;
+    --accent:      #2A5F45;
+    --accent-soft: #DFEAE1;
+    --warn:        #8A5722;
+    --warn-soft:   #F2E7D8;
+    --good:        #37613F;
+    --good-soft:   #E0EBE1;
+    --danger:      #A3352B;
+    --danger-soft: #F6E6E3;
+    --deep:        #0D3B63;
+    --deep-soft:   #DEE6EE;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -48,8 +136,9 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.55;
+    font-family: var(--sans);
+    font-size: var(--t-md);
+    line-height: 1.6;
     margin: 0;
     padding: 0 20px 64px;
   }
@@ -60,7 +149,7 @@
   .eyebrow {
     display: block;
     margin-top: 40px;
-    font-size: 0.78rem;
+    font-size: var(--t-2xs);
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--blue-soft);
@@ -75,7 +164,7 @@
     text-wrap: balance;
   }
   .lede {
-    font-size: 1.05rem;
+    font-size: var(--t-sm);
     color: var(--ink-soft);
     max-width: 62ch;
     margin: 0 0 28px;
@@ -89,7 +178,7 @@
   }
   .card h2 {
     font-family: Georgia, "Iowan Old Style", serif;
-    font-size: 1.05rem;
+    font-size: var(--t-sm);
     font-weight: 700;
     margin: 0 0 14px;
     color: var(--blue);
@@ -111,7 +200,7 @@
     border-left: 3px solid var(--blue-soft);
     padding: 4px 0 4px 14px;
     margin-top: 16px;
-    font-size: 0.92rem;
+    font-size: var(--t-xs);
     color: var(--ink-soft);
   }
   .note strong { color: var(--ink); }
@@ -130,7 +219,7 @@
     margin-bottom: 22px;
   }
   .copybar .label {
-    font-size: 0.92rem;
+    font-size: var(--t-xs);
     color: var(--ink-soft);
     flex: 1;
   }
@@ -139,7 +228,7 @@
     border: none;
     background: var(--blue);
     color: #fff;
-    font-size: 0.95rem;
+    font-size: var(--t-sm);
     font-weight: 600;
     padding: 10px 18px;
     border-radius: 7px;
@@ -157,7 +246,7 @@
     overflow: hidden;
   }
   .prompt-frame .tag {
-    font-size: 0.72rem;
+    font-size: var(--t-2xs);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-soft);
@@ -173,7 +262,7 @@
     background: transparent;
     color: var(--ink);
     font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-    font-size: 0.86rem;
+    font-size: var(--t-xs);
     line-height: 1.6;
     padding: 12px 16px 18px;
     white-space: pre-wrap;
@@ -184,7 +273,7 @@
     margin-top: 32px;
     padding-top: 18px;
     border-top: 1px solid var(--line);
-    font-size: 0.88rem;
+    font-size: var(--t-xs);
     color: var(--ink-soft);
   }
   footer strong { color: var(--ink); }
@@ -193,6 +282,21 @@
     .copybar { flex-direction: column; align-items: stretch; }
     button.copy { width: 100%; }
   }
+
+  /* --- escala do sistema: uma so em todas as paginas da oficina --- */
+  h1, .top h1, header h1, .wrap > h1, .page > h1 { font-family: var(--serif); font-weight: 600;
+    font-size: clamp(28px, 5vw, 36px); line-height: 1.2; }
+  .wrap h2, .page h2, .shell h2, .cuidados h2 { font-family: var(--serif); font-size: var(--t-h2);
+    font-weight: 600; line-height: 1.2; }
+  .wrap h3, .page h3, .shell h3, .cuidados h3 { font-family: var(--serif); font-size: var(--t-h3);
+    font-weight: 600; line-height: 1.2; letter-spacing: normal; text-transform: none; color: var(--ink); }
+  /* a medida vale para todo texto corrido, e nao so para o que esta em secao */
+  .wrap p, .wrap li, .wrap dd, .page p, .page li, .page dd { max-width: var(--measure); }
+  /* Os dois paragrafos da ficha sao o mesmo comentario, e vao na mesma fonte. */
+  .autoria p, .byline p { font-family: var(--sans); font-size: var(--t-sm);
+    line-height: 1.55; color: var(--ink-soft); margin: 0 0 .5rem; }
+  .autoria p:last-child, .byline p:last-child { margin-bottom: 0; }
+  .autoria b, .autoria strong, .byline b { color: var(--ink); font-weight: 600; }
 </style>
 <style>
   .vias-titulo { font-family: Georgia, "Iowan Old Style", serif; font-size: 1.05rem;
@@ -227,7 +331,7 @@
 </style>
 
 <div class="page">
-  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito</a> · <a href="https://www.unb.br/">UnB</a> · <a href="https://pmpd.unb.br/">PMPD</a> · <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas</a>: <a href="https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd">Projetos</a> · <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">Orientação</a> · Formatação</span><span class="eb-linha eb-baixo"><span class="eb-atual" aria-current="page">Miro</span> · <a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a></span></p>
+  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito da UnB</a> &middot; <a href="https://pmpd.unb.br/">PMPD</a> &middot; <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas Acadêmicas</a></span><span class="eb-linha eb-baixo">Assistentes: <span class="eb-atual" aria-current="page">Miro</span> &middot; <a href="https://claude.ai/code/artifact/db42dbd7-8fac-497c-bc91-b9ae51b4368c">Selma</a></span></p>
   <h1>Miro</h1>
   <p class="lede">
     Miro é um assistente conversacional desenvolvido pelo prof. Alexandre Araújo
@@ -237,15 +341,10 @@
     o problema formulado a partir dela, e as abordagens metodológicas e os
     referenciais teóricos capazes de responder à questão escolhida.
   </p>
-  <p class="note" style="margin-top: -8px; margin-bottom: 20px; border-left-color: var(--green);">
-    Trata-se de um protótipo, ainda em fase de testes, e todo feedback (dirigido a
-    <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>) será muito
-    útil para aperfeiçoá-lo. <strong>Se você usar o Miro fora do contexto das
-    disciplinas</strong>, envie um relato por
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este
-    formulário</a>: é com esses relatos que dá para saber se ele funciona fora da
-    situação para a qual foi escrito.
-  </p>
+  <div class="autoria">
+  <p>Ferramentas desenvolvidas por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
+  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
+</div>
   <p style="margin: 0 0 20px; color: var(--ink-soft);">
     Neste formato portátil, Miro não é um site nem um aplicativo: é apenas um
     texto, um prompt que você copia e cola em qualquer assistente de IA gratuito

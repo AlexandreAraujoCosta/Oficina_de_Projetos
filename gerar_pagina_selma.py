@@ -27,7 +27,9 @@ SAIDA = PASTA / "pagina_selma.html"
 OFICINA = "https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd"
 MIRO = "https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb"
 
-CORPO = """<title>Selma — leitura de projeto de pesquisa</title>
+CORPO = """<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>Selma — leitura de projeto de pesquisa</title>
 
 %(estilo)s
 
@@ -61,7 +63,7 @@ CORPO = """<title>Selma — leitura de projeto de pesquisa</title>
 <div class="wrap">
 
 <header>
-  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito</a> · <a href="https://www.unb.br/">UnB</a> · <a href="https://pmpd.unb.br/">PMPD</a> · <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas</a>: <a href="https://claude.ai/code/artifact/1d29d917-d73f-48b3-9f89-1eaab12cfffd">Projetos</a> · <a href="https://claude.ai/code/artifact/57a0317d-5d0d-48fd-b571-4d7dfb1fe916">Orientação</a> · Formatação</span><span class="eb-linha eb-baixo"><a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> · <span class="eb-atual" aria-current="page">Selma</span></span></p>
+  <p class="eyebrow"><span class="eb-linha"><a href="https://direito.unb.br/">Faculdade de Direito da UnB</a> &middot; <a href="https://pmpd.unb.br/">PMPD</a> &middot; <a href="https://claude.ai/code/artifact/4fe98c90-3461-4d03-8c83-7ba2fe0c1c72">Oficinas Acadêmicas</a></span><span class="eb-linha eb-baixo">Assistentes: <a href="https://claude.ai/code/artifact/6912df2d-dc98-40b3-beb8-172219b077bb">Miro</a> &middot; <span class="eb-atual" aria-current="page">Selma</span></span></p>
   <h1>Selma</h1>
   <p class="lead"><strong>Selma lê um projeto de pesquisa como uma banca o
   leria</strong>, e devolve um relatório curto: o que o projeto traz em cada
@@ -70,6 +72,11 @@ CORPO = """<title>Selma — leitura de projeto de pesquisa</title>
   ela lê, classifica e entrega. O <a href="%(miro)s">Miro</a> trabalha com quem
   escreve, e não julga ninguém; ela faz a leitura oposta, que é a que
   decide.</p>
+
+<div class="autoria">
+  <p>Ferramentas desenvolvidas por <a href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2332291"><b>Alexandre Araújo Costa</b></a> (Doutor em Direito, Professor da UnB, Coordenador do PMPD, <a href="mailto:alexandrearcos@unb.br">alexandrearcos@unb.br</a>), com assistência do modelo Claude Opus 5, em Claude Code. O código está no repositório <a href="https://github.com/AlexandreAraujoCosta/Oficina_de_Projetos">Oficina_de_Projetos</a>.</p>
+  <p>Trata-se de protótipos, ainda em fase de testes, e todo feedback será muito útil para aperfeiçoá-los. Se você usar as ferramentas, envie por favor um relato por <a href="https://docs.google.com/forms/d/e/1FAIpQLSdziEHALH04stCpbVCHqDODK072YKzRRWCaN4ZhsiHojYrKmg/viewform?usp=dialog">este formulário</a>, pois, a partir deles, é possível compreender o funcionamento dos prompts em situações reais.</p>
+</div>
 </header>
 
 <div class="nota">
