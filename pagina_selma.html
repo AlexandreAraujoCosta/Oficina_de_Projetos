@@ -398,6 +398,7 @@
       <a href="#ia">Os indícios de IA</a>
       <a href="#descricao">Dois parágrafos por dimensão</a>
       <a class="grupo" href="#lote">Uso em lote</a>
+      <a href="#tempo">O tempo e os arquivos</a>
       <a href="#prompt">O prompt, para colar</a>
     </div>
   </details>
@@ -676,6 +677,36 @@ melhor assim.</p>
   nenhuma leitura isolada mede: se duas leituras chegam à mesma nota. Sem isso,
   a tabela é um conjunto de números cuja estabilidade ninguém verificou.</p>
 </div>
+
+<h2 id="tempo">O tempo dos dois modos, e os arquivos</h2>
+
+<p>A mesma leitura, do mesmo projeto, com o mesmo prompt: <b>dois minutos e
+doze segundos no chat</b> e <b>onze minutos e vinte e quatro segundos no modo
+agente</b>. Medido uma vez de cada, em 5/9/2026, com o prompt e o projeto lidos
+dentro da contagem.</p>
+
+<p><b>O que custa não é converter.</b> Numerar os parágrafos do projeto leva
+0,4 segundo, o PDF do relatório leva 1,4 e a conversão de um projeto em
+<code>.docx</code> leva 0,4: os três programas juntos não chegam a dois
+segundos. O que custa é <b>o texto ir e voltar pelas ferramentas</b>. No modo
+agente o relatório é escrito num arquivo, lido de volta e conferido, e cada uma
+dessas idas remanda o contexto inteiro ao modelo. No chat o texto sai direto na
+tela, uma vez só.</p>
+
+<p><b>Então o modo agente não se escolhe por tempo</b>, e sim pelo que só ele
+faz: pôr as sugestões dentro do arquivo do autor, ler vinte projetos numa
+pasta, e conferir por programa o que foi escrito.</p>
+
+<p><b>E os arquivos que saem são estes, e mais nenhum.</b> Num projeto:
+<code>projeto.txt</code>, que é a numeração dos parágrafos, quando o projeto
+veio em PDF; <code>projeto.md</code>, o relatório; e <code>projeto.pdf</code>,
+a peça. O <code>--numerar</code> grava também um
+<code>projeto.locais.json</code>, que não é do fluxo da Selma: é onde ficam as
+posições que a ferramenta de comentários do Miro usa depois. No lote, um
+<code>.md</code> por projeto e um PDF só, o do lote. <b>Nada de arquivo de
+backup, de cópia numerada, de log ou de script de conferência deixado na
+pasta</b>: quem recebe a pasta de volta tem de saber, sem perguntar, qual é a
+peça e qual é o rascunho.</p>
 
 <h2 id="prompt">O prompt, para colar</h2>
 
