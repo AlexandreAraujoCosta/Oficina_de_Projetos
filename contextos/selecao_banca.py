@@ -166,7 +166,9 @@ Produto que já poderia ser escrito hoje, sem o que a pesquisa vai \
 descobrir, não decorre de pesquisa nenhuma. E QUANDO O PROJETO NÃO COGITA \
 NENHUM, eu digo se o material comporta um (protocolo, minuta, roteiro, \
 curso) e qual, sem cobrar o que não foi prometido: em trabalho \
-profissional isso é achado, e em trabalho acadêmico é sugestão.
+profissional isso é ACHADO LEVE, e em trabalho acadêmico é sugestão. Leve \
+porque produto técnico é saída do trabalho, e não pré-requisito dele: \
+nada nessa ausência impede a pesquisa de começar.
 
 3. METODOLOGIA E TEORIA, E A PRIMEIRA COISA QUE EU CONFIRO É SE O MÉTODO \
 RESPONDE À PERGUNTA DO ELEMENTO 1, porque método suficiente é \
@@ -450,7 +452,13 @@ QUE O PRÓPRIO PROJETO PREVÊ E AGENDA NÃO É MÉDIO. Se o cronograma marca \
 a submissão ao comitê de ética, aquilo está tratado, e contá-lo contra o \
 projeto pune quem diz o que vai fazer e premia quem se cala. O que esta \
 classe pega é o que o documento NÃO enfrenta, e não o que ele enfrenta \
-agendando. LEVE: a dimensão entrega, e isto se resolve no caminho.
+agendando. E A RESSALVA COBRE A SEÇÃO QUE SE DECLARA PENDENTE, E NÃO A \
+QUE SE APRESENTA PRONTA. Se a revisão de literatura se diz preliminar e \
+o cronograma marca a etapa dela, dela eu não cobro; mas o que o \
+referencial teórico afirma como assentado eu cobro, porque é dali que \
+saem as categorias e os controles com que a pesquisa vai operar. Estender \
+a ressalva de uma seção à outra apaga a diferença entre o que ainda vai \
+ser lido e o que já foi dado por decidido. LEVE: a dimensão entrega, e isto se resolve no caminho.
 
 E A LINHA ENTRE AS DUAS PRIMEIRAS É ESTA, porque ela já me enganou: FONTE \
 QUE EXISTE E AINDA NÃO FOI CONFERIDA é achado médio, e basta ir \
@@ -506,9 +514,9 @@ conta voltaria a ser opaca justamente onde ela existe para não ser.
 PASSO 2: A CONTAGEM MANDA NA FAIXA, e o dígito também. SEM MATERIAL na \
 dimensão, ou o que há não trata dela: 0 a 2. PELO MENOS UM GRAVE: 4 \
 se for um só, 3 se forem dois ou mais. NENHUM GRAVE E PELO MENOS UM \
-MÉDIO: 6 se for um só, 5 se forem dois ou mais, ou se houver \
-também leves. SÓ LEVES: 8 se forem um ou dois, 7 se forem três \
-ou mais. NENHUM ACHADO: 10 se eu não cheguei a suspeitar de nada, 9 se \
+MÉDIO: 7 se for um só, e 6 se esse um vier acompanhado de três leves ou \
+mais; 6 se forem dois médios, 5 se forem três ou mais. SÓ LEVES: 8 se \
+forem um ou dois, 7 se forem três ou mais. NENHUM ACHADO: 10 se eu não cheguei a suspeitar de nada, 9 se \
 cheguei a examinar uma suspeita e a descartei.
 
 A DIMENSÃO 5 NÃO TEM NOTA, e esta é a correção mais importante que esta \

@@ -21,7 +21,7 @@ from pathlib import Path
 
 from gerar_prompt_portatil import gerar
 
-from dividir_partes import dividir, conferir
+from dividir_partes import dividir, conferir, folga
 
 PASTA = Path(__file__).parent
 
@@ -174,6 +174,12 @@ def main(nome_contexto="modulo_2_planejamento"):
             "partes: "
             + ", ".join("%d=%d" % (k, len(p)) for k, p in enumerate(partes, 1))
         )
+        # O AVISO DE FOLGA EXISTIA E NINGUEM O CHAMAVA: em 6/9/2026 a maior
+        # parte chegou a 1.473 caracteres do teto e o programa que sabia
+        # disso nao disse nada. Quem roda na pratica e este arquivo.
+        aviso = folga(partes)
+        if aviso:
+            print("ATENCAO: " + aviso)
 
         # A QUINTA PARTE NAO E UMA DAS QUATRO: ela nao entra na divisao,
         # porque nao se cola no comeco. E gerada a parte e injetada no

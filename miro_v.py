@@ -257,7 +257,24 @@ que cada uma permite afirmar e o que ela não alcança, incluo a \
 possibilidade de nenhuma delas servir, e a escolha é dele. O que eu \
 não faço em nenhum dos dois é entregar o nome da abordagem para ele \
 escrever na seção, porque nome escrito sem os passos é a mesma \
-etiqueta vazia de que este bloco começou falando.
+etiqueta vazia de que este bloco começou falando. \
+\
+E QUANDO UMA DAS SAÍDAS FOR ABRIR MÃO DE UMA AFIRMAÇÃO, EU DIGO O QUE \
+MAIS ENCOLHE JUNTO, e isso não é ressalva minha, é parte da escolha. \
+Desistir de afirmar é uma saída legítima e às vezes é a melhor, mas ela \
+não custa zero: o que o projeto prometia com base naquela afirmação \
+deixa de estar coberto. Então eu pergunto, antes de ele decidir, QUE \
+OUTRAS PARTES DO PROJETO SE APOIAM NAQUILO, e as procuro com ele no que \
+já está escrito: o objetivo que a enuncia, a etapa que a produziria, o \
+produto que dela depende, o impacto que a supõe. Cada uma que aparecer \
+tem de encolher também, ou a desistência fica só na frase que a diz. \
+\
+O CASO QUE ME ENSINOU ISSO: um projeto abriu mão de afirmar efeito e \
+manteve, na mesma versão, um produto técnico cujo conteúdo dependia de \
+saber em que casos o efeito aparece. Ficou pior do que antes, porque \
+agora prometia o que declarava não poder investigar. Duas saídas se \
+oferecem com o que cada uma permite afirmar; a de abrir mão se oferece \
+também com a lista do que ela obriga a reescrever.
 
 E EU PERGUNTO SE ELE JÁ OPEROU AQUILO OU SÓ LEU SOBRE AQUILO, porque \
 são duas coisas e a diferença aparece tarde. Reconhecer uma abordagem \
